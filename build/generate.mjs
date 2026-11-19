@@ -146,29 +146,30 @@ ${amazonAside(tool.slug, lang)}
 <section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${linkify(esc(item.a), lang)}</p></details>`).join("")}</section>
 <section><h2 class="sec">${esc(ui.related)}</h2><div class="grid">${related.map((item) => `<article class="card"><h3>${esc(item[lang].h1)}</h3><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}${guide ? `<article class="card"><h3>${esc(guide[lang].h1)}</h3><p>${esc(guide[lang].lede)}</p><a class="more" href="${pathFor(lang, "/blog/" + guide.slug + "/")}">${esc(ui.guide)}</a></article>` : ""}</div></section>
 </div></article>`;
-  const jsonld = JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        name: copy.h1,
-        description: copy.description,
-        url: abs(lang, pathname),
-        applicationCategory: tool.category,
-        operatingSystem: "Any",
-        browserRequirements: "Requires JavaScript",
-        isAccessibleForFree: true,
-        inLanguage: lang,
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }
-      },
-      faqLd(copy.faq),
-      breadcrumbLd(lang, [
-        { name: ui.home, path: "/" },
-        { name: cluster[lang].name, path: `/${cluster.slug}/` },
-        { name: copy.h1, path: pathname }
-      ])
-    ]
-  });
+  const pageUrl = abs(lang, pathname);
+  const graph = [
+    {
+      "@type": "WebApplication",
+      name: copy.h1,
+      description: copy.description,
+      url: pageUrl,
+      applicationCategory: tool.cluster === "finance" ? "FinanceApplication" : "UtilitiesApplication",
+      operatingSystem: "Any",
+      browserRequirements: "Requires JavaScript",
+      isAccessibleForFree: true,
+      inLanguage: lang,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }
+    },
+    faqLd(copy.faq),
+    breadcrumbLd(lang, [
+      { name: ui.home, path: "/" },
+      { name: cluster[lang].name, path: `/${cluster.slug}/` },
+      { name: copy.h1, path: pathname }
+    ])
+  ];
+  const howTo = howToLd(copy.h1, copy.description, body, pageUrl);
+  if (howTo) graph.push(howTo);
+  const jsonld = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
   const scripts = toolScripts().map((src) => src.replace("LANG", lang));
   if (tool.calc !== "utm") {
     const i = scripts.findIndex((src) => src.endsWith("qrcode.js"));
@@ -206,28 +207,29 @@ ${amazonAside(article.slug, lang)}
 <section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section>
 <section><h2 class="sec">${esc(ui.related)}</h2><div class="grid">${linkedTools.map((item) => `<article class="card"><h3>${esc(item[lang].h1)}</h3><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}</div></section>
 </div></article>`;
-  const jsonld = JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        headline: copy.h1,
-        description: copy.description,
-        datePublished: "2026-11-19",
-        dateModified: "2026-11-19",
-        inLanguage: lang,
-        author: { "@type": "Person", name: "Anna" },
-        publisher: { "@type": "Organization", name: t("en").name, url: SITE + "/" },
-        mainEntityOfPage: abs(lang, pathname)
-      },
-      faqLd(copy.faq),
-      breadcrumbLd(lang, [
-        { name: ui.home, path: "/" },
-        { name: ui.guides, path: "/blog/" },
-        { name: copy.h1, path: pathname }
-      ])
-    ]
-  });
+  const pageUrl = abs(lang, pathname);
+  const graph = [
+    {
+      "@type": "Article",
+      headline: copy.h1,
+      description: copy.description,
+      datePublished: "2026-11-19",
+      dateModified: "2026-11-19",
+      inLanguage: lang,
+      author: { "@type": "Person", name: "Anna" },
+      publisher: { "@type": "Organization", name: t("en").name, url: SITE + "/" },
+      mainEntityOfPage: pageUrl
+    },
+    faqLd(copy.faq),
+    breadcrumbLd(lang, [
+      { name: ui.home, path: "/" },
+      { name: ui.guides, path: "/blog/" },
+      { name: copy.h1, path: pathname }
+    ])
+  ];
+  const howTo = howToLd(copy.h1, copy.description, body, pageUrl);
+  if (howTo) graph.push(howTo);
+  const jsonld = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
   return page({
     lang,
     pathname,
@@ -243,6 +245,26 @@ ${amazonAside(article.slug, lang)}
   });
 }
 
+function howToLd(name, description, body, url) {
+  const chunks = String(body).split(/<h2>/i).slice(1);
+  const steps = [];
+  for (const chunk of chunks) {
+    const end = chunk.search(/<\/h2>/i);
+    if (end < 0) continue;
+    const stepName = chunk.slice(0, end).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    const text = chunk.slice(end).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    if (!stepName || !text) continue;
+    steps.push({
+      "@type": "HowToStep",
+      position: steps.length + 1,
+      name: stepName,
+      text: text.slice(0, 600)
+    });
+  }
+  if (steps.length < 2) return null;
+  return { "@type": "HowTo", name, description, url, step: steps };
+}
+
 function card(lang, item) {
   const ui = t(lang);
   return `<article class="card"><h2>${esc(item[lang].h1)}</h2><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`;
@@ -256,18 +278,30 @@ function renderHome(lang) {
     return `<h2 class="sec">${esc(cluster[lang].h1)}</h2><p class="lede">${esc(cluster[lang].desc)}</p><div class="grid">${list.map((item) => card(lang, item)).join("")}</div><p><a class="more" href="${pathFor(lang, "/" + cluster.slug + "/")}">${esc(cluster[lang].name)}</a></p>`;
   }).join("");
   const main = `<div class="wrap hero"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><p class="banner">${esc(ui.disclaimer)}</p></div><div class="wrap"><div class="prose">${linkify(copy.body, lang)}</div>${groups}<section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section></div>`;
+  const homeUrl = abs(lang, "/");
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "WebSite", name: ui.name, url: abs(lang, "/"), inLanguage: lang, description: copy.description },
+      {
+        "@type": "WebSite",
+        name: ui.name,
+        url: homeUrl,
+        inLanguage: lang,
+        description: copy.description,
+        publisher: { "@type": "Organization", name: ui.name, url: homeUrl }
+      },
+      {
+        "@type": "Organization",
+        name: ui.name,
+        url: homeUrl,
+        description: copy.description
+      },
       faqLd(copy.faq)
     ]
   });
   const extraHead = lang === "en" ? `<meta name="google-site-verification" content="s-0iJOldUS8OhEjahKd_140IjmUAu3QdenCVsJIx-KI" />
 <meta name="yandex-verification" content="a2b06268a87bb42b" />
 <meta name="msvalidate.01" content="BA1BD1F9BEE60D7C5588821874A737FA" />
-<!-- Bing Webmaster: replace YOUR_BING_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
-<!-- <meta name="msvalidate.01" content="YOUR_BING_CODE"> -->
 ` : "";
   return page({ lang, pathname: "/", title: copy.title, description: copy.description, main, jsonld, extraHead });
 }
