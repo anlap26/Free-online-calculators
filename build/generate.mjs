@@ -263,7 +263,12 @@ function renderHome(lang) {
       faqLd(copy.faq)
     ]
   });
-  return page({ lang, pathname: "/", title: copy.title, description: copy.description, main, jsonld });
+  const extraHead = lang === "en" ? `<!-- Yandex Webmaster: replace YOUR_YANDEX_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
+<!-- <meta name="yandex-verification" content="YOUR_YANDEX_CODE"> -->
+<!-- Bing Webmaster: replace YOUR_BING_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
+<!-- <meta name="msvalidate.01" content="YOUR_BING_CODE"> -->
+` : "";
+  return page({ lang, pathname: "/", title: copy.title, description: copy.description, main, jsonld, extraHead });
 }
 
 function renderHub(cluster, lang) {

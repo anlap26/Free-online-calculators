@@ -92,7 +92,7 @@ export function words(html) {
   return parts.length;
 }
 
-export function page({ lang, pathname, title, description, h1, crumbs, main, jsonld, extraScripts, robots }) {
+export function page({ lang, pathname, title, description, h1, crumbs, main, jsonld, extraScripts, robots, extraHead }) {
   const copy = ui[lang];
   const canonical = abs(lang, pathname);
   const en = abs("en", pathname);
@@ -117,6 +117,7 @@ export function page({ lang, pathname, title, description, h1, crumbs, main, jso
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
+${extraHead || ""}
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
