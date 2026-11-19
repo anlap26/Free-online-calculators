@@ -18,5 +18,13 @@ window.AFFILIATES = {
   airalo: { name: "Airalo", url: "#AFFILIATE_AIRALO" },
   wise: { name: "Wise", url: "#AFFILIATE_WISE" },
   cloudways: { name: "Cloudways", url: "#AFFILIATE_CLOUDWAYS" },
-  kinsta: { name: "Kinsta", url: "#AFFILIATE_KINSTA" }
+  kinsta: { name: "Kinsta", url: "#AFFILIATE_KINSTA" },
+  amazon: {
+    name: "Amazon",
+    url: "https://www.amazon.de/?tag=cynews24-21",
+    tag: "cynews24-21",
+    search: function (query) {
+      return "https://www.amazon.de/s?k=" + encodeURIComponent(query) + "&tag=" + this.tag;
+    }
+  }
 };

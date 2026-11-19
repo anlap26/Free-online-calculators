@@ -6,6 +6,7 @@ import { articles as coreArticles } from "../content/articles.mjs";
 import { semrushArticles } from "../content/articles-semrush.mjs";
 import { moreSemrushArticles } from "../content/articles-semrush-rest.mjs";
 import { pageCopy } from "../content/pages.mjs";
+import { amazonBlocks } from "../content/amazon.mjs";
 
 const SEMRUSH_TOOLS = {
   "seo-text-analyzer": "low-competition-keywords-semrush",
@@ -56,6 +57,28 @@ import { BASE, SITE, clusters, t, pathFor, abs, page, crumb, breadcrumbLd, faqLd
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const problems = [];
+
+function amazonSearch(query) {
+  const src = fs.readFileSync(new URL("../assets/js/affiliates.js", import.meta.url), "utf8");
+  const tag = src.match(/tag:\s*"([^"]+)"/);
+  if (!tag) throw new Error("amazon tag missing from affiliates.js");
+  return "https://www.amazon.de/s?k=" + encodeURIComponent(query) + "&tag=" + tag[1];
+}
+
+function amazonAside(slug, lang) {
+  const block = amazonBlocks[slug];
+  if (!block) return "";
+  const title = lang === "ru" ? "Поиск на Amazon" : "Searches on Amazon";
+  const intro = lang === "ru"
+    ? "Это поисковые ссылки на Amazon.de, не отзыв о конкретной модели. Как участник программы Amazon Associates я получаю доход от соответствующих покупок."
+    : "These are Amazon.de search links, not a review of one model. As an Amazon Associate I earn from qualifying purchases.";
+  const items = block.links.map((link) => {
+    const href = amazonSearch(link.query);
+    const label = link[lang] || link.en;
+    return `<li><a href="${esc(href)}" data-amazon-query="${esc(link.query)}" target="_blank" rel="sponsored nofollow noopener">${esc(label)}</a></li>`;
+  }).join("");
+  return `<aside class="cta"><h2>${esc(title)}</h2><p>${esc(intro)}</p><ul class="amazon-links">${items}</ul></aside>`;
+}
 
 function writeFile(rel, contents) {
   const dest = path.join(root, rel);
@@ -118,6 +141,7 @@ ${copy.banner ? `<p class="banner">${esc(copy.banner)}</p>` : ""}
 ${renderForm(tool.calc, lang)}
 <p class="disclosure">${esc(ui.disclosureShort)} <a href="${pathFor(lang, "/affiliate-disclosure/")}">${esc(ui.disclosure)}</a></p>
 <aside class="cta"><h2>${esc(copy.ctaTitle)}</h2><p>${esc(copy.ctaBody)}</p><div class="cta-btns"><a class="go" data-affiliate="${tool.affiliate}" href="#AFFILIATE_${tool.affiliate.toUpperCase()}">${esc(copy.ctaButton)}</a>${secondary}</div></aside>
+${amazonAside(tool.slug, lang)}
 <div class="prose">${body}</div>
 <section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${linkify(esc(item.a), lang)}</p></details>`).join("")}</section>
 <section><h2 class="sec">${esc(ui.related)}</h2><div class="grid">${related.map((item) => `<article class="card"><h3>${esc(item[lang].h1)}</h3><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}${guide ? `<article class="card"><h3>${esc(guide[lang].h1)}</h3><p>${esc(guide[lang].lede)}</p><a class="more" href="${pathFor(lang, "/blog/" + guide.slug + "/")}">${esc(ui.guide)}</a></article>` : ""}</div></section>
@@ -178,6 +202,7 @@ function renderArticle(article, lang) {
 <p class="disclosure">${esc(ui.disclosureShort)} <a href="${pathFor(lang, "/affiliate-disclosure/")}">${esc(ui.disclosure)}</a></p>
 <div class="prose">${body}</div>
 <aside class="cta"><h2>${esc(copy.ctaTitle)}</h2><p>${esc(copy.ctaBody)}</p><div class="cta-btns">${buttons}</div></aside>
+${amazonAside(article.slug, lang)}
 <section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section>
 <section><h2 class="sec">${esc(ui.related)}</h2><div class="grid">${linkedTools.map((item) => `<article class="card"><h3>${esc(item[lang].h1)}</h3><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}</div></section>
 </div></article>`;

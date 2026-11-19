@@ -8,7 +8,9 @@ The GitHub repository is named `Free-online-calculators`. Project Pages uses tha
 
 Edit only `assets/js/affiliates.js`. Every partner button and in-article partner link reads that object on load. The keys are:
 
-`nordvpn`, `surfshark`, `proton`, `onepassword`, `bitwarden`, `genki`, `interactivebrokers`, `binance`, `bybit`, `ledger`, `trezor`, `semrush`, `airalo`, `wise`, `cloudways`, `kinsta`.
+`nordvpn`, `surfshark`, `proton`, `onepassword`, `bitwarden`, `genki`, `interactivebrokers`, `binance`, `bybit`, `ledger`, `trezor`, `semrush`, `airalo`, `wise`, `cloudways`, `kinsta`, `amazon`.
+
+`amazon.url` is the Amazon.de homepage with the Associates tag. `amazon.search(query)` builds `https://www.amazon.de/s?k=<query>&tag=cynews24-21`. Product blocks use that search helper. They do not use ASINs.
 
 Replace a value such as `#AFFILIATE_SEMRUSH` with the full tracking URL. Do not rename the keys. Links are rewritten to `target="_blank"` and `rel="sponsored noopener"`.
 

@@ -105,6 +105,8 @@
   .cta h2 { @apply font-serif text-[26px] leading-tight m-0 mb-2; }
   .cta p { @apply mb-3 max-w-prose; }
   .cta-btns { @apply flex flex-wrap gap-2.5; }
+  .amazon-links { @apply list-disc pl-5 my-2 max-w-prose; }
+  .amazon-links li { @apply my-1; }
   .cta-btns a { @apply flex-1 basis-60; }
   .meta { @apply text-muted text-sm mb-4; }
   .err { @apply text-[#6d2e2e] font-semibold; }

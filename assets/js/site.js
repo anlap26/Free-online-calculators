@@ -2,12 +2,22 @@
   "use strict";
   var partners = window.AFFILIATES || {};
   document.querySelectorAll("[data-affiliate]").forEach(function (node) {
+    if (node.hasAttribute("data-amazon-query")) return;
     var key = node.getAttribute("data-affiliate");
     var item = partners[key];
     if (!item || !item.url) return;
     node.setAttribute("href", item.url);
     node.setAttribute("target", "_blank");
     node.setAttribute("rel", "sponsored noopener");
+  });
+
+  var amazon = partners.amazon;
+  document.querySelectorAll("[data-amazon-query]").forEach(function (node) {
+    var query = node.getAttribute("data-amazon-query");
+    if (!amazon || !query || typeof amazon.search !== "function") return;
+    node.setAttribute("href", amazon.search(query));
+    node.setAttribute("target", "_blank");
+    node.setAttribute("rel", "sponsored nofollow noopener");
   });
 
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
