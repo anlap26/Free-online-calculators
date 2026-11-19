@@ -294,6 +294,7 @@ function renderHome(lang) {
         "@type": "Organization",
         name: ui.name,
         url: homeUrl,
+        logo: SITE + "/icon-512.png",
         description: copy.description
       },
       faqLd(copy.faq)
@@ -439,7 +440,8 @@ writeFile("site.webmanifest", JSON.stringify({
   theme_color: "#1e3d34",
   lang: "en",
   icons: [
-    { src: BASE + "/assets/img/icon-192.png", sizes: "192x192", type: "image/png" },
+    { src: BASE + "/icon-192.png", sizes: "192x192", type: "image/png" },
+    { src: BASE + "/icon-512.png", sizes: "512x512", type: "image/png" },
     { src: BASE + "/favicon.svg", sizes: "any", type: "image/svg+xml" }
   ]
 }, null, 2));

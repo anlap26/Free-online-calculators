@@ -139,8 +139,10 @@ ${extraHead || ""}
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${SITE}/assets/img/og.png">
 <meta name="theme-color" content="#1e3d34">
+<link rel="icon" href="${BASE}/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="${BASE}/favicon-48x48.png" type="image/png" sizes="48x48">
 <link rel="icon" href="${BASE}/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="${BASE}/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="${BASE}/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="${BASE}/site.webmanifest">
 <link rel="stylesheet" href="${BASE}/assets/css/site.css">
 ${jsonld ? `<script type="application/ld+json">${jsonld.replace(/</g, "\\u003c")}</script>` : ""}
