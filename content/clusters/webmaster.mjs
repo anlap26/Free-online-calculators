@@ -84,16 +84,16 @@ export const webmasterTools = [
     category: "DeveloperApplication",
     affiliate: "semrush",
     related: ["meta-tag-generator", "llm-token-calculator", "robots-sitemap-generator", "wcag-contrast-checker"],
-    guide: "semrush-for-seo",
+    guide: "low-competition-keywords-semrush",
     en: {
       title: "SEO Text Analyzer | Free Online Calculators",
       description: "Count words, characters, sentences, reading time, and keyword density in text that stays in your browser. Density is a diagnostic, not a reason to stuff a phrase.",
       h1: "SEO text analyzer",
       lede: "Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.",
       banner: "Prices and rates you type are yours. Vendor tariffs change. This page does not measure your live site.",
-      ctaTitle: "One page is not the whole search picture",
-      ctaBody: "This check reads the text you paste. It does not see other pages, queries, or competitors. Semrush is built for that wider look. The form does not log into it, and the density figure is not a Semrush score.",
-      ctaButton: "Look beyond this page",
+      ctaTitle: "Open Semrush to see past this paste",
+      ctaBody: "The counts above read one draft. Open Semrush to look up queries, pages, and competitors. This form does not log in, and the density figure is not a Semrush score.",
+      ctaButton: "Open Semrush",
       body: `<p>Paste the draft into the box. The count runs in the browser, and the text is not uploaded. Words are the pieces left after the text is trimmed and split on whitespace. Two spaces do not make an extra word. A hyphenated form stays one word if you did not put a space in it. Characters are Unicode code points, which is what you get from walking the string one code point at a time. A character count with spaces and a count without spaces are both shown. An emoji that uses two code points counts as two, because that is the length the script measures, not a guess about what a person calls one character.</p>
 <p>Sentences are split on a full stop, an exclamation mark, or a question mark. A piece counts as a sentence only when it still contains a letter or a number after the split. A line of dots does not become several sentences. Reading time is the word count divided by 200. Speaking time is the word count divided by 130. Both answers are in minutes. They describe a steady pace, not your reader and not a stage. A technical paragraph can take longer to read than the 200-word pace, and the page will not adjust for that.</p>
 <h2>How density is counted</h2>
@@ -103,7 +103,7 @@ export const webmasterTools = [
 <p>Beside the counts, the page lists frequent words. A short stopword list is skipped, so words such as the, and, and for do not fill the list in English, and a matching list of function words is skipped in Russian. The list is small and fixed in the script. It is not a judgment about which words matter to a reader. A word shorter than two characters is skipped as well. The result is a hint about repetition in this draft, nothing more.</p>
 <p>Nothing you paste is stored. Close the tab and the draft is gone from this page. The check also does not fetch your live URL, so a paragraph that differs from the published page will not be reconciled. If you want tags for the same draft, the <a href="{{href:meta-tag-generator}}">meta tag generator</a> writes a title and description you still have to paste into the real page. Token cost for a model that helped write the draft is a separate sum on the <a href="{{href:llm-token-calculator}}">token calculator</a>.</p>
 <h2>Research past a single paste</h2>
-<p>A density figure cannot tell you which queries people use, which pages already answer them, or what your own site already ranks for. <a href="{{aff:semrush}}">Semrush</a> is a place to do that research. This page does not send your draft there, and it does not import a score back. Use the counts to see the draft clearly, then decide the research question somewhere that can see more than one page.</p>
+<p>A density figure cannot tell you which queries people use. Open <a href="{{aff:semrush}}">Semrush</a> for that research. This page does not send your draft there. The notes next to this tool cover a <a href="{{href:blog/semrush-free-trial}}">Semrush free trial</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush and Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">low-competition keywords</a>, and <a href="{{href:blog/semrush-for-seo}}">Semrush for SEO</a>. They say what to check. They do not change the word count.</p>
 <ul>
 <li>Word count follows whitespace, not a dictionary.</li>
 <li>Reading time uses 200 words a minute. Speaking time uses 130.</li>
@@ -124,9 +124,9 @@ export const webmasterTools = [
       h1: "Анализ текста для SEO",
       lede: "Слова режутся по пробелам, знаки считаются кодовыми точками Юникода, а плотность ключа — это вхождения, умноженные на слова во фразе и делённые на все слова.",
       banner: "Цены и ставки вводите вы. Тарифы продавцов меняются. Страница не замеряет ваш живой сайт.",
-      ctaTitle: "Одна страница — не вся картина поиска",
-      ctaBody: "Проверка читает текст, который вы вставили. Других страниц, запросов и конкурентов она не видит. Для более широкого взгляда есть Semrush. Форма в него не входит, а плотность — не оценка Semrush.",
-      ctaButton: "Смотреть шире одной страницы",
+      ctaTitle: "Откройте Semrush, чтобы увидеть дальше этого текста",
+      ctaBody: "Счётчики выше читают один черновик. Откройте Semrush, чтобы смотреть запросы, страницы и конкурентов. Форма в сервис не входит, а плотность — не оценка Semrush.",
+      ctaButton: "Открыть Semrush",
       body: `<p>Вставьте черновик в поле. Подсчёт идёт в браузере, текст никуда не отправляется. Слова — это то, что остаётся, когда строку обрезают по краям и режут по пробелам. Два пробела подряд лишнего слова не дают. Слово через дефис остаётся одним словом, если вы сами не поставили пробел. Знаки — это кодовые точки Юникода: скрипт проходит строку точка за точкой. Показываются и длина с пробелами, и длина без них. Эмодзи из двух кодовых точек считается как две, потому что измеряется длина строки, а не бытовое «один значок».</p>
 <p>Предложения режутся по точке, восклицательному и вопросительному знаку. Кусок считается предложением, только если после разреза в нём осталась буква или цифра. Ряд точек несколькими предложениями не становится. Время чтения — число слов, делённое на 200. Время речи — число слов, делённое на 130. Оба ответа в минутах. Это ровный темп, не ваш читатель и не сцена. Технический абзац может читаться дольше, чем темп 200 слов, и страница под это не подстраивается.</p>
 <h2>Как считается плотность</h2>
@@ -136,7 +136,7 @@ export const webmasterTools = [
 <p>Рядом со счётчиками страница показывает частые слова. Короткий список стоп-слов пропускается: в английском туда попадают the, and, for и похожие, в русском — служебные слова вроде «и», «в», «не». Список короткий и зашит в скрипт. Это не оценка того, какие слова нужны читателю. Слово короче двух знаков тоже пропускается. На выходе — подсказка о повторах в этом черновике, и только она.</p>
 <p>Вставленный текст не хранится. Закроете вкладку — черновика на странице нет. Живой адрес страница не скачивает, поэтому абзац, который разошёлся с опубликованной страницей, сам не сверится. Если к тому же черновику нужны теги, <a href="{{href:meta-tag-generator}}">генератор мета-тегов</a> напишет title и description, которые всё равно надо вставить в настоящую страницу. Цена модели, которая помогала писать, считается отдельно в <a href="{{href:llm-token-calculator}}">калькуляторе токенов</a>.</p>
 <h2>Исследование шире одной вставки</h2>
-<p>Цифра плотности не скажет, какими запросами пользуются люди, какие страницы уже отвечают и по чему ранжируется ваш сайт. Для этого смотрят <a href="{{aff:semrush}}">Semrush</a>. Сюда черновик не отправляется, и оценка оттуда не импортируется. Счётчики нужны, чтобы увидеть черновик ясно. Вопрос исследования решается там, где видно больше одной страницы.</p>
+<p>Цифра плотности не скажет, какими запросами пользуются люди. Для этого откройте <a href="{{aff:semrush}}">Semrush</a>. Черновик туда не отправляется. Рядом есть заметки про <a href="{{href:blog/semrush-free-trial}}">пробный доступ Semrush</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush и Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">низкоконкурентные запросы</a> и <a href="{{href:blog/semrush-for-seo}}">Semrush для SEO</a>. Там сказано, что проверять. Подсчёт слов они не меняют.</p>
 <ul>
 <li>Слова считаются по пробелам, не по словарю.</li>
 <li>Чтение — 200 слов в минуту. Речь — 130.</li>
@@ -159,16 +159,16 @@ export const webmasterTools = [
     category: "DeveloperApplication",
     affiliate: "semrush",
     related: ["seo-text-analyzer", "robots-sitemap-generator", "utm-qr-generator", "privacy-policy-generator"],
-    guide: "semrush-for-seo",
+    guide: "semrush-vs-ahrefs",
     en: {
       title: "Meta Tag Generator | Free Online Calculators",
       description: "Write a title, meta description, canonical link, Open Graph and Twitter tags, and a small WebPage JSON-LD block. Length warnings are display habits, not hard rules.",
       h1: "Meta tag generator",
       lede: "The form writes the head tags from the fields you fill. You still paste them into a real page. The tool does not invent the H1.",
       banner: "Prices and rates you type are yours. Vendor tariffs change. This page does not measure your live site.",
-      ctaTitle: "Tags do not choose the query",
-      ctaBody: "A clean title and description help a result get read. They do not decide which queries the page should answer. Semrush is where people research that. This generator does not query it.",
-      ctaButton: "Check the query in Semrush",
+      ctaTitle: "Open Semrush before you freeze the title",
+      ctaBody: "A title and a description help a result get read. They do not choose the query. Open Semrush to research that. This generator does not send your title anywhere.",
+      ctaButton: "Open Semrush",
       body: `<p>The generator writes a title element, a meta description, a canonical link when you give a URL, and the Open Graph tags people expect on a share: title, description, url, type, site name, and image. The Twitter card is summary_large_image, with the same title, description, and image, plus a site handle if you typed one. A small JSON-LD block of type WebPage carries the name, the description, and the URL when there is one. Empty optional fields are left out, so you do not get an Open Graph image tag with a blank address.</p>
 <p>The page warns when the title is past about 60 characters and when the description is past about 160. Those numbers are display habits. Search results often cut a long title or a long description, and social cards do something similar, but there is no hard rule that a longer string is invalid HTML or that a shorter string will rank. The warning is a nudge to look at the line, not a pass or fail grade. Count is by code points, the same way the text tool counts characters.</p>
 <h2>Quotes are escaped so the tag does not break</h2>
@@ -176,7 +176,7 @@ export const webmasterTools = [
 <p>One H1 on the page itself is a separate question. This tool does not invent the H1, and it does not check the H1 you already published. The title element and the visible H1 can match, or they can differ, and the form has no opinion. If you want a word count of the body that sits under that H1, use the <a href="{{href:seo-text-analyzer}}">text analyzer</a>. It will not write the H1 either.</p>
 <h2>What you still have to do by hand</h2>
 <p>Pasting the tags into a real page is your step. A preview on this site is not the head of your site. The canonical URL should be the URL you want counted as the original, not a copy with tracking parameters. The Open Graph image should be an address that a crawler can fetch, not a file that only exists on your laptop. The type field defaults to website if you leave the usual value. Change it only when you mean a different Open Graph type.</p>
-<p>The block will not tell you which title people search for. <a href="{{aff:semrush}}">Semrush</a> is one place to look at queries before you freeze the wording. This page does not send your title there. A robots file and a sitemap, if you still need them, come from the <a href="{{href:robots-sitemap-generator}}">robots and sitemap generator</a>, which is also text you place on the host yourself.</p>
+<p>The block will not tell you which title people search for. Open <a href="{{aff:semrush}}">Semrush</a> and look that up before you freeze the wording. This page does not send your title there. Read the notes on a <a href="{{href:blog/semrush-free-trial}}">Semrush free trial</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush and Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">low-competition keywords</a>, and <a href="{{href:blog/semrush-for-seo}}">Semrush for SEO</a>. A robots file, if you still need one, comes from the <a href="{{href:robots-sitemap-generator}}">robots and sitemap generator</a>.</p>
 <ul>
 <li>About 60 and about 160 are habits of display, not validity rules.</li>
 <li>A quote in the title is escaped. It does not break the attribute.</li>
@@ -197,9 +197,9 @@ export const webmasterTools = [
       h1: "Генератор мета-тегов",
       lede: "Форма собирает теги шапки из полей, которые вы заполнили. В настоящую страницу их вставляете вы. H1 инструмент не придумывает.",
       banner: "Цены и ставки вводите вы. Тарифы продавцов меняются. Страница не замеряет ваш живой сайт.",
-      ctaTitle: "Теги не выбирают запрос",
-      ctaBody: "Аккуратные title и description помогают прочитать сниппет. Они не решают, на какие запросы должна отвечать страница. Запросы смотрят в Semrush. Генератор туда не обращается.",
-      ctaButton: "Проверить запрос в Semrush",
+      ctaTitle: "Откройте Semrush, прежде чем зафиксировать title",
+      ctaBody: "Title и description помогают прочитать сниппет. Запрос они не выбирают. Откройте Semrush и посмотрите его там. Генератор ваш заголовок никуда не отправляет.",
+      ctaButton: "Открыть Semrush",
       body: `<p>Генератор пишет элемент title, meta description, ссылку canonical, если вы дали адрес, и теги Open Graph, которые ждут при репосте: title, description, url, type, site_name и image. Карточка Twitter — summary_large_image, с тем же заголовком, описанием и картинкой, плюс имя аккаунта, если вы его ввели. Небольшой блок JSON-LD типа WebPage несёт имя, описание и адрес, когда адрес есть. Пустые необязательные поля не выводятся, поэтому тега картинки с пустым адресом вы не получите.</p>
 <p>Страница предупреждает, если заголовок длиннее примерно 60 знаков, а описание длиннее примерно 160. Это привычки показа. В выдаче длинный title или description часто обрезают, карточки соцсетей делают похожее, но жёсткого правила нет: более длинная строка не становится неверным HTML, а более короткая сама не ранжируется. Предупреждение просит посмотреть на строку, это не зачёт и не незачёт. Длина считается кодовыми точками, как знаки в инструменте текста.</p>
 <h2>Кавычки экранируются, чтобы тег не сломался</h2>
@@ -208,7 +208,7 @@ export const webmasterTools = [
 <p>Карточка Twitter и блок JSON-LD повторяют те же поля, а не придумывают второй заголовок. Если картинки нет, тег картинки не появляется. Если адреса нет, canonical и og:url тоже не появляются. Это видно в тексте, который вы копируете. Живую шапку уже опубликованной страницы инструмент не открывает, поэтому после вставки откройте исходный код той страницы, куда вставили блок, и проверьте, что старый title не остался вторым рядом с новым.</p>
 <h2>Что всё равно делать руками</h2>
 <p>Вставить теги в настоящую страницу — ваш шаг. Просмотр на этом сайте — не шапка вашего сайта. Canonical должен быть адресом, который вы считаете исходным, а не копией с метками перехода. Картинка Open Graph должна быть адресом, который робот может забрать, а не файлом, который лежит только на ноутбуке. Поле type по умолчанию остаётся website, если вы не меняли обычное значение. Меняйте его, только когда нужен другой тип Open Graph.</p>
-<p>Блок не скажет, какой заголовок люди ищут. <a href="{{aff:semrush}}">Semrush</a> — одно из мест посмотреть запросы, прежде чем зафиксировать формулировку. Сюда ваш title не отправляется. Файл robots и карта сайта, если они ещё нужны, собираются в <a href="{{href:robots-sitemap-generator}}">генераторе robots и sitemap</a>. Это тоже текст, который вы кладёте на хост сами.</p>
+<p>Блок не скажет, какой заголовок люди ищут. Откройте <a href="{{aff:semrush}}">Semrush</a> и посмотрите запросы, прежде чем зафиксировать формулировку. Сюда ваш title не отправляется. Заметки рядом: <a href="{{href:blog/semrush-free-trial}}">пробный доступ Semrush</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush и Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">низкоконкурентные запросы</a> и <a href="{{href:blog/semrush-for-seo}}">Semrush для SEO</a>. Файл robots, если он ещё нужен, собирается в <a href="{{href:robots-sitemap-generator}}">генераторе robots и sitemap</a>.</p>
 <ul>
 <li>Примерно 60 и примерно 160 — привычки показа, не правила годности HTML.</li>
 <li>Кавычка в заголовке экранируется и атрибут не ломает.</li>
@@ -230,20 +230,20 @@ export const webmasterTools = [
     cluster: "webmaster",
     calc: "speed",
     category: "DeveloperApplication",
-    affiliate: "kinsta",
-    secondary: "cloudways",
+    affiliate: "semrush",
+    secondary: "kinsta",
     related: ["image-compressor", "wcag-contrast-checker", "px-to-rem-converter", "roas-calculator"],
-    guide: "cloudways-vs-kinsta",
+    guide: "semrush-for-seo",
     en: {
       title: "Page Speed Revenue Calculator | Free Online Calculators",
       description: "Sketch monthly revenue if a slower load were faster, using the conversion and the per-second loss you type. The default loss is an assumption, not a law.",
       h1: "Page speed revenue calculator",
       lede: "The conversion you type is the rate you have now, on the slower site. Each extra second is assumed to have multiplied that rate by one minus the loss you type.",
       banner: "Prices and rates you type are yours. Vendor tariffs change. This page does not measure your live site.",
-      ctaTitle: "A faster host does not shrink a huge image",
-      ctaBody: "Kinsta and Cloudways are hosts people compare when a site is slow. A host change does not resize the image that dominates the page. This form does not time your site and does not rank the two hosts.",
-      ctaButton: "See Kinsta",
-      secondaryButton: "See Cloudways",
+      ctaTitle: "Open Semrush before you blame the host",
+      ctaBody: "A host does not replace keyword research, and it does not shrink a huge image. Open Semrush for the queries. Kinsta is a host people compare later. This form does not time your site.",
+      ctaButton: "Open Semrush",
+      secondaryButton: "See Kinsta",
       body: `<p>The conversion rate in the form is the rate you have now, on the slower site. Revenue now is visits times that rate times the value of one conversion. Extra seconds are the current load minus the faster load, and only when that difference is positive. If the faster number is not actually faster, extra seconds are zero and the two revenues match. Each extra second is assumed to have multiplied conversion by one minus the loss. Revenue if faster is revenue now divided by that factor raised to the extra seconds. The gap is the faster revenue minus the revenue now. The page also shows the gap times 12, as a flat year of the same month, not a forecast.</p>
 <p>The loss field starts at 7 percent because the form needs a number. That 7 percent is an assumption you can edit. It is not a law. Published studies do not agree on one percent of conversion lost per second, and this page does not pick a winner among them or quote a study as if it were your shop. If you have your own before-and-after, type that loss. If you do not, treat the default as a dial, not as a measurement of your visitors.</p>
 <h2>A worked example</h2>
@@ -252,7 +252,7 @@ export const webmasterTools = [
 <p>There is no probe, no lab run, and no field metric. You type the seconds. A figure you copied from a report is only as good as that report, and a figure you guessed is a guess. Milliseconds are not invented here to make a host look quicker. If you do not know the two load times, the revenue gap is not ready to be believed.</p>
 <p>A faster host does not fix a huge image. If the heavy part of the page is a picture, start with the <a href="{{href:image-compressor}}">image compressor</a>, which resizes and re-encodes in the browser and shows the bytes you actually saved on that file. The speed model only becomes a story about images when the image was the heavy part. Contrast and type size are separate checks. They do not move the seconds in this form.</p>
 <h2>Hosts are a later decision</h2>
-<p><a href="{{aff:kinsta}}">Kinsta</a> and <a href="{{aff:cloudways}}">Cloudways</a> are two hosts people compare. This calculator does not measure either of them, does not know your stack, and does not say which one would produce the faster seconds you typed. Read their current plans yourself. Use the form to see how sensitive the month is to the loss you are willing to assume, then decide whether a host, an image, or something else is even the lever.</p>
+<p>A host does not replace keyword research. Open <a href="{{aff:semrush}}">Semrush</a> for the queries this sketch never sees. The notes cover a <a href="{{href:blog/semrush-free-trial}}">Semrush free trial</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush and Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">low-competition keywords</a>, and <a href="{{href:blog/semrush-for-seo}}">Semrush for SEO</a>. <a href="{{aff:kinsta}}">Kinsta</a> is a host, not that research. This page does not time it and does not know your stack. Use the form to see how sensitive the month is to the loss you assume.</p>
 <ul>
 <li>Revenue now is visits times the current conversion times the value.</li>
 <li>The loss per second is yours. The starting 7 percent is not a law.</li>
@@ -273,10 +273,10 @@ export const webmasterTools = [
       h1: "Калькулятор выручки и скорости страницы",
       lede: "Конверсия, которую вы вводите, — это конверсия сейчас, на более медленном сайте. Каждая лишняя секунда, по допущению, умножала её на единицу минус ваша потеря.",
       banner: "Цены и ставки вводите вы. Тарифы продавцов меняются. Страница не замеряет ваш живой сайт.",
-      ctaTitle: "Более быстрый хост не ужимает огромную картинку",
-      ctaBody: "Kinsta и Cloudways сравнивают, когда сайт медленный. Смена хоста не меняет размер картинки, которая тянет страницу. Форма ваш сайт не замеряет и два хоста не ранжирует.",
-      ctaButton: "Смотреть Kinsta",
-      secondaryButton: "Смотреть Cloudways",
+      ctaTitle: "Откройте Semrush, прежде чем винить хост",
+      ctaBody: "Хост не заменяет исследование запросов и не уменьшает огромную картинку. Откройте Semrush для запросов. Kinsta — хост, который сравнивают позже. Форма ваш сайт не замеряет.",
+      ctaButton: "Открыть Semrush",
+      secondaryButton: "Смотреть Kinsta",
       body: `<p>Конверсия в форме — это конверсия сейчас, на более медленном сайте. Выручка сейчас равна визитам, умноженным на эту долю и на ценность одной конверсии. Лишние секунды — текущая загрузка минус более быстрая, и только если разница положительная. Если «быстрое» число не быстрее, лишних секунд ноль, и две выручки совпадают. Каждая лишняя секунда, по допущению, умножала конверсию на единицу минус потеря. Выручка при большей скорости — нынешняя выручка, делённая на этот множитель в степени лишних секунд. Разрыв — быстрая выручка минус нынешняя. Страница ещё умножает разрыв на 12: это тот же месяц, повторённый двенадцать раз, а не прогноз.</p>
 <p>Поле потери начинается с 7 процентов, потому что форме нужно число. Эти 7 процентов — допущение, которое можно поменять. Это не закон. Опубликованные исследования не сходятся на одном проценте конверсии за секунду, и страница не выбирает между ними победителя и не выдаёт чужую работу за ваш магазин. Есть свой замер до и после — введите эту потерю. Нет — крутите значение как ручку, а не как измерение ваших посетителей.</p>
 <h2>Пример на числах</h2>
@@ -285,7 +285,7 @@ export const webmasterTools = [
 <p>Нет зонда, нет лабораторного прогона и нет полевой метрики. Секунды вводите вы. Цифра, скопированная из отчёта, стоит столько, сколько стоит отчёт, а цифра, которую вы угадали, остаётся догадкой. Миллисекунды здесь не выдумываются, чтобы хост выглядел быстрее. Если двух времён загрузки вы не знаете, разрыву выручки верить рано.</p>
 <p>Более быстрый хост не чинит огромную картинку. Если тяжёлая часть страницы — изображение, начните со <a href="{{href:image-compressor}}">сжатия картинок</a>: оно меняет размер и перекодирует файл в браузере и показывает, сколько байт вы реально сэкономили на этом файле. Модель скорости становится историей про картинки только тогда, когда картинка и была тяжёлой частью. Контраст и размер шрифта — отдельные проверки. Секунды в этой форме они не двигают.</p>
 <h2>Хост — более позднее решение</h2>
-<p><a href="{{aff:kinsta}}">Kinsta</a> и <a href="{{aff:cloudways}}">Cloudways</a> — два хоста, которые люди сравнивают. Калькулятор ни один из них не мерит, ваш стек не знает и не говорит, какой из них дал бы те быстрые секунды, которые вы ввели. Актуальные тарифы читайте у них. Форма нужна, чтобы увидеть, как месяц зависит от потери, которую вы готовы допустить, и уже потом решать, рычаг ли это хост, картинка или что-то другое.</p>
+<p>Хост не заменяет исследование запросов. Откройте <a href="{{aff:semrush}}">Semrush</a> для запросов, которых этот набросок не видит. Заметки рядом: <a href="{{href:blog/semrush-free-trial}}">пробный доступ Semrush</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush и Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">низкоконкурентные запросы</a> и <a href="{{href:blog/semrush-for-seo}}">Semrush для SEO</a>. <a href="{{aff:kinsta}}">Kinsta</a> — хост, а не это исследование. Страница его не мерит и ваш стек не знает. Форма показывает, как месяц зависит от потери, которую вы допускаете.</p>
 <ul>
 <li>Выручка сейчас — визиты умножить на текущую конверсию и на ценность.</li>
 <li>Потеря за секунду — ваша. Стартовые 7 процентов — не закон.</li>
@@ -308,16 +308,16 @@ export const webmasterTools = [
     category: "DeveloperApplication",
     affiliate: "semrush",
     related: ["meta-tag-generator", "seo-text-analyzer", "utm-qr-generator", "page-speed-revenue-calculator"],
-    guide: "semrush-for-seo",
+    guide: "semrush-free-trial",
     en: {
       title: "Robots.txt and Sitemap Generator | Free Online Calculators",
       description: "Build a robots.txt with Allow, Disallow, and Sitemap lines, plus an XML sitemap of the canonical URLs you list. You still place both files on the real host.",
       h1: "Robots.txt and sitemap generator",
       lede: "You get a robots.txt and an XML sitemap from the paths and URLs you type. Putting the files on the host, and submitting the map, is still your work.",
       banner: "Prices and rates you type are yours. Vendor tariffs change. This page does not measure your live site.",
-      ctaTitle: "A file is not a picture of the site",
-      ctaBody: "Robots and a sitemap describe what you want cooperating crawlers to fetch. They do not show how the site is actually crawled. Semrush can help you look at indexation questions. This generator does not submit anything.",
-      ctaButton: "Review crawl questions in Semrush",
+      ctaTitle: "Open Semrush to see the crawl picture",
+      ctaBody: "Robots and a sitemap are files you upload. They do not show how the site is crawled. Open Semrush for that wider look. This generator does not submit anything and does not log you in.",
+      ctaButton: "Open Semrush",
       body: `<p>The robots text starts with a user-agent line for every crawler, written as User-agent with an asterisk. Each path you list under Allow becomes an Allow line. Each path under Disallow becomes a Disallow line. A Sitemap line points at the map. If you listed page URLs and a site address, the robots file points at a sitemap.xml on that host. The XML file is a urlset. Each address you typed becomes a loc element. The generator escapes XML, so an ampersand in a URL cannot break the document. Blank lines are dropped.</p>
 <p>A disallow of /admin asks cooperating crawlers not to fetch URLs that begin with that path. It does not hide a URL that is linked from somewhere else. A person with the address can still open it. A crawler that ignores robots.txt can still fetch it. If the page must stay private, you need access control on the server, not a line in a text file. Allow is the matching exception: a more specific allow can sit beside a broader disallow. The order and the way a given crawler reads the two lines are defined by that crawler. This page writes the lines you asked for. It does not simulate Google, Bing, or anyone else.</p>
 <h2>A sitemap is a list, not a boost</h2>
@@ -325,7 +325,7 @@ export const webmasterTools = [
 <p>You must put both files on the real host. A preview here is not robots.txt at the root of your domain, and it is not /sitemap.xml. Save the text, upload it to the place your server actually serves, and request the URL in a browser to see that the file is the one you wrote. This site does not deploy it for you.</p>
 <h2>Where a sitemap is submitted</h2>
 <p>Google Search Console is the place to submit a sitemap for a site you have verified there. This page does not submit it, does not sign you in, and does not know whether the property is verified. Other engines have their own submission pages. Mentioning Search Console is a pointer to the usual door, not a claim that we opened it. After a submission, what gets crawled is still the engine's decision.</p>
-<p>Tags for the pages in the map are a different file. The <a href="{{href:meta-tag-generator}}">meta tag generator</a> writes them. The wording of a page is the <a href="{{href:seo-text-analyzer}}">text analyzer</a>. Neither one replaces the upload. If you want a wider look at which URLs are indexed, <a href="{{aff:semrush}}">Semrush</a> is a research product for that kind of question. It is not wired to this form.</p>
+<p>Tags for the pages are a different file, from the <a href="{{href:meta-tag-generator}}">meta tag generator</a>. The wording is the <a href="{{href:seo-text-analyzer}}">text analyzer</a>. Neither replaces the upload. Open <a href="{{aff:semrush}}">Semrush</a> for a wider look at indexed URLs. The notes cover a <a href="{{href:blog/semrush-free-trial}}">Semrush free trial</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush and Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">low-competition keywords</a>, and <a href="{{href:blog/semrush-for-seo}}">Semrush for SEO</a>. None of that is wired to this form.</p>
 <ul>
 <li>Disallow asks cooperating crawlers not to fetch. It does not hide a linked URL.</li>
 <li>The sitemap lists canonical URLs. It is not a ranking boost.</li>
@@ -346,9 +346,9 @@ export const webmasterTools = [
       h1: "Генератор robots.txt и sitemap",
       lede: "Вы получаете robots.txt и XML-карту из путей и адресов, которые ввели. Положить файлы на хост и отправить карту — по-прежнему ваша работа.",
       banner: "Цены и ставки вводите вы. Тарифы продавцов меняются. Страница не замеряет ваш живой сайт.",
-      ctaTitle: "Файл — это не снимок сайта",
-      ctaBody: "Robots и sitemap описывают, что вы просите забирать у сотрудничающих роботов. Как сайт обходят на самом деле, они не показывают. С вопросами индексации помогает Semrush. Генератор ничего не отправляет.",
-      ctaButton: "Смотреть обход в Semrush",
+      ctaTitle: "Откройте Semrush, чтобы увидеть картину обхода",
+      ctaBody: "Robots и sitemap — файлы, которые вы загружаете. Как сайт обходят на самом деле, они не показывают. Откройте Semrush для более широкого взгляда. Генератор ничего не отправляет и в сервис вас не входит.",
+      ctaButton: "Открыть Semrush",
       body: `<p>Текст robots начинается со строки user-agent для всех роботов: User-agent и звёздочка. Каждый путь в списке Allow становится строкой Allow. Каждый путь в Disallow становится строкой Disallow. Строка Sitemap указывает на карту. Если вы перечислили адреса страниц и адрес сайта, файл robots указывает на sitemap.xml на этом хосте. XML — это urlset. Каждый введённый адрес становится элементом loc. Генератор экранирует XML, поэтому амперсанд в адресе не ломает документ. Пустые строки выбрасываются.</p>
 <p>Disallow для /admin просит сотрудничающих роботов не забирать адреса, которые начинаются с этого пути. Он не прячет адрес, на который где-то стоит ссылка. Человек с адресом всё равно его откроет. Робот, который игнорирует robots.txt, всё равно может его забрать. Если страница должна оставаться закрытой, нужен контроль доступа на сервере, а не строка в текстовом файле. Allow — парное исключение: более точный allow может стоять рядом с более широким disallow. Порядок и то, как конкретный робот читает две строки, задаёт этот робот. Страница пишет строки, которые вы попросили. Google, Bing и остальных она не имитирует.</p>
 <h2>Sitemap — это список, а не усиление</h2>
@@ -356,7 +356,7 @@ export const webmasterTools = [
 <p>Оба файла нужно положить на настоящий хост. Просмотр здесь — не robots.txt в корне вашего домена и не /sitemap.xml. Сохраните текст, загрузите его туда, откуда сервер его правда отдаёт, и откройте адрес в браузере, чтобы увидеть тот файл, который вы написали. Этот сайт за вас его не выкладывает.</p>
 <h2>Куда отправляют карту</h2>
 <p>Google Search Console — место, где отправляют sitemap для сайта, который вы там подтвердили. Эта страница карту не отправляет, в аккаунт вас не входит и не знает, подтверждена ли собственность. У других систем свои страницы отправки. Упоминание Search Console — указатель на обычную дверь, а не заявление, что мы её открыли. После отправки решение об обходе всё равно остаётся за системой.</p>
-<p>Теги страниц из карты — другой файл. Их пишет <a href="{{href:meta-tag-generator}}">генератор мета-тегов</a>. Формулировки страницы смотрит <a href="{{href:seo-text-analyzer}}">анализ текста</a>. Ни то ни другое загрузку не заменяет. Если нужен более широкий взгляд, какие адреса в индексе, <a href="{{aff:semrush}}">Semrush</a> — продукт как раз для такого вопроса. К этой форме он не подключён.</p>
+<p>Теги страниц — другой файл, его пишет <a href="{{href:meta-tag-generator}}">генератор мета-тегов</a>. Формулировки смотрит <a href="{{href:seo-text-analyzer}}">анализ текста</a>. Загрузку это не заменяет. Откройте <a href="{{aff:semrush}}">Semrush</a>, если нужен более широкий взгляд на адреса в индексе. Заметки рядом: <a href="{{href:blog/semrush-free-trial}}">пробный доступ Semrush</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush и Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">низкоконкурентные запросы</a> и <a href="{{href:blog/semrush-for-seo}}">Semrush для SEO</a>. К этой форме они не подключены.</p>
 <ul>
 <li>Disallow просит сотрудничающих роботов не забирать адрес. Ссылку он не прячет.</li>
 <li>Sitemap перечисляет канонические адреса. Это не усиление в выдаче.</li>
@@ -456,16 +456,16 @@ export const webmasterTools = [
     category: "DeveloperApplication",
     affiliate: "semrush",
     related: ["roas-calculator", "meta-tag-generator", "seo-text-analyzer", "page-speed-revenue-calculator"],
-    guide: "semrush-for-seo",
+    guide: "semrush-free-trial",
     en: {
       title: "UTM and QR Code Generator | Free Online Calculators",
       description: "Build a landing URL with encoded utm fields and a QR code at error correction H. Empty fields are omitted. The link labels a click. It does not create the campaign.",
       h1: "UTM and QR code generator",
       lede: "The five utm fields are added with the browser's own query encoder. Empty ones are left out. The QR is drawn here, at error correction H.",
       banner: "Prices and rates you type are yours. Vendor tariffs change. This page does not measure your live site.",
-      ctaTitle: "A label is not the campaign",
-      ctaBody: "UTM names the click so a later report can group it. Semrush is where people study the queries and pages around that campaign. This form does not create the campaign and does not read a report.",
-      ctaButton: "Study the campaign in Semrush",
+      ctaTitle: "Open Semrush to see the campaign",
+      ctaBody: "A UTM only labels the click. Open Semrush to study the queries and pages around that campaign. This form does not create the campaign and does not read a report.",
+      ctaButton: "Open Semrush",
       body: `<p>Type a landing page address and the labels you want on the click. The builder uses URLSearchParams, so each value is encoded the way a query string should be encoded. A space, an ampersand, or a non-ASCII character will not break the pair it sits in. The keys are utm_source, utm_medium, utm_campaign, utm_term, and utm_content. Empty fields are omitted. A blank term does not become utm_term with an empty value, and it does not wipe a parameter that was already on the URL unless you typed the same key. The result is a normal address you can copy.</p>
 <p>The address has to be a full URL. A bare path without a scheme is rejected, because the builder cannot know the host. Fix the address and run it again. The page does not look the URL up, does not check that it returns a page, and does not add a redirect. What you copy is what the parameters produced.</p>
 <h2>The QR code is drawn in the browser</h2>
@@ -473,7 +473,7 @@ export const webmasterTools = [
 <p>A logo that is too large will make the code unscannable. Error correction can rebuild a damaged or covered patch. It cannot rebuild a code whose middle has been replaced by a picture that eats the finders and the data. If a phone cannot read the result, shrink the logo or export the code with no logo at all. This page does not test a scan against a particular phone, and it does not promise that every camera will like a dark logo on a dark code. Print a sample before you send a run of posters.</p>
 <h2>A UTM labels the click. It does not create the campaign</h2>
 <p>The parameters do not start an ad, do not reserve a budget, and do not tell a shop what the click is worth. They only label the click so that whatever analytics you already run can group it later. If the landing page ignores query strings, the label is still on the request, but your report will not grow a campaign by magic. Naming source, medium, and campaign consistently matters more than inventing a new spelling each week. This form will not police the spelling.</p>
-<p>What you do with the numbers later is a different calculator. The <a href="{{href:roas-calculator}}">ROAS calculator</a> divides revenue you attribute to ads by the spend you type, then applies a margin. It does not read this QR, and it does not know which utm_campaign the revenue belonged to. You type that attribution yourself. <a href="{{aff:semrush}}">Semrush</a> is one place to see which queries and ads a campaign sat next to. This page does not open a report and does not invent a case study.</p>
+<p>What you do with the numbers later is the <a href="{{href:roas-calculator}}">ROAS calculator</a>. It does not read this QR. Open <a href="{{aff:semrush}}">Semrush</a> to see which queries and ads the campaign sat next to. The notes cover a <a href="{{href:blog/semrush-free-trial}}">Semrush free trial</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush and Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">low-competition keywords</a>, and <a href="{{href:blog/semrush-for-seo}}">Semrush for SEO</a>. This page does not open a report and does not invent a case study.</p>
 <ul>
 <li>Values are encoded. Empty fields are left out.</li>
 <li>The QR uses error correction H so a small centre logo has room.</li>
@@ -494,9 +494,9 @@ export const webmasterTools = [
       h1: "Генератор UTM и QR-кода",
       lede: "Пять полей utm добавляются кодировщиком адреса в браузере. Пустые не попадают в ссылку. QR рисуется здесь, с уровнем коррекции H.",
       banner: "Цены и ставки вводите вы. Тарифы продавцов меняются. Страница не замеряет ваш живой сайт.",
-      ctaTitle: "Метка — это не кампания",
-      ctaBody: "UTM называет клик, чтобы поздний отчёт мог его сгруппировать. Запросы и страницы вокруг кампании смотрят в Semrush. Форма кампанию не создаёт и отчёт не читает.",
-      ctaButton: "Смотреть кампанию в Semrush",
+      ctaTitle: "Откройте Semrush, чтобы увидеть кампанию",
+      ctaBody: "UTM только метит клик. Откройте Semrush и посмотрите запросы и страницы вокруг этой кампании. Форма кампанию не создаёт и отчёт не читает.",
+      ctaButton: "Открыть Semrush",
       body: `<p>Введите адрес посадочной страницы и метки, которые хотите видеть на клике. Сборщик использует URLSearchParams, поэтому каждое значение кодируется так, как должна кодироваться строка запроса. Пробел, амперсанд или знак не из ASCII не сломают пару, в которой стоят. Ключи такие: utm_source, utm_medium, utm_campaign, utm_term и utm_content. Пустые поля опускаются. Пустой term не станет utm_term с пустым значением и не сотрёт параметр, который уже был в адресе, если вы не ввели тот же ключ. На выходе обычный адрес, который можно скопировать.</p>
 <p>Адрес должен быть полным URL. Голый путь без схемы отклоняется, потому что сборщик не знает хост. Поправьте адрес и соберите снова. Страница адрес не открывает, не проверяет, что он отдаёт страницу, и редирект не добавляет. Что скопировали, то параметры и собрали.</p>
 <h2>QR рисуется в браузере</h2>
@@ -505,7 +505,7 @@ export const webmasterTools = [
 <p>Слишком крупный логотип сделает код нечитаемым. Коррекция умеет восстановить испорченный или закрытый кусок. Она не восстановит код, у которого середину съела картинка вместе с поисковыми маркерами и данными. Если телефон результат не читает, уменьшите логотип или выгрузите код совсем без него. Страница не проверяет сканирование конкретным телефоном и не обещает, что любая камера примет тёмный логотип на тёмном коде. Напечатайте пробный лист, прежде чем отправлять тираж.</p>
 <h2>UTM метит клик. Кампанию он не создаёт</h2>
 <p>Параметры не запускают объявление, не резервируют бюджет и не сообщают магазину, чего клик стоит. Они только метят клик, чтобы аналитика, которая у вас уже есть, могла позже его сгруппировать. Если посадочная страница игнорирует строку запроса, метка на запросе всё равно есть, но отчёт сам кампанию не вырастит. Одинаковые source, medium и campaign важнее, чем новое написание каждую неделю. Сверять написание форма не станет.</p>
-<p>Что делать с цифрами потом — другой калькулятор. <a href="{{href:roas-calculator}}">Калькулятор ROAS</a> делит выручку, которую вы относите к рекламе, на введённый расход и затем применяет маржу. Этот QR он не читает и не знает, к какому utm_campaign относилась выручка. Отнесение вводите вы. <a href="{{aff:semrush}}">Semrush</a> — одно из мест посмотреть, рядом с какими запросами и объявлениями сидела кампания. Отчёт эта страница не открывает и кейс не выдумывает.</p>
+<p>Что делать с цифрами потом — <a href="{{href:roas-calculator}}">калькулятор ROAS</a>. Этот QR он не читает. Откройте <a href="{{aff:semrush}}">Semrush</a>, чтобы увидеть, рядом с какими запросами и объявлениями сидела кампания. Заметки рядом: <a href="{{href:blog/semrush-free-trial}}">пробный доступ Semrush</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush и Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">низкоконкурентные запросы</a> и <a href="{{href:blog/semrush-for-seo}}">Semrush для SEO</a>. Отчёт эта страница не открывает и кейс не выдумывает.</p>
 <ul>
 <li>Значения кодируются. Пустые поля не попадают в ссылку.</li>
 <li>У QR коррекция H, чтобы небольшой логотип в центре имел запас.</li>
@@ -604,16 +604,16 @@ export const webmasterTools = [
     category: "DeveloperApplication",
     affiliate: "semrush",
     related: ["margin-markup-calculator", "page-speed-revenue-calculator", "utm-qr-generator", "llm-token-calculator"],
-    guide: "semrush-for-seo",
+    guide: "semrush-vs-ahrefs",
     en: {
       title: "ROAS Calculator | Free Online Calculators",
       description: "Divide attributed revenue by ad spend, then apply the margin and other costs you type to get profit and ROMI. The attribution in the form is your assumption.",
       h1: "ROAS calculator",
       lede: "ROAS is revenue divided by ad spend. Profit then subtracts that spend and any other cost from revenue times the margin you type.",
       banner: "Prices and rates you type are yours. Vendor tariffs change. This page does not measure your live site.",
-      ctaTitle: "The spend still needs a source",
-      ctaBody: "ROAS uses the revenue and the spend you type. It does not know which queries or ads that spend belonged to. Semrush is one place to look. This form does not import a campaign and does not tell a case study.",
-      ctaButton: "See where the spend went",
+      ctaTitle: "Open Semrush to see where the spend went",
+      ctaBody: "ROAS uses the revenue and the spend you type. It does not know which queries or ads that spend belonged to. Open Semrush for that. This form does not import a campaign and does not tell a case study.",
+      ctaButton: "Open Semrush",
       body: `<p>ROAS is revenue divided by ad spend. Type both numbers in the same currency and for the same period. If spend is zero the ratio is not a useful finite number, so do not read a blank campaign as an infinite success. Gross profit is revenue times the margin. The margin is the share of revenue you keep before ads. A margin of 1, shown as 100 percent, means you typed no cost of goods, so the whole revenue is still there before the ad bill. A margin of one half means half the revenue is gone to the product before any ad is paid. Profit is that gross figure minus ad spend minus the other marketing cost you type. ROMI is profit divided by spend plus that other cost. The other cost can be zero.</p>
 <h2>A worked example</h2>
 <p>Spend 1000, revenue 4000, margin 100 percent, other cost 0. ROAS is 4000 divided by 1000, which is 4. Gross profit is the full 4000, because the margin keeps all of the revenue. Profit is 4000 minus 1000 minus 0, which is 3000. ROMI is 3000 divided by 1000, which is 300 percent. The same revenue at a margin of 50 percent changes the story. Gross profit is 2000. Profit is 2000 minus 1000, which is 1000. Break-even ROAS is 2, because you need 2 of revenue per 1 of spend to cover a 50 percent margin: half of that revenue is the gross you keep, and that half has to equal the spend. At a ROAS of 4 with a 50 percent margin you are above that line. At a ROAS of 4 with a thin margin you may not be.</p>
@@ -622,7 +622,7 @@ export const webmasterTools = [
 <p>The revenue you type is the revenue you decided to attribute to the ads. The form cannot see your shop, your call log, or the clicks that never bought. A last-click rule, a first-click rule, and a rule that shares credit across a week will put different numbers in the same box, and all of them are assumptions. If two campaigns share a customer, typing the full order against both will double the revenue. The calculator will happily divide whatever you typed. It will not warn you that the same order was counted twice, because it cannot see the order.</p>
 <p>Labels on the click, if you use them, are built in the <a href="{{href:utm-qr-generator}}">UTM and QR tool</a>. They do not fill this form. The gap between a price and the cost of the goods, if you need it before you choose a margin, is the <a href="{{href:margin-markup-calculator}}">margin and markup calculator</a>. People mix those two percentages and then type the wrong share here.</p>
 <h2>Which queries the spend belonged to</h2>
-<p>Seeing which queries or ads the spend belonged to is a research question, not a division. <a href="{{aff:semrush}}">Semrush</a> is one place people look. This page does not connect to an ad account, does not quote a case study, and does not claim a return for a niche. Use the ratio on the numbers you can defend, and keep the attribution rule written down next to the result.</p>
+<p>Seeing which queries or ads the spend belonged to is a research question, not a division. Open <a href="{{aff:semrush}}">Semrush</a> for that. The notes cover a <a href="{{href:blog/semrush-free-trial}}">Semrush free trial</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush and Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">low-competition keywords</a>, and <a href="{{href:blog/semrush-for-seo}}">Semrush for SEO</a>. This page does not connect to an ad account and does not quote a case study. Use the ratio on numbers you can defend.</p>
 <ul>
 <li>ROAS is revenue divided by ad spend.</li>
 <li>Margin is the share of revenue kept before ads. One means no cost of goods.</li>
@@ -643,9 +643,9 @@ export const webmasterTools = [
       h1: "Калькулятор ROAS",
       lede: "ROAS — это выручка, делённая на расход рекламы. Прибыль потом вычитает этот расход и прочие затраты из выручки, умноженной на введённую маржу.",
       banner: "Цены и ставки вводите вы. Тарифы продавцов меняются. Страница не замеряет ваш живой сайт.",
-      ctaTitle: "У расхода всё ещё должен быть источник",
-      ctaBody: "ROAS берёт выручку и расход, которые вы ввели. К каким запросам или объявлениям относился расход, форма не знает. Одно из мест посмотреть — Semrush. Кампанию она не импортирует и историю успеха не рассказывает.",
-      ctaButton: "Посмотреть, куда ушёл расход",
+      ctaTitle: "Откройте Semrush, чтобы увидеть, куда ушёл расход",
+      ctaBody: "ROAS берёт выручку и расход, которые вы ввели. К каким запросам или объявлениям относился расход, форма не знает. Откройте Semrush и посмотрите там. Кампанию она не импортирует и историю успеха не рассказывает.",
+      ctaButton: "Открыть Semrush",
       body: `<p>ROAS — это выручка, делённая на расход рекламы. Оба числа вводите в одной валюте и за один период. Если расход ноль, отношение не даёт полезного конечного числа, поэтому пустую кампанию не читайте как бесконечный успех. Валовая прибыль — выручка, умноженная на маржу. Маржа — доля выручки, которая остаётся до рекламы. Маржа 1, на экране 100 процентов, значит, себестоимость товара вы не закладывали и вся выручка ещё на месте до рекламного счёта. Маржа в одну вторую значит, что половина выручки ушла в товар до любой оплаты рекламы. Прибыль — эта валовая цифра минус расход на рекламу минус прочие маркетинговые затраты, которые вы ввели. ROMI — прибыль, делённая на расход плюс эти прочие затраты. Прочие затраты могут быть нулём.</p>
 <h2>Пример на числах</h2>
 <p>Расход 1000, выручка 4000, маржа 100 процентов, прочие затраты 0. ROAS — 4000 разделить на 1000, то есть 4. Валовая прибыль — все 4000, потому что маржа оставляет всю выручку. Прибыль — 4000 минус 1000 минус 0, то есть 3000. ROMI — 3000 разделить на 1000, то есть 300 процентов. Та же выручка при марже 50 процентов меняет историю. Валовая прибыль — 2000. Прибыль — 2000 минус 1000, то есть 1000. ROAS безубыточности равен 2, потому что нужно 2 выручки на 1 расхода, чтобы закрыть маржу 50 процентов: половина этой выручки — то, что вы оставляете, и эта половина должна равняться расходу. При ROAS 4 и марже 50 процентов вы выше этой линии. При ROAS 4 и тонкой марже можете оказаться ниже.</p>
@@ -654,7 +654,7 @@ export const webmasterTools = [
 <p>Выручка, которую вы вводите, — та, которую вы решили отнести к рекламе. Форма не видит магазин, журнал звонков и клики, которые ничего не купили. Правило последнего клика, правило первого клика и правило, которое делит заслугу на неделю, положат в одно поле разные числа, и все они — допущения. Если две кампании делят одного покупателя, а вы впишете весь заказ в обе, выручка удвоится. Калькулятор поделит то, что вы ввели. Он не предупредит, что один заказ посчитан дважды, потому что заказа он не видит.</p>
 <p>Метки на клике, если вы ими пользуетесь, собираются в <a href="{{href:utm-qr-generator}}">генераторе UTM и QR</a>. Эту форму они не заполняют. Разрыв между ценой и себестоимостью, если он нужен до выбора маржи, считает <a href="{{href:margin-markup-calculator}}">калькулятор маржи и наценки</a>. Эти два процента часто путают и потом вводят сюда не ту долю.</p>
 <h2>К каким запросам относился расход</h2>
-<p>Увидеть, к каким запросам или объявлениям относился расход, — вопрос исследования, а не деления. <a href="{{aff:semrush}}">Semrush</a> — одно из мест, куда смотрят. Страница не подключается к рекламному кабинету, не цитирует кейс и не обещает отдачу для ниши. Считайте отношение на числах, которые можете защитить, и держите правило отнесения записанным рядом с результатом.</p>
+<p>Увидеть, к каким запросам или объявлениям относился расход, — вопрос исследования, а не деления. Откройте <a href="{{aff:semrush}}">Semrush</a> для этого. Заметки рядом: <a href="{{href:blog/semrush-free-trial}}">пробный доступ Semrush</a>, <a href="{{href:blog/semrush-vs-ahrefs}}">Semrush и Ahrefs</a>, <a href="{{href:blog/low-competition-keywords-semrush}}">низкоконкурентные запросы</a> и <a href="{{href:blog/semrush-for-seo}}">Semrush для SEO</a>. Страница не подключается к рекламному кабинету и не цитирует кейс. Считайте отношение на числах, которые можете защитить.</p>
 <ul>
 <li>ROAS — выручка, делённая на расход рекламы.</li>
 <li>Маржа — доля выручки до рекламы. Единица значит, что себестоимости товара нет.</li>
