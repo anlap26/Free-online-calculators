@@ -2,7 +2,7 @@
 
 Static bilingual site of 35 calculators and comparison guides. English lives at the root. Russian lives under `/ru/` with the same slugs. Everything calculates in the browser.
 
-Live URL once GitHub Pages is enabled: https://anlap26.github.io/free-online-calculators/
+The GitHub repository is named `Free-online-calculators`. Project Pages uses that name in the path, so the site URL is https://anlap26.github.io/Free-online-calculators/ . If you rename the repository to all-lowercase `free-online-calculators`, change `BASE` in `build/layout.mjs` to `/free-online-calculators`, run `npm run build`, and push.
 
 ## Affiliate links, one file
 
@@ -52,6 +52,6 @@ The site should appear at https://anlap26.github.io/free-online-calculators/ aft
 
 ## After it is live
 
-- In Google Search Console, add the property `https://anlap26.github.io/free-online-calculators/` and submit `sitemap.xml`.
+- In Google Search Console, add the property `https://anlap26.github.io/Free-online-calculators/` and submit `sitemap.xml`.
 - Paste the real affiliate URLs into `assets/js/affiliates.js` and push to `main`.
 - A custom domain is optional. Add a `CNAME` file with the domain, set the DNS, and change `ORIGIN` and `BASE` in `build/layout.mjs` (`BASE` becomes `""` on a domain that serves the site at `/`). Then run `npm run build` and push.

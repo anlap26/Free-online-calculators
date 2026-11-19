@@ -1,5 +1,5 @@
 export const ORIGIN = "https://anlap26.github.io";
-export const BASE = "/free-online-calculators";
+export const BASE = "/Free-online-calculators";
 export const SITE = ORIGIN + BASE;
 
 export const clusters = {
