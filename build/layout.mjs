@@ -115,6 +115,7 @@ export function page({ lang, pathname, title, description, h1, crumbs, main, jso
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
