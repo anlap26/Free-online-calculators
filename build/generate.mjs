@@ -263,7 +263,8 @@ function renderHome(lang) {
       faqLd(copy.faq)
     ]
   });
-  const extraHead = lang === "en" ? `<!-- Yandex Webmaster: replace YOUR_YANDEX_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
+  const extraHead = lang === "en" ? `<meta name="google-site-verification" content="s-0iJOldUS8OhEjahKd_140IjmUAu3QdenCVsJIx-KI" />
+<!-- Yandex Webmaster: replace YOUR_YANDEX_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
 <!-- <meta name="yandex-verification" content="YOUR_YANDEX_CODE"> -->
 <!-- Bing Webmaster: replace YOUR_BING_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
 <!-- <meta name="msvalidate.01" content="YOUR_BING_CODE"> -->
