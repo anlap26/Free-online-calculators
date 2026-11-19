@@ -4,10 +4,9 @@ export const relocationTools = [
     cluster: "relocation",
     calc: "schengen",
     category: "TravelApplication",
-    affiliate: "safetywing",
-    secondary: "genki",
+    affiliate: "genki",
     related: ["cost-of-living-calculator", "world-time-meeting-planner", "roaming-esim-calculator", "business-days-calculator"],
-    guide: "safetywing-vs-genki",
+    guide: "genki-nomad-insurance",
     en: {
       title: "Schengen Stay Calculator: 90 Days in 180 | Free Online Calculators",
       description: "Count each calendar day once inside a rolling 180-day Schengen window, and count distinct days in one calendar year. Entry and exit both count.",
@@ -15,9 +14,8 @@ export const relocationTools = [
       lede: "Each calendar day is stored once. Schengen mode counts the chosen day plus the previous 179 days and compares that with 90. Year mode counts distinct days in the year you pick.",
       banner: "A day count or an index is a planning aid. It is not a visa, a tax ruling, an insurance policy, or a quote.",
       ctaTitle: "A day count does not cover a doctor",
-      ctaBody: "The number on this page does not say whether a nomad policy pays for a routine visit. SafetyWing and Genki are the two names compared in the guide. Read the current wording. This page does not quote a premium.",
-      ctaButton: "Open SafetyWing",
-      secondaryButton: "Open Genki",
+      ctaBody: "The number on this page does not say whether a nomad policy pays for a routine visit. The guide walks through what to read in a Genki plan. This page does not quote a premium.",
+      ctaButton: "Open Genki",
       body: `<p>This calculator stores every calendar day of the trips you list, and it stores each day only once. If two trips share a date, that date is not added twice, and the order of the rows does not matter. Schengen mode looks at a rolling window and compares the days inside it with 90. Year mode counts the distinct days of those trips that fall in the calendar year you name. Both numbers are a planning aid. A border decision, a visa, and a tax office sit outside the form.</p>
 <h2>The 180-day window</h2>
 <p>The Schengen window is the day you choose plus the previous 179 days. That span is 180 days, and the chosen day is included. The page counts how many stored dates fall inside the span and sets the count beside 90. A stay from 1 January 2026 through 31 March 2026 is 90 days. The year 2026 is not a leap year: January has 31 days, February has 28, and March has 31. On 31 March every one of those days is inside the window, so the window is full, and it has not gone over. If the same stay continues and 1 April is also a day present, the count becomes 91, and 91 is over the line.</p>
@@ -35,7 +33,7 @@ export const relocationTools = [
 <li>A count of 183 is the comparison year mode prints. It is not a finding of tax residence.</li>
 </ul>
 <p>Days are only part of a long stay. The <a href="{{href:cost-of-living-calculator}}">cost of living calculator</a> scales a salary by a rounded city index. The <a href="{{href:world-time-meeting-planner}}">world time meeting planner</a> converts a clock time with IANA zones for the date of the call. The <a href="{{href:roaming-esim-calculator}}">roaming and eSIM calculator</a> compares a daily roaming price with a package, using numbers you type. None of them edits the day count.</p>
-<p>A day count does not tell you whether a nomad policy covers a routine doctor. <a href="{{aff:safetywing}}">SafetyWing</a> and <a href="{{aff:genki}}">Genki</a> are the names to compare, and the <a href="{{href:blog/safetywing-vs-genki}}">SafetyWing and Genki guide</a> sets out what to read in a plan. It does not quote a premium, and this page will not invent one. Open the current wording for the country you will actually be in, and read routine care separately from emergency care. The buttons are affiliate links. The arithmetic does not change because they are there.</p>`,
+<p>A day count does not tell you whether a nomad policy covers a routine doctor. <a href="{{aff:genki}}">Genki</a> is the medical name linked here, and the <a href="{{href:blog/genki-nomad-insurance}}">Genki guide</a> sets out what to read in a plan. It does not quote a premium, and this page will not invent one. Open the current wording for the country you will actually be in, and read routine care separately from emergency care. The button is an affiliate link. The arithmetic does not change because it is there.</p>`,
       faq: [
         {
           q: "Do the entry day and the exit day both count?",
@@ -55,7 +53,7 @@ export const relocationTools = [
         },
         {
           q: "Does the day count tell me if a policy covers a routine doctor?",
-          a: "No. Presence days and medical cover are different questions. A nomad policy may or may not pay for a routine visit, and the answer is in the current plan, not in a day total. SafetyWing and Genki are the two names the guide compares. This page does not quote a premium or an exclusion, because those change. Open the plan for the country you will actually be in and read routine care on its own."
+          a: "No. Presence days and medical cover are different questions. A nomad policy may or may not pay for a routine visit, and the answer is in the current plan, not in a day total. The guide is about what to read in a Genki plan. This page does not quote a premium or an exclusion, because those change. Open the plan for the country you will actually be in and read routine care on its own."
         }
       ]
     },
@@ -66,9 +64,8 @@ export const relocationTools = [
       lede: "Каждый календарный день хранится один раз. Режим Шенгена считает выбранный день и 179 дней до него и сравнивает сумму с 90. Режим года считает разные дни в выбранном году.",
       banner: "Подсчёт дней и индекс нужны для плана. Это не виза, не налоговое решение, не страховой полис и не котировка.",
       ctaTitle: "Подсчёт дней не покрывает врача",
-      ctaBody: "Число на этой странице не говорит, оплатит ли полис обычный визит к врачу. SafetyWing и Genki сравниваются в статье. Читайте текущий текст полиса. Премию эта страница не называет.",
-      ctaButton: "Открыть SafetyWing",
-      secondaryButton: "Открыть Genki",
+      ctaBody: "Число на этой странице не говорит, оплатит ли полис обычный визит к врачу. Статья разбирает, что читать в плане Genki. Читайте текущий текст полиса. Премию эта страница не называет.",
+      ctaButton: "Открыть Genki",
       body: `<p>Калькулятор запоминает каждый календарный день поездок, которые вы внесли, и каждый день хранит один раз. Если две поездки делят одну дату, эта дата не прибавляется дважды. Подсчёта два. Режим Шенгена смотрит на скользящее окно и сравнивает дни внутри него с 90. Режим года считает разные дни тех же поездок, которые попали в названный вами календарный год. Оба числа нужны для плана до брони. Решение на границе, виза и налоговая остаются снаружи формы.</p>
 <h2>Окно в 180 дней</h2>
 <p>Окно Шенгена — это выбранный день плюс 179 дней до него. В промежутке 180 дней, и сам выбранный день внутрь входит. Страница считает, сколько сохранённых дат лежит в этом промежутке, и ставит сумму рядом с 90. Пребывание с 1 января 2026 года по 31 марта 2026 года — это 90 дней. 2026 год не високосный: в январе 31 день, в феврале 28, в марте 31. Вместе это 31 плюс 28 плюс 31. На 31 марта все эти дни внутри окна, окно полное, и через черту ещё не перешло. Если то же пребывание продолжается и 1 апреля тоже день присутствия, сумма становится 91, а 91 — уже сверх.</p>
@@ -86,7 +83,7 @@ export const relocationTools = [
 <li>Сумма 183 — это не вывод о налоговом резидентстве. Это сравнение, которое печатает режим года.</li>
 </ul>
 <p>Соседние страницы закрывают практические вопросы, которые едут вместе с долгим пребыванием. <a href="{{href:cost-of-living-calculator}}">Калькулятор стоимости жизни</a> масштабирует зарплату округлённым индексом городов. <a href="{{href:world-time-meeting-planner}}">Планировщик созвонов</a> переводит время через пояса IANA на дату звонка. <a href="{{href:roaming-esim-calculator}}">Калькулятор роуминга и eSIM</a> сравнивает дневную цену роуминга с пакетом и берёт только те числа, которые вы ввели. Ни одна из этих страниц не правит подсчёт дней.</p>
-<p>Подсчёт дней не говорит, покрывает ли полис для жизни в разъездах обычный визит к врачу. Сравнивать здесь есть смысл <a href="{{aff:safetywing}}">SafetyWing</a> и <a href="{{aff:genki}}">Genki</a>, а <a href="{{href:blog/safetywing-vs-genki}}">статья про SafetyWing и Genki</a> разбирает, что читать в плане. Премию статья не называет, и эта страница её не выдумает. Премии, исключения и срок покрытия меняются и зависят от страны, в которой вы реально будете. Откройте текущий текст и прочитайте обычную помощь отдельно от неотложной. Кнопки — партнёрские ссылки. Арифметика из-за них не меняется.</p>`,
+<p>Подсчёт дней не говорит, покрывает ли полис для жизни в разъездах обычный визит к врачу. Медицинское имя на этой странице — <a href="{{aff:genki}}">Genki</a>, а <a href="{{href:blog/genki-nomad-insurance}}">статья про Genki</a> разбирает, что читать в плане. Премию статья не называет, и эта страница её не выдумает. Премии, исключения и срок покрытия меняются и зависят от страны, в которой вы реально будете. Откройте текущий текст и прочитайте обычную помощь отдельно от неотложной. Кнопка — партнёрская ссылка. Арифметика из-за неё не меняется.</p>`,
       faq: [
         {
           q: "День въезда и день выезда оба входят в сумму?",
@@ -106,7 +103,7 @@ export const relocationTools = [
         },
         {
           q: "Подсчёт дней говорит, оплатит ли полис обычного врача?",
-          a: "Нет. Дни присутствия и медицинское покрытие — разные вопросы. Полис для жизни в разъездах может оплатить обычный визит, а может не оплатить, и ответ лежит в текущем тексте плана, а не в сумме дней. SafetyWing и Genki — два имени, которые сравнивает статья. Премию, лимит и исключение эта страница не называет: они меняются, а выдуманная цифра была бы ложной котировкой. Откройте план той страны, где вы реально будете, и прочитайте обычную помощь отдельно."
+          a: "Нет. Дни присутствия и медицинское покрытие — разные вопросы. Полис для жизни в разъездах может оплатить обычный визит, а может не оплатить, и ответ лежит в текущем тексте плана, а не в сумме дней. Статья разбирает, что читать в плане Genki. Премию, лимит и исключение эта страница не называет: они меняются, а выдуманная цифра была бы ложной котировкой. Откройте план той страны, где вы реально будете, и прочитайте обычную помощь отдельно."
         }
       ]
     }
@@ -116,9 +113,9 @@ export const relocationTools = [
     cluster: "relocation",
     calc: "col",
     category: "TravelApplication",
-    affiliate: "safetywing",
+    affiliate: "genki",
     related: ["inflation-calculator", "freelance-rate-calculator", "schengen-stay-calculator", "fire-calculator"],
-    guide: "safetywing-vs-genki",
+    guide: "genki-nomad-insurance",
     en: {
       title: "Cost of Living Calculator for Two Cities | Free Online Calculators",
       description: "Scale a salary between cities with a rounded editorial index, New York at 100, last reviewed 19 November 2026. This is not an official rent survey.",
@@ -126,8 +123,8 @@ export const relocationTools = [
       lede: "A rounded editorial index, New York at 100, scales a salary from one city to another. The figures were last reviewed on 19 November 2026. They are not official rents.",
       banner: "A day count or an index is a planning aid. It is not a visa, a tax ruling, an insurance policy, or a quote.",
       ctaTitle: "Healthcare sits outside the index",
-      ctaBody: "The basket does not price a doctor. A nomad medical plan is a separate document from a city index. The guide compares SafetyWing and Genki without quoting a premium.",
-      ctaButton: "Open SafetyWing",
+      ctaBody: "The basket does not price a doctor. A nomad medical plan is a separate document from a city index. The guide says what to read in a Genki plan, and it does not quote a premium.",
+      ctaButton: "Open Genki",
       body: `<p>The cost of living calculator scales a salary from one city to another with a rounded editorial index. New York is 100. The figures were last reviewed on 19 November 2026, and they live in assets/js/cost-of-living.js. This is not an official rent survey. It is not a set of Numbeo numbers, and nothing on the page was scraped from Numbeo. The same file holds further cities beyond the examples named here. When you have a source you trust, edit the file and replace the number. Update the review note in that file too, so the date on the page stays true.</p>
 <h2>The index, and the salary it scales</h2>
 <p>Equivalent salary equals the salary you type, multiplied by the second index, divided by the first. In symbols, salary times index B, divided by index A. A salary of 4000 at index 100 versus index 68 is 2720, because 4000 times 68 divided by 100 is 2720. That 2720 is the pay in the second city that sits on the same place in the index. It is not a job offer, and it is not what a landlord will put in an advert. The page also divides the same salary by each index, so you can see one sum against each city's points. At 4000 and 100 that is 40 per point. The salary is in one currency for both cities. The index does not convert money. If the two places would pay you in different currencies, convert first, with a rate you choose, and then scale.</p>
@@ -142,7 +139,7 @@ export const relocationTools = [
 <h2>What the index leaves out</h2>
 <p>Tax is not applied. If you type a gross figure, the scaled figure is gross in the same sense. If you type a net figure, the scaled figure is net. The ratio does not know your bracket. A paycheck after tax, pension, and local contributions is a different sum, and this form will not invent those rates. The <a href="{{href:freelance-rate-calculator}}">freelance rate calculator</a> is the page that grosses up a target net for a tax percent you type yourself. It still does not look up a national table.</p>
 <p>Price change over time is a different tool. The <a href="{{href:inflation-calculator}}">inflation calculator</a> applies a rate to a currency across years. This index compares two places on one reviewed date. A salary can look comfortable after you move it to a lower index and still buy less later if the currency you are paid in loses purchasing power. Keep the two questions apart. The <a href="{{href:fire-calculator}}">FIRE calculator</a> takes yearly spending and a withdrawal rate you type and turns them into a portfolio figure. That is a third question. It does not read this index. Days in a country, if that is the limit you are watching, belong on the <a href="{{href:schengen-stay-calculator}}">Schengen stay calculator</a>.</p>
-<p>Healthcare cost is outside the index. A routine doctor, a dentist, a prescription, and a premium are not lines in the basket of rent, food, and local transport. The index cannot tell you what a visit costs or what a policy pays. <a href="{{aff:safetywing}}">SafetyWing</a> is the nomad medical name linked on this page, and the <a href="{{href:blog/safetywing-vs-genki}}">SafetyWing and Genki guide</a> is where those two names are compared. The guide does not quote a premium. This page will not invent one either. Read the current plan for the country you will actually be in. The button is an affiliate link, and the ratio above does not change because the link is there.</p>`,
+<p>Healthcare cost is outside the index. A routine doctor, a dentist, a prescription, and a premium are not lines in the basket of rent, food, and local transport. The index cannot tell you what a visit costs or what a policy pays. <a href="{{aff:genki}}">Genki</a> is the nomad medical name linked on this page, and the <a href="{{href:blog/genki-nomad-insurance}}">Genki guide</a> is where that plan is discussed. The guide does not quote a premium. This page will not invent one either. Read the current plan for the country you will actually be in. The button is an affiliate link, and the ratio above does not change because the link is there.</p>`,
       faq: [
         {
           q: "Is this an official rent survey or a Numbeo scrape?",
@@ -162,7 +159,7 @@ export const relocationTools = [
         },
         {
           q: "Does the index include a doctor or an insurance premium?",
-          a: "No. Healthcare sits outside the basket of rent, food, and local transport. The index cannot tell you the price of a visit or what a policy pays. SafetyWing is the nomad medical name linked here, and the guide compares it with Genki. Neither page quotes a premium or an exclusion. Those terms change. Read the current plan for the country you will actually be in, and keep the index as a planning ratio."
+          a: "No. Healthcare sits outside the basket of rent, food, and local transport. The index cannot tell you the price of a visit or what a policy pays. Genki is the nomad medical name linked here, and the guide says what to read in that plan. Neither page quotes a premium or an exclusion. Those terms change. Read the current plan for the country you will actually be in, and keep the index as a planning ratio."
         }
       ]
     },
@@ -173,8 +170,8 @@ export const relocationTools = [
       lede: "Округлённый редакторский индекс, где Нью-Йорк равен 100, переносит зарплату из одного города в другой. Сверка 19 ноября 2026 года. Это не официальная аренда.",
       banner: "Подсчёт дней и индекс нужны для плана. Это не виза, не налоговое решение, не страховой полис и не котировка.",
       ctaTitle: "Медицина в индекс не входит",
-      ctaBody: "Корзина не оценивает врача. Медицинский план для жизни в разъездах — отдельная бумага, не городской индекс. Статья сравнивает SafetyWing и Genki и не называет премию.",
-      ctaButton: "Открыть SafetyWing",
+      ctaBody: "Корзина не оценивает врача. Медицинский план для жизни в разъездах — отдельная бумага, не городской индекс. Статья говорит, что читать в плане Genki, и не называет премию.",
+      ctaButton: "Открыть Genki",
       body: `<p>Калькулятор стоимости жизни переносит зарплату из одного города в другой по округлённому редакторскому индексу. Нью-Йорк равен 100. Цифры сверены 19 ноября 2026 года и лежат в файле assets/js/cost-of-living.js. Это не официальное исследование аренды. Это не цифры Numbeo, и со страницы Numbeo здесь ничего не снимали. В том же файле есть и другие города, кроме примеров на этой странице. Когда появится источник, которому вы доверяете, поправьте число в файле. Поправьте и пометку о сверке, чтобы дата на странице оставалась правдой.</p>
 <h2>Индекс и зарплата, которую он масштабирует</h2>
 <p>Эквивалент равен зарплате, которую вы ввели, умноженной на второй индекс и делённой на первый. В записи это зарплата умножить на индекс B и разделить на индекс A. Зарплата 4000 при индексе 100 против индекса 68 даёт 2720, потому что 4000 умножить на 68 и разделить на 100 равно 2720. Эти 2720 — оплата во втором городе, которая стоит на том же месте индекса. Это не оффер и не цена в объявлении арендодателя. Страница ещё делит ту же зарплату на каждый индекс, чтобы одну сумму было видно на пунктах каждого города. При 4000 и 100 это 40 на пункт. Зарплата в одной валюте для обоих городов. Индекс валюту не переводит. Если в двух местах платили бы разными валютами, сначала переведите по курсу, который выбрали сами, и только потом масштабируйте.</p>
@@ -189,7 +186,7 @@ export const relocationTools = [
 <h2>Чего в индексе нет</h2>
 <p>Налог страница не применяет. Ввели сумму до налога — на выходе сумма в том же смысле до налога. Ввели сумму на руки — на выходе тоже на руки. Отношение не знает вашей шкалы. Зарплата после налога, пенсии и местных взносов — другая величина, и ставки форма не выдумает. <a href="{{href:freelance-rate-calculator}}">Калькулятор ставки фрилансера</a> как раз наращивает нужный чистый доход на тот процент налога, который вы вводите сами. Национальную таблицу он тоже не открывает.</p>
 <p>Изменение цен во времени — другой инструмент. <a href="{{href:inflation-calculator}}">Калькулятор инфляции</a> применяет ставку, которую вы ввели, к валюте по годам. Этот индекс сравнивает два места на одну дату сверки. После переноса в город с меньшим индексом зарплата может выглядеть свободнее и всё равно покупать меньше позже, если валюта, в которой платят, теряет покупательную силу. Держите вопросы порознь. <a href="{{href:fire-calculator}}">Калькулятор FIRE</a> берёт годовые расходы и ставку изъятия, которые вы вводите, и собирает из них сумму портфеля. Это третий вопрос. Индекс он не читает. Дни в стране, если вы следите за лимитом, живут в <a href="{{href:schengen-stay-calculator}}">калькуляторе шенгенских дней</a>.</p>
-<p>Стоимость медицины в индекс не входит. Обычный врач, стоматолог, рецепт и страховая премия — не строки корзины из аренды, еды и местного транспорта. Индекс не скажет, сколько стоит визит и что оплатит полис. <a href="{{aff:safetywing}}">SafetyWing</a> — имя медицинского плана для жизни в разъездах на этой странице, а сравнение двух имён лежит в <a href="{{href:blog/safetywing-vs-genki}}">статье про SafetyWing и Genki</a>. Премию статья не называет. Эта страница тоже не станет её выдумывать. Читайте текущий план той страны, где вы реально будете. Кнопка — партнёрская ссылка, и отношение индексов из-за неё не меняется.</p>`,
+<p>Стоимость медицины в индекс не входит. Обычный врач, стоматолог, рецепт и страховая премия — не строки корзины из аренды, еды и местного транспорта. Индекс не скажет, сколько стоит визит и что оплатит полис. <a href="{{aff:genki}}">Genki</a> — имя медицинского плана для жизни в разъездах на этой странице, а <a href="{{href:blog/genki-nomad-insurance}}">статья про Genki</a> говорит, что читать в плане. Премию статья не называет. Эта страница тоже не станет её выдумывать. Читайте текущий план той страны, где вы реально будете. Кнопка — партнёрская ссылка, и отношение индексов из-за неё не меняется.</p>`,
       faq: [
         {
           q: "Это официальное исследование аренды или съём с Numbeo?",
@@ -209,7 +206,7 @@ export const relocationTools = [
         },
         {
           q: "Врач и страховая премия входят в индекс?",
-          a: "Нет. Медицина лежит вне корзины из аренды, еды и местного транспорта. Индекс не назовёт цену визита и не скажет, что оплатит полис. SafetyWing — имя плана для жизни в разъездах, на которое ведёт эта страница, а статья сравнивает его с Genki. Ни страница, ни статья не называют премию, потолок или исключение. Эти условия меняются. Читайте текущий план страны, где вы реально будете, а городской индекс оставьте планировочным отношением."
+          a: "Нет. Медицина лежит вне корзины из аренды, еды и местного транспорта. Индекс не назовёт цену визита и не скажет, что оплатит полис. Genki — имя плана для жизни в разъездах, на которое ведёт эта страница, а статья говорит, что читать в этом плане. Ни страница, ни статья не называют премию, потолок или исключение. Эти условия меняются. Читайте текущий план страны, где вы реально будете, а городской индекс оставьте планировочным отношением."
         }
       ]
     }
@@ -425,10 +422,10 @@ export const relocationTools = [
     cluster: "relocation",
     calc: "freelance",
     category: "TravelApplication",
-    affiliate: "safetywing",
+    affiliate: "genki",
     secondary: "wise",
     related: ["margin-markup-calculator", "fire-calculator", "business-days-calculator", "cost-of-living-calculator"],
-    guide: "safetywing-vs-genki",
+    guide: "genki-nomad-insurance",
     en: {
       title: "Freelance Hourly Rate Calculator | Free Online Calculators",
       description: "Turn a target net income, a tax rate, and yearly business costs into a gross amount, then divide by billable hours after leave and unpaid time.",
@@ -436,8 +433,8 @@ export const relocationTools = [
       lede: "Gross income is the net you want plus business costs, divided by one minus the tax rate you type. That gross is then spread over the hours left after leave and time you cannot bill.",
       banner: "A day count or an index is a planning aid. It is not a visa, a tax ruling, an insurance policy, or a quote.",
       ctaTitle: "The rate is not a premium or a payout fee",
-      ctaBody: "A solo year has no employer sick pay, which is why people look at nomad medical plans. Getting paid across a border has its own fee, and that fee is not inside the hourly rate. SafetyWing and Wise are the two names. Neither button is a quote.",
-      ctaButton: "Open SafetyWing",
+      ctaBody: "A solo year has no employer sick pay, which is why people look at a nomad medical plan such as Genki. Getting paid across a border has its own fee, and that fee is not inside the hourly rate. Neither button is a quote.",
+      ctaButton: "Open Genki",
       secondaryButton: "Open Wise",
       body: `<p>The freelance rate calculator turns a net income you want to keep into a gross amount you would have to bill, then divides that gross by the hours you can bill. Gross equals net income plus yearly business costs, divided by one minus the tax rate. The tax rate is the percent you type. It is not a bracket the page looks up, and it is not a tax return. A rate of 100 percent or more is rejected, because the divisor would be zero or negative. Business costs are the yearly figure you type. The page will not invent them.</p>
 <h2>Work days and billable hours</h2>
@@ -454,7 +451,7 @@ export const relocationTools = [
 <li>This is a planning rate. It is not a tax return and not an invoice.</li>
 </ul>
 <p>The gap between a price and a cost is the <a href="{{href:margin-markup-calculator}}">margin and markup calculator</a>. A portfolio from yearly spending and a withdrawal rate you type is the <a href="{{href:fire-calculator}}">FIRE calculator</a>. Weekdays between two contract dates are the <a href="{{href:business-days-calculator}}">business days calculator</a>. What the same money buys in another city is the <a href="{{href:cost-of-living-calculator}}">cost of living calculator</a>.</p>
-<p>Getting paid across borders has its own fee, separate from the hourly rate. A transfer fee or a spread can sit on the payout. <a href="{{aff:wise}}">Wise</a> is the payout name on this page, and today's fee is not stored here. A solo year with no employer sick pay is why people look at nomad medical plans. That question is not inside the 25 per hour, and it is not inside 65000 divided by 0.75. <a href="{{aff:safetywing}}">SafetyWing</a> is the medical name linked here. The <a href="{{href:blog/safetywing-vs-genki}}">SafetyWing and Genki guide</a> compares the two plans and does not quote a premium. The buttons are affiliate links. The rate does not change because they are there.</p>`,
+<p>Getting paid across borders has its own fee, separate from the hourly rate. A transfer fee or a spread can sit on the payout. <a href="{{aff:wise}}">Wise</a> is the payout name on this page, and today's fee is not stored here. A solo year with no employer sick pay is why people look at nomad medical plans. That question is not inside the 25 per hour, and it is not inside 65000 divided by 0.75. <a href="{{aff:genki}}">Genki</a> is the medical name linked here. The <a href="{{href:blog/genki-nomad-insurance}}">Genki guide</a> says what to read in the plan and does not quote a premium. The buttons are affiliate links. The rate does not change because they are there.</p>`,
       faq: [
         {
           q: "How is the gross figure calculated?",
@@ -474,7 +471,7 @@ export const relocationTools = [
         },
         {
           q: "Does the hourly rate include a Wise fee or a medical premium?",
-          a: "No. A cross-border payout has its own fee, separate from the hourly rate. Wise is the payout name on this page, and today's fee is not stored here. A solo year with no employer sick pay is why people look at nomad medical plans. SafetyWing is the medical name linked here, and the guide compares it with Genki. Neither a premium nor a payout fee sits inside the 25 per hour."
+          a: "No. A cross-border payout has its own fee, separate from the hourly rate. Wise is the payout name on this page, and today's fee is not stored here. A solo year with no employer sick pay is why people look at nomad medical plans. Genki is the medical name linked here, and the guide says what to read in that plan. Neither a premium nor a payout fee sits inside the 25 per hour."
         }
       ]
     },
@@ -485,8 +482,8 @@ export const relocationTools = [
       lede: "Валовая сумма — это нужные вам чистые плюс расходы бизнеса, делённые на единицу минус введённая ставка налога. Дальше сумма ложится на часы, которые остались после отпуска и неоплачиваемого времени.",
       banner: "Подсчёт дней и индекс нужны для плана. Это не виза, не налоговое решение, не страховой полис и не котировка.",
       ctaTitle: "Ставка — это не премия и не комиссия выплаты",
-      ctaBody: "Год без работодателя значит год без оплачиваемого больничного, поэтому люди смотрят медицинские планы для жизни в разъездах. Платёж через границу имеет свою комиссию, и в часовую ставку она не входит. Имена здесь — SafetyWing и Wise. Ни одна кнопка не котировка.",
-      ctaButton: "Открыть SafetyWing",
+      ctaBody: "Год без работодателя значит год без оплачиваемого больничного, поэтому люди смотрят медицинский план для жизни в разъездах, например Genki. Платёж через границу имеет свою комиссию, и в часовую ставку она не входит. Ни одна кнопка не котировка.",
+      ctaButton: "Открыть Genki",
       secondaryButton: "Открыть Wise",
       body: `<p>Калькулятор ставки фрилансера превращает чистый доход, который вы хотите оставить себе, в валовую сумму, которую пришлось бы выставить, и делит эту сумму на часы, которые реально можно выставить клиенту. Валовая сумма равна чистому доходу плюс годовые расходы бизнеса, и всё это делится на единицу минус ставка налога. Ставка — тот процент, который вы ввели. Это не шкала, которую страница где-то посмотрела, и это не налоговая декларация. Ставку 100 процентов и выше поставить нельзя: делитель стал бы нулём или ушёл в минус. Расходы бизнеса — годовая цифра, которую вы ввели. Список за вас страница не сочинит.</p>
 <h2>Рабочие дни и оплачиваемые часы</h2>
@@ -503,7 +500,7 @@ export const relocationTools = [
 <li>Это ставка для плана. Это не декларация и не счёт клиенту.</li>
 </ul>
 <p>Ставка — не весь денежный план. Разрыв между ценой и себестоимостью, как маржа или наценка, считается в <a href="{{href:margin-markup-calculator}}">калькуляторе маржи и наценки</a>. Портфель из годовых расходов и ставки изъятия, которые вы вводите, собирает <a href="{{href:fire-calculator}}">калькулятор FIRE</a>. Будни между двумя датами договора считает <a href="{{href:business-days-calculator}}">калькулятор рабочих дней</a>. Что те же деньги покупают в другом городе по округлённому индексу, показывает <a href="{{href:cost-of-living-calculator}}">калькулятор стоимости жизни</a>. Ни одна из этих страниц не подменяет процент налога, который вы ввели здесь.</p>
-<p>Платёж через границу имеет свою комиссию, отдельно от часовой ставки. На выплате могут сидеть комиссия перевода или спред. <a href="{{aff:wise}}">Wise</a> — имя выплаты на этой странице, и сегодняшнюю комиссию она не знает. Год без работодателя — это год без оплачиваемого больничного, поэтому люди смотрят медицинские планы для жизни в разъездах. Этот вопрос не сидит внутри 25 в час и не сидит внутри деления 65000 на 0,75. <a href="{{aff:safetywing}}">SafetyWing</a> — медицинское имя на этой странице. <a href="{{href:blog/safetywing-vs-genki}}">Статья про SafetyWing и Genki</a> сравнивает два плана и премию не называет. Кнопки — партнёрские ссылки. Ставка из-за них не меняется.</p>`,
+<p>Платёж через границу имеет свою комиссию, отдельно от часовой ставки. На выплате могут сидеть комиссия перевода или спред. <a href="{{aff:wise}}">Wise</a> — имя выплаты на этой странице, и сегодняшнюю комиссию она не знает. Год без работодателя — это год без оплачиваемого больничного, поэтому люди смотрят медицинские планы для жизни в разъездах. Этот вопрос не сидит внутри 25 в час и не сидит внутри деления 65000 на 0,75. <a href="{{aff:genki}}">Genki</a> — медицинское имя на этой странице. <a href="{{href:blog/genki-nomad-insurance}}">Статья про Genki</a> говорит, что читать в плане, и премию не называет. Кнопки — партнёрские ссылки. Ставка из-за них не меняется.</p>`,
       faq: [
         {
           q: "Как считается валовая сумма?",
@@ -523,7 +520,7 @@ export const relocationTools = [
         },
         {
           q: "В часовую ставку входят комиссия Wise или медицинская премия?",
-          a: "Нет. Платёж через границу имеет свою комиссию, и от часовой ставки она отдельно. Wise — имя выплаты на этой странице. Сегодняшней комиссии здесь нет, и страница её не выдумает. Год в одиночку, без больничного от работодателя, — причина смотреть медицинские планы для жизни в разъездах. SafetyWing — медицинское имя на этой странице, а статья сравнивает его с Genki. Ни премия, ни комиссия выплаты не сидят внутри 25 в час и не сидят внутри валовой суммы."
+          a: "Нет. Платёж через границу имеет свою комиссию, и от часовой ставки она отдельно. Wise — имя выплаты на этой странице. Сегодняшней комиссии здесь нет, и страница её не выдумает. Год в одиночку, без больничного от работодателя, — причина смотреть медицинские планы для жизни в разъездах. Genki — медицинское имя на этой странице, а статья говорит, что читать в этом плане. Ни премия, ни комиссия выплаты не сидят внутри 25 в час и не сидят внутри валовой суммы."
         }
       ]
     }

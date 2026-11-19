@@ -8,7 +8,6 @@ window.AFFILIATES = {
   proton: { name: "Proton", url: "#AFFILIATE_PROTON" },
   onepassword: { name: "1Password", url: "#AFFILIATE_1PASSWORD" },
   bitwarden: { name: "Bitwarden", url: "#AFFILIATE_BITWARDEN" },
-  safetywing: { name: "SafetyWing", url: "#AFFILIATE_SAFETYWING" },
   genki: { name: "Genki", url: "#AFFILIATE_GENKI" },
   interactivebrokers: { name: "Interactive Brokers", url: "#AFFILIATE_INTERACTIVEBROKERS" },
   binance: { name: "Binance", url: "#AFFILIATE_BINANCE" },
