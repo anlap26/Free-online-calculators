@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply m-0 bg-paper text-ink antialiased;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { @apply text-pine2 underline decoration-1 underline-offset-2; }
+  a:hover { @apply text-copper; }
+  :focus-visible { outline: 2px solid #8c4a2f; outline-offset: 2px; }
+  img, svg { max-width: 100%; }
+  h1, h2, h3 { font-family: Georgia, "Iowan Old Style", Palatino, serif; }
+}
+
+@layer components {
+  .skip {
+    @apply absolute left-2 top-2 -translate-y-16 bg-card px-3 py-2 z-50;
+  }
+  .skip:focus { @apply translate-y-0; }
+  .wrap { width: min(1080px, calc(100% - 32px)); @apply mx-auto; }
+  header.top { @apply bg-pine text-sand; }
+  header.top a { @apply text-sand no-underline; }
+  header.top a:hover { @apply text-white; }
+  .bar { @apply flex flex-wrap items-center justify-between gap-x-4 gap-y-3 py-4; }
+  .logo { @apply font-serif text-[22px] font-bold leading-none tracking-tight text-sand no-underline; }
+  .logo small { @apply block mt-1 font-sans text-xs font-medium tracking-wide opacity-80; }
+  nav.main { @apply flex flex-wrap items-center gap-x-4 gap-y-2; }
+  nav.main a { @apply text-[15px] font-semibold no-underline; }
+  nav.main a[aria-current="page"] { box-shadow: inset 0 -2px 0 #e7c7a4; }
+  .langs a {
+    @apply rounded-full border border-white/40 px-2 py-0.5 text-[13px] no-underline;
+  }
+  .langs a[aria-current="true"] { @apply bg-sand text-pine; }
+  .hero { @apply pt-10 pb-2; }
+  .hero h1, .page h1 {
+    @apply font-serif font-bold tracking-tight m-0 mb-3;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.08;
+  }
+  .page { @apply pt-7 pb-2; }
+  .lede { @apply text-[19px] text-ink max-w-prose mb-4; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 0.875rem; }
+  @media (min-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1080px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .card {
+    @apply bg-card border border-line rounded-2xl p-4 flex flex-col gap-2 shadow-card;
+  }
+  .card h2, .card h3 { @apply font-serif text-[22px] leading-tight m-0; }
+  .card p { @apply m-0 text-[15.5px] text-ink; }
+  .card .more { @apply mt-auto font-bold text-sm; }
+  h2.sec { @apply font-serif text-3xl mt-8 mb-3; }
+  .crumbs { @apply text-sm text-muted mb-3 flex flex-wrap gap-x-2; }
+  .crumbs a { @apply text-muted; }
+  .calc {
+    @apply grid gap-3 bg-card border border-line rounded-2xl p-4 max-w-3xl;
+  }
+  .fld { @apply grid gap-1 font-semibold text-[15px]; }
+  .fld input, .fld select, .fld textarea {
+    @apply font-normal font-sans text-base px-3 py-2.5 border border-[#d5cbbd] rounded-[10px] bg-white w-full;
+  }
+  .fld textarea { min-height: 140px; }
+  .chk { @apply flex gap-2 items-start text-[15.5px] font-normal; }
+  .chk input { @apply w-[18px] h-[18px] mt-1 flex-none; }
+  .row2 { @apply grid gap-3 sm:grid-cols-2; }
+  .row3 { @apply grid gap-3 sm:grid-cols-3; }
+  button.go, a.go {
+    @apply inline-flex items-center justify-center bg-pine text-white border-0 rounded-full px-4 py-3 font-bold cursor-pointer no-underline text-center;
+  }
+  button.go:hover, a.go:hover { @apply bg-copper text-white; }
+  a.go.alt { @apply bg-white text-pine border-2 border-pine; }
+  a.go.alt:hover { @apply bg-pine text-white; }
+  button.ghost {
+    @apply bg-white text-pine border border-line rounded-full px-3 py-2 font-semibold cursor-pointer;
+  }
+  .result {
+    @apply mt-4 bg-white border border-line rounded-2xl px-4 py-3 max-w-3xl min-h-[3rem];
+  }
+  table.out { @apply w-full border-collapse; }
+  table.out th { @apply text-left font-semibold py-2 pr-3 align-top; }
+  table.out td { @apply text-right py-2 tabular-nums whitespace-nowrap; }
+  table.out tr { @apply border-b border-line; }
+  .prose h2 { @apply font-serif text-[26px] mt-7 mb-2; }
+  .prose h3 { @apply font-serif text-xl mt-5 mb-2; }
+  .prose p, .prose li { @apply max-w-prose; }
+  .prose p { @apply mb-3.5; }
+  .prose ul, .prose ol { @apply mb-3.5 pl-5 max-w-prose; }
+  .prose li { @apply my-1; }
+  .faq details { @apply border-t border-line py-2.5; }
+  .faq summary { @apply cursor-pointer font-bold; }
+  .faq p { @apply mt-2 mb-1 max-w-prose; }
+  .banner {
+    @apply bg-warnbg border border-[#ecd7bc] rounded-xl px-3.5 py-3 text-warn text-sm my-3 max-w-3xl;
+  }
+  .disclosure {
+    @apply text-sm text-muted max-w-3xl my-3;
+  }
+  .cta {
+    @apply bg-card border border-line border-t-4 border-t-copper rounded-2xl p-4 my-5 max-w-3xl;
+  }
+  .cta h2 { @apply font-serif text-[26px] leading-tight m-0 mb-2; }
+  .cta p { @apply mb-3 max-w-prose; }
+  .cta-btns { @apply flex flex-wrap gap-2.5; }
+  .cta-btns a { @apply flex-1 basis-60; }
+  .meta { @apply text-muted text-sm mb-4; }
+  .err { @apply text-[#6d2e2e] font-semibold; }
+  .clock {
+    @apply font-serif text-6xl tabular-nums tracking-tight my-2;
+  }
+  .swatch { @apply w-10 h-10 rounded-lg border border-line inline-block align-middle mr-2; }
+  .sample {
+    @apply rounded-xl p-4 my-2 text-lg font-semibold;
+  }
+  footer { @apply mt-12 bg-pine text-[#e7e1d6] py-7 text-sm; }
+  footer a { @apply text-white; }
+  footer .cols { @apply flex flex-wrap gap-x-4 gap-y-2 items-center; }
+  footer p { @apply max-w-[78ch]; }
+  .lot, .trip {
+    @apply grid gap-2 sm:grid-cols-[1fr_1fr_1fr_auto] items-end border border-dashed border-line rounded-xl p-2;
+  }
+  .fine { @apply text-muted text-[13px]; }
+  .tag {
+    @apply inline-block rounded-full bg-sand text-pine text-xs font-bold px-2 py-0.5;
+  }
+  pre.outbox {
+    @apply bg-white border border-line rounded-xl p-3 overflow-x-auto text-sm whitespace-pre-wrap break-words max-w-3xl;
+  }
+  .pass {
+    @apply font-mono text-lg break-all bg-sand rounded-lg px-2 py-1;
+  }
+  canvas.qr { @apply bg-white border border-line rounded-xl; }
+  @media (max-width: 640px) {
+    .cta-btns { @apply flex-col; }
+    table.out td { white-space: normal; }
+  }
+}

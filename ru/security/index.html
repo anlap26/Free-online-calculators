@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Инструменты приватности: пароли, IP, EXIF, AES</title>
+<meta name="description" content="Сгенерировать пароль, оценить время перебора локально, проверить IP и WebRTC, собрать псевдоним почты, убрать EXIF и зашифровать текст AES-GCM. В браузере.">
+<link rel="canonical" href="https://anlap26.github.io/free-online-calculators/ru/security/">
+<link rel="alternate" hreflang="en" href="https://anlap26.github.io/free-online-calculators/security/">
+<link rel="alternate" hreflang="ru" href="https://anlap26.github.io/free-online-calculators/ru/security/">
+<link rel="alternate" hreflang="x-default" href="https://anlap26.github.io/free-online-calculators/security/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Бесплатные онлайн-калькуляторы">
+<meta property="og:title" content="Инструменты приватности: пароли, IP, EXIF, AES">
+<meta property="og:description" content="Сгенерировать пароль, оценить время перебора локально, проверить IP и WebRTC, собрать псевдоним почты, убрать EXIF и зашифровать текст AES-GCM. В браузере.">
+<meta property="og:url" content="https://anlap26.github.io/free-online-calculators/ru/security/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://anlap26.github.io/free-online-calculators/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Инструменты приватности: пароли, IP, EXIF, AES">
+<meta name="twitter:description" content="Сгенерировать пароль, оценить время перебора локально, проверить IP и WebRTC, собрать псевдоним почты, убрать EXIF и зашифровать текст AES-GCM. В браузере.">
+<meta name="twitter:image" content="https://anlap26.github.io/free-online-calculators/assets/img/og.png">
+<meta name="theme-color" content="#1e3d34">
+<link rel="icon" href="/free-online-calculators/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/free-online-calculators/assets/img/icon-192.png">
+<link rel="manifest" href="/free-online-calculators/site.webmanifest">
+<link rel="stylesheet" href="/free-online-calculators/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Проверка пароля куда-нибудь его отправляет?","acceptedAnswer":{"@type":"Answer","text":"Нет. Скрипт читает поле локально. Можно отключить сеть, проверка всё равно сработает."}},{"@type":"Question","name":"Тест IP покажет мой DNS-сервер?","acceptedAnswer":{"@type":"Answer","text":"Нет. Обычная страница этого не видит. Она показывает публичный IP и лишний адрес, если его выдал WebRTC."}},{"@type":"Question","name":"Вы расшифруете заметку, если я забуду пароль?","acceptedAnswer":{"@type":"Answer","text":"Нет. Ключ не покидает браузер, и копии у нас нет."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Инструменты приватности и безопасности","item":"https://anlap26.github.io/free-online-calculators/ru/security/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<header class="top"><div class="wrap bar">
+<a class="logo" href="/free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
+<nav class="main" aria-label="Разделы">
+<a href="/free-online-calculators/ru/">Главная</a><a href="/free-online-calculators/ru/finance/">Финансы</a><a href="/free-online-calculators/ru/security/" aria-current="page">Приватность</a><a href="/free-online-calculators/ru/relocation/">Переезд</a><a href="/free-online-calculators/ru/webmaster/">Веб</a><a href="/free-online-calculators/ru/blog/">Статьи</a>
+<span class="langs"><a href="https://anlap26.github.io/free-online-calculators/security/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/free-online-calculators/ru/security/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
+</nav></div></header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <span aria-current="page">Инструменты приватности и безопасности</span></nav></div>
+<article class="page"><div class="wrap"><h1>Инструменты приватности и безопасности</h1><p class="lede">Генераторы и проверки, которые оставляют пароли, фото и заметки на устройстве, плюс тест IP, где прямо сказано, какую внешнюю службу он вызывает.</p><div class="prose"><p>Генератор паролей берёт случайность из криптографического источника браузера. Энтропия — это длина, умноженная на логарифм размера алфавита, или число слов, умноженное на логарифм списка. Проверка стойкости даёт более грубую оценку и ищет частые пароли, повторы и ряды. Пароль она никуда не отправляет. Оба числа — модель перебора, а не обещание насчёт утечки, которая уже случилась.</p>
+<p>Страница IP спрашивает ipify и ipwho.is, какой адрес они видят, и сравнивает его с адресами, которые собрал WebRTC через публичный STUN. Страница не видит ваш DNS-резолвер. Так и написано, вместо имитации проверки, которую страница сделать не может. Снятие EXIF разбирает JPEG в браузере и может выкинуть сегменты метаданных, либо вы перекодируете снимок через canvas. AES здесь — это AES-GCM и PBKDF2. Потеряли пароль — текст потерян. Письма для восстановления нет, потому что копии не хранилось.</p>
+<p>Статьи сравнивают три VPN и три менеджера паролей в том же духе: для чего продукт, что проверить в текущем тарифе и чего этот сайт не измерял. VPN не чинит пароль, который вы используете везде. Менеджер паролей не прячет IP.</p></div><div class="grid"><article class="card"><h2>Генератор паролей</h2><p>Случайный пароль или парольная фраза в этом браузере, энтропия написана рядом.</p><a class="more" href="/free-online-calculators/ru/password-generator/">Открыть</a></article><article class="card"><h2>Проверка стойкости пароля</h2><p>Локальная оценка времени перебора по классам символов, со штрафом за шаблоны, которыми люди пользуются на самом деле.</p><a class="more" href="/free-online-calculators/ru/password-strength-checker/">Открыть</a></article><article class="card"><h2>Проверка утечки IP</h2><p>Публичный адрес, который видят ipify и ipwho.is, рядом с тем, что готов показать WebRTC.</p><a class="more" href="/free-online-calculators/ru/ip-leak-test/">Открыть</a></article><article class="card"><h2>Генератор одноразового адреса</h2><p>Строка-псевдоним из двух слов и четырёх цифр. Ящик при этом не открывается.</p><a class="more" href="/free-online-calculators/ru/disposable-email-generator/">Открыть</a></article><article class="card"><h2>Удаление EXIF</h2><p>Прочитать у JPEG данные камеры и GPS в браузере и скачать копию без этих сегментов.</p><a class="more" href="/free-online-calculators/ru/exif-remover/">Открыть</a></article><article class="card"><h2>Шифрование текста AES</h2><p>AES-GCM для заметки, которая остаётся в браузере. Потеряли пароль — текста больше нет.</p><a class="more" href="/free-online-calculators/ru/aes-encryptor/">Открыть</a></article><article class="card"><h2>Хеш и случайный ключ</h2><p>UUID версии 4, отпечаток SHA-256, целое без перекоса и случайный ключ в hex и base64.</p><a class="more" href="/free-online-calculators/ru/hash-generator/">Открыть</a></article></div><section class="faq"><h2>Частые вопросы</h2><details><summary>Проверка пароля куда-нибудь его отправляет?</summary><p>Нет. Скрипт читает поле локально. Можно отключить сеть, проверка всё равно сработает.</p></details><details><summary>Тест IP покажет мой DNS-сервер?</summary><p>Нет. Обычная страница этого не видит. Она показывает публичный IP и лишний адрес, если его выдал WebRTC.</p></details><details><summary>Вы расшифруете заметку, если я забуду пароль?</summary><p>Нет. Ключ не покидает браузер, и копии у нас нет.</p></details></section></div></article></main>
+<footer><div class="wrap">
+<nav class="cols">
+<a href="/free-online-calculators/ru/about/">О сайте</a>
+<a href="/free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
+<a href="/free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="/free-online-calculators/ru/blog/">Статьи</a>
+</nav>
+<p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
+<p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
+<p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
+</div></footer>
+<script defer src="/free-online-calculators/assets/js/affiliates.js"></script>
+<script defer src="/free-online-calculators/assets/js/site.js"></script>
+</body>
+</html>

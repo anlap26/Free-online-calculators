@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Privacy Tools: Passwords, IP Test, EXIF, AES</title>
+<meta name="description" content="Generate a password, estimate crack time locally, test IP and WebRTC, make an alias address, strip EXIF, and encrypt text with AES-GCM. In the browser.">
+<link rel="canonical" href="https://anlap26.github.io/free-online-calculators/security/">
+<link rel="alternate" hreflang="en" href="https://anlap26.github.io/free-online-calculators/security/">
+<link rel="alternate" hreflang="ru" href="https://anlap26.github.io/free-online-calculators/ru/security/">
+<link rel="alternate" hreflang="x-default" href="https://anlap26.github.io/free-online-calculators/security/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="Free Online Calculators">
+<meta property="og:title" content="Free Privacy Tools: Passwords, IP Test, EXIF, AES">
+<meta property="og:description" content="Generate a password, estimate crack time locally, test IP and WebRTC, make an alias address, strip EXIF, and encrypt text with AES-GCM. In the browser.">
+<meta property="og:url" content="https://anlap26.github.io/free-online-calculators/security/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://anlap26.github.io/free-online-calculators/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Privacy Tools: Passwords, IP Test, EXIF, AES">
+<meta name="twitter:description" content="Generate a password, estimate crack time locally, test IP and WebRTC, make an alias address, strip EXIF, and encrypt text with AES-GCM. In the browser.">
+<meta name="twitter:image" content="https://anlap26.github.io/free-online-calculators/assets/img/og.png">
+<meta name="theme-color" content="#1e3d34">
+<link rel="icon" href="/free-online-calculators/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/free-online-calculators/assets/img/icon-192.png">
+<link rel="manifest" href="/free-online-calculators/site.webmanifest">
+<link rel="stylesheet" href="/free-online-calculators/assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the password checker send my password anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The script reads the field locally. You can disconnect and the check still runs."}},{"@type":"Question","name":"Will the IP test show my DNS server?","acceptedAnswer":{"@type":"Answer","text":"No. A normal web page cannot see that. It can show your public IP and any extra address WebRTC reveals."}},{"@type":"Question","name":"Can you decrypt a note if I forget the password?","acceptedAnswer":{"@type":"Answer","text":"No. The key never leaves your browser, and we do not keep a copy."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Privacy and security tools","item":"https://anlap26.github.io/free-online-calculators/security/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap bar">
+<a class="logo" href="/free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
+<nav class="main" aria-label="Sections">
+<a href="/free-online-calculators/">Home</a><a href="/free-online-calculators/finance/">Finance</a><a href="/free-online-calculators/security/" aria-current="page">Privacy</a><a href="/free-online-calculators/relocation/">Relocation</a><a href="/free-online-calculators/webmaster/">Webmaster</a><a href="/free-online-calculators/blog/">Guides</a>
+<span class="langs"><a href="https://anlap26.github.io/free-online-calculators/security/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/free-online-calculators/ru/security/" hreflang="ru" lang="ru">RU</a></span>
+</nav></div></header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/free-online-calculators/">Home</a><span aria-hidden="true">/</span> <span aria-current="page">Privacy and security tools</span></nav></div>
+<article class="page"><div class="wrap"><h1>Privacy and security tools</h1><p class="lede">Generators and checks that keep passwords, photos, and private notes on the device, plus one IP test that says which outside service it calls.</p><div class="prose"><p>The password generator draws from the browser's cryptographic random source. Entropy is the length times the log of the alphabet size, or the word count times the log of the word list. The strength checker uses a smaller estimate and looks for common passwords, repeats, and sequences. It does not upload the password. Treat both numbers as a model of brute force, not as a promise about a leak that has already happened.</p>
+<p>The IP page asks ipify and ipwho.is what address they see, and it compares that with addresses gathered from a WebRTC connection to a public STUN server. A page cannot see your DNS resolver. The page says that, instead of pretending to run a DNS test it cannot run. EXIF removal parses a JPEG in the browser and can drop the metadata segments, or you can re-encode through a canvas. AES uses AES-GCM and PBKDF2. If the password is lost, the text is gone. There is no recovery email, because nothing was stored.</p>
+<p>The guides compare three VPNs and three password managers in the same spirit: what each product is for, what to verify on the current plan, and what this site did not measure. A VPN does not fix a password you reuse. A password manager does not hide your IP.</p></div><div class="grid"><article class="card"><h2>Password generator</h2><p>A random password or a passphrase, drawn in this browser, with the entropy printed beside it.</p><a class="more" href="/free-online-calculators/password-generator/">Open</a></article><article class="card"><h2>Password strength checker</h2><p>A local estimate of crack time from the classes in the password, with penalties for patterns people actually use.</p><a class="more" href="/free-online-calculators/password-strength-checker/">Open</a></article><article class="card"><h2>IP leak test</h2><p>The public address ipify and ipwho.is see, set next to whatever WebRTC is willing to reveal.</p><a class="more" href="/free-online-calculators/ip-leak-test/">Open</a></article><article class="card"><h2>Disposable email generator</h2><p>An alias string from two words and four digits. It does not open a mailbox.</p><a class="more" href="/free-online-calculators/disposable-email-generator/">Open</a></article><article class="card"><h2>EXIF remover</h2><p>Read device and GPS tags from a JPEG in the browser, then download a copy with those segments removed.</p><a class="more" href="/free-online-calculators/exif-remover/">Open</a></article><article class="card"><h2>AES text encryptor</h2><p>AES-GCM for a note that stays in this browser, with no recovery if the password is lost.</p><a class="more" href="/free-online-calculators/aes-encryptor/">Open</a></article><article class="card"><h2>Hash and key generator</h2><p>UUID v4, a SHA-256 fingerprint, an unbiased integer, and a random key in hex and base64.</p><a class="more" href="/free-online-calculators/hash-generator/">Open</a></article></div><section class="faq"><h2>Questions people ask</h2><details><summary>Does the password checker send my password anywhere?</summary><p>No. The script reads the field locally. You can disconnect and the check still runs.</p></details><details><summary>Will the IP test show my DNS server?</summary><p>No. A normal web page cannot see that. It can show your public IP and any extra address WebRTC reveals.</p></details><details><summary>Can you decrypt a note if I forget the password?</summary><p>No. The key never leaves your browser, and we do not keep a copy.</p></details></section></div></article></main>
+<footer><div class="wrap">
+<nav class="cols">
+<a href="/free-online-calculators/about/">About</a>
+<a href="/free-online-calculators/privacy-policy/">Privacy policy</a>
+<a href="/free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
+<a href="/free-online-calculators/blog/">Guides</a>
+</nav>
+<p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
+<p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
+<p>© 2026 Free Online Calculators. Published by Anna.</p>
+</div></footer>
+<script defer src="/free-online-calculators/assets/js/affiliates.js"></script>
+<script defer src="/free-online-calculators/assets/js/site.js"></script>
+</body>
+</html>
