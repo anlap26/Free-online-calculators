@@ -264,8 +264,7 @@ function renderHome(lang) {
     ]
   });
   const extraHead = lang === "en" ? `<meta name="google-site-verification" content="s-0iJOldUS8OhEjahKd_140IjmUAu3QdenCVsJIx-KI" />
-<!-- Yandex Webmaster: replace YOUR_YANDEX_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
-<!-- <meta name="yandex-verification" content="YOUR_YANDEX_CODE"> -->
+<meta name="yandex-verification" content="a2b06268a87bb42b" />
 <!-- Bing Webmaster: replace YOUR_BING_CODE in this file (index.html), which is generated from build/generate.mjs renderHome. -->
 <!-- <meta name="msvalidate.01" content="YOUR_BING_CODE"> -->
 ` : "";
