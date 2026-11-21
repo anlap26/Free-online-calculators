@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import vm from "vm";
 import { fileURLToPath } from "url";
 import { tools as sourceTools } from "../content/tools.mjs";
 import { articles as coreArticles } from "../content/articles.mjs";
@@ -58,6 +59,61 @@ import { BASE, SITE, clusters, t, pathFor, abs, page, crumb, breadcrumbLd, faqLd
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const problems = [];
 
+function loadAffiliates() {
+  const src = fs.readFileSync(new URL("../assets/js/affiliates.js", import.meta.url), "utf8");
+  const sandbox = { window: {} };
+  vm.runInNewContext(src, sandbox);
+  return sandbox.window.AFFILIATES || {};
+}
+
+const AFFILIATES = loadAffiliates();
+const CYPRUS_KEYS = ["localrent", "kiwitaxi", "welcomepickups"];
+
+function partnerRecord(key) {
+  const item = AFFILIATES[key];
+  if (!item || typeof item.url !== "string" || !item.url || item.url.startsWith("#")) return null;
+  return item;
+}
+
+function keysFor(entry) {
+  let keys = [];
+  if (Array.isArray(entry.partners) && entry.partners.length) keys = entry.partners.slice();
+  else if (Array.isArray(entry.affiliates)) keys = entry.affiliates.slice();
+  else {
+    if (entry.affiliate) keys.push(entry.affiliate);
+    if (entry.secondary) keys.push(entry.secondary);
+  }
+  if (entry.cyprus) keys = keys.concat(CYPRUS_KEYS);
+  const seen = new Set();
+  return keys.filter((key) => {
+    if (seen.has(key) || !partnerRecord(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function partnerButtons(keys, lang) {
+  return keys.map((key, i) => {
+    const item = partnerRecord(key);
+    const label = item[lang] || item.name || key;
+    const cls = i === 0 ? "go" : "go alt";
+    return `<a class="${cls}" data-affiliate="${esc(key)}" href="${esc(item.url)}" target="_blank" rel="sponsored nofollow noopener">${esc(label)}</a>`;
+  }).join("");
+}
+
+function disclosureHtml(lang) {
+  const ui = t(lang);
+  return `<p class="disclosure">${esc(ui.disclosureShort)} <a href="${pathFor(lang, "/affiliate-disclosure/")}">${esc(ui.disclosure)}</a></p>`;
+}
+
+function partnerAside(title, body, keys, lang) {
+  const buttons = partnerButtons(keys, lang);
+  if (!buttons) return "";
+  return `<aside class="cta"><h2>${esc(title)}</h2><p>${esc(body)}</p><div class="cta-btns">${buttons}</div></aside>`;
+}
+
+const HUB_TRAVEL_KEYS = ["airalo", "aviasales", "klook", "tiqets"];
+
 function amazonSearch(query) {
   const src = fs.readFileSync(new URL("../assets/js/affiliates.js", import.meta.url), "utf8");
   const tag = src.match(/tag:\s*"([^"]+)"/);
@@ -92,8 +148,10 @@ function linkify(html, lang) {
       const pathname = slug.startsWith("/") ? slug : `/${slug}/`;
       return `href="${pathFor(lang, pathname)}"`;
     })
-    .replace(/href="\{\{aff:([a-z0-9]+)\}\}"/g, (_, key) => {
-      return `href="#AFFILIATE_${key.toUpperCase()}" data-affiliate="${key}" target="_blank" rel="sponsored noopener"`;
+    .replace(/<a href="\{\{aff:([a-z0-9]+)\}\}">([\s\S]*?)<\/a>/g, (_, key, text) => {
+      const item = partnerRecord(key);
+      if (!item) return text;
+      return `<a href="${esc(item.url)}" data-affiliate="${esc(key)}" target="_blank" rel="sponsored nofollow noopener">${text}</a>`;
     });
 }
 
@@ -131,17 +189,20 @@ function renderTool(tool, lang) {
   const body = linkify(copy.body, lang);
   const count = words(body);
   if (count < 400 || count > 820) problems.push(`tool ${lang} ${tool.slug}: ${count} words`);
-  const secondary = tool.secondary
-    ? `<a class="go alt" data-affiliate="${tool.secondary}" href="#AFFILIATE_${tool.secondary.toUpperCase()}">${esc(copy.secondaryButton || tool.secondary)}</a>`
+  const buttons = partnerButtons(keysFor(tool), lang);
+  const amazon = amazonAside(tool.slug, lang);
+  const aside = buttons
+    ? `<aside class="cta"><h2>${esc(copy.ctaTitle)}</h2><p>${esc(copy.ctaBody)}</p><div class="cta-btns">${buttons}</div></aside>`
     : "";
+  const linked = Boolean(buttons || amazon || body.includes("data-affiliate"));
   const main = `<article class="page"><div class="wrap">
 <h1>${esc(copy.h1)}</h1>
 <p class="lede">${esc(copy.lede)}</p>
 ${copy.banner ? `<p class="banner">${esc(copy.banner)}</p>` : ""}
 ${renderForm(tool.calc, lang)}
-<p class="disclosure">${esc(ui.disclosureShort)} <a href="${pathFor(lang, "/affiliate-disclosure/")}">${esc(ui.disclosure)}</a></p>
-<aside class="cta"><h2>${esc(copy.ctaTitle)}</h2><p>${esc(copy.ctaBody)}</p><div class="cta-btns"><a class="go" data-affiliate="${tool.affiliate}" href="#AFFILIATE_${tool.affiliate.toUpperCase()}">${esc(copy.ctaButton)}</a>${secondary}</div></aside>
-${amazonAside(tool.slug, lang)}
+${linked ? disclosureHtml(lang) : ""}
+${aside}
+${amazon}
 <div class="prose">${body}</div>
 <section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${linkify(esc(item.a), lang)}</p></details>`).join("")}</section>
 <section><h2 class="sec">${esc(ui.related)}</h2><div class="grid">${related.map((item) => `<article class="card"><h3>${esc(item[lang].h1)}</h3><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}${guide ? `<article class="card"><h3>${esc(guide[lang].h1)}</h3><p>${esc(guide[lang].lede)}</p><a class="more" href="${pathFor(lang, "/blog/" + guide.slug + "/")}">${esc(ui.guide)}</a></article>` : ""}</div></section>
@@ -195,15 +256,20 @@ function renderArticle(article, lang) {
   const count = words(body);
   if (count < 1200 || count > 2100) problems.push(`article ${lang} ${article.slug}: ${count} words`);
   const linkedTools = article.tools.map((slug) => tools.find((item) => item.slug === slug)).filter(Boolean);
-  const buttons = article.affiliates.map((key, i) => `<a class="${i === 0 ? "go" : "go alt"}" data-affiliate="${key}" href="#AFFILIATE_${key.toUpperCase()}">${esc(copy.buttons[key] || key)}</a>`).join("");
+  const buttons = partnerButtons(keysFor(article), lang);
+  const amazon = amazonAside(article.slug, lang);
+  const aside = buttons
+    ? `<aside class="cta"><h2>${esc(copy.ctaTitle)}</h2><p>${esc(copy.ctaBody)}</p><div class="cta-btns">${buttons}</div></aside>`
+    : "";
+  const linked = Boolean(buttons || amazon || body.includes("data-affiliate"));
   const main = `<article class="page"><div class="wrap">
 <p class="meta">${esc(ui.updated)}</p>
 <h1>${esc(copy.h1)}</h1>
 <p class="lede">${esc(copy.lede)}</p>
-<p class="disclosure">${esc(ui.disclosureShort)} <a href="${pathFor(lang, "/affiliate-disclosure/")}">${esc(ui.disclosure)}</a></p>
+${linked ? disclosureHtml(lang) : ""}
 <div class="prose">${body}</div>
-<aside class="cta"><h2>${esc(copy.ctaTitle)}</h2><p>${esc(copy.ctaBody)}</p><div class="cta-btns">${buttons}</div></aside>
-${amazonAside(article.slug, lang)}
+${aside}
+${amazon}
 <section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section>
 <section><h2 class="sec">${esc(ui.related)}</h2><div class="grid">${linkedTools.map((item) => `<article class="card"><h3>${esc(item[lang].h1)}</h3><p>${esc(item[lang].lede)}</p><a class="more" href="${pathFor(lang, "/" + item.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}</div></section>
 </div></article>`;
@@ -312,7 +378,17 @@ function renderHub(cluster, lang) {
   const ui = t(lang);
   const list = tools.filter((tool) => tool.cluster === cluster.slug);
   const pathname = `/${cluster.slug}/`;
-  const main = `<article class="page"><div class="wrap"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><div class="prose">${linkify(copy.body, lang)}</div><div class="grid">${list.map((item) => card(lang, item)).join("")}</div><section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section></div></article>`;
+  const travel = cluster.slug === "relocation"
+    ? partnerAside(
+      lang === "ru" ? "Партнёры для поездки" : "Travel partners",
+      lang === "ru"
+        ? "Подсчёт дней, индекс цен и сумма eSIM ничего не бронируют. Airalo продаёт туристические eSIM. Aviasales ищет авиабилеты. Klook собирает экскурсии и развлечения. Tiqets продаёт билеты. Цены меняются. Калькуляторы эти цены не читают."
+        : "The day count, the cost index, and the eSIM sum do not book a trip. Airalo sells travel eSIMs. Aviasales searches flights. Klook lists tours and activities. Tiqets sells attraction tickets. Prices change. The calculators do not read those prices.",
+      HUB_TRAVEL_KEYS,
+      lang
+    )
+    : "";
+  const main = `<article class="page"><div class="wrap"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><div class="prose">${linkify(copy.body, lang)}</div>${travel ? disclosureHtml(lang) : ""}${travel}<div class="grid">${list.map((item) => card(lang, item)).join("")}</div><section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section></div></article>`;
   const count = words(copy.body);
   if (count < 160) problems.push(`hub ${lang} ${cluster.slug}: ${count} words`);
   return page({
@@ -362,14 +438,31 @@ function renderBlogIndex(lang) {
   });
 }
 
-function render404() {
+function render404(lang) {
+  const copy = lang === "ru"
+    ? {
+      title: "Страница не найдена | Бесплатные онлайн-калькуляторы",
+      description: "Этой страницы на сайте нет. Вернитесь к бесплатным калькуляторам на английском или на русском.",
+      h1: "Страница не найдена",
+      lede: "Этого адреса на сайте нет.",
+      enLink: "Калькуляторы на английском",
+      ruLink: "Калькуляторы на русском"
+    }
+    : {
+      title: "Page not found | Free Online Calculators",
+      description: "That page is not on this site. Go back to the free calculators in English or Russian.",
+      h1: "Page not found",
+      lede: "That address is not on this site.",
+      enLink: "English calculators",
+      ruLink: "Калькуляторы на русском"
+    };
   return page({
-    lang: "en",
+    lang,
     pathname: "/404.html",
-    title: "Page not found | Free Online Calculators",
-    description: "That page is not on this site. Go back to the free calculators in English or Russian.",
+    title: copy.title,
+    description: copy.description,
     robots: "noindex",
-    main: `<div class="page"><div class="wrap"><h1>Page not found</h1><p class="lede">That address is not on this site.</p><p><a href="${pathFor("en", "/")}">English calculators</a> · <a href="${pathFor("ru", "/")}">Калькуляторы на русском</a></p></div></div>`
+    main: `<div class="page"><div class="wrap"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><p><a href="${pathFor("en", "/")}">${esc(copy.enLink)}</a> · <a href="${pathFor("ru", "/")}">${esc(copy.ruLink)}</a></p></div></div>`
   });
 }
 
@@ -410,7 +503,8 @@ for (const article of articles) {
     add(lang, `/blog/${article.slug}/`);
   }
 }
-writeFile("404.html", render404());
+writeFile("404.html", render404("en"));
+writeFile("ru/404.html", render404("ru"));
 
 const body = urls.map((item) => {
   const loc = abs(item.lang, item.pathname);
@@ -446,6 +540,26 @@ writeFile("site.webmanifest", JSON.stringify({
   ]
 }, null, 2));
 writeFile(".nojekyll", "");
+
+function assertNoPlaceholders() {
+  const needle = "#" + "AFFILIATE";
+  const bad = [];
+  function walk(dir) {
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (ent.name === "node_modules" || ent.name === ".git") continue;
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) walk(full);
+      else if (/\.(html|js|mjs|md)$/.test(ent.name)) {
+        const text = fs.readFileSync(full, "utf8");
+        if (text.includes(needle)) bad.push(path.relative(root, full));
+      }
+    }
+  }
+  walk(root);
+  if (bad.length) problems.push("affiliate placeholder remains in " + bad.join(", "));
+}
+
+assertNoPlaceholders();
 
 if (problems.length) {
   console.error(problems.join("\n"));

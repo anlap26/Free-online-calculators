@@ -146,6 +146,15 @@ ${extraHead || ""}
 <link rel="manifest" href="${BASE}/site.webmanifest">
 <link rel="stylesheet" href="${BASE}/assets/css/site.css">
 ${jsonld ? `<script type="application/ld+json">${jsonld.replace(/</g, "\\u003c")}</script>` : ""}
+<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.setAttribute("data-cmp-ab","2");
+      script.src = 'https://emrldtp.com/NjA0NDc4.js?t=604478';
+      document.head.appendChild(script);
+  })();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">${esc(copy.skip)}</a>

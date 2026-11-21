@@ -4,17 +4,38 @@ Static bilingual site of 35 calculators and comparison guides. English lives at 
 
 The GitHub repository is named `Free-online-calculators`. Project Pages uses that name in the path, so the site URL is https://anlap26.github.io/Free-online-calculators/ . If you rename the repository to all-lowercase `free-online-calculators`, change `BASE` in `build/layout.mjs` to `/free-online-calculators`, run `npm run build`, and push.
 
-## Affiliate links, one file
+## Affiliate links
 
-Edit only `assets/js/affiliates.js`. Every partner button and in-article partner link reads that object on load. The keys are:
+Partner URLs live in `assets/js/affiliates.js`. The generator writes a live URL into the page. `assets/js/site.js` rewrites any `[data-affiliate]` element from the same object. Every partner link uses `target="_blank"` and `rel="sponsored nofollow noopener"`. A name with no live URL is left as text. It is not a button.
 
-`nordvpn`, `surfshark`, `proton`, `onepassword`, `bitwarden`, `genki`, `interactivebrokers`, `binance`, `bybit`, `ledger`, `trezor`, `semrush`, `airalo`, `wise`, `cloudways`, `kinsta`, `amazon`.
+Travelpayouts marker `808586`:
+
+- Airalo eSIM: https://airalo.tpx.lt/Z3nl2F1z
+- Aviasales flights: https://aviasales.tpx.lt/45iBpc4b
+- Klook tours and activities: https://klook.tpx.lt/xtutlwca
+- Tiqets tickets: https://tiqets.tpx.lt/PUqK4uu8
+
+Those four are placed only where the page is about travel, currency, or trip cost, and on the relocation hub:
+
+- Schengen stay calculator
+- Cost of living calculator
+- Roaming and eSIM calculator
+- Currency spread calculator
+- Relocation hub
+- Airalo eSIM guide
+- Nomad insurance guide (the trip, not the policy)
+
+Airalo also stays in the eSIM calculator and the Airalo guide as an in-article link.
+
+Cyprus only, and only on a page that is clearly about Cyprus. None of the current pages is, so these are stored and not shown:
+
+- Localrent: https://localrent.tpx.lt/XVEtrVFd
+- Kiwitaxi: https://kiwitaxi.tpx.lt/TTuXoyTH
+- Welcome Pickups: https://tpx.lt/HeqeBOtK
 
 `amazon.url` is the Amazon.de homepage with the Associates tag. `amazon.search(query)` builds `https://www.amazon.de/s?k=<query>&tag=cynews24-21`. Product blocks use that search helper. They do not use ASINs.
 
-Replace a value such as `#AFFILIATE_SEMRUSH` with the full tracking URL. Do not rename the keys. Links are rewritten to `target="_blank"` and `rel="sponsored noopener"`.
-
-Semrush is the prominent offer on the SEO tools (text analyzer, meta tags, robots and sitemap, page speed, UTM builder, ROAS) and on four guides: the Semrush review, the trial walkthrough, Semrush versus Ahrefs and free tools, and the low-competition keyword method.
+Guides for Semrush, VPNs, password managers, brokers, exchanges, wallets, and hosts stay on the site. They do not show a partner button.
 
 ## Layout
 
@@ -50,10 +71,10 @@ If Pages is not already on:
 4. Branch: `main`, folder: `/ (root)`.
 5. Save.
 
-The site should appear at https://anlap26.github.io/free-online-calculators/ after the first deployment finishes.
+The site should appear at https://anlap26.github.io/Free-online-calculators/ after the first deployment finishes.
 
 ## After it is live
 
 - In Google Search Console, add the property `https://anlap26.github.io/Free-online-calculators/` and submit `sitemap.xml`.
-- Paste the real affiliate URLs into `assets/js/affiliates.js` and push to `main`.
+- When a partner URL changes, edit `assets/js/affiliates.js`, run `npm run build`, and push to `main`.
 - A custom domain is optional. Add a `CNAME` file with the domain, set the DNS, and change `ORIGIN` and `BASE` in `build/layout.mjs` (`BASE` becomes `""` on a domain that serves the site at `/`). Then run `npm run build` and push.

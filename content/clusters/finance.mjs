@@ -735,7 +735,7 @@ export const financeTools = [
     cluster: "finance",
     calc: "spread",
     category: "FinanceApplication",
-    affiliate: "wise",
+    partners: ["airalo", "aviasales", "klook", "tiqets"],
     related: ["inflation-calculator", "cost-of-living-calculator", "freelance-rate-calculator", "compound-interest-calculator"],
     guide: null,
     en: {
@@ -744,9 +744,9 @@ export const financeTools = [
       h1: "Currency spread calculator",
       lede: "The amount a bank rate delivers, set against the interbank rate you type, plus an alternative fee you can compare.",
       banner: "This is arithmetic for a plan. It is not a forecast and not investment, tax, or legal advice.",
-      ctaTitle: "A specialist can cost less, or not",
-      ctaBody: "The gap on this page is the difference between the two rates you typed. Wise is one specialist for cross-border transfers. It can be cheaper than the bank or it can be not, depending on the route and the fee you type. This page does not know Wise's current fee, and it works from the bank quote alone.",
-      ctaButton: "Open Wise",
+      ctaTitle: "Travel purchases sit outside the spread",
+      ctaBody: "The spread is the gap between two rates you type. An eSIM, a flight, a tour, and a ticket are separate purchases. Airalo, Aviasales, Klook, and Tiqets are linked here. This page does not fetch their prices.",
+      ctaButton: "Airalo eSIM",
       body: `<p>You type both rates. The page does not fetch a live quote, and the currency names are labels on the result. They do not look up a market. Point both rates the same way: units of the currency you receive for one unit you give. The bank delivers the amount times the bank rate. The interbank rate delivers the amount times the interbank rate. The loss is the mid amount minus the bank amount. The percent is that loss divided by the mid amount. Basis points are the percent times 10,000. If you invert one rate and not the other, the gap is a nonsense number. The form cannot tell that you swapped the direction.</p>
 <h2>1000 at 1.10 and 1.07</h2>
 <p>Convert 1000. The interbank rate is 1.10 and the bank rate is 1.07. The mid amount is 1100. The bank delivers 1070. The loss is 30. As a percent of the mid amount that is 30 divided by 1100, about 2.73 percent, which is about 273 basis points. Nothing in that chain is a forecast of tomorrow's rate. It is the two numbers you typed, multiplied and subtracted. A bank that shows you only its own rate has not shown you this gap. You still have to bring the interbank figure from somewhere you trust, and you should note the time, because both rates move.</p>
@@ -790,9 +790,9 @@ export const financeTools = [
       h1: "Калькулятор скрытой наценки банка",
       lede: "Сумма по курсу банка рядом с межбанковским курсом, который вы вводите, и комиссия, с которой это можно сравнить.",
       banner: "Это арифметика для плана. Это не прогноз и не инвестиционная, налоговая или юридическая рекомендация.",
-      ctaTitle: "Сервис перевода бывает дешевле, а бывает нет",
-      ctaBody: "Разрыв на странице — это разница двух курсов, которые вы ввели. Wise — один из сервисов для перевода между странами. Он может быть дешевле банка или нет: зависит от направления и от комиссии, которую вы подставите. Текущую комиссию Wise страница не знает и считает по курсу банка без неё.",
-      ctaButton: "Открыть Wise",
+      ctaTitle: "Покупки в поездке лежат вне спреда",
+      ctaBody: "Спред — разрыв двух курсов, которые вы ввели. eSIM, перелёт, экскурсия и билет — отдельные покупки. Здесь ссылки на Airalo, Aviasales, Klook и Tiqets. Их цены страница не запрашивает.",
+      ctaButton: "eSIM Airalo",
       body: `<p>Оба курса вводите вы. Живую котировку страница не запрашивает, а названия валют — подписи к результату. Рынок они не спрашивают. Оба курса должны смотреть в одну сторону: сколько валюты вы получаете за одну единицу, которую отдаёте. Банк выдаёт сумму, умноженную на курс банка. Межбанковский курс выдаёт сумму, умноженную на межбанковский курс. Потеря — это сумма по межбанку минус сумма банка. Процент — эта потеря, делённая на сумму по межбанку. Базисные пункты — тот же процент, умноженный на 10 000. Если перевернуть один курс и не перевернуть другой, разрыв станет бессмыслицей. Форма не заметит, что направление перепутано.</p>
 <h2>1000 при курсах 1,10 и 1,07</h2>
 <p>Меняете 1000. Межбанковский курс 1,10, курс банка 1,07. По межбанку выходит 1100. Банк выдаёт 1070. Потеря — 30. В процентах от межбанковской суммы это 30 разделить на 1100, около 2,73%, то есть около 273 базисных пунктов. В этой цепочке нет прогноза завтрашнего курса. Это два введённых числа, умноженные и вычтенные. Банк, который показал только свой курс, этот разрыв не показал. Межбанковскую цифру всё равно нужно принести из источника, которому вы доверяете, и заметить время: оба курса двигаются.</p>

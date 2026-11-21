@@ -51,12 +51,18 @@ const stay = await textOf("#result");
 if (!stay.includes("90")) throw new Error("schengen: " + stay);
 
 await page.goto(base + "/page-speed-revenue-calculator/", { waitUntil: "networkidle0" });
-const href = await page.$eval('a[data-affiliate="semrush"]', (el) => el.getAttribute("href"));
-const rel = await page.$eval('a[data-affiliate="semrush"]', (el) => el.getAttribute("rel"));
-if (href !== "#AFFILIATE_SEMRUSH") throw new Error("semrush href " + href);
-if (!rel.includes("sponsored")) throw new Error("rel " + rel);
+const semrush = await page.$$('a[data-affiliate="semrush"]');
+if (semrush.length) throw new Error("semrush button still present");
+const speedHtml = await page.content();
+if (speedHtml.includes("#" + "AFFILIATE")) throw new Error("placeholder on page speed");
 const h1s = await page.$$eval("h1", (els) => els.length);
 if (h1s !== 1) throw new Error("h1 " + h1s);
+
+await page.goto(base + "/roaming-esim-calculator/", { waitUntil: "networkidle0" });
+const href = await page.$eval('a[data-affiliate="airalo"]', (el) => el.getAttribute("href"));
+const rel = await page.$eval('a[data-affiliate="airalo"]', (el) => el.getAttribute("rel"));
+if (href !== "https://airalo.tpx.lt/Z3nl2F1z") throw new Error("airalo href " + href);
+if (!rel.includes("sponsored") || !rel.includes("nofollow") || !rel.includes("noopener")) throw new Error("rel " + rel);
 
 await page.goto(base + "/ru/blog/semrush-free-trial/", { waitUntil: "networkidle0" });
 const lang = await page.$eval("html", (el) => el.lang);

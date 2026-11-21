@@ -198,16 +198,16 @@ export const articles = [
   },
   {
     slug: "genki-nomad-insurance",
-    affiliates: ["genki"],
+    affiliates: ["airalo", "aviasales", "klook", "tiqets"],
     tools: ["schengen-stay-calculator","cost-of-living-calculator","freelance-rate-calculator","roaming-esim-calculator"],
     en: {
       title: "Genki nomad insurance: what to read | Free Online Calculators",
       description: "How to read a Genki nomad medical plan against travel insurance and a local health policy, and which lines in the schedule matter.",
       h1: "Genki and the cover a move actually needs",
       lede: "Travel insurance, nomad medical cover, and local health insurance are three contracts. This page says which lines to read, and quotes no premium.",
-      ctaTitle: "Read the policy schedule, then the brand",
-      ctaBody: "Product names, age rules, and deductibles change. Open the current plan and the exclusions before you pay. The buttons are affiliate links.",
-      buttons: {"genki":"Genki"},
+      ctaTitle: "The trip itself is a different purchase",
+      ctaBody: "This guide does not link to an insurer and does not quote a premium. Airalo, Aviasales, Klook, and Tiqets are the eSIM, flight, tour, and ticket partners for the trip. Prices change. Read any medical plan on its own page. The buttons are affiliate links.",
+      buttons: { airalo: "Airalo eSIM", aviasales: "Aviasales flights", klook: "Klook tours and activities", tiqets: "Tiqets tickets" },
       body: `<p>Medical cover for a person who moves around is three different products that share a vocabulary and not much else. Travel insurance is built around a trip. It often starts from a home country, often pays for an emergency rather than a Tuesday appointment, and often ends when the trip ends. Nomad or expat medical insurance is built around a person who is outside a home system for longer. It may be a subscription, it may still exclude the ordinary doctor, and it is still a contract with a schedule of benefits. Local health insurance is the scheme of the country where you actually live. A residence permit sometimes demands it. A policy bought from abroad sometimes does not satisfy the immigration office. Those three questions have to be answered separately, in that order: what trip are you on, which system are you outside, and which permit are you trying to keep.</p>
 <p><a href="{{aff:genki}}">Genki</a> is the name this site uses when people are shopping in the second category, and sometimes at the edge of the first. This page says what to read. It does not quote a premium, a payout rate, or a medical outcome. Those change with age, passport, deductible, and the wording of a condition you already have. The number on a comparison site is not the number on the schedule you will be sent.</p>
 <h2>How to read a policy without a lab</h2>
@@ -246,9 +246,9 @@ export const articles = [
       description: "Как читать медицинский план Genki рядом с туристической страховкой и местным полисом и какие строки таблицы смотреть.",
       h1: "Genki и покрытие, которое нужно при переезде",
       lede: "Туристическая страховка, медицинское покрытие кочевника и местный полис — три разных договора. Здесь сказано, какие строки читать. Премии в тексте нет.",
-      ctaTitle: "Сначала таблица полиса, потом бренд",
-      ctaBody: "Имена продуктов, правила возраста и франшизы меняются. Откройте текущий тариф и исключения до оплаты. Кнопки — партнёрские ссылки.",
-      buttons: {"genki":"Genki"},
+      ctaTitle: "Сама поездка — другая покупка",
+      ctaBody: "Эта статья не ссылается на страховщика и не называет премию. Airalo, Aviasales, Klook и Tiqets — партнёры eSIM, авиабилетов, экскурсий и билетов. Цены меняются. Медицинский план читайте на его странице. Кнопки — партнёрские ссылки.",
+      buttons: { airalo: "eSIM Airalo", aviasales: "Авиабилеты Aviasales", klook: "Экскурсии и развлечения Klook", tiqets: "Билеты Tiqets" },
       body: `<p>Медицинское покрытие для человека, который переезжает, — это три разных продукта. У них общий словарь и мало общего в договоре. Туристическая страховка собрана вокруг поездки. Часто она начинается из страны, которую полис считает домом, часто платит за неотложную помощь, а не за обычный вторник у врача, и часто кончается вместе с поездкой. Медицинская страховка кочевника или экспата собрана вокруг человека, который дольше живёт вне домашней системы. Она бывает подпиской, она всё ещё может не включать обычного врача, и это всё равно договор с таблицей выплат. Местная медицинская страховка — схема страны, где вы реально живёте. Вид на жительство иногда требует именно её. Полис, купленный из-за границы, иногда не устраивает миграционную службу. Вопросы надо закрыть по очереди: какая поездка, вне какой системы вы находитесь и какой документ о проживании вы хотите сохранить.</p>
 <p><a href="{{aff:genki}}">Genki</a> — имя, которое этот сайт использует, когда люди выбирают во второй категории и иногда на краю первой. Здесь сказано, что читать. Здесь нет премии, доли одобренных выплат и медицинского исхода. Всё это зависит от возраста, паспорта, франшизы и формулировки состояния, которое у вас уже есть. Цифра на сайте-сравнении — не цифра в таблице, которую вам пришлют.</p>
 <h2>Как читать полис без лаборатории</h2>
@@ -646,7 +646,7 @@ export const articles = [
   },
   {
     slug: "airalo-esim-review",
-    affiliates: ["airalo"],
+    affiliates: ["airalo", "aviasales", "klook", "tiqets"],
     tools: ["roaming-esim-calculator","schengen-stay-calculator","world-time-meeting-planner"],
     en: {
       title: "Airalo eSIM review | Free Online Calculators",
@@ -654,8 +654,8 @@ export const articles = [
       h1: "Airalo eSIM: when it beats roaming, and when it does not",
       lede: "What an eSIM is, which failures happen before the price matters, and how to use the calculator with the offer that is actually on your screen.",
       ctaTitle: "Price the plan that is on the screen",
-      ctaBody: "Country prices, fair-use caps, and install steps change. Read the current plan and type its price yourself. The button is an affiliate link.",
-      buttons: {"airalo":"Airalo"},
+      ctaBody: "Country prices, fair-use caps, and install steps change. Read the current Airalo plan and type its price yourself. Aviasales, Klook, and Tiqets cover flights, tours, and tickets for the same trip. The buttons are affiliate links.",
+      buttons: { airalo: "Airalo eSIM", aviasales: "Aviasales flights", klook: "Klook tours and activities", tiqets: "Tiqets tickets" },
       body: `<p>An eSIM is a SIM card that arrives as a profile you download onto a phone, instead of a plastic card you push into a tray. The phone has to contain the hardware, and it has to be allowed to use a profile that is not the one your home carrier sold with the handset. Many phones can. Some cannot. A model sold in one country can differ from the model a review filmed. Check the phone in your hand, in its settings, rather than a list on this page. <a href="{{aff:airalo}}">Airalo</a> sells travel eSIM plans that run on local partner networks. The partner is named on the plan you are looking at. Read that name. This article will not invent a coverage percentage, because the page does not have one it could honestly print.</p>
 <p>An eSIM beats roaming when the price on the screen in front of you, for the days and the countries you will actually use, is lower than the roaming quote from your home carrier for the same days. That is the whole comparison. The <a href="{{href:roaming-esim-calculator}}">roaming and eSIM calculator</a> subtracts a package you type from a roaming total you type. It does not know this week's Airalo price for any country. Type the numbers from the two offers you are holding. If you do not have both numbers, you do not have a comparison yet. A forum post that names a price is not one of the offers.</p>
 <h2>What has to be true before the price matters</h2>
@@ -695,8 +695,8 @@ export const articles = [
       h1: "eSIM Airalo: когда она выгоднее роуминга, а когда нет",
       lede: "Что такое eSIM, какие поломки случаются раньше цены и как пользоваться калькулятором с тем предложением, которое реально на вашем экране.",
       ctaTitle: "Считайте тариф, который на экране",
-      ctaBody: "Цены по странам, пороги скорости и шаги установки меняются. Прочитайте текущий тариф и впишите его цену сами. Кнопка — партнёрская ссылка.",
-      buttons: {"airalo":"Airalo"},
+      ctaBody: "Цены по странам, пороги скорости и шаги установки меняются. Прочитайте текущий тариф Airalo и впишите его цену сами. Aviasales, Klook и Tiqets закрывают авиабилеты, экскурсии и билеты той же поездки. Кнопки — партнёрские ссылки.",
+      buttons: { airalo: "eSIM Airalo", aviasales: "Авиабилеты Aviasales", klook: "Экскурсии и развлечения Klook", tiqets: "Билеты Tiqets" },
       body: `<p>eSIM — это SIM, которая приходит профилем: его скачивают на телефон, а не вставляют пластиковую карту в лоток. В телефоне должно быть железо для eSIM, и ему должно быть позволено принять профиль не того оператора, который продал трубку. Многие телефоны умеют. Некоторые нет. Модель, проданная в одной стране, может отличаться от модели из обзора. Проверяйте телефон, который у вас в руке, в его настройках, а не список на этой странице. <a href="{{aff:airalo}}">Airalo</a> продаёт туристические тарифы eSIM, которые работают на сетях местных партнёров. Партнёр назван на том тарифе, на который вы смотрите. Прочитайте это имя. Процент покрытия эта статья не выдумает: честной цифры, которую можно было бы напечатать, у страницы нет.</p>
 <p>eSIM выгоднее роуминга, когда цена на экране перед вами, за те дни и те страны, которыми вы реально воспользуетесь, ниже котировки роуминга домашнего оператора за те же дни. Всё сравнение в этом. <a href="{{href:roaming-esim-calculator}}">Калькулятор роуминга и eSIM</a> вычитает пакет, который вы ввели, из суммы роуминга, которую вы ввели. Цену Airalo на эту неделю ни для одной страны он не знает. Впишите числа из двух предложений, которые у вас в руках. Если обоих чисел нет, сравнения ещё нет. Сообщение на форуме с ценой одним из предложений не является.</p>
 <h2>Что должно быть правдой до того, как важна цена</h2>

@@ -5,10 +5,19 @@
     if (node.hasAttribute("data-amazon-query")) return;
     var key = node.getAttribute("data-affiliate");
     var item = partners[key];
-    if (!item || !item.url) return;
+    if (!item || !item.url || item.url.charAt(0) === "#") {
+      node.remove();
+      return;
+    }
     node.setAttribute("href", item.url);
     node.setAttribute("target", "_blank");
-    node.setAttribute("rel", "sponsored noopener");
+    node.setAttribute("rel", "sponsored nofollow noopener");
+  });
+  document.querySelectorAll(".cta-btns").forEach(function (box) {
+    if (box.querySelector("a")) return;
+    var aside = box.closest("aside");
+    if (aside) aside.remove();
+    else box.remove();
   });
 
   var amazon = partners.amazon;

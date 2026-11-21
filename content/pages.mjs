@@ -7,7 +7,7 @@ export const pageCopy = {
       lede: "Thirty-five calculators and small utilities for money, privacy, relocation, and the web. Each one runs in your browser. English is the main language, and every page has a Russian version.",
       body: `<p>The point of this site is a fast answer to a specific question: what a balance becomes if you add a fixed sum each month, what a stop-loss implies for position size, whether a bank's rate hid a spread, how many Schengen days are left, what a freelance hour has to earn, what an API call costs at the prices you type in. The tools are grouped so a person comparing exchanges, a person moving country, and a person shipping a page can each start in the right cluster and then follow the related links.</p>
 <p>Nothing you type into a finance form, a password box, or the encryptor is sent to a server of ours. There is no account. The IP test is the exception, and that page says so: it asks public lookup services for the address they see. Photos you strip and images you compress are handled with the browser's own file tools.</p>
-<p>Some pages link to brokers, exchanges, wallets, VPNs, insurers, eSIM sellers, and hosts. Those links are affiliate links. They are marked, and the whole list lives in one file so a partner URL can be replaced without editing the pages. The calculator does not change its arithmetic to favour a partner. Prices and plan rules change, so the articles describe how to compare rather than quoting a tariff that would be stale next month.</p>
+<p>Some pages link to Amazon.de searches. Travel, currency, and trip-cost pages also link to an eSIM, flights, tours, and tickets. Those links are affiliate links. They are marked, and the whole list lives in one file so a partner URL can be replaced without editing the pages. The calculator does not change its arithmetic to favour a partner. Prices and plan rules change, so the articles describe how to compare rather than quoting a tariff that would be stale next month.</p>
 <p>If you want the same tool in Russian, use the RU switch in the header. The URL keeps the same slug under /ru/, and the language tags point both ways.</p>`,
       faq: [
         { q: "Are these calculators free?", a: "Yes. There is no account and no payment. The site is funded, if a partner pays, by labelled affiliate links." },
@@ -23,7 +23,7 @@ export const pageCopy = {
       lede: "Тридцать пять калькуляторов и небольших утилит про деньги, приватность, переезд и веб. Каждый считает в браузере. Основной язык — английский, у каждой страницы есть русская версия.",
       body: `<p>Сайт отвечает на конкретный вопрос: во что превратится сумма, если довнесение каждый месяц одно и то же; какой размер позиции следует из стопа; сколько банк спрятал в курсе; сколько шенгенских дней осталось; сколько должен стоить час фрилансера; сколько стоит вызов API по тем ценам, которые вы сами вписали. Инструменты разложены по темам, чтобы человек, который сравнивает биржи, человек, который переезжает, и человек, который выпускает страницу, начинали с нужного раздела и шли по соседним ссылкам.</p>
 <p>То, что вы вводите в финансовую форму, в поле пароля или в шифрование, на наш сервер не уходит. Аккаунта нет. Исключение — проверка IP, и страница об этом говорит прямо: она спрашивает публичные службы, какой адрес они видят. Фото, у которых вы снимаете EXIF, и картинки, которые вы сжимаете, обрабатывает сам браузер.</p>
-<p>На части страниц есть ссылки на брокеров, биржи, кошельки, VPN, страховщиков, продавцов eSIM и хостинги. Это партнёрские ссылки. Они помечены, а весь список лежит в одном файле: адрес партнёра можно заменить, не трогая страницы. Калькулятор не подстраивает арифметику под партнёра. Цены и правила тарифов меняются, поэтому статьи объясняют, как сравнивать, а не цитируют прайс, который устареет через месяц.</p>
+<p>На части страниц есть поиск на Amazon.de. Страницы про поездку, валюту и стоимость поездки также ссылаются на eSIM, авиабилеты, экскурсии и билеты. Это партнёрские ссылки. Они помечены, а весь список лежит в одном файле: адрес партнёра можно заменить, не трогая страницы. Калькулятор не подстраивает арифметику под партнёра. Цены и правила тарифов меняются, поэтому статьи объясняют, как сравнивать, а не цитируют прайс, который устареет через месяц.</p>
 <p>Русская версия открывается переключателем RU в шапке. Адрес сохраняет тот же слаг в каталоге /ru/, а языковые теги указывают в обе стороны.</p>`,
       faq: [
         { q: "Калькуляторы правда бесплатные?", a: "Да. Аккаунта и оплаты нет. Если сайт что-то получает, то с помеченных партнёрских ссылок." },
@@ -45,7 +45,7 @@ export const pageCopy = {
 <p>The guides next to these tools discuss a broker used by people who invest across countries, two large crypto exchanges, and two hardware wallets. They describe what to check. They do not quote a fee schedule that the firm can change next week. Use the calculator with the numbers from the schedule you were actually offered.</p>`,
         faq: [
           { q: "Which finance calculator should I open first?", a: "If the question is a future balance, start with compound interest. If the question is a coin you already bought at several prices, start with average price. If the question is how much you can lose on one trade, start with position size." },
-          { q: "Do these pages recommend a broker or an exchange?", a: "They link to partners. The link is labelled. The arithmetic does not depend on it, and a residency rule can block a product the article mentions." },
+          { q: "Do these pages recommend a broker or an exchange?", a: "No. The guides describe what to check and do not link to a broker or an exchange. The currency page links to labelled travel partners. The arithmetic does not depend on a link, and a residency rule can block a product a guide mentions." },
           { q: "Are the default rates a prediction?", a: "No. Defaults are there so the form is not empty. Replace them with the rate you want to test." }
         ]
       },
@@ -59,7 +59,7 @@ export const pageCopy = {
 <p>Статьи рядом обсуждают брокера, которым пользуются те, кто инвестирует из другой страны, две крупные криптобиржи и два аппаратных кошелька. Там сказано, что проверять. Там нет тарифа, который фирма может поменять на следующей неделе. Считайте по цифрам того предложения, которое вам реально дали.</p>`,
         faq: [
           { q: "С какого финансового калькулятора начать?", a: "Если вопрос про будущий баланс, начните со сложного процента. Если монету покупали по разным ценам, начните со средней цены. Если вопрос, сколько можно потерять на одной сделке, начните с размера позиции." },
-          { q: "Страницы рекомендуют брокера или биржу?", a: "На них есть партнёрские ссылки, и они помечены. Арифметика от ссылки не зависит, а правило резидентства может закрыть продукт, который упомянут в статье." },
+          { q: "Страницы рекомендуют брокера или биржу?", a: "Нет. Статьи описывают, что проверить, и на брокера или биржу не ссылаются. Страница валюты ссылается на помеченных партнёров поездки. Арифметика от ссылки не зависит, а правило резидентства может закрыть продукт, который упомянут в статье." },
           { q: "Ставки по умолчанию — это прогноз?", a: "Нет. Они нужны, чтобы форма не была пустой. Подставьте ставку, которую хотите проверить." }
         ]
       }
@@ -176,7 +176,7 @@ export const pageCopy = {
       h1: "About",
       body: `<p>Free Online Calculators is a static site of tools for money, privacy, relocation, and web work. It is published by Anna, who also publishes <a href="https://mycytax.com/">MyCyTax</a>, a separate site about Cyprus property and tax. The two sites do not share a database. This one has no database.</p>
 <p>Each calculator is a page with one job. The formula is on the page. The numbers are checked against known cases in the repository tests: compound growth, a 90-day Schengen window, margin versus markup, contrast of black on white, and an AES round trip. If a result looks wrong, the useful next step is the formula on the page, not a second opinion from the same script.</p>
-<p>Affiliate links pay for the time spent on the site if a partner pays a commission. They are labelled on the page and collected in <a href="{{href:affiliate-disclosure}}">the disclosure</a>. The partner address itself lives only in <code>assets/js/affiliates.js</code>. Until that file is edited, the buttons point at placeholders.</p>
+<p>Affiliate links pay for the time spent on the site if a partner pays a commission. They are labelled on the page and collected in <a href="{{href:affiliate-disclosure}}">the disclosure</a>. The partner address itself lives only in <code>assets/js/affiliates.js</code>. The pages are rebuilt from that file. A name without a live URL is not a button.</p>
 <p>Corrections to a formula or a translation can be sent as an issue on the GitHub repository anlap26/free-online-calculators. The site does not offer personal financial, tax, legal, or immigration advice.</p>`
     },
     ru: {
@@ -185,7 +185,7 @@ export const pageCopy = {
       h1: "О сайте",
       body: `<p>Бесплатные онлайн-калькуляторы — статический сайт инструментов про деньги, приватность, переезд и веб. Его издаёт Анна, она же издаёт <a href="https://mycytax.com/">MyCyTax</a>, отдельный сайт про недвижимость и налоги Кипра. Общей базы у сайтов нет. У этого сайта базы нет вообще.</p>
 <p>У каждого калькулятора одна задача. Формула написана на странице. Числа сверены с известными случаями в тестах репозитория: сложный процент, шенгенское окно в 90 дней, маржа против наценки, контраст чёрного на белом и круг шифрования AES. Если результат кажется неверным, полезный следующий шаг — формула на странице, а не второе мнение того же скрипта.</p>
-<p>Партнёрские ссылки оплачивают время на сайт, если партнёр платит комиссию. Они помечены на странице и собраны в <a href="{{href:affiliate-disclosure}}">раскрытии</a>. Сам адрес партнёра живёт только в файле <code>assets/js/affiliates.js</code>. Пока файл не отредактирован, кнопки ведут на заглушки.</p>
+<p>Партнёрские ссылки оплачивают время на сайт, если партнёр платит комиссию. Они помечены на странице и собраны в <a href="{{href:affiliate-disclosure}}">раскрытии</a>. Сам адрес партнёра живёт только в файле <code>assets/js/affiliates.js</code>. Страницы собираются из этого файла. Имя без живого адреса кнопкой не становится.</p>
 <p>Поправку к формуле или к переводу можно прислать issue в репозиторий GitHub anlap26/free-online-calculators. Персональных финансовых, налоговых, юридических или визовых консультаций сайт не даёт.</p>`
     }
   },
@@ -194,7 +194,7 @@ export const pageCopy = {
       title: "Privacy policy",
       description: "What this static calculator site does with your browser, what it does not store, and which third parties an IP test calls.",
       h1: "Privacy policy",
-      body: `<p>This policy describes the site Free Online Calculators, published at ${"https://anlap26.github.io/free-online-calculators/"} by Anna. It is a description of how the site is built. It is not a template for your own business. If you need a policy for a different site, use the <a href="{{href:privacy-policy-generator}}">policy draft generator</a> and then have it read by someone who knows your facts.</p>
+      body: `<p>This policy describes the site Free Online Calculators, published at ${"https://anlap26.github.io/Free-online-calculators/"} by Anna. It is a description of how the site is built. It is not a template for your own business. If you need a policy for a different site, use the <a href="{{href:privacy-policy-generator}}">policy draft generator</a> and then have it read by someone who knows your facts.</p>
 <h2>What the site stores</h2>
 <p>The site is a set of files. There is no account, no newsletter form, and no database of visitors. Numbers, passwords, notes, and photos you use in a calculator stay in the page. The password strength check, the password generator, AES encryption, EXIF removal, and image compression do not send those inputs to us. We do not set an analytics cookie and we do not run an advertising network on these pages.</p>
 <h2>The IP test</h2>
@@ -210,7 +210,7 @@ export const pageCopy = {
       title: "Политика конфиденциальности",
       description: "Что статический сайт калькуляторов делает в браузере, чего он не хранит и какие сторонние службы вызывает проверка IP.",
       h1: "Политика конфиденциальности",
-      body: `<p>Эта политика описывает сайт «Бесплатные онлайн-калькуляторы» по адресу https://anlap26.github.io/free-online-calculators/, издатель — Анна. Это описание того, как устроен этот сайт. Это не шаблон для вашего бизнеса. Если политика нужна другому сайту, соберите черновик в <a href="{{href:privacy-policy-generator}}">генераторе</a> и дайте его прочитать тому, кто знает ваши факты.</p>
+      body: `<p>Эта политика описывает сайт «Бесплатные онлайн-калькуляторы» по адресу https://anlap26.github.io/Free-online-calculators/, издатель — Анна. Это описание того, как устроен этот сайт. Это не шаблон для вашего бизнеса. Если политика нужна другому сайту, соберите черновик в <a href="{{href:privacy-policy-generator}}">генераторе</a> и дайте его прочитать тому, кто знает ваши факты.</p>
 <h2>Что сайт хранит</h2>
 <p>Сайт — набор файлов. Аккаунта, формы рассылки и базы посетителей нет. Числа, пароли, заметки и фото в калькуляторе остаются на странице. Проверка стойкости, генератор паролей, шифрование AES, снятие EXIF и сжатие картинок не отправляют эти данные нам. Аналитическую cookie мы не ставим и рекламную сеть на этих страницах не запускаем.</p>
 <h2>Проверка IP</h2>
@@ -226,11 +226,11 @@ export const pageCopy = {
   disclosure: {
     en: {
       title: "Affiliate disclosure",
-      description: "How affiliate links work on this calculator site, which partners are named, and where to paste the real URLs.",
+      description: "How affiliate links work on this calculator site, which partners are linked, and how the links are marked.",
       h1: "Affiliate disclosure",
       body: `<p>Some pages link to a company that may pay the publisher a commission if you open an account, buy a plan, or use a tracked link. You should not pay more because the link is an affiliate link. If a partner's checkout adds a fee, that fee is theirs, not a mark-up added by this site. The calculators do not change a result because a link is present.</p>
 <h2>Where the links are</h2>
-<p>Every partner button reads <code>assets/js/affiliates.js</code>. The keys are nordvpn, surfshark, proton, onepassword, bitwarden, genki, interactivebrokers, binance, bybit, ledger, trezor, semrush, airalo, wise, cloudways, kinsta, and amazon. A value that still begins with #AFFILIATE_ is a placeholder. Replace it with the full URL from the affiliate network, save the file, and publish. You do not need to edit each page. Links open in a new tab with <code>rel="sponsored noopener"</code>. Amazon links use <code>rel="sponsored nofollow noopener"</code>.</p>
+<p>Partner buttons and in-article partner links read <code>assets/js/affiliates.js</code>. The live names are Airalo, Aviasales, Klook, and Tiqets, on travel, currency, and trip-cost pages, plus Amazon.de searches. Localrent, Kiwitaxi, and Welcome Pickups are stored for a page that is clearly about Cyprus. No current page is, so those three are not shown. A guide may still name a VPN, a password manager, a broker, an exchange, a wallet, an SEO suite, or a host. That name is not a button unless the file has a live URL. Links open in a new tab with <code>rel="sponsored nofollow noopener"</code>.</p>
 <p>As an Amazon Associate I earn from qualifying purchases. Those links are searches on Amazon.de with the tag in <code>assets/js/affiliates.js</code>. They are not links to a made-up product code.</p>
 <h2>What we will and will not claim</h2>
 <p>Guides describe what a product is for and what a buyer should verify. They do not invent a price, a speed ranking, a customer count, or a medical outcome. Plans change. A product may be unavailable where you live. A VPN does not make a person anonymous in every sense. A hardware wallet does not help if the recovery phrase is stored in a screenshot. Insurance pages are not a policy and not a promise that a claim will be paid.</p>
@@ -239,11 +239,11 @@ export const pageCopy = {
     },
     ru: {
       title: "Раскрытие партнёрских ссылок",
-      description: "Как на сайте калькуляторов устроены партнёрские ссылки, какие партнёры названы и куда вставлять настоящие адреса.",
+      description: "Как на сайте калькуляторов устроены партнёрские ссылки, какие партнёры стоят на страницах и как ссылки помечены.",
       h1: "Партнёрские ссылки",
       body: `<p>На части страниц есть ссылки на компании, которые могут заплатить издателю комиссию, если вы откроете счёт, купите тариф или пройдёте по отслеживаемой ссылке. Из-за того, что ссылка партнёрская, вы не должны платить больше. Если на стороне партнёра к оплате добавляется сбор, это его сбор, а не наценка этого сайта. Калькуляторы не меняют результат из-за того, что ссылка стоит рядом.</p>
 <h2>Где лежат ссылки</h2>
-<p>Все кнопки партнёров читают файл <code>assets/js/affiliates.js</code>. Ключи: nordvpn, surfshark, proton, onepassword, bitwarden, genki, interactivebrokers, binance, bybit, ledger, trezor, semrush, airalo, wise, cloudways, kinsta и amazon. Значение, которое всё ещё начинается с #AFFILIATE_, — заглушка. Замените его полным адресом из партнёрской сети, сохраните файл и опубликуйте. Страницы по отдельности править не нужно. Ссылки открываются в новой вкладке с <code>rel="sponsored noopener"</code>. Ссылки на Amazon используют <code>rel="sponsored nofollow noopener"</code>.</p>
+<p>Кнопки партнёров и партнёрские ссылки в тексте читают файл <code>assets/js/affiliates.js</code>. Живые имена — Airalo, Aviasales, Klook и Tiqets на страницах про поездку, валюту и стоимость поездки, плюс поиск на Amazon.de. Localrent, Kiwitaxi и Welcome Pickups хранятся для страницы, которая явно про Кипр. Такой страницы сейчас нет, поэтому эти три имени не показываются. Статья может по-прежнему называть VPN, менеджер паролей, брокера, биржу, кошелёк, SEO-сервис или хостинг. Это имя не кнопка, пока в файле нет живого адреса. Ссылки открываются в новой вкладке с <code>rel="sponsored nofollow noopener"</code>.</p>
 <p>Как участник программы Amazon Associates я получаю доход от соответствующих покупок. As an Amazon Associate I earn from qualifying purchases. Эти ссылки ведут на поиск на Amazon.de с меткой из <code>assets/js/affiliates.js</code>, а не на выдуманный код товара.</p>
 <h2>Чего сайт не утверждает</h2>
 <p>Статьи описывают, для чего продукт и что покупателю проверить. Они не выдумывают цену, рейтинг скорости, число клиентов или медицинский исход. Тарифы меняются. Продукт может быть недоступен там, где вы живёте. VPN не делает человека анонимным во всех смыслах. Аппаратный кошелёк не поможет, если фразу восстановления положили в скриншот. Страницы про страховку — не полис и не обещание, что выплату одобрят.</p>
