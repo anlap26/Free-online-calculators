@@ -3,7 +3,7 @@
   "private": true,
   "description": "Static bilingual calculators site. Build CSS and HTML, then commit the output.",
   "scripts": {
-    "build": "node build/generate.mjs && npx tailwindcss -c tailwind.config.js -i src/input.css -o assets/css/site.css --minify",
+    "build": "node build/generate.mjs",
     "test": "node tests/calc.test.js",
     "preview": "node build/preview.mjs"
   },

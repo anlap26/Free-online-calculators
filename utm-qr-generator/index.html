@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="UTM and QR Code Generator | Free Online Calculators">
 <meta name="twitter:description" content="Build a landing URL with encoded utm fields and a QR code at error correction H. Empty fields are omitted. The link labels a click. It does not create the campaign.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"UTM and QR code generator","description":"Build a landing URL with encoded utm fields and a QR code at error correction H. Empty fields are omitted. The link labels a click. It does not create the campaign.","url":"https://anlap26.github.io/Free-online-calculators/utm-qr-generator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are the utm values encoded?","acceptedAnswer":{"@type":"Answer","text":"Yes. They are set with URLSearchParams, so spaces and reserved characters are encoded. Empty fields are omitted."}},{"@type":"Question","name":"Why is the QR at error correction H?","acceptedAnswer":{"@type":"Answer","text":"H leaves the most spare capacity of the usual levels, so a small logo can sit on a white pad in the centre."}},{"@type":"Question","name":"Can the logo make the code fail?","acceptedAnswer":{"@type":"Answer","text":"Yes. A logo that covers too much of the pattern will make the code unscannable. Error correction cannot rebuild a code that has lost too much of itself."}},{"@type":"Question","name":"Does a UTM create the campaign?","acceptedAnswer":{"@type":"Answer","text":"No. It only labels the click. The campaign, the budget, and the report already have to exist somewhere else."}},{"@type":"Question","name":"Does this page store the links?","acceptedAnswer":{"@type":"Answer","text":"No. The address and the QR are built in the browser. Nothing is uploaded."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"UTM and QR code generator","item":"https://anlap26.github.io/Free-online-calculators/utm-qr-generator/"}]},{"@type":"HowTo","name":"UTM and QR code generator","description":"Build a landing URL with encoded utm fields and a QR code at error correction H. Empty fields are omitted. The link labels a click. It does not create the campaign.","url":"https://anlap26.github.io/Free-online-calculators/utm-qr-generator/","step":[{"@type":"HowToStep","position":1,"name":"The QR code is drawn in the browser","text":"The same link is drawn as a QR code on a canvas, on your device. The error correction level is H, the highest of the four usual levels. That spare capacity is why a small logo can sit in the centre. The logo, if you add one, is placed on a white pad so the pattern around it stays a clean quiet zone rather than a busy photograph. The drawing keeps the logo to a modest fraction of the code. A logo that is too large will make the code unscannable. Error correction can rebuild a damaged or covered patch. It cannot rebuild a code whose middle has been replaced by a picture that eats the finders and"},{"@type":"HowToStep","position":2,"name":"A UTM labels the click. It does not create the campaign","text":"The parameters do not start an ad, do not reserve a budget, and do not tell a shop what the click is worth. They only label the click so that whatever analytics you already run can group it later. If the landing page ignores query strings, the label is still on the request, but your report will not grow a campaign by magic. Naming source, medium, and campaign consistently matters more than inventing a new spelling each week. This form will not police the spelling. What you do with the numbers later is the ROAS calculator . It does not read this QR. Open Semrush to see which queries and ads the"}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"UTM and QR code generator","description":"Build a landing URL with encoded utm fields and a QR code at error correction H. Empty fields are omitted. The link labels a click. It does not create the campaign.","url":"https://anlap26.github.io/Free-online-calculators/utm-qr-generator/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are the utm values encoded?","acceptedAnswer":{"@type":"Answer","text":"Yes. They are set with URLSearchParams, so spaces and reserved characters are encoded. Empty fields are omitted."}},{"@type":"Question","name":"Why is the QR at error correction H?","acceptedAnswer":{"@type":"Answer","text":"H leaves the most spare capacity of the usual levels, so a small logo can sit on a white pad in the centre."}},{"@type":"Question","name":"Can the logo make the code fail?","acceptedAnswer":{"@type":"Answer","text":"Yes. A logo that covers too much of the pattern will make the code unscannable. Error correction cannot rebuild a code that has lost too much of itself."}},{"@type":"Question","name":"Does a UTM create the campaign?","acceptedAnswer":{"@type":"Answer","text":"No. It only labels the click. The campaign, the budget, and the report already have to exist somewhere else."}},{"@type":"Question","name":"Does this page store the links?","acceptedAnswer":{"@type":"Answer","text":"No. The address and the QR are built in the browser. Nothing is uploaded."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"UTM and QR code generator","item":"https://anlap26.github.io/Free-online-calculators/utm-qr-generator/"}]},{"@type":"HowTo","name":"UTM and QR code generator","description":"Build a landing URL with encoded utm fields and a QR code at error correction H. Empty fields are omitted. The link labels a click. It does not create the campaign.","url":"https://anlap26.github.io/Free-online-calculators/utm-qr-generator/","step":[{"@type":"HowToStep","position":1,"name":"The QR code is drawn in the browser","text":"The same link is drawn as a QR code on a canvas, on your device. The error correction level is H, the highest of the four usual levels. That spare capacity is why a small logo can sit in the centre. The logo, if you add one, is placed on a white pad so the pattern around it stays a clean quiet zone rather than a busy photograph. The drawing keeps the logo to a modest fraction of the code. A logo that is too large will make the code unscannable. Error correction can rebuild a damaged or covered patch. It cannot rebuild a code whose middle has been replaced by a picture that eats the finders and"},{"@type":"HowToStep","position":2,"name":"A UTM labels the click. It does not create the campaign","text":"The parameters do not start an ad, do not reserve a budget, and do not tell a shop what the click is worth. They only label the click so that whatever analytics you already run can group it later. If the landing page ignores query strings, the label is still on the request, but your report will not grow a campaign by magic. Naming source, medium, and campaign consistently matters more than inventing a new spelling each week. This form will not police the spelling. What you do with the numbers later is the ROAS calculator . It does not read this QR. Open Semrush to see which queries and ads the"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/utm-qr-generator/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/utm-qr-generator/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">UTM and QR code generator</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="../finance/">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="../blog/">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <a href="../webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">UTM and QR code generator</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>UTM and QR code generator</h1>
 <p class="lede">The five utm fields are added with the browser&#39;s own query encoder. Empty ones are left out. The QR is drawn here, at error correction H.</p>
@@ -73,7 +88,7 @@
 <p>A logo that is too large will make the code unscannable. Error correction can rebuild a damaged or covered patch. It cannot rebuild a code whose middle has been replaced by a picture that eats the finders and the data. If a phone cannot read the result, shrink the logo or export the code with no logo at all. This page does not test a scan against a particular phone, and it does not promise that every camera will like a dark logo on a dark code. Print a sample before you send a run of posters.</p>
 <h2>A UTM labels the click. It does not create the campaign</h2>
 <p>The parameters do not start an ad, do not reserve a budget, and do not tell a shop what the click is worth. They only label the click so that whatever analytics you already run can group it later. If the landing page ignores query strings, the label is still on the request, but your report will not grow a campaign by magic. Naming source, medium, and campaign consistently matters more than inventing a new spelling each week. This form will not police the spelling.</p>
-<p>What you do with the numbers later is the <a href="/Free-online-calculators/roas-calculator/">ROAS calculator</a>. It does not read this QR. Open Semrush to see which queries and ads the campaign sat next to. The notes cover a <a href="/Free-online-calculators/blog/semrush-free-trial/">Semrush free trial</a>, <a href="/Free-online-calculators/blog/semrush-vs-ahrefs/">Semrush and Ahrefs</a>, <a href="/Free-online-calculators/blog/low-competition-keywords-semrush/">low-competition keywords</a>, and <a href="/Free-online-calculators/blog/semrush-for-seo/">Semrush for SEO</a>. This page does not open a report and does not invent a case study.</p>
+<p>What you do with the numbers later is the <a href="../roas-calculator/">ROAS calculator</a>. It does not read this QR. Open Semrush to see which queries and ads the campaign sat next to. The notes cover a <a href="../blog/semrush-free-trial/">Semrush free trial</a>, <a href="../blog/semrush-vs-ahrefs/">Semrush and Ahrefs</a>, <a href="../blog/low-competition-keywords-semrush/">low-competition keywords</a>, and <a href="../blog/semrush-for-seo/">Semrush for SEO</a>. This page does not open a report and does not invent a case study.</p>
 <ul>
 <li>Values are encoded. Empty fields are left out.</li>
 <li>The QR uses error correction H so a small centre logo has room.</li>
@@ -81,27 +96,27 @@
 <li>The link labels a click. It does not create the campaign.</li>
 </ul></div>
 <section class="faq"><h2>Questions people ask</h2><details><summary>Are the utm values encoded?</summary><p>Yes. They are set with URLSearchParams, so spaces and reserved characters are encoded. Empty fields are omitted.</p></details><details><summary>Why is the QR at error correction H?</summary><p>H leaves the most spare capacity of the usual levels, so a small logo can sit on a white pad in the centre.</p></details><details><summary>Can the logo make the code fail?</summary><p>Yes. A logo that covers too much of the pattern will make the code unscannable. Error correction cannot rebuild a code that has lost too much of itself.</p></details><details><summary>Does a UTM create the campaign?</summary><p>No. It only labels the click. The campaign, the budget, and the report already have to exist somewhere else.</p></details><details><summary>Does this page store the links?</summary><p>No. The address and the QR are built in the browser. Nothing is uploaded.</p></details></section>
-<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>ROAS calculator</h3><p>ROAS is revenue divided by ad spend. Profit then subtracts that spend and any other cost from revenue times the margin you type.</p><a class="more" href="/Free-online-calculators/roas-calculator/">Open</a></article><article class="card"><h3>Meta tag generator</h3><p>The form writes the head tags from the fields you fill. You still paste them into a real page. The tool does not invent the H1.</p><a class="more" href="/Free-online-calculators/meta-tag-generator/">Open</a></article><article class="card"><h3>SEO text analyzer</h3><p>Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.</p><a class="more" href="/Free-online-calculators/seo-text-analyzer/">Open</a></article><article class="card"><h3>Page speed revenue calculator</h3><p>The conversion you type is the rate you have now, on the slower site. Each extra second is assumed to have multiplied that rate by one minus the loss you type.</p><a class="more" href="/Free-online-calculators/page-speed-revenue-calculator/">Open</a></article><article class="card"><h3>Semrush free trial: what you get and how to use it</h3><p>A trial is only useful if you decide, before the clock starts, which questions you will answer and which screenshots you will keep.</p><a class="more" href="/Free-online-calculators/blog/semrush-free-trial/">From the guides</a></article></div></section>
+<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>ROAS calculator</h3><p>ROAS is revenue divided by ad spend. Profit then subtracts that spend and any other cost from revenue times the margin you type.</p><a class="more" href="../roas-calculator/">Open</a></article><article class="card"><h3>Meta tag generator</h3><p>The form writes the head tags from the fields you fill. You still paste them into a real page. The tool does not invent the H1.</p><a class="more" href="../meta-tag-generator/">Open</a></article><article class="card"><h3>SEO text analyzer</h3><p>Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.</p><a class="more" href="../seo-text-analyzer/">Open</a></article><article class="card"><h3>Page speed revenue calculator</h3><p>The conversion you type is the rate you have now, on the slower site. Each extra second is assumed to have multiplied that rate by one minus the loss you type.</p><a class="more" href="../page-speed-revenue-calculator/">Open</a></article><article class="card"><h3>Semrush free trial: what you get and how to use it</h3><p>A trial is only useful if you decide, before the clock starts, which questions you will answer and which screenshots you will keep.</p><a class="more" href="../blog/semrush-free-trial/">From the guides</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="../about/">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="../blog/">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-en.js"></script>
-<script defer src="/Free-online-calculators/assets/js/qrcode.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
+<script defer src="../assets/js/calc-core.js"></script>
+<script defer src="../assets/js/wordlists.js"></script>
+<script defer src="../assets/js/cost-of-living.js"></script>
+<script defer src="../assets/js/llm-prices.js"></script>
+<script defer src="../assets/js/ui-en.js"></script>
+<script defer src="../assets/js/qrcode.js"></script>
+<script defer src="../assets/js/calculators.js"></script>
 </body>
 </html>

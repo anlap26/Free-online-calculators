@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="Сжатие изображений | Бесплатные калькуляторы">
 <meta name="twitter:description" content="Уменьшите и перекодируйте картинку в WebP, AVIF, JPEG или PNG в браузере. Файл не уходит на сервер. Пропорции сохраняются, увеличение запрещено.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Сжатие изображений в браузере","description":"Уменьшите и перекодируйте картинку в WebP, AVIF, JPEG или PNG в браузере. Файл не уходит на сервер. Пропорции сохраняются, увеличение запрещено.","url":"https://anlap26.github.io/Free-online-calculators/ru/image-compressor/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Картинка загружается на сервер?","acceptedAnswer":{"@type":"Answer","text":"Нет. Браузер рисует её на canvas и кодирует результат локально. Аккаунта нет, и копию этот сайт не хранит."}},{"@type":"Question","name":"Маленькую картинку растянут до максимальной ширины?","acceptedAnswer":{"@type":"Answer","text":"Нет. Масштаб не бывает больше единицы, поэтому снимок, который уже влезает, не увеличивается. Пропорции сохраняются."}},{"@type":"Question","name":"Что если AVIF не получился?","acceptedAnswer":{"@type":"Answer","text":"Страница скажет, что кодирование не удалось. AVIF зависит от браузера. Выберите WebP, JPEG или PNG."}},{"@type":"Question","name":"Сжатие убирает EXIF?","acceptedAnswer":{"@type":"Answer","text":"Перекодирование не переносит исходные метаданные. Инструмент EXIF аккуратнее убирает метаданные JPEG, не рисуя снимок заново."}},{"@type":"Question","name":"Сэкономленные байты ускорят живую страницу?","acceptedAnswer":{"@type":"Answer","text":"Только если эта картинка была тяжёлой частью. Разница байт — исходный размер минус новый. Страницу она не замеряет."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Веб","item":"https://anlap26.github.io/Free-online-calculators/ru/webmaster/"},{"@type":"ListItem","position":3,"name":"Сжатие изображений в браузере","item":"https://anlap26.github.io/Free-online-calculators/ru/image-compressor/"}]},{"@type":"HowTo","name":"Сжатие изображений в браузере","description":"Уменьшите и перекодируйте картинку в WebP, AVIF, JPEG или PNG в браузере. Файл не уходит на сервер. Пропорции сохраняются, увеличение запрещено.","url":"https://anlap26.github.io/Free-online-calculators/ru/image-compressor/","step":[{"@type":"HowToStep","position":1,"name":"Качество и форматы","text":"Качество передаётся для форматов с потерями. Число из поля уходит в кодировщик WebP, AVIF и JPEG. PNG — это кодирование изменённых пикселей без потерь. Меньшее качество просит у кодировщика с потерями файл меньше и картинку грубее. Верное качество страница за вас не выбирает. Смотрите на предпросмотр и на число байт, затем оставляйте результат или выбрасывайте. AVIF зависит от браузера. Если этот браузер не умеет кодировать AVIF, холст не отдаёт результат, и страница говорит, что кодирование не удалось. Переключитесь на WebP, JPEG или PNG. Неудача — предел того браузера, которым вы пользуетесь"},{"@type":"HowToStep","position":2,"name":"Сэкономленные байты и чего они не доказывают","text":"Сэкономленные байты — это исходный размер минус новый. Если новый файл больше, разница отрицательная. Так бывает, когда маленький PNG перекодируют в JPEG высокого качества или когда исходник уже сжат жёстче, чем выбранные настройки. Число — арифметика двух размеров. Это не оценка страницы, в которую картинка потом попадёт. Перекодирование рисует новые пиксели и пишет новый файл, поэтому метаданные оригинала с собой не переносятся. Туда входят заметки камеры и место, которое JPEG часто хранит. Инструмент EXIF делает эту работу аккуратнее для JPEG: он может выкинуть сегменты метаданных и оставит"}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Сжатие изображений в браузере","description":"Уменьшите и перекодируйте картинку в WebP, AVIF, JPEG или PNG в браузере. Файл не уходит на сервер. Пропорции сохраняются, увеличение запрещено.","url":"https://anlap26.github.io/Free-online-calculators/ru/image-compressor/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Картинка загружается на сервер?","acceptedAnswer":{"@type":"Answer","text":"Нет. Браузер рисует её на canvas и кодирует результат локально. Аккаунта нет, и копию этот сайт не хранит."}},{"@type":"Question","name":"Маленькую картинку растянут до максимальной ширины?","acceptedAnswer":{"@type":"Answer","text":"Нет. Масштаб не бывает больше единицы, поэтому снимок, который уже влезает, не увеличивается. Пропорции сохраняются."}},{"@type":"Question","name":"Что если AVIF не получился?","acceptedAnswer":{"@type":"Answer","text":"Страница скажет, что кодирование не удалось. AVIF зависит от браузера. Выберите WebP, JPEG или PNG."}},{"@type":"Question","name":"Сжатие убирает EXIF?","acceptedAnswer":{"@type":"Answer","text":"Перекодирование не переносит исходные метаданные. Инструмент EXIF аккуратнее убирает метаданные JPEG, не рисуя снимок заново."}},{"@type":"Question","name":"Сэкономленные байты ускорят живую страницу?","acceptedAnswer":{"@type":"Answer","text":"Только если эта картинка была тяжёлой частью. Разница байт — исходный размер минус новый. Страницу она не замеряет."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Веб","item":"https://anlap26.github.io/Free-online-calculators/ru/webmaster/"},{"@type":"ListItem","position":3,"name":"Сжатие изображений в браузере","item":"https://anlap26.github.io/Free-online-calculators/ru/image-compressor/"}]},{"@type":"HowTo","name":"Сжатие изображений в браузере","description":"Уменьшите и перекодируйте картинку в WebP, AVIF, JPEG или PNG в браузере. Файл не уходит на сервер. Пропорции сохраняются, увеличение запрещено.","url":"https://anlap26.github.io/Free-online-calculators/ru/image-compressor/","step":[{"@type":"HowToStep","position":1,"name":"Качество и форматы","text":"Качество передаётся для форматов с потерями. Число из поля уходит в кодировщик WebP, AVIF и JPEG. PNG — это кодирование изменённых пикселей без потерь. Меньшее качество просит у кодировщика с потерями файл меньше и картинку грубее. Верное качество страница за вас не выбирает. Смотрите на предпросмотр и на число байт, затем оставляйте результат или выбрасывайте. AVIF зависит от браузера. Если этот браузер не умеет кодировать AVIF, холст не отдаёт результат, и страница говорит, что кодирование не удалось. Переключитесь на WebP, JPEG или PNG. Неудача — предел того браузера, которым вы пользуетесь"},{"@type":"HowToStep","position":2,"name":"Сэкономленные байты и чего они не доказывают","text":"Сэкономленные байты — это исходный размер минус новый. Если новый файл больше, разница отрицательная. Так бывает, когда маленький PNG перекодируют в JPEG высокого качества или когда исходник уже сжат жёстче, чем выбранные настройки. Число — арифметика двух размеров. Это не оценка страницы, в которую картинка потом попадёт. Перекодирование рисует новые пиксели и пишет новый файл, поэтому метаданные оригинала с собой не переносятся. Туда входят заметки камеры и место, которое JPEG часто хранит. Инструмент EXIF делает эту работу аккуратнее для JPEG: он может выкинуть сегменты метаданных и оставит"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
-<nav class="main" aria-label="Разделы">
-<a href="/Free-online-calculators/ru/">Главная</a><a href="/Free-online-calculators/ru/finance/">Финансы</a><a href="/Free-online-calculators/ru/security/">Приватность</a><a href="/Free-online-calculators/ru/relocation/">Переезд</a><a href="/Free-online-calculators/ru/webmaster/">Веб</a><a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Бесплатные онлайн-калькуляторы<small>Деньги, здоровье, математика, приватность и веб</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Тёмная" data-to-light="Светлая" aria-pressed="false">Тёмная</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/image-compressor/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/image-compressor/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/ru/webmaster/">Веб</a><span aria-hidden="true">/</span> <span aria-current="page">Сжатие изображений в браузере</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Разделы">
+<a href="..//">Главная</a><a href="../finance/">Финансы</a><a href="../fitness/">Здоровье</a><a href="../math/">Математика</a><a href="../other/">Другое</a><a href="../security/">Приватность</a><a href="../relocation/">Переезд</a><a href="../webmaster/">Веб</a><a href="../blog/">Статьи</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Главная</a><span aria-hidden="true">/</span> <a href="../webmaster/">Веб</a><span aria-hidden="true">/</span> <span aria-current="page">Сжатие изображений в браузере</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Сжатие изображений в браузере</h1>
 <p class="lede">Браузер рисует картинку на canvas и кодирует WebP, AVIF, JPEG или PNG. На сервер файл не уходит. Увеличивать снимок страница не станет.</p>
@@ -72,8 +87,8 @@
 <p>AVIF зависит от браузера. Если этот браузер не умеет кодировать AVIF, холст не отдаёт результат, и страница говорит, что кодирование не удалось. Переключитесь на WebP, JPEG или PNG. Неудача — предел того браузера, которым вы пользуетесь, а не замер картинки и не заявление про чужой компьютер. WebP и JPEG кодируются шире. PNG часто тяжелее результата с потерями на тех же пикселях, и это ожидаемо, когда вы просили файл без потерь.</p>
 <h2>Сэкономленные байты и чего они не доказывают</h2>
 <p>Сэкономленные байты — это исходный размер минус новый. Если новый файл больше, разница отрицательная. Так бывает, когда маленький PNG перекодируют в JPEG высокого качества или когда исходник уже сжат жёстче, чем выбранные настройки. Число — арифметика двух размеров. Это не оценка страницы, в которую картинка потом попадёт.</p>
-<p>Перекодирование рисует новые пиксели и пишет новый файл, поэтому метаданные оригинала с собой не переносятся. Туда входят заметки камеры и место, которое JPEG часто хранит. <a href="/Free-online-calculators/ru/exif-remover/">Инструмент EXIF</a> делает эту работу аккуратнее для JPEG: он может выкинуть сегменты метаданных и оставить сжатые данные картинки на месте, а не рисовать снимок заново. Этот компрессор нужен, когда хотите ещё и новый размер или новый формат. Инструмент EXIF — когда пиксели должны остаться, а уйти должны только заметки.</p>
-<p>Меньшая картинка помогает <a href="/Free-online-calculators/ru/page-speed-revenue-calculator/">наброску скорости и выручки</a>, только если изображение и было тяжёлой частью страницы. Набросок этот файл не видит. Секунды вы введёте сами, и только когда знаете, что картинка имела значение. Cloudways и Kinsta — хостинги. Смена хоста этого уменьшения не делает. Страница их не замеряет.</p>
+<p>Перекодирование рисует новые пиксели и пишет новый файл, поэтому метаданные оригинала с собой не переносятся. Туда входят заметки камеры и место, которое JPEG часто хранит. <a href="../exif-remover/">Инструмент EXIF</a> делает эту работу аккуратнее для JPEG: он может выкинуть сегменты метаданных и оставить сжатые данные картинки на месте, а не рисовать снимок заново. Этот компрессор нужен, когда хотите ещё и новый размер или новый формат. Инструмент EXIF — когда пиксели должны остаться, а уйти должны только заметки.</p>
+<p>Меньшая картинка помогает <a href="../page-speed-revenue-calculator/">наброску скорости и выручки</a>, только если изображение и было тяжёлой частью страницы. Набросок этот файл не видит. Секунды вы введёте сами, и только когда знаете, что картинка имела значение. Cloudways и Kinsta — хостинги. Смена хоста этого уменьшения не делает. Страница их не замеряет.</p>
 <ul>
 <li>Рисунок на canvas остаётся на устройстве. Файл не загружается.</li>
 <li>Снимок не увеличивается. Пропорции сохраняются.</li>
@@ -81,26 +96,26 @@
 <li>Экономия — исходный размер минус новый, и она может быть отрицательной.</li>
 </ul></div>
 <section class="faq"><h2>Частые вопросы</h2><details><summary>Картинка загружается на сервер?</summary><p>Нет. Браузер рисует её на canvas и кодирует результат локально. Аккаунта нет, и копию этот сайт не хранит.</p></details><details><summary>Маленькую картинку растянут до максимальной ширины?</summary><p>Нет. Масштаб не бывает больше единицы, поэтому снимок, который уже влезает, не увеличивается. Пропорции сохраняются.</p></details><details><summary>Что если AVIF не получился?</summary><p>Страница скажет, что кодирование не удалось. AVIF зависит от браузера. Выберите WebP, JPEG или PNG.</p></details><details><summary>Сжатие убирает EXIF?</summary><p>Перекодирование не переносит исходные метаданные. Инструмент EXIF аккуратнее убирает метаданные JPEG, не рисуя снимок заново.</p></details><details><summary>Сэкономленные байты ускорят живую страницу?</summary><p>Только если эта картинка была тяжёлой частью. Разница байт — исходный размер минус новый. Страницу она не замеряет.</p></details></section>
-<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Удаление EXIF</h3><p>Прочитать у JPEG данные камеры и GPS в браузере и скачать копию без этих сегментов.</p><a class="more" href="/Free-online-calculators/ru/exif-remover/">Открыть</a></article><article class="card"><h3>Калькулятор выручки и скорости страницы</h3><p>Конверсия, которую вы вводите, — это конверсия сейчас, на более медленном сайте. Каждая лишняя секунда, по допущению, умножала её на единицу минус ваша потеря.</p><a class="more" href="/Free-online-calculators/ru/page-speed-revenue-calculator/">Открыть</a></article><article class="card"><h3>Проверка контраста WCAG</h3><p>Контраст — это более светлая относительная яркость плюс 0,05, делённая на более тёмную плюс 0,05. Оба цвета вводите вы. Размер шрифта страница не знает.</p><a class="more" href="/Free-online-calculators/ru/wcag-contrast-checker/">Открыть</a></article><article class="card"><h3>Конвертер пикселей в rem</h3><p>rem — это пиксели, делённые на корневой размер шрифта. em берёт родителя. vw — пиксели, делённые на ширину окна и умноженные на 100.</p><a class="more" href="/Free-online-calculators/ru/px-to-rem-converter/">Открыть</a></article><article class="card"><h3>Cloudways и Kinsta и файлы, которые всё ещё решают скорость</h3><p>Два управляемых хоста сравниваются по тому, что вы всё ещё администрируете и чего не пишет ни один из них. Время до первого байта здесь не выдумано.</p><a class="more" href="/Free-online-calculators/ru/blog/cloudways-vs-kinsta/">Из статей</a></article></div></section>
+<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Удаление EXIF</h3><p>Прочитать у JPEG данные камеры и GPS в браузере и скачать копию без этих сегментов.</p><a class="more" href="../exif-remover/">Открыть</a></article><article class="card"><h3>Калькулятор выручки и скорости страницы</h3><p>Конверсия, которую вы вводите, — это конверсия сейчас, на более медленном сайте. Каждая лишняя секунда, по допущению, умножала её на единицу минус ваша потеря.</p><a class="more" href="../page-speed-revenue-calculator/">Открыть</a></article><article class="card"><h3>Проверка контраста WCAG</h3><p>Контраст — это более светлая относительная яркость плюс 0,05, делённая на более тёмную плюс 0,05. Оба цвета вводите вы. Размер шрифта страница не знает.</p><a class="more" href="../wcag-contrast-checker/">Открыть</a></article><article class="card"><h3>Конвертер пикселей в rem</h3><p>rem — это пиксели, делённые на корневой размер шрифта. em берёт родителя. vw — пиксели, делённые на ширину окна и умноженные на 100.</p><a class="more" href="../px-to-rem-converter/">Открыть</a></article><article class="card"><h3>Cloudways и Kinsta и файлы, которые всё ещё решают скорость</h3><p>Два управляемых хоста сравниваются по тому, что вы всё ещё администрируете и чего не пишет ни один из них. Время до первого байта здесь не выдумано.</p><a class="more" href="../blog/cloudways-vs-kinsta/">Из статей</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/ru/about/">О сайте</a>
-<a href="/Free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
-<a href="/Free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
-<a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<a href="../about/">О сайте</a>
+<a href="../privacy-policy/">Политика конфиденциальности</a>
+<a href="../affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="../blog/">Статьи</a>
 </nav>
 <p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
 <p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-ru.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../../assets/js/affiliates.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+<script defer src="../../assets/js/calc-core.js"></script>
+<script defer src="../../assets/js/wordlists.js"></script>
+<script defer src="../../assets/js/cost-of-living.js"></script>
+<script defer src="../../assets/js/llm-prices.js"></script>
+<script defer src="../../assets/js/ui-ru.js"></script>
+<script defer src="../../assets/js/calculators.js"></script>
 </body>
 </html>

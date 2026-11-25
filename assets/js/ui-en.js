@@ -33,7 +33,11 @@ window.UI = {
     url: "Enter a full URL, including https://.",
     network: "The lookup did not answer. Check the connection and try again.",
     file: "Choose a file first.",
-    image: "This browser could not decode that image. Try a JPEG, PNG, or WebP."
+    image: "This browser could not decode that image. Try a JPEG, PNG, or WebP.",
+    unit: "Those units measure different things. Pick two lengths, two weights, two temperatures, or two volumes.",
+    triangle: "Those three lengths cannot make a triangle. Each side has to be shorter than the other two added together.",
+    measure: "Check the tape measurements. A circumference used in a logarithm has to be greater than the one subtracted from it.",
+    list: "Type at least one number."
   },
   dur: { seconds: "seconds", minutes: "minutes", hours: "hours", days: "days", years: "years", universe: "longer than the age of the universe" },
   warn: {
@@ -74,5 +78,22 @@ window.UI = {
   policy: { ready: "Draft. Read it and delete any sentence that is not true for your site." },
   margin: { margin: "Margin", markup: "Markup", profit: "Profit", price: "Price", of: "Result", change: "Change" },
   dates: { calendar: "Calendar days", business: "Business days", weekends: "Weekend days in the span", holidays: "Weekday holidays in the span", landed: "Date after the business days" },
-  pomodoro: { focus: "Focus", short: "Short break", long: "Long break", done: "Focus blocks finished", of: "of" }
+  pomodoro: { focus: "Focus", short: "Short break", long: "Long break", done: "Focus blocks finished", of: "of" },
+  mortgage: { loan: "Amount borrowed", pi: "Principal and interest", tax: "Tax per month", ins: "Insurance per month", hoa: "HOA per month", total: "Monthly payment", interest: "Total interest", paid: "Principal and interest paid", piti: "All monthly payments over the term", year: "Year", yInt: "Interest that year", yPrin: "Principal that year", bal: "Balance" },
+  loan: { payment: "Monthly payment", interest: "Total interest", paid: "Total paid", months: "Months in the term", payoff: "Months with the extra payment", saved: "Interest saved by the extra payment" },
+  simple: { interest: "Interest", amount: "Amount at the end", years: "Years used in P × r × t" },
+  bmi: { bmi: "BMI", cat: "Adult category", range: "Weight for BMI 18.5 to 24.9", under: "Under 18.5, underweight on the adult WHO scale", healthy: "18.5 to 24.9, the adult WHO healthy range", over: "25 to 29.9, overweight on the adult WHO scale", obese: "30 or more, obese on the adult WHO scale" },
+  calorie: { bmr: "BMR, Mifflin–St Jeor", tdee: "Estimated daily calories", factor: "Activity factor", lose: "About 500 kcal under maintenance", gain: "About 500 kcal over maintenance" },
+  bodyfat: { fat: "Estimated body fat" },
+  pace: { time: "Time", distance: "Distance", perKm: "Pace per kilometre", perMi: "Pace per mile", kmh: "Speed, km/h", mph: "Speed, mph" },
+  percentage: { of: "Result", change: "Percent change", what: "Share of the second number" },
+  fraction: { improper: "In lowest terms", mixed: "Mixed number", decimal: "Decimal" },
+  stats: { n: "Count", sum: "Sum", min: "Minimum", max: "Maximum", mean: "Mean", popSd: "Population standard deviation", popVar: "Population variance", sampleSd: "Sample standard deviation", sampleVar: "Sample variance", sampleNote: "Sample figures need at least two numbers." },
+  triangle: { area: "Area", perimeter: "Perimeter", hyp: "Hypotenuse", a: "Side a", b: "Side b", c: "Side c" },
+  age: { age: "Age", total: "Total days", next: "Next birthday", until: "Days until that birthday" },
+  datecalc: { days: "Days from the first date to the second", inclusive: "Days including both dates", weeks: "Weeks", span: "Years, months, and days", result: "Resulting date" },
+  timecalc: { result: "Result", clock: "Duration", next: "The end time was earlier, so this crosses midnight." },
+  gpa: { gpa: "GPA", credits: "Credits", points: "Grade points" },
+  grade: { percent: "Weighted percent", letter: "Letter on a 90/80/70/60 scale", earned: "Points earned", possible: "Points possible" },
+  unit: { result: "Result" }
 };

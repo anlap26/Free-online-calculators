@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="Калькулятор маржи и наценки | Бесплатные калькуляторы">
 <meta name="twitter:description" content="Из себестоимости и цены получите маржу и наценку или найдите цену по проценту маржи или наценки. Отдельный режим считает долю, изменение и «сколько процентов».">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Калькулятор маржи и наценки","description":"Из себестоимости и цены получите маржу и наценку или найдите цену по проценту маржи или наценки. Отдельный режим считает долю, изменение и «сколько процентов».","url":"https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Почему маржа и наценка на одной цене разные?","acceptedAnswer":{"@type":"Answer","text":"Разница одна, но маржа делит на цену, а наценка — на себестоимость. Себестоимость 60 и цена 100 — это маржа 40 процентов и наценка 66,67 процента."}},{"@type":"Question","name":"Как получить цену из маржи?","acceptedAnswer":{"@type":"Answer","text":"Разделите себестоимость на единицу минус маржа. Себестоимость 80 при марже 50 процентов — это 160."}},{"@type":"Question","name":"Как получить цену из наценки?","acceptedAnswer":{"@type":"Answer","text":"Умножьте себестоимость на единицу плюс наценка. Себестоимость 80 при наценке 25 процентов — это 100."}},{"@type":"Question","name":"Что считает режим процентов?","acceptedAnswer":{"@type":"Answer","text":"Процент от числа, изменение от одного числа к другому и сколько процентов A составляет от B. 15 процентов от 80 — это 12. От 200 к 250 — плюс 25 процентов."}},{"@type":"Question","name":"Маржа включает комиссию за обмен валюты?","acceptedAnswer":{"@type":"Answer","text":"Нет. Получить оплату в другой валюте — отдельная комиссия. Тариф Wise эта страница не приводит."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Веб","item":"https://anlap26.github.io/Free-online-calculators/ru/webmaster/"},{"@type":"ListItem","position":3,"name":"Калькулятор маржи и наценки","item":"https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/"}]},{"@type":"HowTo","name":"Калькулятор маржи и наценки","description":"Из себестоимости и цены получите маржу и наценку или найдите цену по проценту маржи или наценки. Отдельный режим считает долю, изменение и «сколько процентов».","url":"https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/","step":[{"@type":"HowToStep","position":1,"name":"Одна разница, два процента","text":"Себестоимость 60 и цена 100. Разница — 40. Маржа — 40 разделить на 100, то есть 40 процентов. Наценка — 40 разделить на 60, то есть 66,67 процента, если показать два знака, потому что 40 разделить на 60 — это две трети. Услышали 40 процентов и применили их как наценку — получите 60 умножить на 1,40, то есть 84. Маржа на 84 — это 24 разделить на 84, около 28,6 процента, а не 40. Вот занижение. Покупатель видит полку ниже, чем маржа, которую вы думали задать."},{"@type":"HowToStep","position":2,"name":"Цена из маржи и цена из наценки","text":"Цена из маржи — себестоимость, делённая на единицу минус маржа. Себестоимость 80 при марже 50 процентов — это 80 разделить на 0,5, то есть 160. Проверка: разница 80, и 80 разделить на 160 — одна вторая. Маржа должна быть меньше единицы. Маржа 100 процентов делила бы на ноль, потому что на себестоимость ничего бы не осталось. Форма это отклоняет, а не печатает бесконечную цену. Цена из наценки — себестоимость, умноженная на единицу плюс наценка. Себестоимость 80 при наценке 25 процентов — это 80 умножить на 1,25, то есть 100. Разница 20, наценка — 20 разделить на 80, а маржа на той же паре — 20"},{"@type":"HowToStep","position":3,"name":"Режим процентов — обычная арифметика","text":"Отдельный режим отвечает на три простых вопроса. Сколько будет процент от числа: 15 процентов от 80 — это 12. Каково изменение от одного числа к другому: от 200 к 250 — это плюс 25 процентов, потому что разница 50, делённая на старт 200, — одна четверть. A — это сколько процентов от B: A разделить на B. Обратный ход, с 250 к 200, — другой вопрос, потому что база тогда 250 и изменение — минус 20 процентов. Для изменения страница берёт базу из первого поля. Какое число вы считаете исходным, она не угадывает. Всё это не котировка на перевод денег. Получить оплату в другой валюте — отдельная комис"}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Калькулятор маржи и наценки","description":"Из себестоимости и цены получите маржу и наценку или найдите цену по проценту маржи или наценки. Отдельный режим считает долю, изменение и «сколько процентов».","url":"https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Почему маржа и наценка на одной цене разные?","acceptedAnswer":{"@type":"Answer","text":"Разница одна, но маржа делит на цену, а наценка — на себестоимость. Себестоимость 60 и цена 100 — это маржа 40 процентов и наценка 66,67 процента."}},{"@type":"Question","name":"Как получить цену из маржи?","acceptedAnswer":{"@type":"Answer","text":"Разделите себестоимость на единицу минус маржа. Себестоимость 80 при марже 50 процентов — это 160."}},{"@type":"Question","name":"Как получить цену из наценки?","acceptedAnswer":{"@type":"Answer","text":"Умножьте себестоимость на единицу плюс наценка. Себестоимость 80 при наценке 25 процентов — это 100."}},{"@type":"Question","name":"Что считает режим процентов?","acceptedAnswer":{"@type":"Answer","text":"Процент от числа, изменение от одного числа к другому и сколько процентов A составляет от B. 15 процентов от 80 — это 12. От 200 к 250 — плюс 25 процентов."}},{"@type":"Question","name":"Маржа включает комиссию за обмен валюты?","acceptedAnswer":{"@type":"Answer","text":"Нет. Получить оплату в другой валюте — отдельная комиссия. Тариф Wise эта страница не приводит."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Веб","item":"https://anlap26.github.io/Free-online-calculators/ru/webmaster/"},{"@type":"ListItem","position":3,"name":"Калькулятор маржи и наценки","item":"https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/"}]},{"@type":"HowTo","name":"Калькулятор маржи и наценки","description":"Из себестоимости и цены получите маржу и наценку или найдите цену по проценту маржи или наценки. Отдельный режим считает долю, изменение и «сколько процентов».","url":"https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/","step":[{"@type":"HowToStep","position":1,"name":"Одна разница, два процента","text":"Себестоимость 60 и цена 100. Разница — 40. Маржа — 40 разделить на 100, то есть 40 процентов. Наценка — 40 разделить на 60, то есть 66,67 процента, если показать два знака, потому что 40 разделить на 60 — это две трети. Услышали 40 процентов и применили их как наценку — получите 60 умножить на 1,40, то есть 84. Маржа на 84 — это 24 разделить на 84, около 28,6 процента, а не 40. Вот занижение. Покупатель видит полку ниже, чем маржа, которую вы думали задать."},{"@type":"HowToStep","position":2,"name":"Цена из маржи и цена из наценки","text":"Цена из маржи — себестоимость, делённая на единицу минус маржа. Себестоимость 80 при марже 50 процентов — это 80 разделить на 0,5, то есть 160. Проверка: разница 80, и 80 разделить на 160 — одна вторая. Маржа должна быть меньше единицы. Маржа 100 процентов делила бы на ноль, потому что на себестоимость ничего бы не осталось. Форма это отклоняет, а не печатает бесконечную цену. Цена из наценки — себестоимость, умноженная на единицу плюс наценка. Себестоимость 80 при наценке 25 процентов — это 80 умножить на 1,25, то есть 100. Разница 20, наценка — 20 разделить на 80, а маржа на той же паре — 20"},{"@type":"HowToStep","position":3,"name":"Режим процентов — обычная арифметика","text":"Отдельный режим отвечает на три простых вопроса. Сколько будет процент от числа: 15 процентов от 80 — это 12. Каково изменение от одного числа к другому: от 200 к 250 — это плюс 25 процентов, потому что разница 50, делённая на старт 200, — одна четверть. A — это сколько процентов от B: A разделить на B. Обратный ход, с 250 к 200, — другой вопрос, потому что база тогда 250 и изменение — минус 20 процентов. Для изменения страница берёт базу из первого поля. Какое число вы считаете исходным, она не угадывает. Всё это не котировка на перевод денег. Получить оплату в другой валюте — отдельная комис"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
-<nav class="main" aria-label="Разделы">
-<a href="/Free-online-calculators/ru/">Главная</a><a href="/Free-online-calculators/ru/finance/">Финансы</a><a href="/Free-online-calculators/ru/security/">Приватность</a><a href="/Free-online-calculators/ru/relocation/">Переезд</a><a href="/Free-online-calculators/ru/webmaster/">Веб</a><a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Бесплатные онлайн-калькуляторы<small>Деньги, здоровье, математика, приватность и веб</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Тёмная" data-to-light="Светлая" aria-pressed="false">Тёмная</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/ru/webmaster/">Веб</a><span aria-hidden="true">/</span> <span aria-current="page">Калькулятор маржи и наценки</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Разделы">
+<a href="..//">Главная</a><a href="../finance/">Финансы</a><a href="../fitness/">Здоровье</a><a href="../math/">Математика</a><a href="../other/">Другое</a><a href="../security/">Приватность</a><a href="../relocation/">Переезд</a><a href="../webmaster/">Веб</a><a href="../blog/">Статьи</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Главная</a><span aria-hidden="true">/</span> <a href="../webmaster/">Веб</a><span aria-hidden="true">/</span> <span aria-current="page">Калькулятор маржи и наценки</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Калькулятор маржи и наценки</h1>
 <p class="lede">Маржа делит разницу на цену. Наценка делит ту же разницу на себестоимость. Эти проценты не взаимозаменяемы, и путаница занижает цену.</p>
@@ -83,7 +98,7 @@
 <p>Цена из наценки — себестоимость, умноженная на единицу плюс наценка. Себестоимость 80 при наценке 25 процентов — это 80 умножить на 1,25, то есть 100. Разница 20, наценка — 20 разделить на 80, а маржа на той же паре — 20 разделить на 100, то есть 20 процентов. Снова два процента — не одно число. Запишите, о чём просило задание, до того как вводить его в поле.</p>
 <h2>Режим процентов — обычная арифметика</h2>
 <p>Отдельный режим отвечает на три простых вопроса. Сколько будет процент от числа: 15 процентов от 80 — это 12. Каково изменение от одного числа к другому: от 200 к 250 — это плюс 25 процентов, потому что разница 50, делённая на старт 200, — одна четверть. A — это сколько процентов от B: A разделить на B. Обратный ход, с 250 к 200, — другой вопрос, потому что база тогда 250 и изменение — минус 20 процентов. Для изменения страница берёт базу из первого поля. Какое число вы считаете исходным, она не угадывает.</p>
-<p>Всё это не котировка на перевод денег. Получить оплату в другой валюте — отдельная комиссия, не маржа. Wise — один из сервисов, которым для такого перевода пользуются. Калькулятор не знает, какую комиссию Wise взял бы сегодня, и тариф не выдумает. Если маржа должна покрыть ещё и рекламу, отнесите найденную долю в <a href="/Free-online-calculators/ru/roas-calculator/">калькулятор ROAS</a> как долю, которая остаётся до рекламы. Час фрилансера, сложный процент и сумма к выходу на пенсию — другие вопросы, на своих калькуляторах, и это деление они не меняют.</p>
+<p>Всё это не котировка на перевод денег. Получить оплату в другой валюте — отдельная комиссия, не маржа. Wise — один из сервисов, которым для такого перевода пользуются. Калькулятор не знает, какую комиссию Wise взял бы сегодня, и тариф не выдумает. Если маржа должна покрыть ещё и рекламу, отнесите найденную долю в <a href="../roas-calculator/">калькулятор ROAS</a> как долю, которая остаётся до рекламы. Час фрилансера, сложный процент и сумма к выходу на пенсию — другие вопросы, на своих калькуляторах, и это деление они не меняют.</p>
 <ul>
 <li>Маржа — разница, делённая на цену. Наценка — разница, делённая на себестоимость.</li>
 <li>Себестоимость 60 и цена 100 — это маржа 40 процентов и наценка 66,67 процента.</li>
@@ -91,26 +106,26 @@
 <li>Комиссия за получение денег в другой валюте внутри маржи не сидит.</li>
 </ul></div>
 <section class="faq"><h2>Частые вопросы</h2><details><summary>Почему маржа и наценка на одной цене разные?</summary><p>Разница одна, но маржа делит на цену, а наценка — на себестоимость. Себестоимость 60 и цена 100 — это маржа 40 процентов и наценка 66,67 процента.</p></details><details><summary>Как получить цену из маржи?</summary><p>Разделите себестоимость на единицу минус маржа. Себестоимость 80 при марже 50 процентов — это 160.</p></details><details><summary>Как получить цену из наценки?</summary><p>Умножьте себестоимость на единицу плюс наценка. Себестоимость 80 при наценке 25 процентов — это 100.</p></details><details><summary>Что считает режим процентов?</summary><p>Процент от числа, изменение от одного числа к другому и сколько процентов A составляет от B. 15 процентов от 80 — это 12. От 200 к 250 — плюс 25 процентов.</p></details><details><summary>Маржа включает комиссию за обмен валюты?</summary><p>Нет. Получить оплату в другой валюте — отдельная комиссия. Тариф Wise эта страница не приводит.</p></details></section>
-<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Калькулятор ROAS</h3><p>ROAS — это выручка, делённая на расход рекламы. Прибыль потом вычитает этот расход и прочие затраты из выручки, умноженной на введённую маржу.</p><a class="more" href="/Free-online-calculators/ru/roas-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор ставки фрилансера</h3><p>Валовая сумма — это нужные вам чистые плюс расходы бизнеса, делённые на единицу минус введённая ставка налога. Дальше сумма ложится на часы, которые остались после отпуска и неоплачиваемого времени.</p><a class="more" href="/Free-online-calculators/ru/freelance-rate-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор сложного процента</h3><p>Номинальная годовая ставка, ежемесячное довнесение и выбор начала или конца месяца дают будущую сумму, которую можно проверить на простых числах.</p><a class="more" href="/Free-online-calculators/ru/compound-interest-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор финансовой независимости</h3><p>Расходы и ставка изъятия задают цель портфеля. Разрыв, сегодняшние дивиденды и сумма без новых взносов остаются отдельными строками.</p><a class="more" href="/Free-online-calculators/ru/fire-calculator/">Открыть</a></article></div></section>
+<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Калькулятор ROAS</h3><p>ROAS — это выручка, делённая на расход рекламы. Прибыль потом вычитает этот расход и прочие затраты из выручки, умноженной на введённую маржу.</p><a class="more" href="../roas-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор ставки фрилансера</h3><p>Валовая сумма — это нужные вам чистые плюс расходы бизнеса, делённые на единицу минус введённая ставка налога. Дальше сумма ложится на часы, которые остались после отпуска и неоплачиваемого времени.</p><a class="more" href="../freelance-rate-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор сложного процента</h3><p>Номинальная годовая ставка, ежемесячное довнесение и выбор начала или конца месяца дают будущую сумму, которую можно проверить на простых числах.</p><a class="more" href="../compound-interest-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор финансовой независимости</h3><p>Расходы и ставка изъятия задают цель портфеля. Разрыв, сегодняшние дивиденды и сумма без новых взносов остаются отдельными строками.</p><a class="more" href="../fire-calculator/">Открыть</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/ru/about/">О сайте</a>
-<a href="/Free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
-<a href="/Free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
-<a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<a href="../about/">О сайте</a>
+<a href="../privacy-policy/">Политика конфиденциальности</a>
+<a href="../affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="../blog/">Статьи</a>
 </nav>
 <p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
 <p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-ru.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../../assets/js/affiliates.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+<script defer src="../../assets/js/calc-core.js"></script>
+<script defer src="../../assets/js/wordlists.js"></script>
+<script defer src="../../assets/js/cost-of-living.js"></script>
+<script defer src="../../assets/js/llm-prices.js"></script>
+<script defer src="../../assets/js/ui-ru.js"></script>
+<script defer src="../../assets/js/calculators.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+/* Unused. The live stylesheet is assets/css/site.css and npm run build does not compile Tailwind.
+   Recompiling this file would copy the .grid column rules onto forms again.
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

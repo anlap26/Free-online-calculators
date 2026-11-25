@@ -276,7 +276,89 @@ export function renderForm(calc, lang) {
         <button class="ghost" type="button" data-pause>${esc(t(L("Pause", "Пауза"), lang))}</button>
         <button class="ghost" type="button" data-skip>${esc(t(L("Skip", "Дальше"), lang))}</button>
         <button class="ghost" type="button" data-reset>${esc(t(L("Reset", "Сброс"), lang))}</button>
-      </div></form>`
+      </div></form>`,
+    mortgage: () => `<form class="calc" data-calc="mortgage" data-autorun="1">
+      <div class="row2">${num("price", t(L("Home price", "Цена жилья"), lang), "400000")}${num("down", t(L("Down payment", "Первый взнос"), lang), "80000")}</div>
+      <div class="row3">${num("rate", t(L("Annual interest rate, %", "Годовая ставка, %"), lang), "6.5")}${num("years", t(L("Term, years", "Срок, лет"), lang), "30", 'min="1"')}${text("symbol", t(T.symbol, lang), "")}</div>
+      <div class="row3">${num("tax", t(L("Property tax per year", "Налог на недвижимость в год"), lang), "3600")}${num("insurance", t(L("Home insurance per year", "Страховка жилья в год"), lang), "1200")}${num("hoa", t(L("HOA or similar, per month", "Взнос ТСЖ или аналог, в месяц"), lang), "0")}</div>
+      ${go(lang)}</form>`,
+    loan: () => `<form class="calc" data-calc="loan" data-autorun="1">
+      <div class="row3">${num("amount", t(L("Amount borrowed", "Сумма кредита"), lang), "20000")}${num("rate", t(L("Annual interest rate, %", "Годовая ставка, %"), lang), "7.5")}${text("symbol", t(T.symbol, lang), "")}</div>
+      <div class="row3">${num("years", t(L("Years", "Лет"), lang), "5", 'min="0"')}${num("months", t(L("Extra months", "Дополнительных месяцев"), lang), "0", 'min="0"')}${num("extra", t(L("Extra payment each month", "Дополнительный платёж в месяц"), lang), "0")}</div>
+      ${go(lang)}</form>`,
+    simple: () => `<form class="calc" data-calc="simple" data-autorun="1">
+      <div class="row3">${num("principal", t(L("Principal", "Начальная сумма"), lang), "1000")}${num("rate", t(L("Annual rate, %", "Годовая ставка, %"), lang), "5")}${num("time", t(L("Time", "Срок"), lang), "3", 'min="0"')}</div>
+      <div class="row2">${sel("unit", t(L("The time is in", "Срок задан в"), lang), [["year", t(L("Years", "Годах"), lang)], ["month", t(L("Months", "Месяцах"), lang)], ["day", t(L("Days", "Днях"), lang)]], "year")}${sel("basis", t(L("Day count, if the time is in days", "База дней, если срок в днях"), lang), [["365", t(L("365, actual/365", "365, actual/365"), lang)], ["360", t(L("360, 30/360 style", "360, стиль 30/360"), lang)]], "365")}</div>
+      ${text("symbol", t(T.symbol, lang), "")}
+      ${go(lang)}</form>`,
+    bmi: () => `<form class="calc" data-calc="bmi" data-autorun="1">
+      ${sel("units", t(L("Units", "Единицы"), lang), [["metric", t(L("Kilograms and centimetres", "Килограммы и сантиметры"), lang)], ["imperial", t(L("Pounds and inches", "Фунты и дюймы"), lang)]], "metric")}
+      <div class="row2">${num("weight", t(L("Weight", "Вес"), lang), "70")}${num("height", t(L("Height", "Рост"), lang), "175")}</div>
+      ${go(lang)}</form>`,
+    calorie: () => `<form class="calc" data-calc="calorie" data-autorun="1">
+      <div class="row2">${sel("sex", t(L("Equation", "Уравнение"), lang), [["male", t(L("Mifflin–St Jeor, male constant (+5)", "Миффлин — Сан Жеор, мужская константа (+5)"), lang)], ["female", t(L("Mifflin–St Jeor, female constant (−161)", "Миффлин — Сан Жеор, женская константа (−161)"), lang)]], "male")}${sel("units", t(L("Units", "Единицы"), lang), [["metric", t(L("Kilograms and centimetres", "Килограммы и сантиметры"), lang)], ["imperial", t(L("Pounds and inches", "Фунты и дюймы"), lang)]], "metric")}</div>
+      <div class="row3">${num("weight", t(L("Weight", "Вес"), lang), "70")}${num("height", t(L("Height", "Рост"), lang), "175")}${num("age", t(L("Age, years", "Возраст, лет"), lang), "30", 'min="1"')}</div>
+      ${sel("activity", t(L("Activity factor", "Коэффициент активности"), lang), [["sedentary", t(L("Sedentary, ×1.2", "Сидячий, ×1,2"), lang)], ["light", t(L("Light, ×1.375", "Лёгкая, ×1,375"), lang)], ["moderate", t(L("Moderate, ×1.55", "Умеренная, ×1,55"), lang)], ["active", t(L("Active, ×1.725", "Высокая, ×1,725"), lang)], ["very", t(L("Very active, ×1.9", "Очень высокая, ×1,9"), lang)]], "moderate")}
+      ${go(lang)}</form>`,
+    bodyfat: () => `<form class="calc" data-calc="bodyfat" data-autorun="1">
+      <div class="row2">${sel("sex", t(L("Equation", "Уравнение"), lang), [["male", t(L("US Navy, men", "ВМС США, мужчины"), lang)], ["female", t(L("US Navy, women", "ВМС США, женщины"), lang)]], "male")}${sel("units", t(L("Units", "Единицы"), lang), [["imperial", t(L("Inches", "Дюймы"), lang)], ["metric", t(L("Centimetres", "Сантиметры"), lang)]], "imperial")}</div>
+      <div class="row2">${num("height", t(L("Height", "Рост"), lang), "70")}${num("neck", t(L("Neck", "Шея"), lang), "15")}</div>
+      <div class="row2">${num("waist", t(L("Waist", "Талия"), lang), "34")}${num("hip", t(L("Hip, used by the women's equation", "Бёдра, нужны женскому уравнению"), lang), "38")}</div>
+      ${go(lang)}</form>`,
+    pace: () => `<form class="calc" data-calc="pace" data-autorun="1">
+      ${sel("mode", t(L("What to find", "Что найти"), lang), [["pace", t(L("Pace from distance and time", "Темп по дистанции и времени"), lang)], ["time", t(L("Time from distance and pace", "Время по дистанции и темпу"), lang)], ["distance", t(L("Distance from time and pace", "Дистанцию по времени и темпу"), lang)]], "pace")}
+      <div data-show="pace time"><div class="row2">${num("distance", t(L("Distance", "Дистанция"), lang), "10")}${sel("distanceUnit", t(L("Distance unit", "Единица дистанции"), lang), [["km", t(L("Kilometres", "Километры"), lang)], ["mi", t(L("Miles", "Мили"), lang)]], "km")}</div></div>
+      <div data-show="pace distance"><div class="row3">${num("hours", t(L("Hours", "Часы"), lang), "0", 'min="0"')}${num("minutes", t(L("Minutes", "Минуты"), lang), "50", 'min="0"')}${num("seconds", t(L("Seconds", "Секунды"), lang), "0", 'min="0"')}</div></div>
+      <div data-show="time distance"><div class="row2">${num("paceMin", t(L("Pace minutes", "Минуты темпа"), lang), "5", 'min="0"')}${num("paceSec", t(L("Pace seconds", "Секунды темпа"), lang), "0", 'min="0"')}</div><p class="fine">${esc(t(L("Pace is per the distance unit selected above. In the distance mode it is per kilometre if you leave the unit on kilometres.", "Темп задаётся на выбранную единицу дистанции. В режиме дистанции это темп на километр, если единица остаётся километром."), lang))}</p></div>
+      ${go(lang)}</form>`,
+    percentage: () => `<form class="calc" data-calc="percentage" data-autorun="1">
+      ${sel("op", t(L("Question", "Вопрос"), lang), [["of", t(L("What is A% of B", "Сколько будет A% от B"), lang)], ["what", t(L("A is what percent of B", "A — это сколько процентов от B"), lang)], ["change", t(L("Percent change from A to B", "Изменение в процентах от A к B"), lang)]], "of")}
+      <div class="row2">${num("a", "A", "20")}${num("b", "B", "80")}</div>
+      ${go(lang)}</form>`,
+    fraction: () => `<form class="calc" data-calc="fraction" data-autorun="1">
+      <div class="row2">${num("a", t(L("First numerator", "Числитель первой"), lang), "1", 'step="1"')}${num("b", t(L("First denominator", "Знаменатель первой"), lang), "2", 'step="1"')}</div>
+      ${sel("op", t(L("Operation", "Действие"), lang), [["add", "+"], ["sub", "−"], ["mul", "×"], ["div", "÷"]], "add")}
+      <div class="row2">${num("c", t(L("Second numerator", "Числитель второй"), lang), "1", 'step="1"')}${num("d", t(L("Second denominator", "Знаменатель второй"), lang), "3", 'step="1"')}</div>
+      ${go(lang)}</form>`,
+    stats: () => `<form class="calc" data-calc="stats" data-autorun="1">
+      ${area("values", t(L("Numbers, separated by spaces, commas, or new lines", "Числа через пробел, запятую или с новой строки"), lang), "2, 4, 4, 4, 5, 5, 7, 9")}
+      ${go(lang)}</form>`,
+    triangle: () => `<form class="calc" data-calc="triangle" data-autorun="1">
+      ${sel("mode", t(L("Known values", "Что известно"), lang), [["right", t(L("Two legs of a right triangle", "Два катета прямоугольного треугольника"), lang)], ["sides", t(L("Three sides", "Три стороны"), lang)], ["base", t(L("Base and height", "Основание и высота"), lang)]], "right")}
+      <div data-show="right sides"><div class="row2">${num("a", t(L("Side a", "Сторона a"), lang), "3")}${num("b", t(L("Side b", "Сторона b"), lang), "4")}</div></div>
+      <div data-show="sides">${num("c", t(L("Side c", "Сторона c"), lang), "5")}</div>
+      <div data-show="base"><div class="row2">${num("base", t(L("Base", "Основание"), lang), "10")}${num("height", t(L("Height", "Высота"), lang), "4")}</div></div>
+      ${go(lang)}</form>`,
+    age: () => `<form class="calc" data-calc="age" data-autorun="1">
+      <div class="row2">${text("birth", t(L("Date of birth", "Дата рождения"), lang), "1990-06-15", 'type="date"')}${text("asof", t(L("Age on this date", "Возраст на дату"), lang), "", 'type="date" data-today="1"')}</div>
+      ${go(lang)}</form>`,
+    datecalc: () => `<form class="calc" data-calc="datecalc" data-autorun="1">
+      ${sel("mode", t(L("What to find", "Что найти"), lang), [["between", t(L("Days between two dates", "Дни между двумя датами"), lang)], ["add", t(L("Add or subtract a period", "Прибавить или вычесть срок"), lang)]], "between")}
+      <div data-show="between"><div class="row2">${text("start", t(L("First date", "Первая дата"), lang), "2026-01-01", 'type="date"')}${text("end", t(L("Second date", "Вторая дата"), lang), "2026-01-31", 'type="date"')}</div></div>
+      <div data-show="add">${text("from", t(L("Start date", "Начальная дата"), lang), "2026-01-31", 'type="date"')}
+      <div class="row3">${num("years", t(L("Years", "Лет"), lang), "0", 'step="1"')}${num("months", t(L("Months", "Месяцев"), lang), "1", 'step="1"')}${num("days", t(L("Days", "Дней"), lang), "0", 'step="1"')}</div></div>
+      ${go(lang)}</form>`,
+    timecalc: () => `<form class="calc" data-calc="timecalc" data-autorun="1">
+      ${sel("mode", t(L("What to find", "Что найти"), lang), [["add", t(L("Add two durations", "Сложить две длительности"), lang)], ["sub", t(L("Subtract a duration", "Вычесть длительность"), lang)], ["clock", t(L("Time between two clock times", "Время между двумя моментами"), lang)]], "add")}
+      <div data-show="add sub"><p class="fine">${esc(t(L("First duration", "Первая длительность"), lang))}</p><div class="row3">${num("h1", t(L("Hours", "Часы"), lang), "1")}${num("m1", t(L("Minutes", "Минуты"), lang), "30")}${num("s1", t(L("Seconds", "Секунды"), lang), "0")}</div>
+      <p class="fine">${esc(t(L("Second duration", "Вторая длительность"), lang))}</p><div class="row3">${num("h2", t(L("Hours", "Часы"), lang), "2")}${num("m2", t(L("Minutes", "Минуты"), lang), "45")}${num("s2", t(L("Seconds", "Секунды"), lang), "30")}</div></div>
+      <div data-show="clock"><div class="row2">${num("sh", t(L("Start hour, 0–23", "Час начала, 0–23"), lang), "9", 'min="0" max="23"')}${num("sm", t(L("Start minute", "Минута начала"), lang), "15", 'min="0" max="59"')}</div>
+      <div class="row2">${num("eh", t(L("End hour, 0–23", "Час конца, 0–23"), lang), "17", 'min="0" max="23"')}${num("em", t(L("End minute", "Минута конца"), lang), "45", 'min="0" max="59"')}</div></div>
+      ${go(lang)}</form>`,
+    gpa: () => `<form class="calc" data-calc="gpa" data-autorun="1">
+      <div id="courses">${course(lang, "A", "3")}${course(lang, "B", "3")}</div>
+      <button class="ghost" type="button" data-add="#courses" data-template="#course-tpl">${esc(t(L("Add a course", "Добавить курс"), lang))}</button>
+      ${go(lang)}
+      <template id="course-tpl">${course(lang, "A", "")}</template></form>`,
+    grade: () => `<form class="calc" data-calc="grade" data-autorun="1">
+      <div id="scores">${score(lang, "18", "20", "40")}${score(lang, "45", "50", "60")}</div>
+      <button class="ghost" type="button" data-add="#scores" data-template="#score-tpl">${esc(t(L("Add a score", "Добавить оценку"), lang))}</button>
+      ${go(lang)}
+      <template id="score-tpl">${score(lang, "", "", "")}</template></form>`,
+    unit: () => `<form class="calc" data-calc="unit" data-autorun="1">
+      ${num("value", t(L("Value", "Значение"), lang), "1")}
+      <div class="row2">${sel("from", t(L("From", "Из"), lang), unitOptions(lang), "mi")}${sel("to", t(L("To", "В"), lang), unitOptions(lang), "km")}</div>
+      ${go(lang)}</form>`
   };
   if (!f[calc]) throw new Error("no form " + calc);
   return f[calc]() + '<div id="result" class="result" aria-live="polite"></div>';
@@ -290,4 +372,20 @@ function coin(lang, label, amount, rate) {
 }
 function trip(lang, start, end) {
   return `<div class="trip" data-row>${text("start", t(L("Arrived", "Приезд"), lang), start, 'type="date"')}${text("end", t(L("Left", "Отъезд"), lang), end, 'type="date"')}<button class="ghost" type="button" data-remove>${esc(T.remove[lang])}</button></div>`;
+}
+const grades = [["A+", "A+ = 4.0"], ["A", "A = 4.0"], ["A-", "A− = 3.7"], ["B+", "B+ = 3.3"], ["B", "B = 3.0"], ["B-", "B− = 2.7"], ["C+", "C+ = 2.3"], ["C", "C = 2.0"], ["C-", "C− = 1.7"], ["D+", "D+ = 1.3"], ["D", "D = 1.0"], ["D-", "D− = 0.7"], ["F", "F = 0"]];
+function course(lang, grade, credits) {
+  return `<div class="lot" data-row>${sel("grade", t(L("Grade", "Оценка"), lang), grades, grade)}${num("credits", t(L("Credits", "Кредиты"), lang), credits, 'min="0"')}<button class="ghost" type="button" data-remove>${esc(T.remove[lang])}</button></div>`;
+}
+function score(lang, earned, possible, weight) {
+  return `<div class="lot" data-row>${num("earned", t(L("Points earned", "Набрано"), lang), earned)}${num("possible", t(L("Points possible", "Максимум"), lang), possible)}${num("weight", t(L("Weight", "Вес"), lang), weight)}<button class="ghost" type="button" data-remove>${esc(T.remove[lang])}</button></div>`;
+}
+function unitOptions(lang) {
+  const groups = [
+    [t(L("Length", "Длина"), lang), [["m", "m"], ["km", "km"], ["cm", "cm"], ["mm", "mm"], ["mi", "mi"], ["yd", "yd"], ["ft", "ft"], ["in", "in"]]],
+    [t(L("Weight", "Вес"), lang), [["kg", "kg"], ["g", "g"], ["mg", "mg"], ["lb", "lb"], ["oz", "oz"]]],
+    [t(L("Temperature", "Температура"), lang), [["C", "°C"], ["F", "°F"], ["K", "K"]]],
+    [t(L("Volume", "Объём"), lang), [["L", "L"], ["mL", "mL"], ["gal", "US gal"], ["qt", "US qt"], ["cup", "US cup"], ["floz", "US fl oz"]]]
+  ];
+  return groups.flatMap(([, items]) => items);
 }

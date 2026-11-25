@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,13 +34,14 @@
 <meta name="twitter:title" content="Статьи: VPN, брокеры, кошельки, хостинг и eSIM">
 <meta name="twitter:description" content="Сравнения и обзоры: как выбирать VPN, менеджер паролей, страховку кочевника, брокера, биржу, аппаратный кошелёк, SEO-сервис, eSIM и хостинг.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
 
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
@@ -46,26 +55,32 @@
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
-<nav class="main" aria-label="Разделы">
-<a href="/Free-online-calculators/ru/">Главная</a><a href="/Free-online-calculators/ru/finance/">Финансы</a><a href="/Free-online-calculators/ru/security/">Приватность</a><a href="/Free-online-calculators/ru/relocation/">Переезд</a><a href="/Free-online-calculators/ru/webmaster/">Веб</a><a href="/Free-online-calculators/ru/blog/" aria-current="page">Статьи</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Бесплатные онлайн-калькуляторы<small>Деньги, здоровье, математика, приватность и веб</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Тёмная" data-to-light="Светлая" aria-pressed="false">Тёмная</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/blog/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/blog/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <span aria-current="page">Статьи</span></nav></div>
-<div class="page"><div class="wrap"><h1>Статьи</h1><p class="lede">Длинные тексты рядом с калькуляторами. Они сравнивают продукты и не выдумывают цену, которая через месяц будет неверной.</p><div class="grid"><article class="card"><h2>NordVPN, Surfshark и Proton VPN в поездке и на удалённой работе</h2><p>Как сравнить три VPN по документам, которые можно прочитать, для поездки или удалённой работы, без рейтинга скорости, которого этот сайт не заслужил.</p><a class="more" href="/Free-online-calculators/ru/blog/nordvpn-vs-surfshark-vs-proton-vpn/">Открыть</a></article><article class="card"><h2>1Password, Bitwarden и Proton Pass</h2><p>Зачем нужен уникальный пароль, что менеджер на самом деле хранит и чем открытый клиент отличается от вылизанного приложения и от почтового набора.</p><a class="more" href="/Free-online-calculators/ru/blog/best-password-manager/">Открыть</a></article><article class="card"><h2>Genki и покрытие, которое нужно при переезде</h2><p>Туристическая страховка, медицинское покрытие кочевника и местный полис — три разных договора. Здесь сказано, какие строки читать. Премии в тексте нет.</p><a class="more" href="/Free-online-calculators/ru/blog/genki-nomad-insurance/">Открыть</a></article><article class="card"><h2>Interactive Brokers, если вы живёте не на одном рынке</h2><p>Зачем этот брокер вообще ищут, какие документы зависят от вашего резидентства и почему калькулятор сложного процента — не прошлая доходность.</p><a class="more" href="/Free-online-calculators/ru/blog/interactive-brokers-review/">Открыть</a></article><article class="card"><h2>Binance и Bybit: резидентство, комиссии и где лежат монеты</h2><p>Две крупные биржи сравниваются по ограничениям, по ячейке комиссии и по разнице между остатком на площадке и монетами, которые держите вы.</p><a class="more" href="/Free-online-calculators/ru/blog/binance-vs-bybit/">Открыть</a></article><article class="card"><h2>Ledger и Trezor: устройство, фраза и резервная копия</h2><p>Аппаратный кошелёк подписывает на устройстве. Секрет — фраза восстановления. Здесь то, что стоит прочитать до выбора Ledger или Trezor, включая спор 2023 года.</p><a class="more" href="/Free-online-calculators/ru/blog/ledger-vs-trezor/">Открыть</a></article><article class="card"><h2>Semrush для небольшого сайта, без потопа</h2><p>Исследование запросов, аудит, ссылки и позиции — как одна страна, один список и один обход. Цены в тексте нет, и аудит мы здесь не запускали.</p><a class="more" href="/Free-online-calculators/ru/blog/semrush-for-seo/">Открыть</a></article><article class="card"><h2>eSIM Airalo: когда она выгоднее роуминга, а когда нет</h2><p>Что такое eSIM, какие поломки случаются раньше цены и как пользоваться калькулятором с тем предложением, которое реально на вашем экране.</p><a class="more" href="/Free-online-calculators/ru/blog/airalo-esim-review/">Открыть</a></article><article class="card"><h2>Cloudways и Kinsta и файлы, которые всё ещё решают скорость</h2><p>Два управляемых хоста сравниваются по тому, что вы всё ещё администрируете и чего не пишет ни один из них. Время до первого байта здесь не выдумано.</p><a class="more" href="/Free-online-calculators/ru/blog/cloudways-vs-kinsta/">Открыть</a></article><article class="card"><h2>Пробный доступ Semrush: что в нём смотреть и как им пользоваться</h2><p>Пробный доступ полезен только если до старта часов вы уже решили, на какие вопросы отвечаете и какие экраны сохраните.</p><a class="more" href="/Free-online-calculators/ru/blog/semrush-free-trial/">Открыть</a></article><article class="card"><h2>Semrush, Ahrefs и бесплатные SEO-инструменты</h2><p>Semrush и Ahrefs отвечают на вопросы о рынке. Search Console отвечает, что сайт уже получил. Проверка в браузере отвечает, что лежит в черновике перед вами.</p><a class="more" href="/Free-online-calculators/ru/blog/semrush-vs-ahrefs/">Открыть</a></article><article class="card"><h2>Как искать менее конкурентные запросы для нового сайта в Semrush</h2><p>Новый сайт не обгоняет переполненный общий запрос одним желанием. Он ищет фразу, на которую может ответить ясно, и проверяет, что выдачу вообще можно потеснить.</p><a class="more" href="/Free-online-calculators/ru/blog/low-competition-keywords-semrush/">Открыть</a></article></div></div></div></main>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Разделы">
+<a href="..//">Главная</a><a href="../finance/">Финансы</a><a href="../fitness/">Здоровье</a><a href="../math/">Математика</a><a href="../other/">Другое</a><a href="../security/">Приватность</a><a href="../relocation/">Переезд</a><a href="../webmaster/">Веб</a><a href="./" aria-current="page">Статьи</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Главная</a><span aria-hidden="true">/</span> <span aria-current="page">Статьи</span></nav></div>
+<div class="page"><div class="wrap"><h1>Статьи</h1><p class="lede">Длинные тексты рядом с калькуляторами. Они сравнивают продукты и не выдумывают цену, которая через месяц будет неверной.</p><div class="grid"><article class="card"><h2>NordVPN, Surfshark и Proton VPN в поездке и на удалённой работе</h2><p>Как сравнить три VPN по документам, которые можно прочитать, для поездки или удалённой работы, без рейтинга скорости, которого этот сайт не заслужил.</p><a class="more" href="nordvpn-vs-surfshark-vs-proton-vpn/">Открыть</a></article><article class="card"><h2>1Password, Bitwarden и Proton Pass</h2><p>Зачем нужен уникальный пароль, что менеджер на самом деле хранит и чем открытый клиент отличается от вылизанного приложения и от почтового набора.</p><a class="more" href="best-password-manager/">Открыть</a></article><article class="card"><h2>Genki и покрытие, которое нужно при переезде</h2><p>Туристическая страховка, медицинское покрытие кочевника и местный полис — три разных договора. Здесь сказано, какие строки читать. Премии в тексте нет.</p><a class="more" href="genki-nomad-insurance/">Открыть</a></article><article class="card"><h2>Interactive Brokers, если вы живёте не на одном рынке</h2><p>Зачем этот брокер вообще ищут, какие документы зависят от вашего резидентства и почему калькулятор сложного процента — не прошлая доходность.</p><a class="more" href="interactive-brokers-review/">Открыть</a></article><article class="card"><h2>Binance и Bybit: резидентство, комиссии и где лежат монеты</h2><p>Две крупные биржи сравниваются по ограничениям, по ячейке комиссии и по разнице между остатком на площадке и монетами, которые держите вы.</p><a class="more" href="binance-vs-bybit/">Открыть</a></article><article class="card"><h2>Ledger и Trezor: устройство, фраза и резервная копия</h2><p>Аппаратный кошелёк подписывает на устройстве. Секрет — фраза восстановления. Здесь то, что стоит прочитать до выбора Ledger или Trezor, включая спор 2023 года.</p><a class="more" href="ledger-vs-trezor/">Открыть</a></article><article class="card"><h2>Semrush для небольшого сайта, без потопа</h2><p>Исследование запросов, аудит, ссылки и позиции — как одна страна, один список и один обход. Цены в тексте нет, и аудит мы здесь не запускали.</p><a class="more" href="semrush-for-seo/">Открыть</a></article><article class="card"><h2>eSIM Airalo: когда она выгоднее роуминга, а когда нет</h2><p>Что такое eSIM, какие поломки случаются раньше цены и как пользоваться калькулятором с тем предложением, которое реально на вашем экране.</p><a class="more" href="airalo-esim-review/">Открыть</a></article><article class="card"><h2>Cloudways и Kinsta и файлы, которые всё ещё решают скорость</h2><p>Два управляемых хоста сравниваются по тому, что вы всё ещё администрируете и чего не пишет ни один из них. Время до первого байта здесь не выдумано.</p><a class="more" href="cloudways-vs-kinsta/">Открыть</a></article><article class="card"><h2>Пробный доступ Semrush: что в нём смотреть и как им пользоваться</h2><p>Пробный доступ полезен только если до старта часов вы уже решили, на какие вопросы отвечаете и какие экраны сохраните.</p><a class="more" href="semrush-free-trial/">Открыть</a></article><article class="card"><h2>Semrush, Ahrefs и бесплатные SEO-инструменты</h2><p>Semrush и Ahrefs отвечают на вопросы о рынке. Search Console отвечает, что сайт уже получил. Проверка в браузере отвечает, что лежит в черновике перед вами.</p><a class="more" href="semrush-vs-ahrefs/">Открыть</a></article><article class="card"><h2>Как искать менее конкурентные запросы для нового сайта в Semrush</h2><p>Новый сайт не обгоняет переполненный общий запрос одним желанием. Он ищет фразу, на которую может ответить ясно, и проверяет, что выдачу вообще можно потеснить.</p><a class="more" href="low-competition-keywords-semrush/">Открыть</a></article></div></div></div></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/ru/about/">О сайте</a>
-<a href="/Free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
-<a href="/Free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
-<a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<a href="../about/">О сайте</a>
+<a href="../privacy-policy/">Политика конфиденциальности</a>
+<a href="../affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="./">Статьи</a>
 </nav>
 <p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
 <p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
+<script defer src="../../assets/js/affiliates.js"></script>
+<script defer src="../../assets/js/site.js"></script>
 </body>
 </html>

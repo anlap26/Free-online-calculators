@@ -54,7 +54,7 @@ function emphasizeSemrush(tool) {
 const tools = sourceTools.map(emphasizeSemrush);
 const articles = [...coreArticles, ...semrushArticles, ...moreSemrushArticles];
 import { renderForm } from "./forms.mjs";
-import { BASE, SITE, clusters, t, pathFor, abs, page, crumb, breadcrumbLd, faqLd, esc, words } from "./layout.mjs";
+import { BASE, SITE, clusters, t, pathFor, abs, page, crumb, breadcrumbLd, faqLd, esc, words, beginPage } from "./layout.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const problems = [];
@@ -164,17 +164,18 @@ function faqHtml(faq) {
 
 function toolScripts() {
   return [
-    `${BASE}/assets/js/calc-core.js`,
-    `${BASE}/assets/js/wordlists.js`,
-    `${BASE}/assets/js/cost-of-living.js`,
-    `${BASE}/assets/js/llm-prices.js`,
-    `${BASE}/assets/js/ui-LANG.js`,
-    `${BASE}/assets/js/qrcode.js`,
-    `${BASE}/assets/js/calculators.js`
+    "/assets/js/calc-core.js",
+    "/assets/js/wordlists.js",
+    "/assets/js/cost-of-living.js",
+    "/assets/js/llm-prices.js",
+    "/assets/js/ui-LANG.js",
+    "/assets/js/qrcode.js",
+    "/assets/js/calculators.js"
   ];
 }
 
 function renderTool(tool, lang) {
+  beginPage(lang, `/${tool.slug}/`);
   const copy = tool[lang];
   const ui = t(lang);
   const cluster = clusters[tool.cluster];
@@ -214,7 +215,7 @@ ${amazon}
       name: copy.h1,
       description: copy.description,
       url: pageUrl,
-      applicationCategory: tool.cluster === "finance" ? "FinanceApplication" : "UtilitiesApplication",
+      applicationCategory: tool.category || (tool.cluster === "finance" ? "FinanceApplication" : tool.cluster === "fitness" ? "HealthApplication" : "UtilitiesApplication"),
       operatingSystem: "Any",
       browserRequirements: "Requires JavaScript",
       isAccessibleForFree: true,
@@ -249,6 +250,7 @@ ${amazon}
 }
 
 function renderArticle(article, lang) {
+  beginPage(lang, `/blog/${article.slug}/`);
   const copy = article[lang];
   const ui = t(lang);
   const pathname = `/blog/${article.slug}/`;
@@ -337,13 +339,18 @@ function card(lang, item) {
 }
 
 function renderHome(lang) {
+  beginPage(lang, "/");
   const copy = pageCopy.home[lang];
   const ui = t(lang);
   const groups = Object.values(clusters).map((cluster) => {
     const list = tools.filter((tool) => tool.cluster === cluster.slug);
-    return `<h2 class="sec">${esc(cluster[lang].h1)}</h2><p class="lede">${esc(cluster[lang].desc)}</p><div class="grid">${list.map((item) => card(lang, item)).join("")}</div><p><a class="more" href="${pathFor(lang, "/" + cluster.slug + "/")}">${esc(cluster[lang].name)}</a></p>`;
+    const items = list.map((item) => {
+      const hay = `${item[lang].h1} ${item[lang].lede} ${item.slug} ${cluster[lang].home}`;
+      return `<li data-tool="${esc(hay)}"><a href="${pathFor(lang, "/" + item.slug + "/")}">${esc(item[lang].h1)}</a></li>`;
+    }).join("");
+    return `<section class="cat" data-cat="${esc(cluster.slug)}"><h2>${esc(cluster[lang].home)}</h2><p class="cat-desc">${esc(cluster[lang].desc)}</p><ul>${items}</ul><a class="hub" href="${pathFor(lang, "/" + cluster.slug + "/")}">${esc(cluster[lang].name)}</a></section>`;
   }).join("");
-  const main = `<div class="wrap hero"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><p class="banner">${esc(ui.disclaimer)}</p></div><div class="wrap"><div class="prose">${linkify(copy.body, lang)}</div>${groups}<section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section></div>`;
+  const main = `<div class="wrap hero"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><div class="finder" role="search"><label for="finder"><span>${esc(ui.search)}</span></label><input id="finder" type="search" placeholder="${esc(ui.searchPlaceholder)}" autocomplete="off" enterkeyhint="search"></div><p id="finder-empty" class="finder-empty" hidden>${esc(ui.noMatch)}</p><p class="banner">${esc(ui.disclaimer)}</p></div><div class="wrap"><div class="catalog">${groups}</div><div class="prose">${linkify(copy.body, lang)}</div><section class="faq"><h2>${esc(ui.faq)}</h2>${copy.faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join("")}</section></div>`;
   const homeUrl = abs(lang, "/");
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
@@ -374,6 +381,7 @@ function renderHome(lang) {
 }
 
 function renderHub(cluster, lang) {
+  beginPage(lang, `/${cluster.slug}/`);
   const copy = pageCopy.hubs[cluster.slug][lang];
   const ui = t(lang);
   const list = tools.filter((tool) => tool.cluster === cluster.slug);
@@ -406,6 +414,7 @@ function renderHub(cluster, lang) {
 }
 
 function renderSimple(key, pathname, lang) {
+  beginPage(lang, pathname);
   const copy = pageCopy[key][lang];
   const ui = t(lang);
   const body = linkify(copy.body, lang);
@@ -425,6 +434,7 @@ function renderSimple(key, pathname, lang) {
 }
 
 function renderBlogIndex(lang) {
+  beginPage(lang, "/blog/");
   const copy = pageCopy.blog[lang];
   const ui = t(lang);
   const main = `<div class="page"><div class="wrap"><h1>${esc(copy.h1)}</h1><p class="lede">${esc(copy.lede)}</p><div class="grid">${articles.map((article) => `<article class="card"><h2>${esc(article[lang].h1)}</h2><p>${esc(article[lang].lede)}</p><a class="more" href="${pathFor(lang, "/blog/" + article.slug + "/")}">${esc(ui.read)}</a></article>`).join("")}</div></div></div>`;
@@ -439,6 +449,7 @@ function renderBlogIndex(lang) {
 }
 
 function render404(lang) {
+  beginPage(lang, "/404.html");
   const copy = lang === "ru"
     ? {
       title: "Страница не найдена | Бесплатные онлайн-калькуляторы",
@@ -512,7 +523,7 @@ const body = urls.map((item) => {
   const ru = abs("ru", item.pathname);
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="${en}"/>
     <xhtml:link rel="alternate" hreflang="ru" href="${ru}"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="${en}"/>
@@ -527,16 +538,16 @@ writeFile("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml
 writeFile("site.webmanifest", JSON.stringify({
   name: "Free Online Calculators",
   short_name: "Calculators",
-  start_url: BASE + "/",
-  scope: BASE + "/",
+  start_url: "./",
+  scope: "./",
   display: "standalone",
-  background_color: "#f7f3ec",
-  theme_color: "#1e3d34",
+  background_color: "#f4f7f8",
+  theme_color: "#0f3d3b",
   lang: "en",
   icons: [
-    { src: BASE + "/icon-192.png", sizes: "192x192", type: "image/png" },
-    { src: BASE + "/icon-512.png", sizes: "512x512", type: "image/png" },
-    { src: BASE + "/favicon.svg", sizes: "any", type: "image/svg+xml" }
+    { src: "icon-192.png", sizes: "192x192", type: "image/png" },
+    { src: "icon-512.png", sizes: "512x512", type: "image/png" },
+    { src: "favicon.svg", sizes: "any", type: "image/svg+xml" }
   ]
 }, null, 2));
 writeFile(".nojekyll", "");

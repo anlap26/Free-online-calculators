@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,13 +34,14 @@
 <meta name="twitter:title" content="Guides: VPNs, Brokers, Wallets, Hosting, and eSIMs">
 <meta name="twitter:description" content="Comparisons and reviews that explain how to choose a VPN, a password manager, nomad insurance, a broker, an exchange, a hardware wallet, an SEO suite, an eSIM, and a host.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
 
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
@@ -46,26 +55,32 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/" aria-current="page">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/blog/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/blog/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <span aria-current="page">Guides</span></nav></div>
-<div class="page"><div class="wrap"><h1>Guides</h1><p class="lede">Longer reads that sit next to the calculators. They compare products without inventing a price that would be wrong next month.</p><div class="grid"><article class="card"><h2>NordVPN, Surfshark, and Proton VPN for travel and remote work</h2><p>A way to compare three VPN brands on documents you can read, for a trip or a remote job, without a speed ranking this site did not earn.</p><a class="more" href="/Free-online-calculators/blog/nordvpn-vs-surfshark-vs-proton-vpn/">Open</a></article><article class="card"><h2>1Password, Bitwarden, and Proton Pass</h2><p>Why a unique password matters, what a manager actually stores, and how to tell an open-source client from a polished app and from a mail suite.</p><a class="more" href="/Free-online-calculators/blog/best-password-manager/">Open</a></article><article class="card"><h2>Genki and the cover a move actually needs</h2><p>Travel insurance, nomad medical cover, and local health insurance are three contracts. This page says which lines to read, and quotes no premium.</p><a class="more" href="/Free-online-calculators/blog/genki-nomad-insurance/">Open</a></article><article class="card"><h2>Interactive Brokers when you do not live in one market</h2><p>What people look up this broker for, which documents depend on your residency, and why the compound calculator is not a past return.</p><a class="more" href="/Free-online-calculators/blog/interactive-brokers-review/">Open</a></article><article class="card"><h2>Binance and Bybit: residency, fees, and where the coins sit</h2><p>Two large exchanges compared on the restrictions, the fee cell, and the difference between a balance on the venue and coins you hold.</p><a class="more" href="/Free-online-calculators/blog/binance-vs-bybit/">Open</a></article><article class="card"><h2>Ledger and Trezor: the device, the phrase, and the backup</h2><p>A hardware wallet signs on the device. The recovery phrase is the secret. Here is what to read before choosing Ledger or Trezor, including the 2023 recovery debate.</p><a class="more" href="/Free-online-calculators/blog/ledger-vs-trezor/">Open</a></article><article class="card"><h2>Semrush for a small site, without the drown</h2><p>Keyword research, a site audit, backlinks, and position tracking, used as one country, one list, and one crawl. No price is quoted, and no audit was run here.</p><a class="more" href="/Free-online-calculators/blog/semrush-for-seo/">Open</a></article><article class="card"><h2>Airalo eSIM: when it beats roaming, and when it does not</h2><p>What an eSIM is, which failures happen before the price matters, and how to use the calculator with the offer that is actually on your screen.</p><a class="more" href="/Free-online-calculators/blog/airalo-esim-review/">Open</a></article><article class="card"><h2>Cloudways and Kinsta, and the files that still decide speed</h2><p>Two managed hosts compared by what you still administer and what neither of them writes. No time-to-first-byte number is invented here.</p><a class="more" href="/Free-online-calculators/blog/cloudways-vs-kinsta/">Open</a></article><article class="card"><h2>Semrush free trial: what you get and how to use it</h2><p>A trial is only useful if you decide, before the clock starts, which questions you will answer and which screenshots you will keep.</p><a class="more" href="/Free-online-calculators/blog/semrush-free-trial/">Open</a></article><article class="card"><h2>Semrush vs Ahrefs vs free SEO tools</h2><p>Semrush and Ahrefs answer market questions. Search Console answers what your site already received. A browser checker answers what is on the draft in front of you.</p><a class="more" href="/Free-online-calculators/blog/semrush-vs-ahrefs/">Open</a></article><article class="card"><h2>How to find low-competition keywords for a new site with Semrush</h2><p>A new site does not beat a crowded head term by wanting it. It looks for a phrase it can answer clearly, then checks that the results page is actually beatable.</p><a class="more" href="/Free-online-calculators/blog/low-competition-keywords-semrush/">Open</a></article></div></div></div></main>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="../finance/">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="./" aria-current="page">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <span aria-current="page">Guides</span></nav></div>
+<div class="page"><div class="wrap"><h1>Guides</h1><p class="lede">Longer reads that sit next to the calculators. They compare products without inventing a price that would be wrong next month.</p><div class="grid"><article class="card"><h2>NordVPN, Surfshark, and Proton VPN for travel and remote work</h2><p>A way to compare three VPN brands on documents you can read, for a trip or a remote job, without a speed ranking this site did not earn.</p><a class="more" href="nordvpn-vs-surfshark-vs-proton-vpn/">Open</a></article><article class="card"><h2>1Password, Bitwarden, and Proton Pass</h2><p>Why a unique password matters, what a manager actually stores, and how to tell an open-source client from a polished app and from a mail suite.</p><a class="more" href="best-password-manager/">Open</a></article><article class="card"><h2>Genki and the cover a move actually needs</h2><p>Travel insurance, nomad medical cover, and local health insurance are three contracts. This page says which lines to read, and quotes no premium.</p><a class="more" href="genki-nomad-insurance/">Open</a></article><article class="card"><h2>Interactive Brokers when you do not live in one market</h2><p>What people look up this broker for, which documents depend on your residency, and why the compound calculator is not a past return.</p><a class="more" href="interactive-brokers-review/">Open</a></article><article class="card"><h2>Binance and Bybit: residency, fees, and where the coins sit</h2><p>Two large exchanges compared on the restrictions, the fee cell, and the difference between a balance on the venue and coins you hold.</p><a class="more" href="binance-vs-bybit/">Open</a></article><article class="card"><h2>Ledger and Trezor: the device, the phrase, and the backup</h2><p>A hardware wallet signs on the device. The recovery phrase is the secret. Here is what to read before choosing Ledger or Trezor, including the 2023 recovery debate.</p><a class="more" href="ledger-vs-trezor/">Open</a></article><article class="card"><h2>Semrush for a small site, without the drown</h2><p>Keyword research, a site audit, backlinks, and position tracking, used as one country, one list, and one crawl. No price is quoted, and no audit was run here.</p><a class="more" href="semrush-for-seo/">Open</a></article><article class="card"><h2>Airalo eSIM: when it beats roaming, and when it does not</h2><p>What an eSIM is, which failures happen before the price matters, and how to use the calculator with the offer that is actually on your screen.</p><a class="more" href="airalo-esim-review/">Open</a></article><article class="card"><h2>Cloudways and Kinsta, and the files that still decide speed</h2><p>Two managed hosts compared by what you still administer and what neither of them writes. No time-to-first-byte number is invented here.</p><a class="more" href="cloudways-vs-kinsta/">Open</a></article><article class="card"><h2>Semrush free trial: what you get and how to use it</h2><p>A trial is only useful if you decide, before the clock starts, which questions you will answer and which screenshots you will keep.</p><a class="more" href="semrush-free-trial/">Open</a></article><article class="card"><h2>Semrush vs Ahrefs vs free SEO tools</h2><p>Semrush and Ahrefs answer market questions. Search Console answers what your site already received. A browser checker answers what is on the draft in front of you.</p><a class="more" href="semrush-vs-ahrefs/">Open</a></article><article class="card"><h2>How to find low-competition keywords for a new site with Semrush</h2><p>A new site does not beat a crowded head term by wanting it. It looks for a phrase it can answer clearly, then checks that the results page is actually beatable.</p><a class="more" href="low-competition-keywords-semrush/">Open</a></article></div></div></div></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="../about/">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="./">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
 </body>
 </html>

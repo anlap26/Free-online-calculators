@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,13 +34,14 @@
 <meta name="twitter:title" content="About these free calculators">
 <meta name="twitter:description" content="Who publishes the free calculators, how the arithmetic stays in the browser, and how affiliate links are labelled.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"About","item":"https://anlap26.github.io/Free-online-calculators/about/"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
@@ -46,29 +55,35 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/about/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/about/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <span aria-current="page">About</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="../finance/">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="../blog/">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <span aria-current="page">About</span></nav></div>
 <article class="page"><div class="wrap"><h1>About</h1><div class="prose"><p>Free Online Calculators is a static site of tools for money, privacy, relocation, and web work. It is published by Anna, who also publishes <a href="https://mycytax.com/">MyCyTax</a>, a separate site about Cyprus property and tax. The two sites do not share a database. This one has no database.</p>
 <p>Each calculator is a page with one job. The formula is on the page. The numbers are checked against known cases in the repository tests: compound growth, a 90-day Schengen window, margin versus markup, contrast of black on white, and an AES round trip. If a result looks wrong, the useful next step is the formula on the page, not a second opinion from the same script.</p>
-<p>Affiliate links pay for the time spent on the site if a partner pays a commission. They are labelled on the page and collected in <a href="/Free-online-calculators/affiliate-disclosure/">the disclosure</a>. The partner address itself lives only in <code>assets/js/affiliates.js</code>. The pages are rebuilt from that file. A name without a live URL is not a button.</p>
+<p>Affiliate links pay for the time spent on the site if a partner pays a commission. They are labelled on the page and collected in <a href="../affiliate-disclosure/">the disclosure</a>. The partner address itself lives only in <code>assets/js/affiliates.js</code>. The pages are rebuilt from that file. A name without a live URL is not a button.</p>
 <p>Corrections to a formula or a translation can be sent as an issue on the GitHub repository anlap26/free-online-calculators. The site does not offer personal financial, tax, legal, or immigration advice.</p></div></div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="./">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="../blog/">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
 </body>
 </html>

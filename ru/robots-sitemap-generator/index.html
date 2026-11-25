@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="Генератор robots.txt и sitemap | Бесплатные калькуляторы">
 <meta name="twitter:description" content="Соберите robots.txt со строками Allow, Disallow и Sitemap и XML-карту из канонических адресов. Оба файла всё равно нужно положить на настоящий хост.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Генератор robots.txt и sitemap","description":"Соберите robots.txt со строками Allow, Disallow и Sitemap и XML-карту из канонических адресов. Оба файла всё равно нужно положить на настоящий хост.","url":"https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Disallow: /admin прячет страницу?","acceptedAnswer":{"@type":"Answer","text":"Нет. Строка просит сотрудничающих роботов не забирать этот путь. По ссылке адрес всё равно можно запросить, а робот, который игнорирует robots.txt, может его забрать."}},{"@type":"Question","name":"Sitemap поднимает позиции?","acceptedAnswer":{"@type":"Answer","text":"Нет. Это список канонических адресов, которые вы хотите отдать в обход. Сам список позиции не усиливает."}},{"@type":"Question","name":"Спецсимволы в адресе не сломают XML?","acceptedAnswer":{"@type":"Answer","text":"Генератор экранирует XML, поэтому амперсанд документ не ломает. Файл на хост всё равно кладёте вы."}},{"@type":"Question","name":"Страница отправит карту в Google?","acceptedAnswer":{"@type":"Answer","text":"Нет. Карту отправляет подтверждённый владелец в Google Search Console. Генератор только пишет текст."}},{"@type":"Question","name":"Где должны лежать файлы?","acceptedAnswer":{"@type":"Answer","text":"На настоящем хосте, откуда сервер их отдаст. Просмотр на этом сайте — не ваш robots.txt и не ваш sitemap.xml."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Веб","item":"https://anlap26.github.io/Free-online-calculators/ru/webmaster/"},{"@type":"ListItem","position":3,"name":"Генератор robots.txt и sitemap","item":"https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/"}]},{"@type":"HowTo","name":"Генератор robots.txt и sitemap","description":"Соберите robots.txt со строками Allow, Disallow и Sitemap и XML-карту из канонических адресов. Оба файла всё равно нужно положить на настоящий хост.","url":"https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/","step":[{"@type":"HowToStep","position":1,"name":"Sitemap — это список, а не усиление","text":"Sitemap — список канонических адресов, которые вы хотели бы отдать в обход. Сам по себе он не поднимает позиции. Внести адрес не значит заслужить запрос, а не внести — не значит стереть страницу, на которую есть ссылка. В список кладите канонический адрес, а не копию с метками перехода и не дубль, который вы надеетесь приглушить. Файл не проверит, что адрес отдаёт страницу, что canonical с ним согласен и что это та страница, которую вы имели в виду. Эти проверки — на хосте, после загрузки. Оба файла нужно положить на настоящий хост. Просмотр здесь — не robots.txt в корне вашего домена и не /si"},{"@type":"HowToStep","position":2,"name":"Куда отправляют карту","text":"Google Search Console — место, где отправляют sitemap для сайта, который вы там подтвердили. Эта страница карту не отправляет, в аккаунт вас не входит и не знает, подтверждена ли собственность. У других систем свои страницы отправки. Упоминание Search Console — указатель на обычную дверь, а не заявление, что мы её открыли. После отправки решение об обходе всё равно остаётся за системой. Теги страниц — другой файл, его пишет генератор мета-тегов . Формулировки смотрит анализ текста . Загрузку это не заменяет. Откройте Semrush, если нужен более широкий взгляд на адреса в индексе. Заметки рядом: "}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Генератор robots.txt и sitemap","description":"Соберите robots.txt со строками Allow, Disallow и Sitemap и XML-карту из канонических адресов. Оба файла всё равно нужно положить на настоящий хост.","url":"https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Disallow: /admin прячет страницу?","acceptedAnswer":{"@type":"Answer","text":"Нет. Строка просит сотрудничающих роботов не забирать этот путь. По ссылке адрес всё равно можно запросить, а робот, который игнорирует robots.txt, может его забрать."}},{"@type":"Question","name":"Sitemap поднимает позиции?","acceptedAnswer":{"@type":"Answer","text":"Нет. Это список канонических адресов, которые вы хотите отдать в обход. Сам список позиции не усиливает."}},{"@type":"Question","name":"Спецсимволы в адресе не сломают XML?","acceptedAnswer":{"@type":"Answer","text":"Генератор экранирует XML, поэтому амперсанд документ не ломает. Файл на хост всё равно кладёте вы."}},{"@type":"Question","name":"Страница отправит карту в Google?","acceptedAnswer":{"@type":"Answer","text":"Нет. Карту отправляет подтверждённый владелец в Google Search Console. Генератор только пишет текст."}},{"@type":"Question","name":"Где должны лежать файлы?","acceptedAnswer":{"@type":"Answer","text":"На настоящем хосте, откуда сервер их отдаст. Просмотр на этом сайте — не ваш robots.txt и не ваш sitemap.xml."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Веб","item":"https://anlap26.github.io/Free-online-calculators/ru/webmaster/"},{"@type":"ListItem","position":3,"name":"Генератор robots.txt и sitemap","item":"https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/"}]},{"@type":"HowTo","name":"Генератор robots.txt и sitemap","description":"Соберите robots.txt со строками Allow, Disallow и Sitemap и XML-карту из канонических адресов. Оба файла всё равно нужно положить на настоящий хост.","url":"https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/","step":[{"@type":"HowToStep","position":1,"name":"Sitemap — это список, а не усиление","text":"Sitemap — список канонических адресов, которые вы хотели бы отдать в обход. Сам по себе он не поднимает позиции. Внести адрес не значит заслужить запрос, а не внести — не значит стереть страницу, на которую есть ссылка. В список кладите канонический адрес, а не копию с метками перехода и не дубль, который вы надеетесь приглушить. Файл не проверит, что адрес отдаёт страницу, что canonical с ним согласен и что это та страница, которую вы имели в виду. Эти проверки — на хосте, после загрузки. Оба файла нужно положить на настоящий хост. Просмотр здесь — не robots.txt в корне вашего домена и не /si"},{"@type":"HowToStep","position":2,"name":"Куда отправляют карту","text":"Google Search Console — место, где отправляют sitemap для сайта, который вы там подтвердили. Эта страница карту не отправляет, в аккаунт вас не входит и не знает, подтверждена ли собственность. У других систем свои страницы отправки. Упоминание Search Console — указатель на обычную дверь, а не заявление, что мы её открыли. После отправки решение об обходе всё равно остаётся за системой. Теги страниц — другой файл, его пишет генератор мета-тегов . Формулировки смотрит анализ текста . Загрузку это не заменяет. Откройте Semrush, если нужен более широкий взгляд на адреса в индексе. Заметки рядом: "}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
-<nav class="main" aria-label="Разделы">
-<a href="/Free-online-calculators/ru/">Главная</a><a href="/Free-online-calculators/ru/finance/">Финансы</a><a href="/Free-online-calculators/ru/security/">Приватность</a><a href="/Free-online-calculators/ru/relocation/">Переезд</a><a href="/Free-online-calculators/ru/webmaster/">Веб</a><a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Бесплатные онлайн-калькуляторы<small>Деньги, здоровье, математика, приватность и веб</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Тёмная" data-to-light="Светлая" aria-pressed="false">Тёмная</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/robots-sitemap-generator/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/robots-sitemap-generator/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/ru/webmaster/">Веб</a><span aria-hidden="true">/</span> <span aria-current="page">Генератор robots.txt и sitemap</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Разделы">
+<a href="..//">Главная</a><a href="../finance/">Финансы</a><a href="../fitness/">Здоровье</a><a href="../math/">Математика</a><a href="../other/">Другое</a><a href="../security/">Приватность</a><a href="../relocation/">Переезд</a><a href="../webmaster/">Веб</a><a href="../blog/">Статьи</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Главная</a><span aria-hidden="true">/</span> <a href="../webmaster/">Веб</a><span aria-hidden="true">/</span> <span aria-current="page">Генератор robots.txt и sitemap</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Генератор robots.txt и sitemap</h1>
 <p class="lede">Вы получаете robots.txt и XML-карту из путей и адресов, которые ввели. Положить файлы на хост и отправить карту — по-прежнему ваша работа.</p>
@@ -75,7 +90,7 @@ https://example.com/about/</textarea></label>
 <p>Оба файла нужно положить на настоящий хост. Просмотр здесь — не robots.txt в корне вашего домена и не /sitemap.xml. Сохраните текст, загрузите его туда, откуда сервер его правда отдаёт, и откройте адрес в браузере, чтобы увидеть тот файл, который вы написали. Этот сайт за вас его не выкладывает.</p>
 <h2>Куда отправляют карту</h2>
 <p>Google Search Console — место, где отправляют sitemap для сайта, который вы там подтвердили. Эта страница карту не отправляет, в аккаунт вас не входит и не знает, подтверждена ли собственность. У других систем свои страницы отправки. Упоминание Search Console — указатель на обычную дверь, а не заявление, что мы её открыли. После отправки решение об обходе всё равно остаётся за системой.</p>
-<p>Теги страниц — другой файл, его пишет <a href="/Free-online-calculators/ru/meta-tag-generator/">генератор мета-тегов</a>. Формулировки смотрит <a href="/Free-online-calculators/ru/seo-text-analyzer/">анализ текста</a>. Загрузку это не заменяет. Откройте Semrush, если нужен более широкий взгляд на адреса в индексе. Заметки рядом: <a href="/Free-online-calculators/ru/blog/semrush-free-trial/">пробный доступ Semrush</a>, <a href="/Free-online-calculators/ru/blog/semrush-vs-ahrefs/">Semrush и Ahrefs</a>, <a href="/Free-online-calculators/ru/blog/low-competition-keywords-semrush/">низкоконкурентные запросы</a> и <a href="/Free-online-calculators/ru/blog/semrush-for-seo/">Semrush для SEO</a>. К этой форме они не подключены.</p>
+<p>Теги страниц — другой файл, его пишет <a href="../meta-tag-generator/">генератор мета-тегов</a>. Формулировки смотрит <a href="../seo-text-analyzer/">анализ текста</a>. Загрузку это не заменяет. Откройте Semrush, если нужен более широкий взгляд на адреса в индексе. Заметки рядом: <a href="../blog/semrush-free-trial/">пробный доступ Semrush</a>, <a href="../blog/semrush-vs-ahrefs/">Semrush и Ahrefs</a>, <a href="../blog/low-competition-keywords-semrush/">низкоконкурентные запросы</a> и <a href="../blog/semrush-for-seo/">Semrush для SEO</a>. К этой форме они не подключены.</p>
 <ul>
 <li>Disallow просит сотрудничающих роботов не забирать адрес. Ссылку он не прячет.</li>
 <li>Sitemap перечисляет канонические адреса. Это не усиление в выдаче.</li>
@@ -83,26 +98,26 @@ https://example.com/about/</textarea></label>
 <li>Карту отправляют в Search Console. Эта страница её не отправляет.</li>
 </ul></div>
 <section class="faq"><h2>Частые вопросы</h2><details><summary>Disallow: /admin прячет страницу?</summary><p>Нет. Строка просит сотрудничающих роботов не забирать этот путь. По ссылке адрес всё равно можно запросить, а робот, который игнорирует robots.txt, может его забрать.</p></details><details><summary>Sitemap поднимает позиции?</summary><p>Нет. Это список канонических адресов, которые вы хотите отдать в обход. Сам список позиции не усиливает.</p></details><details><summary>Спецсимволы в адресе не сломают XML?</summary><p>Генератор экранирует XML, поэтому амперсанд документ не ломает. Файл на хост всё равно кладёте вы.</p></details><details><summary>Страница отправит карту в Google?</summary><p>Нет. Карту отправляет подтверждённый владелец в Google Search Console. Генератор только пишет текст.</p></details><details><summary>Где должны лежать файлы?</summary><p>На настоящем хосте, откуда сервер их отдаст. Просмотр на этом сайте — не ваш robots.txt и не ваш sitemap.xml.</p></details></section>
-<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Генератор мета-тегов</h3><p>Форма собирает теги шапки из полей, которые вы заполнили. В настоящую страницу их вставляете вы. H1 инструмент не придумывает.</p><a class="more" href="/Free-online-calculators/ru/meta-tag-generator/">Открыть</a></article><article class="card"><h3>Анализ текста для SEO</h3><p>Слова режутся по пробелам, знаки считаются кодовыми точками Юникода, а плотность ключа — это вхождения, умноженные на слова во фразе и делённые на все слова.</p><a class="more" href="/Free-online-calculators/ru/seo-text-analyzer/">Открыть</a></article><article class="card"><h3>Генератор UTM и QR-кода</h3><p>Пять полей utm добавляются кодировщиком адреса в браузере. Пустые не попадают в ссылку. QR рисуется здесь, с уровнем коррекции H.</p><a class="more" href="/Free-online-calculators/ru/utm-qr-generator/">Открыть</a></article><article class="card"><h3>Калькулятор выручки и скорости страницы</h3><p>Конверсия, которую вы вводите, — это конверсия сейчас, на более медленном сайте. Каждая лишняя секунда, по допущению, умножала её на единицу минус ваша потеря.</p><a class="more" href="/Free-online-calculators/ru/page-speed-revenue-calculator/">Открыть</a></article><article class="card"><h3>Пробный доступ Semrush: что в нём смотреть и как им пользоваться</h3><p>Пробный доступ полезен только если до старта часов вы уже решили, на какие вопросы отвечаете и какие экраны сохраните.</p><a class="more" href="/Free-online-calculators/ru/blog/semrush-free-trial/">Из статей</a></article></div></section>
+<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Генератор мета-тегов</h3><p>Форма собирает теги шапки из полей, которые вы заполнили. В настоящую страницу их вставляете вы. H1 инструмент не придумывает.</p><a class="more" href="../meta-tag-generator/">Открыть</a></article><article class="card"><h3>Анализ текста для SEO</h3><p>Слова режутся по пробелам, знаки считаются кодовыми точками Юникода, а плотность ключа — это вхождения, умноженные на слова во фразе и делённые на все слова.</p><a class="more" href="../seo-text-analyzer/">Открыть</a></article><article class="card"><h3>Генератор UTM и QR-кода</h3><p>Пять полей utm добавляются кодировщиком адреса в браузере. Пустые не попадают в ссылку. QR рисуется здесь, с уровнем коррекции H.</p><a class="more" href="../utm-qr-generator/">Открыть</a></article><article class="card"><h3>Калькулятор выручки и скорости страницы</h3><p>Конверсия, которую вы вводите, — это конверсия сейчас, на более медленном сайте. Каждая лишняя секунда, по допущению, умножала её на единицу минус ваша потеря.</p><a class="more" href="../page-speed-revenue-calculator/">Открыть</a></article><article class="card"><h3>Пробный доступ Semrush: что в нём смотреть и как им пользоваться</h3><p>Пробный доступ полезен только если до старта часов вы уже решили, на какие вопросы отвечаете и какие экраны сохраните.</p><a class="more" href="../blog/semrush-free-trial/">Из статей</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/ru/about/">О сайте</a>
-<a href="/Free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
-<a href="/Free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
-<a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<a href="../about/">О сайте</a>
+<a href="../privacy-policy/">Политика конфиденциальности</a>
+<a href="../affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="../blog/">Статьи</a>
 </nav>
 <p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
 <p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-ru.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../../assets/js/affiliates.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+<script defer src="../../assets/js/calc-core.js"></script>
+<script defer src="../../assets/js/wordlists.js"></script>
+<script defer src="../../assets/js/cost-of-living.js"></script>
+<script defer src="../../assets/js/llm-prices.js"></script>
+<script defer src="../../assets/js/ui-ru.js"></script>
+<script defer src="../../assets/js/calculators.js"></script>
 </body>
 </html>

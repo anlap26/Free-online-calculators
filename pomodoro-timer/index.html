@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="Pomodoro Timer | Free Online Calculators">
 <meta name="twitter:description" content="Run a focus block, a short break, and a long break after the number of focus blocks you set. Defaults are 25, 5, 15, and 4. Nothing you time is stored.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Pomodoro timer","description":"Run a focus block, a short break, and a long break after the number of focus blocks you set. Defaults are 25, 5, 15, and 4. Nothing you time is stored.","url":"https://anlap26.github.io/Free-online-calculators/pomodoro-timer/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the default lengths?","acceptedAnswer":{"@type":"Answer","text":"25 minutes of focus, 5 minutes of short break, 15 minutes of long break, and a long break after 4 focus blocks. You can change each number."}},{"@type":"Question","name":"Why does a background tab not lose as much time?","acceptedAnswer":{"@type":"Answer","text":"The page stores the moment the phase should end and recomputes the time left from the clock. A counter that only subtracts ticks drifts more when the tab is slowed."}},{"@type":"Question","name":"When does the beep play?","acceptedAnswer":{"@type":"Answer","text":"After you have pressed start, using the Web Audio API, when a phase ends. If the browser blocks audio, the clock still runs."}},{"@type":"Question","name":"Is the session stored?","acceptedAnswer":{"@type":"Answer","text":"No. Refresh the page and the finished count is gone. There is no account."}},{"@type":"Question","name":"Does the timer make the time billable?","acceptedAnswer":{"@type":"Answer","text":"No. It only runs the blocks. The freelance rate calculator is where utilization and the hour are priced."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"Pomodoro timer","item":"https://anlap26.github.io/Free-online-calculators/pomodoro-timer/"}]},{"@type":"HowTo","name":"Pomodoro timer","description":"Run a focus block, a short break, and a long break after the number of focus blocks you set. Defaults are 25, 5, 15, and 4. Nothing you time is stored.","url":"https://anlap26.github.io/Free-online-calculators/pomodoro-timer/","step":[{"@type":"HowToStep","position":1,"name":"The clock uses a timestamp","text":"When you press start, the page notes the moment the phase should end. Each tick asks the clock what time it is and subtracts. A naive counter would subtract a quarter second every quarter second and drift when the browser slows a background tab. This one recomputes the time left from the end timestamp, so a tab that slept and woke tends to show the right remaining time instead of a count that kept ticking in the dark. It is still a page timer. A computer that sleeps entirely, or a browser that freezes the tab until you return, will correct when the tick runs again. It is not a hardware alarm, "},{"@type":"HowToStep","position":2,"name":"What the buttons do","text":"Start begins or resumes the current phase. Pause keeps the time left and stops the clock. Skip ends the phase early and moves on: a finished focus block counts toward the long break, and a break returns you to focus. Reset clears the finished count, returns to focus, and puts the full focus length back on the clock. The long break is chosen when the number of finished focus blocks divides evenly by the block count you set. With the default of 4, the long break follows the fourth, the eighth, and so on. The short break follows the others. The timer does not make the work billable. Sitting throu"},{"@type":"HowToStep","position":3,"name":"A cafe network is a separate decision","text":"Working from a cafe is a reasonable reason to put the laptop on a tunnel. The timer does not depend on that tunnel. It runs the same on a home connection, on a cafe network, and with no network at all once the page has loaded. NordVPN is one VPN people use for an untrusted network. This page does not test your connection, does not rank VPN products, and does not claim the beep is safer because a tunnel is on. Turn a tunnel on for the network. Leave it off if you do not need it. The clock does not care. Defaults are 25 minutes, a 5 minute short break, a 15 minute long break, and 4 focus blocks."}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Pomodoro timer","description":"Run a focus block, a short break, and a long break after the number of focus blocks you set. Defaults are 25, 5, 15, and 4. Nothing you time is stored.","url":"https://anlap26.github.io/Free-online-calculators/pomodoro-timer/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the default lengths?","acceptedAnswer":{"@type":"Answer","text":"25 minutes of focus, 5 minutes of short break, 15 minutes of long break, and a long break after 4 focus blocks. You can change each number."}},{"@type":"Question","name":"Why does a background tab not lose as much time?","acceptedAnswer":{"@type":"Answer","text":"The page stores the moment the phase should end and recomputes the time left from the clock. A counter that only subtracts ticks drifts more when the tab is slowed."}},{"@type":"Question","name":"When does the beep play?","acceptedAnswer":{"@type":"Answer","text":"After you have pressed start, using the Web Audio API, when a phase ends. If the browser blocks audio, the clock still runs."}},{"@type":"Question","name":"Is the session stored?","acceptedAnswer":{"@type":"Answer","text":"No. Refresh the page and the finished count is gone. There is no account."}},{"@type":"Question","name":"Does the timer make the time billable?","acceptedAnswer":{"@type":"Answer","text":"No. It only runs the blocks. The freelance rate calculator is where utilization and the hour are priced."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"Pomodoro timer","item":"https://anlap26.github.io/Free-online-calculators/pomodoro-timer/"}]},{"@type":"HowTo","name":"Pomodoro timer","description":"Run a focus block, a short break, and a long break after the number of focus blocks you set. Defaults are 25, 5, 15, and 4. Nothing you time is stored.","url":"https://anlap26.github.io/Free-online-calculators/pomodoro-timer/","step":[{"@type":"HowToStep","position":1,"name":"The clock uses a timestamp","text":"When you press start, the page notes the moment the phase should end. Each tick asks the clock what time it is and subtracts. A naive counter would subtract a quarter second every quarter second and drift when the browser slows a background tab. This one recomputes the time left from the end timestamp, so a tab that slept and woke tends to show the right remaining time instead of a count that kept ticking in the dark. It is still a page timer. A computer that sleeps entirely, or a browser that freezes the tab until you return, will correct when the tick runs again. It is not a hardware alarm, "},{"@type":"HowToStep","position":2,"name":"What the buttons do","text":"Start begins or resumes the current phase. Pause keeps the time left and stops the clock. Skip ends the phase early and moves on: a finished focus block counts toward the long break, and a break returns you to focus. Reset clears the finished count, returns to focus, and puts the full focus length back on the clock. The long break is chosen when the number of finished focus blocks divides evenly by the block count you set. With the default of 4, the long break follows the fourth, the eighth, and so on. The short break follows the others. The timer does not make the work billable. Sitting throu"},{"@type":"HowToStep","position":3,"name":"A cafe network is a separate decision","text":"Working from a cafe is a reasonable reason to put the laptop on a tunnel. The timer does not depend on that tunnel. It runs the same on a home connection, on a cafe network, and with no network at all once the page has loaded. NordVPN is one VPN people use for an untrusted network. This page does not test your connection, does not rank VPN products, and does not claim the beep is safer because a tunnel is on. Turn a tunnel on for the network. Leave it off if you do not need it. The clock does not care. Defaults are 25 minutes, a 5 minute short break, a 15 minute long break, and 4 focus blocks."}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/pomodoro-timer/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/pomodoro-timer/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">Pomodoro timer</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="../finance/">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="../blog/">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <a href="../webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">Pomodoro timer</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Pomodoro timer</h1>
 <p class="lede">A focus block, then a short break, and a long break after the number of focus blocks you set. The clock follows a timestamp so a background tab drifts less.</p>
@@ -77,7 +92,7 @@
 <p>A short beep uses the Web Audio API, and only after you have pressed start. Browsers block audio that a page tries to play before a gesture. The start button is that gesture. The tone is brief. If the browser refuses the audio context, the clock still moves and the beep is simply absent. There is no soundtrack and no account tied to the sound.</p>
 <h2>What the buttons do</h2>
 <p>Start begins or resumes the current phase. Pause keeps the time left and stops the clock. Skip ends the phase early and moves on: a finished focus block counts toward the long break, and a break returns you to focus. Reset clears the finished count, returns to focus, and puts the full focus length back on the clock. The long break is chosen when the number of finished focus blocks divides evenly by the block count you set. With the default of 4, the long break follows the fourth, the eighth, and so on. The short break follows the others.</p>
-<p>The timer does not make the work billable. Sitting through four focus blocks is not a rate, a tax gross-up, or a count of hours a client will pay. Utilization, days you cannot bill, and the hourly figure that falls out of them live on the <a href="/Free-online-calculators/freelance-rate-calculator/">freelance rate calculator</a>. If the work was writing, the <a href="/Free-online-calculators/seo-text-analyzer/">text analyzer</a> can count the draft afterwards. The timer will not attach itself to that draft.</p>
+<p>The timer does not make the work billable. Sitting through four focus blocks is not a rate, a tax gross-up, or a count of hours a client will pay. Utilization, days you cannot bill, and the hourly figure that falls out of them live on the <a href="../freelance-rate-calculator/">freelance rate calculator</a>. If the work was writing, the <a href="../seo-text-analyzer/">text analyzer</a> can count the draft afterwards. The timer will not attach itself to that draft.</p>
 <h2>A cafe network is a separate decision</h2>
 <p>Working from a cafe is a reasonable reason to put the laptop on a tunnel. The timer does not depend on that tunnel. It runs the same on a home connection, on a cafe network, and with no network at all once the page has loaded. NordVPN is one VPN people use for an untrusted network. This page does not test your connection, does not rank VPN products, and does not claim the beep is safer because a tunnel is on. Turn a tunnel on for the network. Leave it off if you do not need it. The clock does not care.</p>
 <ul>
@@ -87,26 +102,26 @@
 <li>The timer does not price the hour. The freelance calculator does that.</li>
 </ul></div>
 <section class="faq"><h2>Questions people ask</h2><details><summary>What are the default lengths?</summary><p>25 minutes of focus, 5 minutes of short break, 15 minutes of long break, and a long break after 4 focus blocks. You can change each number.</p></details><details><summary>Why does a background tab not lose as much time?</summary><p>The page stores the moment the phase should end and recomputes the time left from the clock. A counter that only subtracts ticks drifts more when the tab is slowed.</p></details><details><summary>When does the beep play?</summary><p>After you have pressed start, using the Web Audio API, when a phase ends. If the browser blocks audio, the clock still runs.</p></details><details><summary>Is the session stored?</summary><p>No. Refresh the page and the finished count is gone. There is no account.</p></details><details><summary>Does the timer make the time billable?</summary><p>No. It only runs the blocks. The freelance rate calculator is where utilization and the hour are priced.</p></details></section>
-<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>World time meeting planner</h3><p>A clock time in one IANA zone is converted for the date you pick, so daylight saving is the offset of that date. Each local hour is marked against 09:00 to 17:00.</p><a class="more" href="/Free-online-calculators/world-time-meeting-planner/">Open</a></article><article class="card"><h3>Freelance rate calculator</h3><p>Gross income is the net you want plus business costs, divided by one minus the tax rate you type. That gross is then spread over the hours left after leave and time you cannot bill.</p><a class="more" href="/Free-online-calculators/freelance-rate-calculator/">Open</a></article><article class="card"><h3>SEO text analyzer</h3><p>Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.</p><a class="more" href="/Free-online-calculators/seo-text-analyzer/">Open</a></article><article class="card"><h3>Password generator</h3><p>A random password or a passphrase, drawn in this browser, with the entropy printed beside it.</p><a class="more" href="/Free-online-calculators/password-generator/">Open</a></article><article class="card"><h3>NordVPN, Surfshark, and Proton VPN for travel and remote work</h3><p>A way to compare three VPN brands on documents you can read, for a trip or a remote job, without a speed ranking this site did not earn.</p><a class="more" href="/Free-online-calculators/blog/nordvpn-vs-surfshark-vs-proton-vpn/">From the guides</a></article></div></section>
+<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>World time meeting planner</h3><p>A clock time in one IANA zone is converted for the date you pick, so daylight saving is the offset of that date. Each local hour is marked against 09:00 to 17:00.</p><a class="more" href="../world-time-meeting-planner/">Open</a></article><article class="card"><h3>Freelance rate calculator</h3><p>Gross income is the net you want plus business costs, divided by one minus the tax rate you type. That gross is then spread over the hours left after leave and time you cannot bill.</p><a class="more" href="../freelance-rate-calculator/">Open</a></article><article class="card"><h3>SEO text analyzer</h3><p>Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.</p><a class="more" href="../seo-text-analyzer/">Open</a></article><article class="card"><h3>Password generator</h3><p>A random password or a passphrase, drawn in this browser, with the entropy printed beside it.</p><a class="more" href="../password-generator/">Open</a></article><article class="card"><h3>NordVPN, Surfshark, and Proton VPN for travel and remote work</h3><p>A way to compare three VPN brands on documents you can read, for a trip or a remote job, without a speed ranking this site did not earn.</p><a class="more" href="../blog/nordvpn-vs-surfshark-vs-proton-vpn/">From the guides</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="../about/">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="../blog/">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-en.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
+<script defer src="../assets/js/calc-core.js"></script>
+<script defer src="../assets/js/wordlists.js"></script>
+<script defer src="../assets/js/cost-of-living.js"></script>
+<script defer src="../assets/js/llm-prices.js"></script>
+<script defer src="../assets/js/ui-en.js"></script>
+<script defer src="../assets/js/calculators.js"></script>
 </body>
 </html>

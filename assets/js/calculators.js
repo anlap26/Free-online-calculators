@@ -908,6 +908,237 @@
         show(out, [table([[UI.margin.markup, percent(mm2.markup)], [UI.margin.margin, percent(mm2.margin)], [UI.margin.profit, money(mm2.profit, s)]])]);
       }
     },
+    mortgage: function () {
+      var price = num(form, "price");
+      var down = num(form, "down");
+      if (down > price || price < 0 || down < 0) throw new C.CalcError("number");
+      var principal = price - down;
+      var months = Math.round(num(form, "years") * 12);
+      var r = C.amortizationSchedule(principal, pct(form, "rate"), months);
+      var s = sym(form);
+      var tax = num(form, "tax") / 12;
+      var ins = num(form, "insurance") / 12;
+      var hoa = num(form, "hoa");
+      var monthly = r.payment + tax + ins + hoa;
+      show(out, [
+        table([
+          [UI.mortgage.loan, money(principal, s)],
+          [UI.mortgage.pi, money(r.payment, s)],
+          [UI.mortgage.tax, money(tax, s)],
+          [UI.mortgage.ins, money(ins, s)],
+          [UI.mortgage.hoa, money(hoa, s)],
+          [UI.mortgage.total, money(monthly, s)],
+          [UI.mortgage.interest, money(r.totalInterest, s)],
+          [UI.mortgage.paid, money(r.payment * r.months, s)],
+          [UI.mortgage.piti, money(monthly * r.months, s)]
+        ]),
+        grid(
+          [UI.mortgage.year, UI.mortgage.yInt, UI.mortgage.yPrin, UI.mortgage.bal],
+          r.years.map(function (row) {
+            return [String(row.year), money(row.interest, s), money(row.principal, s), money(row.balance, s)];
+          })
+        )
+      ]);
+    },
+    loan: function () {
+      var months = Math.round(num(form, "years") * 12 + num(form, "months"));
+      var r = C.loanWithExtra(num(form, "amount"), pct(form, "rate"), months, num(form, "extra"));
+      var s = sym(form);
+      show(out, [table([
+        [UI.loan.payment, money(r.payment, s)],
+        [UI.loan.months, String(r.months)],
+        [UI.loan.interest, money(r.totalInterest, s)],
+        [UI.loan.paid, money(r.totalPaid, s)],
+        [UI.loan.payoff, String(r.payoffMonths)],
+        [UI.loan.saved, money(r.interestSaved, s)]
+      ])]);
+    },
+    simple: function () {
+      var r = C.simpleInterest(num(form, "principal"), pct(form, "rate"), num(form, "time"), val(form, "unit"), val(form, "basis"));
+      var s = sym(form);
+      show(out, [table([
+        [UI.simple.interest, money(r.interest, s)],
+        [UI.simple.amount, money(r.amount, s)],
+        [UI.simple.years, plain(r.years, 6)]
+      ])]);
+    },
+    bmi: function () {
+      var r = C.bmi({ units: val(form, "units"), weight: num(form, "weight"), height: num(form, "height") });
+      var range = val(form, "units") === "imperial"
+        ? plain(r.minLb, 1) + "–" + plain(r.maxLb, 1) + " lb"
+        : plain(r.minKg, 1) + "–" + plain(r.maxKg, 1) + " kg";
+      show(out, [table([
+        [UI.bmi.bmi, plain(r.bmi, 1)],
+        [UI.bmi.cat, UI.bmi[r.category]],
+        [UI.bmi.range, range]
+      ])]);
+    },
+    calorie: function () {
+      var r = C.calories({
+        sex: val(form, "sex"),
+        units: val(form, "units"),
+        weight: num(form, "weight"),
+        height: num(form, "height"),
+        age: num(form, "age"),
+        activity: val(form, "activity")
+      });
+      show(out, [table([
+        [UI.calorie.bmr, plain(r.bmr, 0) + " kcal"],
+        [UI.calorie.factor, plain(r.factor, 3)],
+        [UI.calorie.tdee, plain(r.tdee, 0) + " kcal"],
+        [UI.calorie.lose, plain(r.lose, 0) + " kcal"],
+        [UI.calorie.gain, plain(r.gain, 0) + " kcal"]
+      ])]);
+    },
+    bodyfat: function () {
+      var r = C.bodyFat({
+        sex: val(form, "sex"),
+        units: val(form, "units"),
+        height: num(form, "height"),
+        neck: num(form, "neck"),
+        waist: num(form, "waist"),
+        hip: num(form, "hip")
+      });
+      show(out, [table([[UI.bodyfat.fat, plain(r.fat, 1) + "%"]])]);
+    },
+    pace: function () {
+      var r = C.pace({
+        mode: val(form, "mode"),
+        distance: num(form, "distance"),
+        distanceUnit: val(form, "distanceUnit"),
+        hours: num(form, "hours"),
+        minutes: num(form, "minutes"),
+        seconds: num(form, "seconds"),
+        paceMin: num(form, "paceMin"),
+        paceSec: num(form, "paceSec")
+      });
+      show(out, [table([
+        [UI.pace.time, clockText(fromSeconds(r.seconds))],
+        [UI.pace.distance, plain(r.km, 3) + " km · " + plain(r.miles, 3) + " mi"],
+        [UI.pace.perKm, paceText(r.perKm)],
+        [UI.pace.perMi, paceText(r.perMile)],
+        [UI.pace.kmh, plain(r.kmh, 2)],
+        [UI.pace.mph, plain(r.mph, 2)]
+      ])]);
+    },
+    percentage: function () {
+      var op = val(form, "op");
+      if (op === "of") show(out, [table([[UI.percentage.of, plain(C.percentOf(pct(form, "a"), num(form, "b")), 6)]])]);
+      else if (op === "change") show(out, [table([[UI.percentage.change, percent(C.percentChange(num(form, "a"), num(form, "b")))]])]);
+      else show(out, [table([[UI.percentage.what, percent(C.whatPercent(num(form, "a"), num(form, "b")))]])]);
+    },
+    fraction: function () {
+      var r = C.fraction(num(form, "a"), num(form, "b"), num(form, "c"), num(form, "d"), val(form, "op"));
+      var mixed = r.rem === 0 ? String(r.whole) : (r.whole === 0 ? r.n + "/" + r.d : r.whole + " " + r.rem + "/" + r.d);
+      show(out, [table([
+        [UI.fraction.improper, r.n + "/" + r.d],
+        [UI.fraction.mixed, mixed],
+        [UI.fraction.decimal, plain(r.value, 8)]
+      ])]);
+    },
+    stats: function () {
+      var values = val(form, "values").split(/[\s,;]+/).filter(Boolean);
+      var r = C.stats(values);
+      var rows = [
+        [UI.stats.n, String(r.n)],
+        [UI.stats.sum, plain(r.sum, 6)],
+        [UI.stats.min, plain(r.min, 6)],
+        [UI.stats.max, plain(r.max, 6)],
+        [UI.stats.mean, plain(r.mean, 6)],
+        [UI.stats.popSd, plain(r.popSd, 6)],
+        [UI.stats.popVar, plain(r.popVar, 6)]
+      ];
+      if (r.sampleSd == null) rows.push([UI.stats.sampleSd, UI.stats.sampleNote]);
+      else {
+        rows.push([UI.stats.sampleSd, plain(r.sampleSd, 6)]);
+        rows.push([UI.stats.sampleVar, plain(r.sampleVar, 6)]);
+      }
+      show(out, [table(rows)]);
+    },
+    triangle: function () {
+      var mode = val(form, "mode");
+      var r = C.triangle({ mode: mode, a: num(form, "a"), b: num(form, "b"), c: num(form, "c"), base: num(form, "base"), height: num(form, "height") });
+      var rows = [[UI.triangle.area, plain(r.area, 6)]];
+      if (r.perimeter != null) rows.push([UI.triangle.perimeter, plain(r.perimeter, 6)]);
+      if (mode === "right") rows.push([UI.triangle.hyp, plain(r.c, 6)]);
+      if (mode === "sides") {
+        rows.push([UI.triangle.a, plain(r.a, 6)]);
+        rows.push([UI.triangle.b, plain(r.b, 6)]);
+        rows.push([UI.triangle.c, plain(r.c, 6)]);
+      }
+      show(out, [table(rows)]);
+    },
+    age: function () {
+      var r = C.age(val(form, "birth"), val(form, "asof"));
+      show(out, [table([
+        [UI.age.age, ymdText(r.years, r.months, r.days)],
+        [UI.age.total, String(r.totalDays)],
+        [UI.age.next, r.next],
+        [UI.age.until, String(r.daysUntil)]
+      ])]);
+    },
+    datecalc: function () {
+      if (val(form, "mode") === "add") {
+        show(out, [table([[UI.datecalc.result, C.shiftDate(val(form, "from"), num(form, "years"), num(form, "months"), num(form, "days"))]])]);
+        return;
+      }
+      var r = C.dateSpan(val(form, "start"), val(form, "end"));
+      var sign = r.sign < 0 ? "−" : "";
+      show(out, [table([
+        [UI.datecalc.days, sign + String(r.days)],
+        [UI.datecalc.inclusive, sign + String(r.inclusive)],
+        [UI.datecalc.weeks, sign + plain(r.weeks, 4)],
+        [UI.datecalc.span, ymdText(r.years, r.months, r.remDays)]
+      ])]);
+    },
+    timecalc: function () {
+      if (val(form, "mode") === "clock") {
+        var span = C.clockBetween(num(form, "sh"), num(form, "sm"), num(form, "eh"), num(form, "em"));
+        var parts = fromSeconds(span.minutes * 60);
+        var label = clockText(parts);
+        show(out, [table([[UI.timecalc.clock, label]]), span.nextDay ? p(UI.timecalc.next, "fine") : p("", "fine")]);
+        return;
+      }
+      var r = C.addTime(
+        { hours: num(form, "h1"), minutes: num(form, "m1"), seconds: num(form, "s1") },
+        { hours: num(form, "h2"), minutes: num(form, "m2"), seconds: num(form, "s2") },
+        val(form, "mode")
+      );
+      show(out, [table([[UI.timecalc.result, clockText(r)]])]);
+    },
+    gpa: function () {
+      var rows = [];
+      form.querySelectorAll("[data-row]").forEach(function (row) {
+        rows.push({ grade: row.querySelector('[name="grade"]').value, credits: row.querySelector('[name="credits"]').value });
+      });
+      var r = C.gpa(rows);
+      show(out, [table([
+        [UI.gpa.gpa, plain(r.gpa, 3)],
+        [UI.gpa.credits, plain(r.credits, 2)],
+        [UI.gpa.points, plain(r.points, 2)]
+      ])]);
+    },
+    grade: function () {
+      var rows = [];
+      form.querySelectorAll("[data-row]").forEach(function (row) {
+        rows.push({
+          earned: row.querySelector('[name="earned"]').value,
+          possible: row.querySelector('[name="possible"]').value,
+          weight: row.querySelector('[name="weight"]').value
+        });
+      });
+      var r = C.gradeAverage(rows);
+      show(out, [table([
+        [UI.grade.percent, plain(r.percent, 2) + "%"],
+        [UI.grade.letter, r.letter],
+        [UI.grade.earned, plain(r.earned, 2)],
+        [UI.grade.possible, plain(r.possible, 2)]
+      ])]);
+    },
+    unit: function () {
+      var value = C.convertUnit(num(form, "value"), val(form, "from"), val(form, "to"));
+      show(out, [table([[UI.unit.result, plain(value, 8) + " " + val(form, "to")]])]);
+    },
     dates: function () {
       var holidays = val(form, "holidays").split(/[\s,]+/).filter(Boolean);
       var between = C.businessDaysBetween(val(form, "start"), val(form, "end"), holidays);
@@ -1002,8 +1233,53 @@
   if (kind === "llm") setupLlm(form);
   if (kind === "col") setupCol(form);
   if (kind === "margin") setupMargin(form);
+  if (kind === "pace" || kind === "triangle" || kind === "datecalc" || kind === "timecalc") setupShow(form);
+  if (kind === "age") setupToday(form);
 
   if (form.getAttribute("data-autorun") === "1") run();
+
+  function ymdText(y, m, d) {
+    if (lang === "ru") return y + " лет, " + m + " мес., " + d + " дн.";
+    return y + " years, " + m + " months, " + d + " days";
+  }
+  function fromSeconds(total) {
+    var sign = total < 0 ? -1 : 1;
+    var t = Math.abs(Math.round(total));
+    var days = Math.floor(t / 86400);
+    t -= days * 86400;
+    var hours = Math.floor(t / 3600);
+    t -= hours * 3600;
+    var minutes = Math.floor(t / 60);
+    var seconds = t - minutes * 60;
+    return { sign: sign, days: days, hours: hours, minutes: minutes, seconds: seconds };
+  }
+  function clockText(parts) {
+    var body = String(parts.hours).padStart(2, "0") + ":" + String(parts.minutes).padStart(2, "0") + ":" + String(parts.seconds).padStart(2, "0");
+    if (parts.days) body = parts.days + "d " + body;
+    return (parts.sign < 0 ? "−" : "") + body;
+  }
+  function paceText(seconds) {
+    var s = Math.round(seconds);
+    var m = Math.floor(s / 60);
+    var r = s % 60;
+    return m + ":" + String(r).padStart(2, "0");
+  }
+  function setupShow(form) {
+    function sync() {
+      var mode = val(form, "mode");
+      form.querySelectorAll("[data-show]").forEach(function (el) {
+        el.hidden = el.getAttribute("data-show").split(/\s+/).indexOf(mode) === -1;
+      });
+    }
+    form.elements.mode.addEventListener("change", function () { sync(); run(); });
+    sync();
+  }
+  function setupToday(form) {
+    var el = form.querySelector("[data-today]");
+    if (!el || el.value) return;
+    var now = new Date();
+    el.value = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+  }
 
   function setupLlm(form) {
     var data = window.LLM_PRICES;

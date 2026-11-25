@@ -1349,6 +1349,525 @@
     return en.join("\n\n");
   }
 
+  function positive(n, code) {
+    n = assertFinite(num(n), code || "number");
+    if (n <= 0) throw new CalcError(code || "number");
+    return n;
+  }
+
+  function amortizingPayment(principal, annualRate, months) {
+    principal = assertFinite(num(principal), "number");
+    annualRate = assertFinite(num(annualRate), "rate");
+    months = assertFinite(num(months), "years");
+    if (principal < 0) throw new CalcError("number");
+    if (months <= 0 || months > 1200) throw new CalcError("years");
+    if (annualRate <= -0.999) throw new CalcError("rate");
+    var r = annualRate / 12;
+    if (Math.abs(r) < 1e-14) return principal / months;
+    var pow = Math.pow(1 + r, months);
+    return principal * r * pow / (pow - 1);
+  }
+
+  function amortizationSchedule(principal, annualRate, months) {
+    principal = assertFinite(num(principal), "number");
+    months = Math.round(assertFinite(num(months), "years"));
+    var payment = amortizingPayment(principal, annualRate, months);
+    var r = assertFinite(num(annualRate), "rate") / 12;
+    var balance = principal;
+    var totalInterest = 0;
+    var years = [];
+    var yearInterest = 0;
+    var yearPrincipal = 0;
+    for (var m = 1; m <= months; m++) {
+      var interest = Math.abs(r) < 1e-14 ? 0 : balance * r;
+      var principalPaid = payment - interest;
+      if (m === months || principalPaid > balance) principalPaid = balance;
+      if (principalPaid < 0) throw new CalcError("rate");
+      balance -= principalPaid;
+      if (balance < 1e-8) balance = 0;
+      totalInterest += interest;
+      yearInterest += interest;
+      yearPrincipal += principalPaid;
+      if (m % 12 === 0 || m === months) {
+        years.push({
+          year: Math.ceil(m / 12),
+          interest: yearInterest,
+          principal: yearPrincipal,
+          balance: balance
+        });
+        yearInterest = 0;
+        yearPrincipal = 0;
+      }
+    }
+    return { payment: payment, totalInterest: totalInterest, months: months, years: years, balance: balance };
+  }
+
+  function loanWithExtra(principal, annualRate, months, extra) {
+    var base = amortizationSchedule(principal, annualRate, months);
+    extra = assertFinite(num(extra || 0), "number");
+    if (extra < 0) throw new CalcError("number");
+    var r = assertFinite(num(annualRate), "rate") / 12;
+    var balance = assertFinite(num(principal), "number");
+    var pay = base.payment + extra;
+    var totalInterest = 0;
+    var totalPaid = 0;
+    var n = 0;
+    var cap = 1200;
+    while (balance > 0.005 && n < cap) {
+      var interest = Math.abs(r) < 1e-14 ? 0 : balance * r;
+      if (pay <= interest + 1e-9) throw new CalcError("rate");
+      var due = Math.min(pay, balance + interest);
+      var principalPaid = due - interest;
+      balance -= principalPaid;
+      if (balance < 1e-8) balance = 0;
+      totalInterest += interest;
+      totalPaid += due;
+      n += 1;
+    }
+    return {
+      payment: base.payment,
+      totalInterest: totalInterest,
+      totalPaid: totalPaid,
+      months: base.months,
+      payoffMonths: n,
+      interestSaved: base.totalInterest - totalInterest,
+      years: base.years
+    };
+  }
+
+  function simpleInterest(principal, annualRate, periods, unit, basis) {
+    principal = assertFinite(num(principal), "number");
+    annualRate = assertFinite(num(annualRate), "rate");
+    periods = assertFinite(num(periods), "years");
+    if (principal < 0 || periods < 0) throw new CalcError("number");
+    var years;
+    if (unit === "month") years = periods / 12;
+    else if (unit === "day") years = periods / (Number(basis) === 360 ? 360 : 365);
+    else years = periods;
+    var interest = principal * annualRate * years;
+    return { interest: interest, amount: principal + interest, years: years };
+  }
+
+  function bmi(opts) {
+    var kg;
+    var meters;
+    if (opts.units === "imperial") {
+      kg = positive(opts.weight) * 0.45359237;
+      meters = positive(opts.height) * 0.0254;
+    } else {
+      kg = positive(opts.weight);
+      meters = positive(opts.height) / 100;
+    }
+    var value = kg / (meters * meters);
+    var cat = value < 18.5 ? "under" : value < 25 ? "healthy" : value < 30 ? "over" : "obese";
+    var minKg = 18.5 * meters * meters;
+    var maxKg = 24.9 * meters * meters;
+    return {
+      bmi: value,
+      category: cat,
+      minKg: minKg,
+      maxKg: maxKg,
+      minLb: minKg / 0.45359237,
+      maxLb: maxKg / 0.45359237
+    };
+  }
+
+  function calories(opts) {
+    var kg = opts.units === "imperial" ? positive(opts.weight) * 0.45359237 : positive(opts.weight);
+    var cm = opts.units === "imperial" ? positive(opts.height) * 2.54 : positive(opts.height);
+    var age = assertFinite(num(opts.age), "range");
+    if (age <= 0 || age > 120) throw new CalcError("range");
+    var factors = { sedentary: 1.2, light: 1.375, moderate: 1.55, active: 1.725, very: 1.9 };
+    var factor = factors[opts.activity];
+    if (!factor) throw new CalcError("range");
+    var bmr = 10 * kg + 6.25 * cm - 5 * age + (opts.sex === "female" ? -161 : 5);
+    var tdee = bmr * factor;
+    return { bmr: bmr, tdee: tdee, factor: factor, lose: tdee - 500, gain: tdee + 500 };
+  }
+
+  function toInches(value, units) {
+    var n = positive(value, "measure");
+    return units === "metric" ? n / 2.54 : n;
+  }
+
+  function bodyFat(opts) {
+    var sex = opts.sex === "female" ? "female" : "male";
+    var height = toInches(opts.height, opts.units);
+    var neck = toInches(opts.neck, opts.units);
+    var waist = toInches(opts.waist, opts.units);
+    function log(n) {
+      if (!(n > 0) || !isFinite(n)) throw new CalcError("measure");
+      return Math.log(n) / Math.LN10;
+    }
+    var fat;
+    if (sex === "male") {
+      if (waist <= neck) throw new CalcError("measure");
+      fat = 86.01 * log(waist - neck) - 70.041 * log(height) + 36.76;
+    } else {
+      var hip = toInches(opts.hip, opts.units);
+      if (waist + hip <= neck) throw new CalcError("measure");
+      fat = 163.205 * log(waist + hip - neck) - 97.684 * log(height) - 78.387;
+    }
+    if (!isFinite(fat)) throw new CalcError("measure");
+    return { fat: fat };
+  }
+
+  function pace(opts) {
+    var unit = opts.distanceUnit === "mi" ? "mi" : "km";
+    var kmPer = unit === "mi" ? 1.609344 : 1;
+    function hms(h, m, s) {
+      h = assertFinite(num(h || 0), "number");
+      m = assertFinite(num(m || 0), "number");
+      s = assertFinite(num(s || 0), "number");
+      if (h < 0 || m < 0 || s < 0) throw new CalcError("number");
+      return h * 3600 + m * 60 + s;
+    }
+    var seconds;
+    var km;
+    if (opts.mode === "distance") {
+      var paceSeconds = hms(0, opts.paceMin, opts.paceSec);
+      if (paceSeconds <= 0) throw new CalcError("number");
+      seconds = hms(opts.hours, opts.minutes, opts.seconds);
+      if (seconds <= 0) throw new CalcError("number");
+      km = seconds / paceSeconds * kmPer;
+    } else if (opts.mode === "time") {
+      km = positive(opts.distance) * kmPer;
+      var per = hms(0, opts.paceMin, opts.paceSec);
+      if (per <= 0) throw new CalcError("number");
+      seconds = km / kmPer * per;
+    } else {
+      km = positive(opts.distance) * kmPer;
+      seconds = hms(opts.hours, opts.minutes, opts.seconds);
+      if (seconds <= 0) throw new CalcError("number");
+    }
+    var perKm = seconds / km;
+    var miles = km / 1.609344;
+    return {
+      seconds: seconds,
+      km: km,
+      miles: miles,
+      perKm: perKm,
+      perMile: seconds / miles,
+      kmh: km / (seconds / 3600),
+      mph: miles / (seconds / 3600)
+    };
+  }
+
+  function gcdInt(a, b) {
+    a = Math.abs(a);
+    b = Math.abs(b);
+    while (b) {
+      var t = a % b;
+      a = b;
+      b = t;
+    }
+    return a || 1;
+  }
+
+  function fraction(a, b, c, d, op) {
+    function whole(v) {
+      v = assertFinite(num(v), "number");
+      if (!Number.isSafeInteger(v)) throw new CalcError("range");
+      return v;
+    }
+    a = whole(a);
+    b = whole(b);
+    c = whole(c);
+    d = whole(d);
+    if (b === 0 || d === 0) throw new CalcError("divide");
+    if (b < 0) { a = -a; b = -b; }
+    if (d < 0) { c = -c; d = -d; }
+    var n;
+    var den;
+    if (op === "add") { n = a * d + c * b; den = b * d; }
+    else if (op === "sub") { n = a * d - c * b; den = b * d; }
+    else if (op === "mul") { n = a * c; den = b * d; }
+    else if (op === "div") {
+      if (c === 0) throw new CalcError("divide");
+      n = a * d;
+      den = b * c;
+    } else throw new CalcError("range");
+    if (!Number.isSafeInteger(n) || !Number.isSafeInteger(den)) throw new CalcError("range");
+    if (den < 0) { n = -n; den = -den; }
+    var g = gcdInt(n, den);
+    n /= g;
+    den /= g;
+    var sign = n < 0 ? -1 : 1;
+    var absN = Math.abs(n);
+    var mixed = Math.floor(absN / den);
+    var rem = absN % den;
+    return { n: n, d: den, whole: mixed === 0 ? 0 : sign * mixed, rem: rem, value: n / den };
+  }
+
+  function stats(values) {
+    if (!values || !values.length) throw new CalcError("list");
+    var xs = values.map(function (v) { return assertFinite(num(v), "number"); });
+    var n = xs.length;
+    var sum = 0;
+    var i;
+    for (i = 0; i < n; i++) sum += xs[i];
+    var mean = sum / n;
+    var ss = 0;
+    for (i = 0; i < n; i++) ss += (xs[i] - mean) * (xs[i] - mean);
+    var popVar = ss / n;
+    var sampleVar = n > 1 ? ss / (n - 1) : null;
+    return {
+      n: n,
+      sum: sum,
+      min: Math.min.apply(null, xs),
+      max: Math.max.apply(null, xs),
+      mean: mean,
+      popVar: popVar,
+      popSd: Math.sqrt(popVar),
+      sampleVar: sampleVar,
+      sampleSd: sampleVar == null ? null : Math.sqrt(sampleVar)
+    };
+  }
+
+  function triangle(opts) {
+    if (opts.mode === "base") {
+      var base = positive(opts.base);
+      var height = positive(opts.height);
+      return { area: base * height / 2, base: base, height: height };
+    }
+    if (opts.mode === "right") {
+      var a = positive(opts.a);
+      var b = positive(opts.b);
+      var hyp = Math.sqrt(a * a + b * b);
+      return { a: a, b: b, c: hyp, area: a * b / 2, perimeter: a + b + hyp };
+    }
+    var x = positive(opts.a);
+    var y = positive(opts.b);
+    var z = positive(opts.c);
+    if (x + y <= z || x + z <= y || y + z <= x) throw new CalcError("triangle");
+    var s = (x + y + z) / 2;
+    var area = Math.sqrt(Math.max(0, s * (s - x) * (s - y) * (s - z)));
+    return { a: x, b: y, c: z, area: area, perimeter: x + y + z };
+  }
+
+  function parseISODate(value) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || "").trim());
+    if (!m) throw new CalcError("date");
+    var y = Number(m[1]);
+    var month = Number(m[2]);
+    var d = Number(m[3]);
+    if (month < 1 || month > 12 || d < 1 || d > 31) throw new CalcError("date");
+    var dt = new Date(Date.UTC(y, month - 1, d));
+    if (dt.getUTCFullYear() !== y || dt.getUTCMonth() !== month - 1 || dt.getUTCDate() !== d) throw new CalcError("date");
+    return { y: y, m: month, d: d };
+  }
+
+  function isoFromParts(parts) {
+    function pad(n) { return n < 10 ? "0" + n : String(n); }
+    return parts.y + "-" + pad(parts.m) + "-" + pad(parts.d);
+  }
+
+  function daysInMonth(y, m) {
+    return new Date(Date.UTC(y, m, 0)).getUTCDate();
+  }
+
+  function cmpDate(a, b) {
+    if (a.y !== b.y) return a.y - b.y;
+    if (a.m !== b.m) return a.m - b.m;
+    return a.d - b.d;
+  }
+
+  function addDays(date, days) {
+    var dt = new Date(Date.UTC(date.y, date.m - 1, date.d + days));
+    return { y: dt.getUTCFullYear(), m: dt.getUTCMonth() + 1, d: dt.getUTCDate() };
+  }
+
+  function ymdBetween(start, end) {
+    if (cmpDate(end, start) < 0) throw new CalcError("date");
+    var y = end.y - start.y;
+    var m = end.m - start.m;
+    var d = end.d - start.d;
+    if (d < 0) {
+      m -= 1;
+      var prevM = end.m - 1;
+      var prevY = end.y;
+      if (prevM < 1) { prevM = 12; prevY -= 1; }
+      d += daysInMonth(prevY, prevM);
+    }
+    if (m < 0) { y -= 1; m += 12; }
+    var total = Math.round((Date.UTC(end.y, end.m - 1, end.d) - Date.UTC(start.y, start.m - 1, start.d)) / 86400000);
+    return { years: y, months: m, days: d, totalDays: total };
+  }
+
+  function age(birthValue, asOfValue) {
+    var birth = parseISODate(birthValue);
+    var asOf = parseISODate(asOfValue);
+    var span = ymdBetween(birth, asOf);
+    var ann = { y: asOf.y, m: birth.m, d: birth.d };
+    var dim = daysInMonth(asOf.y, birth.m);
+    if (birth.d > dim) ann = addDays({ y: asOf.y, m: birth.m, d: dim }, 1);
+    if (cmpDate(ann, asOf) < 0) {
+      ann = { y: asOf.y + 1, m: birth.m, d: birth.d };
+      var dim2 = daysInMonth(ann.y, birth.m);
+      if (birth.d > dim2) ann = addDays({ y: ann.y, m: birth.m, d: dim2 }, 1);
+    }
+    var until = Math.round((Date.UTC(ann.y, ann.m - 1, ann.d) - Date.UTC(asOf.y, asOf.m - 1, asOf.d)) / 86400000);
+    return {
+      years: span.years,
+      months: span.months,
+      days: span.days,
+      totalDays: span.totalDays,
+      next: isoFromParts(ann),
+      daysUntil: until
+    };
+  }
+
+  function addMonthsClamped(date, months) {
+    var index = date.m - 1 + months;
+    var y = date.y + Math.floor(index / 12);
+    var m = ((index % 12) + 12) % 12;
+    var dim = daysInMonth(y, m + 1);
+    return { y: y, m: m + 1, d: Math.min(date.d, dim) };
+  }
+
+  function shiftDate(value, years, months, days) {
+    var date = parseISODate(value);
+    years = assertFinite(num(years || 0), "number");
+    months = assertFinite(num(months || 0), "number");
+    days = assertFinite(num(days || 0), "number");
+    if (!Number.isInteger(years) || !Number.isInteger(months) || !Number.isInteger(days)) throw new CalcError("number");
+    var shifted = { y: date.y + years, m: date.m, d: date.d };
+    var dim = daysInMonth(shifted.y, shifted.m);
+    if (shifted.d > dim) shifted.d = dim;
+    shifted = addMonthsClamped(shifted, months);
+    shifted = addDays(shifted, days);
+    return isoFromParts(shifted);
+  }
+
+  function dateSpan(start, end) {
+    var a = parseISODate(start);
+    var b = parseISODate(end);
+    var sign = 1;
+    if (cmpDate(b, a) < 0) { var tmp = a; a = b; b = tmp; sign = -1; }
+    var span = ymdBetween(a, b);
+    return {
+      sign: sign,
+      days: span.totalDays,
+      inclusive: span.totalDays + 1,
+      weeks: span.totalDays / 7,
+      years: span.years,
+      months: span.months,
+      remDays: span.days
+    };
+  }
+
+  function timeParts(h, m, s) {
+    h = assertFinite(num(h || 0), "number");
+    m = assertFinite(num(m || 0), "number");
+    s = assertFinite(num(s || 0), "number");
+    return h * 3600 + m * 60 + s;
+  }
+
+  function fromSeconds(total) {
+    if (!isFinite(total)) throw new CalcError("number");
+    var sign = total < 0 ? -1 : 1;
+    var t = Math.abs(Math.round(total));
+    var days = Math.floor(t / 86400);
+    t -= days * 86400;
+    var hours = Math.floor(t / 3600);
+    t -= hours * 3600;
+    var minutes = Math.floor(t / 60);
+    var seconds = t - minutes * 60;
+    return { sign: sign, days: days, hours: hours, minutes: minutes, seconds: seconds };
+  }
+
+  function addTime(a, b, op) {
+    var left = timeParts(a.hours, a.minutes, a.seconds);
+    var right = timeParts(b.hours, b.minutes, b.seconds);
+    return fromSeconds(op === "sub" ? left - right : left + right);
+  }
+
+  function clockBetween(startH, startM, endH, endM) {
+    startH = assertFinite(num(startH), "number");
+    startM = assertFinite(num(startM), "number");
+    endH = assertFinite(num(endH), "number");
+    endM = assertFinite(num(endM), "number");
+    if (startH < 0 || endH < 0 || startH > 23 || endH > 23 || startM < 0 || endM < 0 || startM > 59 || endM > 59) throw new CalcError("range");
+    var a = startH * 60 + startM;
+    var b = endH * 60 + endM;
+    var next = false;
+    if (b < a) { b += 1440; next = true; }
+    return { minutes: b - a, nextDay: next };
+  }
+
+  var GPA = { "A+": 4, A: 4, "A-": 3.7, "B+": 3.3, B: 3, "B-": 2.7, "C+": 2.3, C: 2, "C-": 1.7, "D+": 1.3, D: 1, "D-": 0.7, F: 0 };
+
+  function gpa(rows) {
+    var points = 0;
+    var credits = 0;
+    rows.forEach(function (row) {
+      if (!row.grade && (row.credits === "" || row.credits == null)) return;
+      var cr = assertFinite(num(row.credits), "number");
+      if (cr < 0) throw new CalcError("number");
+      if (!Object.prototype.hasOwnProperty.call(GPA, row.grade)) throw new CalcError("range");
+      points += GPA[row.grade] * cr;
+      credits += cr;
+    });
+    if (credits <= 0) throw new CalcError("number");
+    return { gpa: points / credits, credits: credits, points: points };
+  }
+
+  function letterFromPercent(pct) {
+    if (pct >= 90) return "A";
+    if (pct >= 80) return "B";
+    if (pct >= 70) return "C";
+    if (pct >= 60) return "D";
+    return "F";
+  }
+
+  function gradeAverage(rows) {
+    var weighted = 0;
+    var weights = 0;
+    var earned = 0;
+    var possible = 0;
+    rows.forEach(function (row) {
+      if (row.earned === "" && row.possible === "") return;
+      var got = assertFinite(num(row.earned), "number");
+      var outOf = assertFinite(num(row.possible), "number");
+      if (outOf <= 0 || got < 0) throw new CalcError("number");
+      var weight = row.weight === "" || row.weight == null ? 1 : assertFinite(num(row.weight), "number");
+      if (weight < 0) throw new CalcError("number");
+      weighted += (got / outOf) * weight;
+      weights += weight;
+      earned += got;
+      possible += outOf;
+    });
+    if (weights <= 0) throw new CalcError("number");
+    var pct = weighted / weights * 100;
+    return { percent: pct, letter: letterFromPercent(pct), earned: earned, possible: possible };
+  }
+
+  var UNIT = {
+    length: { m: 1, km: 1000, cm: 0.01, mm: 0.001, mi: 1609.344, yd: 0.9144, ft: 0.3048, in: 0.0254 },
+    mass: { kg: 1, g: 0.001, mg: 1e-6, lb: 0.45359237, oz: 0.028349523125 },
+    volume: { L: 1, mL: 0.001, gal: 3.785411784, qt: 0.946352946, cup: 0.2365882365, floz: 0.0295735295625 }
+  };
+
+  function unitFamily(unit) {
+    if (unit === "C" || unit === "F" || unit === "K") return "temp";
+    var key;
+    for (key in UNIT) if (Object.prototype.hasOwnProperty.call(UNIT[key], unit)) return key;
+    return "";
+  }
+
+  function convertUnit(value, from, to) {
+    value = assertFinite(num(value), "number");
+    var family = unitFamily(from);
+    if (!family || family !== unitFamily(to)) throw new CalcError("unit");
+    if (family === "temp") {
+      var c = from === "C" ? value : from === "F" ? (value - 32) * 5 / 9 : value - 273.15;
+      if (to === "C") return c;
+      if (to === "F") return c * 9 / 5 + 32;
+      return c + 273.15;
+    }
+    return value * UNIT[family][from] / UNIT[family][to];
+  }
+
   return {
     CalcError: CalcError,
     num: num,
@@ -1421,6 +1940,25 @@
     hourInZone: hourInZone,
     meetingHours: meetingHours,
     buildPolicy: buildPolicy,
-    bytesToBase64: bytesToBase64
+    bytesToBase64: bytesToBase64,
+    amortizingPayment: amortizingPayment,
+    amortizationSchedule: amortizationSchedule,
+    loanWithExtra: loanWithExtra,
+    simpleInterest: simpleInterest,
+    bmi: bmi,
+    calories: calories,
+    bodyFat: bodyFat,
+    pace: pace,
+    fraction: fraction,
+    stats: stats,
+    triangle: triangle,
+    age: age,
+    shiftDate: shiftDate,
+    dateSpan: dateSpan,
+    addTime: addTime,
+    clockBetween: clockBetween,
+    gpa: gpa,
+    gradeAverage: gradeAverage,
+    convertUnit: convertUnit
   };
 });

@@ -64,6 +64,44 @@ const rel = await page.$eval('a[data-affiliate="airalo"]', (el) => el.getAttribu
 if (href !== "https://airalo.tpx.lt/Z3nl2F1z") throw new Error("airalo href " + href);
 if (!rel.includes("sponsored") || !rel.includes("nofollow") || !rel.includes("noopener")) throw new Error("rel " + rel);
 
+await page.setViewport({ width: 1280, height: 800 });
+await page.goto(base + "/mortgage-calculator/", { waitUntil: "networkidle0" });
+await page.waitForSelector("#result table");
+const inputWidth = await page.$eval('input[name="price"]', (el) => el.getBoundingClientRect().width);
+if (inputWidth < 200) throw new Error("desktop input width " + inputWidth);
+const mortgage = await textOf("#result");
+if (!mortgage.includes("320,000") && !mortgage.includes("320000")) throw new Error("mortgage principal: " + mortgage);
+if (!mortgage.includes("2,022") && !mortgage.includes("2022")) throw new Error("mortgage payment: " + mortgage);
+
+await page.setViewport({ width: 390, height: 844 });
+await page.goto(base + "/bmi-calculator/", { waitUntil: "networkidle0" });
+await page.waitForSelector("#result table");
+const mobileWidth = await page.$eval('input[name="weight"]', (el) => el.getBoundingClientRect().width);
+if (mobileWidth < 250) throw new Error("mobile input width " + mobileWidth);
+const bmi = await textOf("#result");
+if (!bmi.includes("22.9") && !bmi.includes("22,9")) throw new Error("bmi: " + bmi);
+
+await page.setViewport({ width: 1280, height: 800 });
+await page.goto(base + "/percentage-calculator/", { waitUntil: "networkidle0" });
+await page.waitForSelector("#result table");
+const pct = await textOf("#result");
+if (!pct.includes("16")) throw new Error("percent: " + pct);
+await page.select('select[name="op"]', "change");
+await page.$eval('input[name="a"]', (el) => { el.value = "80"; });
+await page.$eval('input[name="b"]', (el) => { el.value = "100"; });
+await page.click("button.go");
+await page.waitForFunction(() => document.querySelector("#result").innerText.includes("%"));
+const change = await textOf("#result");
+if (!change.includes("25")) throw new Error("percent change: " + change);
+
+await page.goto(base + "/", { waitUntil: "networkidle0" });
+const links = await page.$$eval(".catalog a", (els) => els.length);
+if (links < 50) throw new Error("catalog links " + links);
+await page.type("#finder", "mortgage");
+await page.waitForFunction(() => document.querySelectorAll("[data-tool]:not([hidden])").length < 10);
+const visible = await page.$$eval("[data-tool]:not([hidden])", (els) => els.map((el) => el.innerText));
+if (!visible.some((text) => /mortgage/i.test(text))) throw new Error("search " + visible.join("|"));
+
 await page.goto(base + "/ru/blog/semrush-free-trial/", { waitUntil: "networkidle0" });
 const lang = await page.$eval("html", (el) => el.lang);
 const title = await page.title();
