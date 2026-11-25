@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,13 +34,14 @@
 <meta name="twitter:title" content="Торговая комиссия и проскальзывание | Бесплатные калькуляторы">
 <meta name="twitter:description" content="Комиссия и проскальзывание на покупке, продаже или круге, плюс котировка безубытка. Скидка меняет процент, который вы вводите, а не формулу.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Калькулятор торговой комиссии","description":"Комиссия и проскальзывание на покупке, продаже или круге, плюс котировка безубытка. Скидка меняет процент, который вы вводите, а не формулу.","url":"https://anlap26.github.io/Free-online-calculators/ru/trading-fee-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как комиссия и проскальзывание меняют цену покупки?","acceptedAnswer":{"@type":"Answer","text":"На покупке цена исполнения равна котировке, умноженной на 1 плюс процент проскальзывания. Сумма сделки — эта цена, умноженная на количество. Комиссия — сумма сделки, умноженная на ставку, а ушедшие деньги — сумма сделки плюс комиссия. Две штуки по котировке 100, комиссия тейкера 0,1% и нулевое проскальзывание: сумма сделки 200, комиссия 0,20, платите 200,20. Эффективная цена 100,10. Проскальзывание выше нуля поднимает цену исполнения ещё до комиссии."}},{"@type":"Question","name":"Как найти цену продажи в ноль после комиссий?","acceptedAnswer":{"@type":"Answer","text":"Разделите деньги, ушедшие на покупку, на количество, затем на 1 минус проскальзывание и на 1 минус комиссию выхода. При нулевом проскальзывании и 0,1% с обеих сторон покупка по 100, которая обошлась в 100,10 за штуку, выходит в ноль при 100,10 разделить на 0,999, около 100,20. Считается, что выход исполнится хуже на тот же процент проскальзывания, а комиссия выхода снимается с этой суммы. Это линия нуля, не ценовая цель."}},{"@type":"Question","name":"Чем комиссия мейкера отличается от комиссии тейкера?","acceptedAnswer":{"@type":"Answer","text":"Ордер тейкера сразу пересекается с заявкой, которая уже в стакане, и вы платите за исполнение сейчас. Ордер мейкера стоит в стакане и ждёт чужого пересечения, и он может так и не исполниться. Биржи часто берут за роли разные проценты. Вы вводите оба, и каждая сторона берёт ту роль, которую вы для неё выбрали. Скидка или более высокая ступень меняет вводимый процент. Умножение остаётся прежним: сумма сделки умножается на эту ставку."}},{"@type":"Question","name":"Скидка на комиссию меняет формулу?","acceptedAnswer":{"@type":"Answer","text":"Нет. Скидка, ступень по объёму или зачёт токеном меняет процент мейкера или тейкера, который вы вписываете в форму. Комиссия по-прежнему равна сумме сделки, умноженной на эту ставку, а котировка безубытка по-прежнему делит на 1 минус комиссию выхода. Страница не знает вашу ступень и не обещает размер скидки. Читайте тариф, который показали вам, включая срок действия: опубликованные ступени меняются."}},{"@type":"Question","name":"Чтобы посчитать комиссию, нужен счёт на бирже?","acceptedAnswer":{"@type":"Answer","text":"Нет. Введите проценты и котировку, и суммы посчитаются в браузере. Счёт на Bybit или Binance — одно из мест, где видна ваша реальная ступень комиссии. Ступени меняются, и страница не выдумает скидку. Можно считать по тарифу, который у вас уже есть, и никуда не регистрироваться. Результат — не совет выставлять эту сделку."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Финансы","item":"https://anlap26.github.io/Free-online-calculators/ru/finance/"},{"@type":"ListItem","position":3,"name":"Калькулятор торговой комиссии","item":"https://anlap26.github.io/Free-online-calculators/ru/trading-fee-calculator/"}]},{"@type":"HowTo","name":"Калькулятор торговой комиссии","description":"Комиссия и проскальзывание на покупке, продаже или круге, плюс котировка безубытка. Скидка меняет процент, который вы вводите, а не формулу.","url":"https://anlap26.github.io/Free-online-calculators/ru/trading-fee-calculator/","step":[{"@type":"HowToStep","position":1,"name":"Круг и котировка, на которой вы в нуле","text":"Котировка продажи в ноль — это итог покупки, делённый на количество, на (1 минус проскальзывание) и на (1 минус комиссию выхода). В записи: buyTotal / (qty * (1 - slippage) * (1 - exitFee)). Считается, что выход получит то же проскальзывание, которое вы ввели, а комиссия выхода снимается уже с проскальзнувшей суммы. Вы ищете котировку, при которой вернувшиеся деньги равны ушедшим. Это не цель, которую вам должен рынок. Это линия нуля при тех процентах, которые вы вписали. Купите 2 штуки по котировке 100, комиссия тейкера 0,1%, проскальзывание ноль. Сумма сделки 200. Комиссия 0,20. Итог 200,20."},{"@type":"HowToStep","position":2,"name":"Мейкер, тейкер и скидка","text":"Ордер тейкера сразу пересекается с заявкой, которая уже лежит в стакане. Вы платите за исполнение сейчас, по котировке, плюс то проскальзывание, которое ввели, если стакан тонкий. Ордер мейкера стоит в стакане и ждёт, пока кто-то другой с ним пересечётся. Он может не исполниться. Биржи часто берут за эти две роли разные проценты. Вы вводите оба. Вход берёт процент той роли, которую вы выбрали на вход, выход — роль, которую вы выбрали на выход. Скидка, более высокая ступень или зачёт токеном меняет процент, который вы вводите. Формулу это не меняет. Страница не знает вашу ступень и не обещает р"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
-<nav class="main" aria-label="Разделы">
-<a href="/Free-online-calculators/ru/">Главная</a><a href="/Free-online-calculators/ru/finance/">Финансы</a><a href="/Free-online-calculators/ru/security/">Приватность</a><a href="/Free-online-calculators/ru/relocation/">Переезд</a><a href="/Free-online-calculators/ru/webmaster/">Веб</a><a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Бесплатные онлайн-калькуляторы<small>Деньги, здоровье, математика, приватность и веб</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Тёмная" data-to-light="Светлая" aria-pressed="false">Тёмная</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/trading-fee-calculator/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/trading-fee-calculator/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/ru/finance/">Финансы</a><span aria-hidden="true">/</span> <span aria-current="page">Калькулятор торговой комиссии</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Разделы">
+<a href="..//">Главная</a><a href="../finance/">Финансы</a><a href="../fitness/">Здоровье</a><a href="../math/">Математика</a><a href="../other/">Другое</a><a href="../security/">Приватность</a><a href="../relocation/">Переезд</a><a href="../webmaster/">Веб</a><a href="../blog/">Статьи</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Главная</a><span aria-hidden="true">/</span> <a href="../finance/">Финансы</a><span aria-hidden="true">/</span> <span aria-current="page">Калькулятор торговой комиссии</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Калькулятор торговой комиссии</h1>
 <p class="lede">Проскальзывание и комиссия мейкера или тейкера на входе и на выходе, плюс котировка продажи, на которой вы выходите в ноль.</p>
@@ -79,28 +94,28 @@
 <li>Для круга нужны и комиссия входа, и комиссия выхода.</li>
 <li>Размер позиции — другая страница. Эта не говорит, сколько штук держать.</li>
 </ul>
-<p>Сколько единиц брать в сделку при заданном стопе, считает <a href="/Free-online-calculators/ru/position-size-calculator/">калькулятор размера позиции</a>. Комиссий он не включает, и страницы честно расходятся в том, что каждая опускает. У Bybit и Binance ступени комиссии меняются вместе с объёмом и временными условиями. Счёт — место, где видна ступень, которую предложили именно вам. Калькулятор работает, если вписать проценты со снимка экрана и никуда не регистрироваться. В <a href="/Free-online-calculators/ru/blog/binance-vs-bybit/">сравнении Binance и Bybit</a> сказано, что сопоставлять. Скидку, которая через неделю будет неверной, статья не называет.</p></div>
+<p>Сколько единиц брать в сделку при заданном стопе, считает <a href="../position-size-calculator/">калькулятор размера позиции</a>. Комиссий он не включает, и страницы честно расходятся в том, что каждая опускает. У Bybit и Binance ступени комиссии меняются вместе с объёмом и временными условиями. Счёт — место, где видна ступень, которую предложили именно вам. Калькулятор работает, если вписать проценты со снимка экрана и никуда не регистрироваться. В <a href="../blog/binance-vs-bybit/">сравнении Binance и Bybit</a> сказано, что сопоставлять. Скидку, которая через неделю будет неверной, статья не называет.</p></div>
 <section class="faq"><h2>Частые вопросы</h2><details><summary>Как комиссия и проскальзывание меняют цену покупки?</summary><p>На покупке цена исполнения равна котировке, умноженной на 1 плюс процент проскальзывания. Сумма сделки — эта цена, умноженная на количество. Комиссия — сумма сделки, умноженная на ставку, а ушедшие деньги — сумма сделки плюс комиссия. Две штуки по котировке 100, комиссия тейкера 0,1% и нулевое проскальзывание: сумма сделки 200, комиссия 0,20, платите 200,20. Эффективная цена 100,10. Проскальзывание выше нуля поднимает цену исполнения ещё до комиссии.</p></details><details><summary>Как найти цену продажи в ноль после комиссий?</summary><p>Разделите деньги, ушедшие на покупку, на количество, затем на 1 минус проскальзывание и на 1 минус комиссию выхода. При нулевом проскальзывании и 0,1% с обеих сторон покупка по 100, которая обошлась в 100,10 за штуку, выходит в ноль при 100,10 разделить на 0,999, около 100,20. Считается, что выход исполнится хуже на тот же процент проскальзывания, а комиссия выхода снимается с этой суммы. Это линия нуля, не ценовая цель.</p></details><details><summary>Чем комиссия мейкера отличается от комиссии тейкера?</summary><p>Ордер тейкера сразу пересекается с заявкой, которая уже в стакане, и вы платите за исполнение сейчас. Ордер мейкера стоит в стакане и ждёт чужого пересечения, и он может так и не исполниться. Биржи часто берут за роли разные проценты. Вы вводите оба, и каждая сторона берёт ту роль, которую вы для неё выбрали. Скидка или более высокая ступень меняет вводимый процент. Умножение остаётся прежним: сумма сделки умножается на эту ставку.</p></details><details><summary>Скидка на комиссию меняет формулу?</summary><p>Нет. Скидка, ступень по объёму или зачёт токеном меняет процент мейкера или тейкера, который вы вписываете в форму. Комиссия по-прежнему равна сумме сделки, умноженной на эту ставку, а котировка безубытка по-прежнему делит на 1 минус комиссию выхода. Страница не знает вашу ступень и не обещает размер скидки. Читайте тариф, который показали вам, включая срок действия: опубликованные ступени меняются.</p></details><details><summary>Чтобы посчитать комиссию, нужен счёт на бирже?</summary><p>Нет. Введите проценты и котировку, и суммы посчитаются в браузере. Счёт на Bybit или Binance — одно из мест, где видна ваша реальная ступень комиссии. Ступени меняются, и страница не выдумает скидку. Можно считать по тарифу, который у вас уже есть, и никуда не регистрироваться. Результат — не совет выставлять эту сделку.</p></details></section>
-<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Калькулятор размера позиции</h3><p>Деньги под риском и расстояние от входа до стопа задают число единиц, для лонга или для шорта.</p><a class="more" href="/Free-online-calculators/ru/position-size-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор средней цены</h3><p>Несколько покупок с комиссией в деньгах собираются в одну среднюю цену и в котировку продажи, которая покрывает процент комиссии выхода.</p><a class="more" href="/Free-online-calculators/ru/average-price-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор стейкинга</h3><p>Для каждой монеты введите APY или APR, посмотрите эффективную годовую ставку и сортировку по приросту, а не по красивой цифре в заголовке.</p><a class="more" href="/Free-online-calculators/ru/staking-apy-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор сложного процента</h3><p>Номинальная годовая ставка, ежемесячное довнесение и выбор начала или конца месяца дают будущую сумму, которую можно проверить на простых числах.</p><a class="more" href="/Free-online-calculators/ru/compound-interest-calculator/">Открыть</a></article><article class="card"><h3>Binance и Bybit: резидентство, комиссии и где лежат монеты</h3><p>Две крупные биржи сравниваются по ограничениям, по ячейке комиссии и по разнице между остатком на площадке и монетами, которые держите вы.</p><a class="more" href="/Free-online-calculators/ru/blog/binance-vs-bybit/">Из статей</a></article></div></section>
+<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Калькулятор размера позиции</h3><p>Деньги под риском и расстояние от входа до стопа задают число единиц, для лонга или для шорта.</p><a class="more" href="../position-size-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор средней цены</h3><p>Несколько покупок с комиссией в деньгах собираются в одну среднюю цену и в котировку продажи, которая покрывает процент комиссии выхода.</p><a class="more" href="../average-price-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор стейкинга</h3><p>Для каждой монеты введите APY или APR, посмотрите эффективную годовую ставку и сортировку по приросту, а не по красивой цифре в заголовке.</p><a class="more" href="../staking-apy-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор сложного процента</h3><p>Номинальная годовая ставка, ежемесячное довнесение и выбор начала или конца месяца дают будущую сумму, которую можно проверить на простых числах.</p><a class="more" href="../compound-interest-calculator/">Открыть</a></article><article class="card"><h3>Binance и Bybit: резидентство, комиссии и где лежат монеты</h3><p>Две крупные биржи сравниваются по ограничениям, по ячейке комиссии и по разнице между остатком на площадке и монетами, которые держите вы.</p><a class="more" href="../blog/binance-vs-bybit/">Из статей</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/ru/about/">О сайте</a>
-<a href="/Free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
-<a href="/Free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
-<a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<a href="../about/">О сайте</a>
+<a href="../privacy-policy/">Политика конфиденциальности</a>
+<a href="../affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="../blog/">Статьи</a>
 </nav>
 <p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
 <p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-ru.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../../assets/js/affiliates.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+<script defer src="../../assets/js/calc-core.js"></script>
+<script defer src="../../assets/js/wordlists.js"></script>
+<script defer src="../../assets/js/cost-of-living.js"></script>
+<script defer src="../../assets/js/llm-prices.js"></script>
+<script defer src="../../assets/js/ui-ru.js"></script>
+<script defer src="../../assets/js/calculators.js"></script>
 </body>
 </html>

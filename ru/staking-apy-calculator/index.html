@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,13 +34,14 @@
 <meta name="twitter:title" content="Стейкинг: APY и эффективная ставка | Бесплатные калькуляторы">
 <meta name="twitter:description" content="Сравнение доходности стейкинга по ставкам, которые вы вводите. APY уже с капитализацией. APR переводится в эффективную ставку. Это не банковский вклад.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="stylesheet" href="../../assets/css/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Калькулятор стейкинга","description":"Сравнение доходности стейкинга по ставкам, которые вы вводите. APY уже с капитализацией. APR переводится в эффективную ставку. Это не банковский вклад.","url":"https://anlap26.github.io/Free-online-calculators/ru/staking-apy-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"ru","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Чем APY отличается от APR в стейкинге?","acceptedAnswer":{"@type":"Answer","text":"APY — это уже эффективная годовая ставка, капитализация внутри. Будущая стоимость равна сумме, умноженной на (1 плюс APY) в степени лет, и эту цифру не надо капитализировать ещё раз. APR — номинальная ставка. Страница переводит её в эффективную годовую по формуле (1 плюс APR, делённый на n) в степени n минус 1, и только потом применяет ставку раз в год. Число начислений важно для APR и игнорируется для APY."}},{"@type":"Question","name":"Сколько будет с 1000 при 5% APY через 2 года?","acceptedAnswer":{"@type":"Answer","text":"Будет 1102,50. Первый год растит 1000 до 1050, второй растит 1050 на 5%, это ещё 52,50. Второй шаг — та капитализация, которая уже сидит внутри APY. Не надо дополнительно дробить 5% на месяцы и капитализировать их сверху. Прирост 102,50, если ставка все два года держится на 5%. Если объявленная доходность изменится, эта цифра продукт больше не описывает."}},{"@type":"Question","name":"Почему таблица сортирует по приросту, а не по ставке?","acceptedAnswer":{"@type":"Answer","text":"Прирост — это будущая стоимость минус введённая сумма, и крупная куча при низкой ставке может дать больше денег, чем мелкая при высокой. 1000 под 5% APY за 2 года дают прирост 102,50. 5000 под 2% APY за 2 года дают прирост 202. Более низкая ставка оказывается первой. Общий прирост складывает строки. Это не смешанный APY портфеля, и страница не предполагает, что вы перекладываете монеты между строками."}},{"@type":"Question","name":"Доходность стейблкоина — это банковский вклад?","acceptedAnswer":{"@type":"Answer","text":"Нет. Награда по стейблкоину — ставка протокола или биржи. Это не банковский вклад и не сумма, которую страхует система страхования вкладов. Монета может потерять привязку, ставка может измениться, блокировка может не дать продать. Слэшинг может урезать некоторые активы с доказательством доли, если валидатор нарушил правило. Ни одно из этих событий формула не вычитает. Число — это введённая ставка, которую держат постоянной."}},{"@type":"Question","name":"Доходность стейкинга переживает инфляцию?","acceptedAnswer":{"@type":"Answer","text":"Формула этого не знает. Она растит сумму на введённую ставку и на этом останавливается. Инфляция может съесть номинальный прирост: те же монеты купят меньше обычных товаров, даже если в строке есть прибыль. Инфляцию валюты рядом с номинальной доходностью ставьте в калькуляторе инфляции, если хотите видеть разрыв явно. Доходности ещё и меняются, а блокировка может оставить вас в продукте после того, как цифра на баннере уже другая."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://anlap26.github.io/Free-online-calculators/ru/"},{"@type":"ListItem","position":2,"name":"Финансы","item":"https://anlap26.github.io/Free-online-calculators/ru/finance/"},{"@type":"ListItem","position":3,"name":"Калькулятор стейкинга","item":"https://anlap26.github.io/Free-online-calculators/ru/staking-apy-calculator/"}]},{"@type":"HowTo","name":"Калькулятор стейкинга","description":"Сравнение доходности стейкинга по ставкам, которые вы вводите. APY уже с капитализацией. APR переводится в эффективную ставку. Это не банковский вклад.","url":"https://anlap26.github.io/Free-online-calculators/ru/staking-apy-calculator/","step":[{"@type":"HowToStep","position":1,"name":"APR — другой тип ввода","text":"Если ставка — это APR с начислением n раз в год, эффективная годовая равна (1 плюс APR, делённый на n) в степени n, минус 1. Дальше будущая стоимость берёт эту эффективную ставку один раз в год: сумма, умноженная на (1 плюс эффективную) в степени лет. Сверху помесячно она не капитализируется. Возьмите APR 12% с двенадцатью начислениями. Эффективная ставка — это 1,01 в двенадцатой степени минус 1, около 12,68%. На 1000 за один год выйдет около 1126,83. Если после этого принять 12,68% за APY и ещё представить месячную капитализацию, год посчитан дважды. Для строки APR на один год будущая стоимос"},{"@type":"HowToStep","position":2,"name":"Сортировка по приросту, не по заголовку","text":"Строки стоят по приросту, сначала больший. Прирост — это будущая стоимость минус введённая сумма. Крупный остаток при скромной ставке может обогнать мелкий остаток при высокой. Поставьте 1000 под 5% APY на 2 года рядом с 5000 под 2% APY на те же 2 года. Первая сумма станет 1102,50, прирост 102,50. Вторая станет 5202, прирост 202, потому что 1,02 в квадрате — это 1,0404. Более низкая ставка окажется выше в списке. Общая стоимость и общий прирост складывают строки. Это не смешанный APY и не описание портфеля, который вы перекладываете."},{"@type":"HowToStep","position":3,"name":"Чего в цифре доходности нет","text":"Ставка постоянная. Цифра с баннера этой недели формулой не зафиксирована. У части продуктов монеты заперты до конца таймера. Обратного отсчёта в формуле нет. У части активов с доказательством доли слэшинг может урезать сумму, если валидатор нарушил правило. Здесь урезания нет. Доходность стейблкоина — не банковский вклад и не сумма под государственной страховкой вкладов. Инфляция съедает номинальную доходность. Прирост в монетах всё равно может покупать меньше. Калькулятор инфляции ставит инфляцию валюты рядом с номинальной доходностью, чтобы было видно, что остаётся после роста цен. Налог и т"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">К содержанию</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/ru/">Бесплатные онлайн-калькуляторы<small>Финансы, приватность, переезд, веб</small></a>
-<nav class="main" aria-label="Разделы">
-<a href="/Free-online-calculators/ru/">Главная</a><a href="/Free-online-calculators/ru/finance/">Финансы</a><a href="/Free-online-calculators/ru/security/">Приватность</a><a href="/Free-online-calculators/ru/relocation/">Переезд</a><a href="/Free-online-calculators/ru/webmaster/">Веб</a><a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Бесплатные онлайн-калькуляторы<small>Деньги, здоровье, математика, приватность и веб</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Тёмная" data-to-light="Светлая" aria-pressed="false">Тёмная</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/staking-apy-calculator/" hreflang="en" lang="en">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/staking-apy-calculator/" hreflang="ru" lang="ru" aria-current="true">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/ru/">Главная</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/ru/finance/">Финансы</a><span aria-hidden="true">/</span> <span aria-current="page">Калькулятор стейкинга</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Разделы">
+<a href="..//">Главная</a><a href="../finance/">Финансы</a><a href="../fitness/">Здоровье</a><a href="../math/">Математика</a><a href="../other/">Другое</a><a href="../security/">Приватность</a><a href="../relocation/">Переезд</a><a href="../webmaster/">Веб</a><a href="../blog/">Статьи</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Главная</a><span aria-hidden="true">/</span> <a href="../finance/">Финансы</a><span aria-hidden="true">/</span> <span aria-current="page">Калькулятор стейкинга</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Калькулятор стейкинга</h1>
 <p class="lede">Для каждой монеты введите APY или APR, посмотрите эффективную годовую ставку и сортировку по приросту, а не по красивой цифре в заголовке.</p>
@@ -79,28 +94,28 @@
 <li>Доходность стейблкоина — не банковский вклад и не сумма под государственной страховкой вкладов.</li>
 <li>Инфляция съедает номинальную доходность. Прирост в монетах всё равно может покупать меньше.</li>
 </ul>
-<p><a href="/Free-online-calculators/ru/inflation-calculator/">Калькулятор инфляции</a> ставит инфляцию валюты рядом с номинальной доходностью, чтобы было видно, что остаётся после роста цен. Налог и торговая комиссия в этом умножении не сидят. Процент со сделки считает <a href="/Free-online-calculators/ru/trading-fee-calculator/">калькулятор торговой комиссии</a>. На Bybit и Binance доходности меняются, и вместе с ними меняются сроки блокировки и комиссии. Счёт позволяет прочитать текущие условия. В эту страницу он ставку не подставляет, и страница работает без регистрации. В <a href="/Free-online-calculators/ru/blog/binance-vs-bybit/">сравнении Binance и Bybit</a> сказано, что проверять, в том числе то, что монеты на бирже — не ваш собственный кошелёк. Здесь арифметика по тем ставкам, которые вы решили проверить.</p></div>
+<p><a href="../inflation-calculator/">Калькулятор инфляции</a> ставит инфляцию валюты рядом с номинальной доходностью, чтобы было видно, что остаётся после роста цен. Налог и торговая комиссия в этом умножении не сидят. Процент со сделки считает <a href="../trading-fee-calculator/">калькулятор торговой комиссии</a>. На Bybit и Binance доходности меняются, и вместе с ними меняются сроки блокировки и комиссии. Счёт позволяет прочитать текущие условия. В эту страницу он ставку не подставляет, и страница работает без регистрации. В <a href="../blog/binance-vs-bybit/">сравнении Binance и Bybit</a> сказано, что проверять, в том числе то, что монеты на бирже — не ваш собственный кошелёк. Здесь арифметика по тем ставкам, которые вы решили проверить.</p></div>
 <section class="faq"><h2>Частые вопросы</h2><details><summary>Чем APY отличается от APR в стейкинге?</summary><p>APY — это уже эффективная годовая ставка, капитализация внутри. Будущая стоимость равна сумме, умноженной на (1 плюс APY) в степени лет, и эту цифру не надо капитализировать ещё раз. APR — номинальная ставка. Страница переводит её в эффективную годовую по формуле (1 плюс APR, делённый на n) в степени n минус 1, и только потом применяет ставку раз в год. Число начислений важно для APR и игнорируется для APY.</p></details><details><summary>Сколько будет с 1000 при 5% APY через 2 года?</summary><p>Будет 1102,50. Первый год растит 1000 до 1050, второй растит 1050 на 5%, это ещё 52,50. Второй шаг — та капитализация, которая уже сидит внутри APY. Не надо дополнительно дробить 5% на месяцы и капитализировать их сверху. Прирост 102,50, если ставка все два года держится на 5%. Если объявленная доходность изменится, эта цифра продукт больше не описывает.</p></details><details><summary>Почему таблица сортирует по приросту, а не по ставке?</summary><p>Прирост — это будущая стоимость минус введённая сумма, и крупная куча при низкой ставке может дать больше денег, чем мелкая при высокой. 1000 под 5% APY за 2 года дают прирост 102,50. 5000 под 2% APY за 2 года дают прирост 202. Более низкая ставка оказывается первой. Общий прирост складывает строки. Это не смешанный APY портфеля, и страница не предполагает, что вы перекладываете монеты между строками.</p></details><details><summary>Доходность стейблкоина — это банковский вклад?</summary><p>Нет. Награда по стейблкоину — ставка протокола или биржи. Это не банковский вклад и не сумма, которую страхует система страхования вкладов. Монета может потерять привязку, ставка может измениться, блокировка может не дать продать. Слэшинг может урезать некоторые активы с доказательством доли, если валидатор нарушил правило. Ни одно из этих событий формула не вычитает. Число — это введённая ставка, которую держат постоянной.</p></details><details><summary>Доходность стейкинга переживает инфляцию?</summary><p>Формула этого не знает. Она растит сумму на введённую ставку и на этом останавливается. Инфляция может съесть номинальный прирост: те же монеты купят меньше обычных товаров, даже если в строке есть прибыль. Инфляцию валюты рядом с номинальной доходностью ставьте в калькуляторе инфляции, если хотите видеть разрыв явно. Доходности ещё и меняются, а блокировка может оставить вас в продукте после того, как цифра на баннере уже другая.</p></details></section>
-<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Калькулятор сложного процента</h3><p>Номинальная годовая ставка, ежемесячное довнесение и выбор начала или конца месяца дают будущую сумму, которую можно проверить на простых числах.</p><a class="more" href="/Free-online-calculators/ru/compound-interest-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор средней цены</h3><p>Несколько покупок с комиссией в деньгах собираются в одну среднюю цену и в котировку продажи, которая покрывает процент комиссии выхода.</p><a class="more" href="/Free-online-calculators/ru/average-price-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор торговой комиссии</h3><p>Проскальзывание и комиссия мейкера или тейкера на входе и на выходе, плюс котировка продажи, на которой вы выходите в ноль.</p><a class="more" href="/Free-online-calculators/ru/trading-fee-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор инфляции</h3><p>Одна или две ставки инфляции, которые вы вводите: будущая стоимость, что ещё купят сегодняшние деньги, и реальная доходность, если указана номинальная.</p><a class="more" href="/Free-online-calculators/ru/inflation-calculator/">Открыть</a></article><article class="card"><h3>Binance и Bybit: резидентство, комиссии и где лежат монеты</h3><p>Две крупные биржи сравниваются по ограничениям, по ячейке комиссии и по разнице между остатком на площадке и монетами, которые держите вы.</p><a class="more" href="/Free-online-calculators/ru/blog/binance-vs-bybit/">Из статей</a></article></div></section>
+<section><h2 class="sec">Другие инструменты</h2><div class="grid"><article class="card"><h3>Калькулятор сложного процента</h3><p>Номинальная годовая ставка, ежемесячное довнесение и выбор начала или конца месяца дают будущую сумму, которую можно проверить на простых числах.</p><a class="more" href="../compound-interest-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор средней цены</h3><p>Несколько покупок с комиссией в деньгах собираются в одну среднюю цену и в котировку продажи, которая покрывает процент комиссии выхода.</p><a class="more" href="../average-price-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор торговой комиссии</h3><p>Проскальзывание и комиссия мейкера или тейкера на входе и на выходе, плюс котировка продажи, на которой вы выходите в ноль.</p><a class="more" href="../trading-fee-calculator/">Открыть</a></article><article class="card"><h3>Калькулятор инфляции</h3><p>Одна или две ставки инфляции, которые вы вводите: будущая стоимость, что ещё купят сегодняшние деньги, и реальная доходность, если указана номинальная.</p><a class="more" href="../inflation-calculator/">Открыть</a></article><article class="card"><h3>Binance и Bybit: резидентство, комиссии и где лежат монеты</h3><p>Две крупные биржи сравниваются по ограничениям, по ячейке комиссии и по разнице между остатком на площадке и монетами, которые держите вы.</p><a class="more" href="../blog/binance-vs-bybit/">Из статей</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/ru/about/">О сайте</a>
-<a href="/Free-online-calculators/ru/privacy-policy/">Политика конфиденциальности</a>
-<a href="/Free-online-calculators/ru/affiliate-disclosure/">Партнёрские ссылки</a>
-<a href="/Free-online-calculators/ru/blog/">Статьи</a>
+<a href="../about/">О сайте</a>
+<a href="../privacy-policy/">Политика конфиденциальности</a>
+<a href="../affiliate-disclosure/">Партнёрские ссылки</a>
+<a href="../blog/">Статьи</a>
 </nav>
 <p>Все калькуляторы считают в браузере. Результат — арифметика, а не финансовая, налоговая, юридическая, визовая или страховая рекомендация. Перед решением сверьте актуальное предложение. Партнёрские ссылки помечены.</p>
 <p class="projects">Другой проект того же издателя: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Бесплатные онлайн-калькуляторы. Издатель — Анна.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-ru.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../../assets/js/affiliates.js"></script>
+<script defer src="../../assets/js/site.js"></script>
+<script defer src="../../assets/js/calc-core.js"></script>
+<script defer src="../../assets/js/wordlists.js"></script>
+<script defer src="../../assets/js/cost-of-living.js"></script>
+<script defer src="../../assets/js/llm-prices.js"></script>
+<script defer src="../../assets/js/ui-ru.js"></script>
+<script defer src="../../assets/js/calculators.js"></script>
 </body>
 </html>

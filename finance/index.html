@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,13 +34,14 @@
 <meta name="twitter:title" content="Free Finance Calculators: Interest, Fees, FIRE, Inflation">
 <meta name="twitter:description" content="Compound interest, average price, staking APY, trading fees, FIRE, inflation, position size, and bank spreads. Free, in the browser.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which finance calculator should I open first?","acceptedAnswer":{"@type":"Answer","text":"If the question is a future balance, start with compound interest. If the question is a coin you already bought at several prices, start with average price. If the question is how much you can lose on one trade, start with position size."}},{"@type":"Question","name":"Do these pages recommend a broker or an exchange?","acceptedAnswer":{"@type":"Answer","text":"No. The guides describe what to check and do not link to a broker or an exchange. The currency page links to labelled travel partners. The arithmetic does not depend on a link, and a residency rule can block a product a guide mentions."}},{"@type":"Question","name":"Are the default rates a prediction?","acceptedAnswer":{"@type":"Answer","text":"No. Defaults are there so the form is not empty. Replace them with the rate you want to test."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Finance calculators","item":"https://anlap26.github.io/Free-online-calculators/finance/"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
@@ -46,28 +55,34 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/" aria-current="page">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/finance/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/finance/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <span aria-current="page">Finance calculators</span></nav></div>
-<article class="page"><div class="wrap"><h1>Finance calculators</h1><p class="lede">Eight calculators for a balance that compounds, a position you size from a stop, and the gap between a bank rate and the interbank rate.</p><div class="prose"><p>These pages answer planning questions with the formula written out beside the form. Compound interest takes a nominal annual rate and an optional monthly contribution. The average-price tool turns several buys, including fees, into one break-even. Staking compares effective yearly rates. Trading fees add maker or taker commission and slippage, then solve the sell quote that gets you back to flat. FIRE turns yearly spending and a withdrawal rate into a portfolio number and, if you also type a contribution and a return, a rough time to reach it.</p>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="./" aria-current="page">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="../blog/">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <span aria-current="page">Finance calculators</span></nav></div>
+<article class="page"><div class="wrap"><h1>Finance calculators</h1><p class="lede">Calculators for a mortgage or loan payment, simple and compound interest, a position you size from a stop, and the gap between a bank rate and the interbank rate.</p><div class="prose"><p>These pages answer planning questions with the formula written out beside the form. Compound interest takes a nominal annual rate and an optional monthly contribution. The average-price tool turns several buys, including fees, into one break-even. Staking compares effective yearly rates. Trading fees add maker or taker commission and slippage, then solve the sell quote that gets you back to flat. FIRE turns yearly spending and a withdrawal rate into a portfolio number and, if you also type a contribution and a return, a rough time to reach it.</p>
 <p>Inflation is kept separate on purpose. A balance can grow while the currency buys less, and mixing those two rates inside one number hides the assumption. The currency page compares the amount a bank delivers with the amount the interbank rate would have delivered. Position size converts a percent of the account and a stop distance into a quantity. None of this is a forecast. A rate you type is an assumption, and tax sits outside every formula here.</p>
-<p>The guides next to these tools discuss a broker used by people who invest across countries, two large crypto exchanges, and two hardware wallets. They describe what to check. They do not quote a fee schedule that the firm can change next week. Use the calculator with the numbers from the schedule you were actually offered.</p></div><div class="grid"><article class="card"><h2>Compound interest calculator</h2><p>A nominal annual rate, a monthly contribution, and a choice of start or end of month, turned into a future value you can check by hand.</p><a class="more" href="/Free-online-calculators/compound-interest-calculator/">Open</a></article><article class="card"><h2>Average price calculator</h2><p>Several buys, with fees in money, become one average cost and the sale quote that covers a percentage sell fee.</p><a class="more" href="/Free-online-calculators/average-price-calculator/">Open</a></article><article class="card"><h2>Staking APY calculator</h2><p>Type an APY or an APR for each coin, see the effective yearly rate, and sort the rows by gain rather than by the headline rate.</p><a class="more" href="/Free-online-calculators/staking-apy-calculator/">Open</a></article><article class="card"><h2>Trading fee calculator</h2><p>Slippage and a maker or taker fee, on the way in and the way out, and the sell quote that gets you back to flat.</p><a class="more" href="/Free-online-calculators/trading-fee-calculator/">Open</a></article><article class="card"><h2>FIRE calculator</h2><p>Spending and a withdrawal rate set the portfolio target. The gap, today&#39;s dividends, and a coast sum stay on separate lines.</p><a class="more" href="/Free-online-calculators/fire-calculator/">Open</a></article><article class="card"><h2>Inflation calculator</h2><p>One or two inflation rates you type, a future cost, what today&#39;s cash still buys, and a real return if you also type a nominal one.</p><a class="more" href="/Free-online-calculators/inflation-calculator/">Open</a></article><article class="card"><h2>Position size calculator</h2><p>Cash at risk and the distance from entry to stop set the number of units, for a long or a short.</p><a class="more" href="/Free-online-calculators/position-size-calculator/">Open</a></article><article class="card"><h2>Currency spread calculator</h2><p>The amount a bank rate delivers, set against the interbank rate you type, plus an alternative fee you can compare.</p><a class="more" href="/Free-online-calculators/currency-spread-calculator/">Open</a></article></div><section class="faq"><h2>Questions people ask</h2><details><summary>Which finance calculator should I open first?</summary><p>If the question is a future balance, start with compound interest. If the question is a coin you already bought at several prices, start with average price. If the question is how much you can lose on one trade, start with position size.</p></details><details><summary>Do these pages recommend a broker or an exchange?</summary><p>No. The guides describe what to check and do not link to a broker or an exchange. The currency page links to labelled travel partners. The arithmetic does not depend on a link, and a residency rule can block a product a guide mentions.</p></details><details><summary>Are the default rates a prediction?</summary><p>No. Defaults are there so the form is not empty. Replace them with the rate you want to test.</p></details></section></div></article></main>
+<p>The guides next to these tools discuss a broker used by people who invest across countries, two large crypto exchanges, and two hardware wallets. They describe what to check. They do not quote a fee schedule that the firm can change next week. Use the calculator with the numbers from the schedule you were actually offered.</p></div><div class="grid"><article class="card"><h2>Compound interest calculator</h2><p>A nominal annual rate, a monthly contribution, and a choice of start or end of month, turned into a future value you can check by hand.</p><a class="more" href="../compound-interest-calculator/">Open</a></article><article class="card"><h2>Average price calculator</h2><p>Several buys, with fees in money, become one average cost and the sale quote that covers a percentage sell fee.</p><a class="more" href="../average-price-calculator/">Open</a></article><article class="card"><h2>Staking APY calculator</h2><p>Type an APY or an APR for each coin, see the effective yearly rate, and sort the rows by gain rather than by the headline rate.</p><a class="more" href="../staking-apy-calculator/">Open</a></article><article class="card"><h2>Trading fee calculator</h2><p>Slippage and a maker or taker fee, on the way in and the way out, and the sell quote that gets you back to flat.</p><a class="more" href="../trading-fee-calculator/">Open</a></article><article class="card"><h2>FIRE calculator</h2><p>Spending and a withdrawal rate set the portfolio target. The gap, today&#39;s dividends, and a coast sum stay on separate lines.</p><a class="more" href="../fire-calculator/">Open</a></article><article class="card"><h2>Inflation calculator</h2><p>One or two inflation rates you type, a future cost, what today&#39;s cash still buys, and a real return if you also type a nominal one.</p><a class="more" href="../inflation-calculator/">Open</a></article><article class="card"><h2>Position size calculator</h2><p>Cash at risk and the distance from entry to stop set the number of units, for a long or a short.</p><a class="more" href="../position-size-calculator/">Open</a></article><article class="card"><h2>Currency spread calculator</h2><p>The amount a bank rate delivers, set against the interbank rate you type, plus an alternative fee you can compare.</p><a class="more" href="../currency-spread-calculator/">Open</a></article><article class="card"><h2>Mortgage calculator</h2><p>A fixed-rate home loan turned into a monthly principal-and-interest payment, with tax, insurance, and HOA kept on their own lines.</p><a class="more" href="../mortgage-calculator/">Open</a></article><article class="card"><h2>Loan calculator</h2><p>The payment on a fixed-rate loan, the interest over the term, and the effect of paying a little extra each month.</p><a class="more" href="../loan-calculator/">Open</a></article><article class="card"><h2>Simple interest calculator</h2><p>Interest that does not compound: principal times the annual rate times the time, with months and days turned into years first.</p><a class="more" href="../simple-interest-calculator/">Open</a></article></div><section class="faq"><h2>Questions people ask</h2><details><summary>Which finance calculator should I open first?</summary><p>If the question is a future balance, start with compound interest. If the question is a coin you already bought at several prices, start with average price. If the question is how much you can lose on one trade, start with position size.</p></details><details><summary>Do these pages recommend a broker or an exchange?</summary><p>No. The guides describe what to check and do not link to a broker or an exchange. The currency page links to labelled travel partners. The arithmetic does not depend on a link, and a residency rule can block a product a guide mentions.</p></details><details><summary>Are the default rates a prediction?</summary><p>No. Defaults are there so the form is not empty. Replace them with the rate you want to test.</p></details></section></div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="../about/">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="../blog/">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
 </body>
 </html>

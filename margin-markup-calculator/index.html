@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="Margin and Markup Calculator | Free Online Calculators">
 <meta name="twitter:description" content="Turn a cost and a price into margin and markup, or solve the price from a margin or a markup. A percent mode covers of, change, and what share A is of B.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Margin and markup calculator","description":"Turn a cost and a price into margin and markup, or solve the price from a margin or a markup. A percent mode covers of, change, and what share A is of B.","url":"https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why are margin and markup different on the same price?","acceptedAnswer":{"@type":"Answer","text":"The gap is the same, but margin divides by the price and markup divides by the cost. Cost 60 and price 100 is a 40 percent margin and a 66.67 percent markup."}},{"@type":"Question","name":"How do I get a price from a margin?","acceptedAnswer":{"@type":"Answer","text":"Divide the cost by one minus the margin. Cost 80 at a 50 percent margin is 160."}},{"@type":"Question","name":"How do I get a price from a markup?","acceptedAnswer":{"@type":"Answer","text":"Multiply the cost by one plus the markup. Cost 80 at a 25 percent markup is 100."}},{"@type":"Question","name":"What does the percent mode cover?","acceptedAnswer":{"@type":"Answer","text":"A percent of a number, the change from one number to another, and what percent A is of B. 15 percent of 80 is 12. From 200 to 250 is plus 25 percent."}},{"@type":"Question","name":"Does the margin include a currency-conversion fee?","acceptedAnswer":{"@type":"Answer","text":"No. Collecting the payment in another currency is a separate fee. This page does not quote a Wise tariff."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"Margin and markup calculator","item":"https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/"}]},{"@type":"HowTo","name":"Margin and markup calculator","description":"Turn a cost and a price into margin and markup, or solve the price from a margin or a markup. A percent mode covers of, change, and what share A is of B.","url":"https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/","step":[{"@type":"HowToStep","position":1,"name":"The same gap, two percentages","text":"Cost 60 and price 100. The gap is 40. Margin is 40 divided by 100, which is 40 percent. Markup is 40 divided by 60, which is 66.67 percent when you show it to two decimals, because 40 divided by 60 is two thirds. If you hear 40 percent and apply it as a markup, you price 60 times 1.40, which is 84. The margin on 84 is 24 divided by 84, about 28.6 percent, not 40. That is the underpricing. The customer sees a lower shelf price than the margin you thought you had set."},{"@type":"HowToStep","position":2,"name":"Price from a margin, price from a markup","text":"Price from a margin is the cost divided by one minus the margin. Cost 80 at a margin of 50 percent is 80 divided by 0.5, which is 160. Check it: the gap is 80, and 80 divided by 160 is one half. The margin has to be below one. A margin of 100 percent would divide by zero, because nothing would be left for the cost. The form rejects that rather than printing an infinite price. Price from a markup is the cost times one plus the markup. Cost 80 at a markup of 25 percent is 80 times 1.25, which is 100. The gap is 20, the markup is 20 divided by 80, and the margin on that same pair is 20 divided by"},{"@type":"HowToStep","position":3,"name":"The percent mode is ordinary arithmetic","text":"A separate mode answers three plain questions. What is a percent of a number: 15 percent of 80 is 12. What is the change from one number to another: from 200 to 250 is plus 25 percent, because the gap of 50 divided by the start of 200 is one quarter. What percent A is of B: A divided by B. Going backwards, 250 down to 200, is a different question, because the base is then 250 and the change is minus 20 percent. The page uses the base you put in the first field for a change. It does not guess which number you think of as the original. None of this is a quote for moving the money. Collecting the"}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Margin and markup calculator","description":"Turn a cost and a price into margin and markup, or solve the price from a margin or a markup. A percent mode covers of, change, and what share A is of B.","url":"https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why are margin and markup different on the same price?","acceptedAnswer":{"@type":"Answer","text":"The gap is the same, but margin divides by the price and markup divides by the cost. Cost 60 and price 100 is a 40 percent margin and a 66.67 percent markup."}},{"@type":"Question","name":"How do I get a price from a margin?","acceptedAnswer":{"@type":"Answer","text":"Divide the cost by one minus the margin. Cost 80 at a 50 percent margin is 160."}},{"@type":"Question","name":"How do I get a price from a markup?","acceptedAnswer":{"@type":"Answer","text":"Multiply the cost by one plus the markup. Cost 80 at a 25 percent markup is 100."}},{"@type":"Question","name":"What does the percent mode cover?","acceptedAnswer":{"@type":"Answer","text":"A percent of a number, the change from one number to another, and what percent A is of B. 15 percent of 80 is 12. From 200 to 250 is plus 25 percent."}},{"@type":"Question","name":"Does the margin include a currency-conversion fee?","acceptedAnswer":{"@type":"Answer","text":"No. Collecting the payment in another currency is a separate fee. This page does not quote a Wise tariff."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"Margin and markup calculator","item":"https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/"}]},{"@type":"HowTo","name":"Margin and markup calculator","description":"Turn a cost and a price into margin and markup, or solve the price from a margin or a markup. A percent mode covers of, change, and what share A is of B.","url":"https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/","step":[{"@type":"HowToStep","position":1,"name":"The same gap, two percentages","text":"Cost 60 and price 100. The gap is 40. Margin is 40 divided by 100, which is 40 percent. Markup is 40 divided by 60, which is 66.67 percent when you show it to two decimals, because 40 divided by 60 is two thirds. If you hear 40 percent and apply it as a markup, you price 60 times 1.40, which is 84. The margin on 84 is 24 divided by 84, about 28.6 percent, not 40. That is the underpricing. The customer sees a lower shelf price than the margin you thought you had set."},{"@type":"HowToStep","position":2,"name":"Price from a margin, price from a markup","text":"Price from a margin is the cost divided by one minus the margin. Cost 80 at a margin of 50 percent is 80 divided by 0.5, which is 160. Check it: the gap is 80, and 80 divided by 160 is one half. The margin has to be below one. A margin of 100 percent would divide by zero, because nothing would be left for the cost. The form rejects that rather than printing an infinite price. Price from a markup is the cost times one plus the markup. Cost 80 at a markup of 25 percent is 80 times 1.25, which is 100. The gap is 20, the markup is 20 divided by 80, and the margin on that same pair is 20 divided by"},{"@type":"HowToStep","position":3,"name":"The percent mode is ordinary arithmetic","text":"A separate mode answers three plain questions. What is a percent of a number: 15 percent of 80 is 12. What is the change from one number to another: from 200 to 250 is plus 25 percent, because the gap of 50 divided by the start of 200 is one quarter. What percent A is of B: A divided by B. Going backwards, 250 down to 200, is a different question, because the base is then 250 and the change is minus 20 percent. The page uses the base you put in the first field for a change. It does not guess which number you think of as the original. None of this is a quote for moving the money. Collecting the"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/margin-markup-calculator/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/margin-markup-calculator/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">Margin and markup calculator</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="../finance/">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="../blog/">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <a href="../webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">Margin and markup calculator</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Margin and markup calculator</h1>
 <p class="lede">Margin divides the gap by the price. Markup divides the same gap by the cost. The two percentages are not interchangeable, and mixing them underprices the work.</p>
@@ -83,7 +98,7 @@
 <p>Price from a markup is the cost times one plus the markup. Cost 80 at a markup of 25 percent is 80 times 1.25, which is 100. The gap is 20, the markup is 20 divided by 80, and the margin on that same pair is 20 divided by 100, which is 20 percent. Again the two rates are not the same number. Write down which one the brief asked for before you type it.</p>
 <h2>The percent mode is ordinary arithmetic</h2>
 <p>A separate mode answers three plain questions. What is a percent of a number: 15 percent of 80 is 12. What is the change from one number to another: from 200 to 250 is plus 25 percent, because the gap of 50 divided by the start of 200 is one quarter. What percent A is of B: A divided by B. Going backwards, 250 down to 200, is a different question, because the base is then 250 and the change is minus 20 percent. The page uses the base you put in the first field for a change. It does not guess which number you think of as the original.</p>
-<p>None of this is a quote for moving the money. Collecting the payment across currencies is a separate fee from the margin. Wise is one service people use for that transfer. This calculator does not know the fee Wise would charge today, and it will not invent a tariff. If the margin has to cover advertising as well, take the percentage you just found into the <a href="/Free-online-calculators/roas-calculator/">ROAS calculator</a> as the share kept before ads. A freelance hour, a compound balance, and a retirement sum are other questions, on their own calculators, and they do not change this division.</p>
+<p>None of this is a quote for moving the money. Collecting the payment across currencies is a separate fee from the margin. Wise is one service people use for that transfer. This calculator does not know the fee Wise would charge today, and it will not invent a tariff. If the margin has to cover advertising as well, take the percentage you just found into the <a href="../roas-calculator/">ROAS calculator</a> as the share kept before ads. A freelance hour, a compound balance, and a retirement sum are other questions, on their own calculators, and they do not change this division.</p>
 <ul>
 <li>Margin is the gap divided by the price. Markup is the gap divided by the cost.</li>
 <li>Cost 60 and price 100 is a 40 percent margin and a 66.67 percent markup.</li>
@@ -91,26 +106,26 @@
 <li>A fee to collect the money in another currency is not inside the margin.</li>
 </ul></div>
 <section class="faq"><h2>Questions people ask</h2><details><summary>Why are margin and markup different on the same price?</summary><p>The gap is the same, but margin divides by the price and markup divides by the cost. Cost 60 and price 100 is a 40 percent margin and a 66.67 percent markup.</p></details><details><summary>How do I get a price from a margin?</summary><p>Divide the cost by one minus the margin. Cost 80 at a 50 percent margin is 160.</p></details><details><summary>How do I get a price from a markup?</summary><p>Multiply the cost by one plus the markup. Cost 80 at a 25 percent markup is 100.</p></details><details><summary>What does the percent mode cover?</summary><p>A percent of a number, the change from one number to another, and what percent A is of B. 15 percent of 80 is 12. From 200 to 250 is plus 25 percent.</p></details><details><summary>Does the margin include a currency-conversion fee?</summary><p>No. Collecting the payment in another currency is a separate fee. This page does not quote a Wise tariff.</p></details></section>
-<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>ROAS calculator</h3><p>ROAS is revenue divided by ad spend. Profit then subtracts that spend and any other cost from revenue times the margin you type.</p><a class="more" href="/Free-online-calculators/roas-calculator/">Open</a></article><article class="card"><h3>Freelance rate calculator</h3><p>Gross income is the net you want plus business costs, divided by one minus the tax rate you type. That gross is then spread over the hours left after leave and time you cannot bill.</p><a class="more" href="/Free-online-calculators/freelance-rate-calculator/">Open</a></article><article class="card"><h3>Compound interest calculator</h3><p>A nominal annual rate, a monthly contribution, and a choice of start or end of month, turned into a future value you can check by hand.</p><a class="more" href="/Free-online-calculators/compound-interest-calculator/">Open</a></article><article class="card"><h3>FIRE calculator</h3><p>Spending and a withdrawal rate set the portfolio target. The gap, today&#39;s dividends, and a coast sum stay on separate lines.</p><a class="more" href="/Free-online-calculators/fire-calculator/">Open</a></article></div></section>
+<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>ROAS calculator</h3><p>ROAS is revenue divided by ad spend. Profit then subtracts that spend and any other cost from revenue times the margin you type.</p><a class="more" href="../roas-calculator/">Open</a></article><article class="card"><h3>Freelance rate calculator</h3><p>Gross income is the net you want plus business costs, divided by one minus the tax rate you type. That gross is then spread over the hours left after leave and time you cannot bill.</p><a class="more" href="../freelance-rate-calculator/">Open</a></article><article class="card"><h3>Compound interest calculator</h3><p>A nominal annual rate, a monthly contribution, and a choice of start or end of month, turned into a future value you can check by hand.</p><a class="more" href="../compound-interest-calculator/">Open</a></article><article class="card"><h3>FIRE calculator</h3><p>Spending and a withdrawal rate set the portfolio target. The gap, today&#39;s dividends, and a coast sum stay on separate lines.</p><a class="more" href="../fire-calculator/">Open</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="../about/">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="../blog/">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-en.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
+<script defer src="../assets/js/calc-core.js"></script>
+<script defer src="../assets/js/wordlists.js"></script>
+<script defer src="../assets/js/cost-of-living.js"></script>
+<script defer src="../assets/js/llm-prices.js"></script>
+<script defer src="../assets/js/ui-en.js"></script>
+<script defer src="../assets/js/calculators.js"></script>
 </body>
 </html>

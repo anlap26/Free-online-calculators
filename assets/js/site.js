@@ -60,4 +60,48 @@
     try { document.execCommand("copy"); } catch (e) { /* ignore */ }
     area.remove();
   }
+
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    function themeNow() {
+      var set = document.documentElement.getAttribute("data-theme");
+      if (set === "light" || set === "dark") return set;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function paintTheme() {
+      var mode = themeNow();
+      var next = mode === "dark" ? "light" : "dark";
+      themeBtn.textContent = next === "dark" ? themeBtn.getAttribute("data-to-dark") : themeBtn.getAttribute("data-to-light");
+      themeBtn.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
+    }
+    paintTheme();
+    themeBtn.addEventListener("click", function () {
+      var next = themeNow() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("foc-theme", next); } catch (e) { /* private mode */ }
+      paintTheme();
+    });
+  }
+
+  var finder = document.getElementById("finder");
+  if (finder) {
+    var empty = document.getElementById("finder-empty");
+    function filterTools() {
+      var q = finder.value.trim().toLowerCase();
+      var shown = 0;
+      document.querySelectorAll("[data-cat]").forEach(function (cat) {
+        var any = false;
+        cat.querySelectorAll("[data-tool]").forEach(function (item) {
+          var hay = (item.getAttribute("data-tool") || "").toLowerCase();
+          var match = !q || hay.indexOf(q) !== -1;
+          item.hidden = !match;
+          if (match) any = true;
+        });
+        cat.hidden = !any;
+        if (any) shown += 1;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    }
+    finder.addEventListener("input", filterTools);
+  }
 })();

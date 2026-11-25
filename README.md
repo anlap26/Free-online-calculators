@@ -1,6 +1,6 @@
 # Free Online Calculators
 
-Static bilingual site of 35 calculators and comparison guides. English lives at the root. Russian lives under `/ru/` with the same slugs. Everything calculates in the browser.
+Static bilingual site of calculators and comparison guides. English lives at the root. Russian lives under `/ru/` with the same slugs. Everything calculates in the browser. The homepage groups every calculator by category and filters the list from the search box.
 
 The GitHub repository is named `Free-online-calculators`. Project Pages uses that name in the path, so the site URL is https://anlap26.github.io/Free-online-calculators/ . If you rename the repository to all-lowercase `free-online-calculators`, change `BASE` in `build/layout.mjs` to `/free-online-calculators`, run `npm run build`, and push.
 
@@ -46,8 +46,8 @@ Guides for Semrush, VPNs, password managers, brokers, exchanges, wallets, and ho
 - `assets/js/affiliates.js` is the partner list.
 - `assets/js/cost-of-living.js` is the editorial cost index (New York = 100).
 - `assets/js/llm-prices.js` is the editable token price table. The numbers are placeholders.
-- `assets/css/site.css` is compiled Tailwind. Source is `src/input.css`.
-- `content/` and `build/generate.mjs` rebuild the HTML. Run `npm run build` after copy changes, then commit the generated pages.
+- `assets/css/site.css` is the hand-written stylesheet. Do not replace it with a Tailwind build. A class named `grid` used to leak a three-column rule onto every form field.
+- `content/` and `build/generate.mjs` rebuild the HTML. Run `npm run build` after copy changes, then commit the generated pages. Internal links are relative so the site works under `/Free-online-calculators/` on GitHub Pages.
 
 ## Rebuild
 

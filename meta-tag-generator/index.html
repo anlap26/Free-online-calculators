@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("foc-theme");
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+  } catch (e) {}
+})();
+</script>
 <meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">
 <meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">
 
@@ -26,14 +34,15 @@
 <meta name="twitter:title" content="Meta Tag Generator | Free Online Calculators">
 <meta name="twitter:description" content="Write a title, meta description, canonical link, Open Graph and Twitter tags, and a small WebPage JSON-LD block. Length warnings are display habits, not hard rules.">
 <meta name="twitter:image" content="https://anlap26.github.io/Free-online-calculators/assets/img/og.png">
-<meta name="theme-color" content="#1e3d34">
-<link rel="icon" href="/Free-online-calculators/favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/Free-online-calculators/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/Free-online-calculators/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/Free-online-calculators/apple-touch-icon.png" sizes="180x180">
-<link rel="manifest" href="/Free-online-calculators/site.webmanifest">
-<link rel="stylesheet" href="/Free-online-calculators/assets/css/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Meta tag generator","description":"Write a title, meta description, canonical link, Open Graph and Twitter tags, and a small WebPage JSON-LD block. Length warnings are display habits, not hard rules.","url":"https://anlap26.github.io/Free-online-calculators/meta-tag-generator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will a title over 60 characters be rejected?","acceptedAnswer":{"@type":"Answer","text":"No. The warning means search results often cut long titles. It is a display habit, not a rule that the HTML is invalid."}},{"@type":"Question","name":"What happens if the title contains a quote?","acceptedAnswer":{"@type":"Answer","text":"The quote is escaped before it is placed in the attribute, so it cannot close the attribute early."}},{"@type":"Question","name":"Does this write the H1?","acceptedAnswer":{"@type":"Answer","text":"No. It writes head tags. The single H1 on the page is a separate decision, and the form does not invent one."}},{"@type":"Question","name":"Which tags are included?","acceptedAnswer":{"@type":"Answer","text":"Title, meta description, canonical, Open Graph title, description, url, type, site name, and image, a Twitter card, and a small WebPage JSON-LD block."}},{"@type":"Question","name":"Does the page publish the tags for me?","acceptedAnswer":{"@type":"Answer","text":"No. You copy them and paste them into the head of a real page. Nothing is uploaded."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"Meta tag generator","item":"https://anlap26.github.io/Free-online-calculators/meta-tag-generator/"}]},{"@type":"HowTo","name":"Meta tag generator","description":"Write a title, meta description, canonical link, Open Graph and Twitter tags, and a small WebPage JSON-LD block. Length warnings are display habits, not hard rules.","url":"https://anlap26.github.io/Free-online-calculators/meta-tag-generator/","step":[{"@type":"HowToStep","position":1,"name":"Quotes are escaped so the tag does not break","text":"HTML is escaped before it is placed in an attribute or in the title element. A quote, an ampersand, or a less-than sign in your title becomes the matching character reference. That is why a title with a quotation mark cannot close the content attribute early and spill the rest of the tag. The JSON-LD is produced by a JSON serializer, so quotes inside the description are escaped there too. You can copy the block and paste it into the head of a page. The generator does not upload it, and it does not edit your host. One H1 on the page itself is a separate question. This tool does not invent the H"},{"@type":"HowToStep","position":2,"name":"What you still have to do by hand","text":"Pasting the tags into a real page is your step. A preview on this site is not the head of your site. The canonical URL should be the URL you want counted as the original, not a copy with tracking parameters. The Open Graph image should be an address that a crawler can fetch, not a file that only exists on your laptop. The type field defaults to website if you leave the usual value. Change it only when you mean a different Open Graph type. The block will not tell you which title people search for. Open Semrush and look that up before you freeze the wording. This page does not send your title th"}]}]}</script>
+<meta name="theme-color" content="#0f3d3b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon-48x48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Meta tag generator","description":"Write a title, meta description, canonical link, Open Graph and Twitter tags, and a small WebPage JSON-LD block. Length warnings are display habits, not hard rules.","url":"https://anlap26.github.io/Free-online-calculators/meta-tag-generator/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will a title over 60 characters be rejected?","acceptedAnswer":{"@type":"Answer","text":"No. The warning means search results often cut long titles. It is a display habit, not a rule that the HTML is invalid."}},{"@type":"Question","name":"What happens if the title contains a quote?","acceptedAnswer":{"@type":"Answer","text":"The quote is escaped before it is placed in the attribute, so it cannot close the attribute early."}},{"@type":"Question","name":"Does this write the H1?","acceptedAnswer":{"@type":"Answer","text":"No. It writes head tags. The single H1 on the page is a separate decision, and the form does not invent one."}},{"@type":"Question","name":"Which tags are included?","acceptedAnswer":{"@type":"Answer","text":"Title, meta description, canonical, Open Graph title, description, url, type, site name, and image, a Twitter card, and a small WebPage JSON-LD block."}},{"@type":"Question","name":"Does the page publish the tags for me?","acceptedAnswer":{"@type":"Answer","text":"No. You copy them and paste them into the head of a real page. Nothing is uploaded."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://anlap26.github.io/Free-online-calculators/"},{"@type":"ListItem","position":2,"name":"Webmaster","item":"https://anlap26.github.io/Free-online-calculators/webmaster/"},{"@type":"ListItem","position":3,"name":"Meta tag generator","item":"https://anlap26.github.io/Free-online-calculators/meta-tag-generator/"}]},{"@type":"HowTo","name":"Meta tag generator","description":"Write a title, meta description, canonical link, Open Graph and Twitter tags, and a small WebPage JSON-LD block. Length warnings are display habits, not hard rules.","url":"https://anlap26.github.io/Free-online-calculators/meta-tag-generator/","step":[{"@type":"HowToStep","position":1,"name":"Quotes are escaped so the tag does not break","text":"HTML is escaped before it is placed in an attribute or in the title element. A quote, an ampersand, or a less-than sign in your title becomes the matching character reference. That is why a title with a quotation mark cannot close the content attribute early and spill the rest of the tag. The JSON-LD is produced by a JSON serializer, so quotes inside the description are escaped there too. You can copy the block and paste it into the head of a page. The generator does not upload it, and it does not edit your host. One H1 on the page itself is a separate question. This tool does not invent the H"},{"@type":"HowToStep","position":2,"name":"What you still have to do by hand","text":"Pasting the tags into a real page is your step. A preview on this site is not the head of your site. The canonical URL should be the URL you want counted as the original, not a copy with tracking parameters. The Open Graph image should be an address that a crawler can fetch, not a file that only exists on your laptop. The type field defaults to website if you leave the usual value. Change it only when you mean a different Open Graph type. The block will not tell you which title people search for. Open Semrush and look that up before you freeze the wording. This page does not send your title th"}]}]}</script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
   (function () {
       var script = document.createElement("script");
@@ -46,13 +55,19 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap bar">
-<a class="logo" href="/Free-online-calculators/">Free Online Calculators<small>Finance, privacy, relocation, webmaster</small></a>
-<nav class="main" aria-label="Sections">
-<a href="/Free-online-calculators/">Home</a><a href="/Free-online-calculators/finance/">Finance</a><a href="/Free-online-calculators/security/">Privacy</a><a href="/Free-online-calculators/relocation/">Relocation</a><a href="/Free-online-calculators/webmaster/">Webmaster</a><a href="/Free-online-calculators/blog/">Guides</a>
+<header class="top">
+<div class="wrap bar">
+<a class="logo" href="..//">Free Online Calculators<small>Money, health, math, privacy, and the web</small></a>
+<div class="head-tools">
+<button type="button" class="theme" id="theme-toggle" data-to-dark="Dark" data-to-light="Light" aria-pressed="false">Dark</button>
 <span class="langs"><a href="https://anlap26.github.io/Free-online-calculators/meta-tag-generator/" hreflang="en" lang="en" aria-current="true">EN</a> <a href="https://anlap26.github.io/Free-online-calculators/ru/meta-tag-generator/" hreflang="ru" lang="ru">RU</a></span>
-</nav></div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/Free-online-calculators/">Home</a><span aria-hidden="true">/</span> <a href="/Free-online-calculators/webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">Meta tag generator</span></nav></div>
+</div>
+</div>
+<div class="wrap"><nav class="main" aria-label="Sections">
+<a href="..//">Home</a><a href="../finance/">Financial</a><a href="../fitness/">Fitness</a><a href="../math/">Math</a><a href="../other/">Other</a><a href="../security/">Privacy</a><a href="../relocation/">Relocation</a><a href="../webmaster/">Web</a><a href="../blog/">Guides</a>
+</nav></div>
+</header>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="..//">Home</a><span aria-hidden="true">/</span> <a href="../webmaster/">Webmaster</a><span aria-hidden="true">/</span> <span aria-current="page">Meta tag generator</span></nav></div>
 <article class="page"><div class="wrap">
 <h1>Meta tag generator</h1>
 <p class="lede">The form writes the head tags from the fields you fill. You still paste them into a real page. The tool does not invent the H1.</p>
@@ -71,10 +86,10 @@
 <p>The page warns when the title is past about 60 characters and when the description is past about 160. Those numbers are display habits. Search results often cut a long title or a long description, and social cards do something similar, but there is no hard rule that a longer string is invalid HTML or that a shorter string will rank. The warning is a nudge to look at the line, not a pass or fail grade. Count is by code points, the same way the text tool counts characters.</p>
 <h2>Quotes are escaped so the tag does not break</h2>
 <p>HTML is escaped before it is placed in an attribute or in the title element. A quote, an ampersand, or a less-than sign in your title becomes the matching character reference. That is why a title with a quotation mark cannot close the content attribute early and spill the rest of the tag. The JSON-LD is produced by a JSON serializer, so quotes inside the description are escaped there too. You can copy the block and paste it into the head of a page. The generator does not upload it, and it does not edit your host.</p>
-<p>One H1 on the page itself is a separate question. This tool does not invent the H1, and it does not check the H1 you already published. The title element and the visible H1 can match, or they can differ, and the form has no opinion. If you want a word count of the body that sits under that H1, use the <a href="/Free-online-calculators/seo-text-analyzer/">text analyzer</a>. It will not write the H1 either.</p>
+<p>One H1 on the page itself is a separate question. This tool does not invent the H1, and it does not check the H1 you already published. The title element and the visible H1 can match, or they can differ, and the form has no opinion. If you want a word count of the body that sits under that H1, use the <a href="../seo-text-analyzer/">text analyzer</a>. It will not write the H1 either.</p>
 <h2>What you still have to do by hand</h2>
 <p>Pasting the tags into a real page is your step. A preview on this site is not the head of your site. The canonical URL should be the URL you want counted as the original, not a copy with tracking parameters. The Open Graph image should be an address that a crawler can fetch, not a file that only exists on your laptop. The type field defaults to website if you leave the usual value. Change it only when you mean a different Open Graph type.</p>
-<p>The block will not tell you which title people search for. Open Semrush and look that up before you freeze the wording. This page does not send your title there. Read the notes on a <a href="/Free-online-calculators/blog/semrush-free-trial/">Semrush free trial</a>, <a href="/Free-online-calculators/blog/semrush-vs-ahrefs/">Semrush and Ahrefs</a>, <a href="/Free-online-calculators/blog/low-competition-keywords-semrush/">low-competition keywords</a>, and <a href="/Free-online-calculators/blog/semrush-for-seo/">Semrush for SEO</a>. A robots file, if you still need one, comes from the <a href="/Free-online-calculators/robots-sitemap-generator/">robots and sitemap generator</a>.</p>
+<p>The block will not tell you which title people search for. Open Semrush and look that up before you freeze the wording. This page does not send your title there. Read the notes on a <a href="../blog/semrush-free-trial/">Semrush free trial</a>, <a href="../blog/semrush-vs-ahrefs/">Semrush and Ahrefs</a>, <a href="../blog/low-competition-keywords-semrush/">low-competition keywords</a>, and <a href="../blog/semrush-for-seo/">Semrush for SEO</a>. A robots file, if you still need one, comes from the <a href="../robots-sitemap-generator/">robots and sitemap generator</a>.</p>
 <ul>
 <li>About 60 and about 160 are habits of display, not validity rules.</li>
 <li>A quote in the title is escaped. It does not break the attribute.</li>
@@ -82,26 +97,26 @@
 <li>Paste the result into the real page. The preview is not published.</li>
 </ul></div>
 <section class="faq"><h2>Questions people ask</h2><details><summary>Will a title over 60 characters be rejected?</summary><p>No. The warning means search results often cut long titles. It is a display habit, not a rule that the HTML is invalid.</p></details><details><summary>What happens if the title contains a quote?</summary><p>The quote is escaped before it is placed in the attribute, so it cannot close the attribute early.</p></details><details><summary>Does this write the H1?</summary><p>No. It writes head tags. The single H1 on the page is a separate decision, and the form does not invent one.</p></details><details><summary>Which tags are included?</summary><p>Title, meta description, canonical, Open Graph title, description, url, type, site name, and image, a Twitter card, and a small WebPage JSON-LD block.</p></details><details><summary>Does the page publish the tags for me?</summary><p>No. You copy them and paste them into the head of a real page. Nothing is uploaded.</p></details></section>
-<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>SEO text analyzer</h3><p>Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.</p><a class="more" href="/Free-online-calculators/seo-text-analyzer/">Open</a></article><article class="card"><h3>Robots.txt and sitemap generator</h3><p>You get a robots.txt and an XML sitemap from the paths and URLs you type. Putting the files on the host, and submitting the map, is still your work.</p><a class="more" href="/Free-online-calculators/robots-sitemap-generator/">Open</a></article><article class="card"><h3>UTM and QR code generator</h3><p>The five utm fields are added with the browser&#39;s own query encoder. Empty ones are left out. The QR is drawn here, at error correction H.</p><a class="more" href="/Free-online-calculators/utm-qr-generator/">Open</a></article><article class="card"><h3>Privacy policy draft generator</h3><p>The draft is built from the site name, the URL, the contact email, the country, and the boxes you tick. Delete any sentence that is not true of the real site.</p><a class="more" href="/Free-online-calculators/privacy-policy-generator/">Open</a></article><article class="card"><h3>Semrush vs Ahrefs vs free SEO tools</h3><p>Semrush and Ahrefs answer market questions. Search Console answers what your site already received. A browser checker answers what is on the draft in front of you.</p><a class="more" href="/Free-online-calculators/blog/semrush-vs-ahrefs/">From the guides</a></article></div></section>
+<section><h2 class="sec">Related tools</h2><div class="grid"><article class="card"><h3>SEO text analyzer</h3><p>Words are split on whitespace, characters are Unicode code points, and keyword density is hits times the words in the phrase, divided by all words.</p><a class="more" href="../seo-text-analyzer/">Open</a></article><article class="card"><h3>Robots.txt and sitemap generator</h3><p>You get a robots.txt and an XML sitemap from the paths and URLs you type. Putting the files on the host, and submitting the map, is still your work.</p><a class="more" href="../robots-sitemap-generator/">Open</a></article><article class="card"><h3>UTM and QR code generator</h3><p>The five utm fields are added with the browser&#39;s own query encoder. Empty ones are left out. The QR is drawn here, at error correction H.</p><a class="more" href="../utm-qr-generator/">Open</a></article><article class="card"><h3>Privacy policy draft generator</h3><p>The draft is built from the site name, the URL, the contact email, the country, and the boxes you tick. Delete any sentence that is not true of the real site.</p><a class="more" href="../privacy-policy-generator/">Open</a></article><article class="card"><h3>Semrush vs Ahrefs vs free SEO tools</h3><p>Semrush and Ahrefs answer market questions. Search Console answers what your site already received. A browser checker answers what is on the draft in front of you.</p><a class="more" href="../blog/semrush-vs-ahrefs/">From the guides</a></article></div></section>
 </div></article></main>
 <footer><div class="wrap">
 <nav class="cols">
-<a href="/Free-online-calculators/about/">About</a>
-<a href="/Free-online-calculators/privacy-policy/">Privacy policy</a>
-<a href="/Free-online-calculators/affiliate-disclosure/">Affiliate disclosure</a>
-<a href="/Free-online-calculators/blog/">Guides</a>
+<a href="../about/">About</a>
+<a href="../privacy-policy/">Privacy policy</a>
+<a href="../affiliate-disclosure/">Affiliate disclosure</a>
+<a href="../blog/">Guides</a>
 </nav>
 <p>Every calculator runs in your browser. Results are arithmetic, not financial, tax, legal, immigration, or insurance advice. Check a current offer before you act. Affiliate links are marked.</p>
 <p class="projects">Another project by the same publisher: <a href="https://mycytax.com/">MyCyTax</a></p>
 <p>© 2026 Free Online Calculators. Published by Anna.</p>
 </div></footer>
-<script defer src="/Free-online-calculators/assets/js/affiliates.js"></script>
-<script defer src="/Free-online-calculators/assets/js/site.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calc-core.js"></script>
-<script defer src="/Free-online-calculators/assets/js/wordlists.js"></script>
-<script defer src="/Free-online-calculators/assets/js/cost-of-living.js"></script>
-<script defer src="/Free-online-calculators/assets/js/llm-prices.js"></script>
-<script defer src="/Free-online-calculators/assets/js/ui-en.js"></script>
-<script defer src="/Free-online-calculators/assets/js/calculators.js"></script>
+<script defer src="../assets/js/affiliates.js"></script>
+<script defer src="../assets/js/site.js"></script>
+<script defer src="../assets/js/calc-core.js"></script>
+<script defer src="../assets/js/wordlists.js"></script>
+<script defer src="../assets/js/cost-of-living.js"></script>
+<script defer src="../assets/js/llm-prices.js"></script>
+<script defer src="../assets/js/ui-en.js"></script>
+<script defer src="../assets/js/calculators.js"></script>
 </body>
 </html>

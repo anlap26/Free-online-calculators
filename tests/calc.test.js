@@ -359,6 +359,165 @@ assert.strictEqual(pngOut.texts[0].value, "gps secret");
 assert.ok(!Buffer.from(pngOut.bytes).includes(Buffer.from("gps secret")));
 assert.ok(Buffer.from(pngOut.bytes).includes(Buffer.from("IHDR")));
 
+// Mortgage payment: $200,000 at 6% for 30 years. Monthly rate is the annual rate / 12.
+const mortgage = C.amortizationSchedule(200000, 0.06, 360);
+close(mortgage.payment, 200000 * 0.005 * Math.pow(1.005, 360) / (Math.pow(1.005, 360) - 1));
+close(mortgage.payment, 1199.10105, 0.001);
+close(mortgage.years[mortgage.years.length - 1].balance, 0, 0.01);
+close(mortgage.totalInterest + 200000, mortgage.payment * 360, 0.05);
+close(C.amortizingPayment(1200, 0, 12), 100);
+
+// Extra payment shortens a 0% loan of 1200 over 12 months by 100, plus 100 extra, to 6 months.
+const extra = C.loanWithExtra(1200, 0, 12, 100);
+assert.strictEqual(extra.payoffMonths, 6);
+close(extra.totalPaid, 1200);
+close(extra.interestSaved, 0);
+
+// Simple interest.
+const simple = C.simpleInterest(1000, 0.05, 3, "year", "365");
+close(simple.interest, 150);
+close(simple.amount, 1150);
+close(C.simpleInterest(1000, 0.05, 6, "month", "365").interest, 25);
+close(C.simpleInterest(1000, 0.05, 73, "day", "365").interest, 1000 * 0.05 * 73 / 365);
+close(C.simpleInterest(1000, 0.05, 72, "day", "360").interest, 10);
+
+// BMI uses the exact pound and inch conversions, so the two unit systems agree.
+const bmiMetric = C.bmi({ units: "metric", weight: 70, height: 175 });
+close(bmiMetric.bmi, 70 / (1.75 * 1.75));
+const bmiImperial = C.bmi({ units: "imperial", weight: 70 / 0.45359237, height: 175 / 2.54 });
+close(bmiImperial.bmi, bmiMetric.bmi);
+assert.strictEqual(bmiMetric.category, "healthy");
+assert.strictEqual(C.bmi({ units: "metric", weight: 50, height: 175 }).category, "under");
+assert.strictEqual(C.bmi({ units: "metric", weight: 80, height: 175 }).category, "over");
+assert.strictEqual(C.bmi({ units: "metric", weight: 100, height: 175 }).category, "obese");
+
+// Mifflin–St Jeor.
+const kcal = C.calories({ sex: "male", units: "metric", weight: 70, height: 175, age: 30, activity: "sedentary" });
+close(kcal.bmr, 10 * 70 + 6.25 * 175 - 5 * 30 + 5);
+close(kcal.tdee, kcal.bmr * 1.2);
+const kcalF = C.calories({ sex: "female", units: "metric", weight: 70, height: 175, age: 30, activity: "moderate" });
+close(kcalF.bmr, 10 * 70 + 6.25 * 175 - 5 * 30 - 161);
+close(kcalF.tdee, kcalF.bmr * 1.55);
+const kcalImp = C.calories({ sex: "male", units: "imperial", weight: 70 / 0.45359237, height: 175 / 2.54, age: 30, activity: "sedentary" });
+close(kcalImp.bmr, kcal.bmr);
+
+// US Navy body fat is defined in inches. Centimetres must convert before the log.
+const fatIn = C.bodyFat({ sex: "male", units: "imperial", height: 70, neck: 15, waist: 34, hip: 0 });
+const fatCm = C.bodyFat({ sex: "male", units: "metric", height: 70 * 2.54, neck: 15 * 2.54, waist: 34 * 2.54, hip: 0 });
+close(fatIn.fat, fatCm.fat);
+close(fatIn.fat, 86.01 * Math.log10(19) - 70.041 * Math.log10(70) + 36.76);
+const fatF = C.bodyFat({ sex: "female", units: "imperial", height: 64, neck: 13, waist: 30, hip: 38 });
+const fatFcm = C.bodyFat({ sex: "female", units: "metric", height: 64 * 2.54, neck: 13 * 2.54, waist: 30 * 2.54, hip: 38 * 2.54 });
+close(fatF.fat, fatFcm.fat);
+close(fatF.fat, 163.205 * Math.log10(55) - 97.684 * Math.log10(64) - 78.387);
+assert.ok(fatIn.fat > 5 && fatIn.fat < 40);
+assert.throws(() => C.bodyFat({ sex: "male", units: "imperial", height: 70, neck: 40, waist: 34 }), (e) => e.code === "measure");
+
+// Pace: 10 km in 50 minutes is 5:00 per km and 12 km/h.
+const pace = C.pace({ mode: "pace", distance: 10, distanceUnit: "km", hours: 0, minutes: 50, seconds: 0 });
+close(pace.perKm, 300);
+close(pace.kmh, 12);
+close(pace.miles, 10 / 1.609344);
+const paceTime = C.pace({ mode: "time", distance: 10, distanceUnit: "km", paceMin: 5, paceSec: 0 });
+close(paceTime.seconds, 3000);
+const paceDist = C.pace({ mode: "distance", distanceUnit: "km", hours: 0, minutes: 50, seconds: 0, paceMin: 5, paceSec: 0 });
+close(paceDist.km, 10);
+
+// Percentages already used by the margin page.
+close(C.percentOf(0.2, 80), 16);
+close(C.whatPercent(25, 200), 0.125);
+close(C.percentChange(80, 100), 0.25);
+
+// Fractions.
+const frac = C.fraction(1, 2, 1, 3, "add");
+assert.strictEqual(frac.n, 5);
+assert.strictEqual(frac.d, 6);
+const reduced = C.fraction(2, 4, 1, 1, "mul");
+assert.strictEqual(reduced.n, 1);
+assert.strictEqual(reduced.d, 2);
+const neg = C.fraction(-1, 2, 3, 4, "mul");
+assert.strictEqual(neg.n, -3);
+assert.strictEqual(neg.d, 8);
+assert.strictEqual(neg.whole, 0);
+assert.throws(() => C.fraction(1, 2, 0, 1, "div"), (e) => e.code === "divide");
+
+// The textbook set 2, 4, 4, 4, 5, 5, 7, 9.
+const sd = C.stats([2, 4, 4, 4, 5, 5, 7, 9]);
+close(sd.mean, 5);
+close(sd.popVar, 4);
+close(sd.popSd, 2);
+close(sd.sampleVar, 32 / 7);
+assert.strictEqual(C.stats(["2", "4"]).n, 2);
+
+// Triangles.
+const right = C.triangle({ mode: "right", a: 3, b: 4 });
+close(right.c, 5);
+close(right.area, 6);
+close(right.perimeter, 12);
+const heron = C.triangle({ mode: "sides", a: 3, b: 4, c: 5 });
+close(heron.area, 6);
+close(C.triangle({ mode: "base", base: 10, height: 4 }).area, 20);
+assert.throws(() => C.triangle({ mode: "sides", a: 1, b: 2, c: 3 }), (e) => e.code === "triangle");
+
+// Age and dates, including a 29 February birthday in a non-leap year.
+const aged = C.age("2000-01-15", "2026-11-25");
+assert.strictEqual(aged.years, 26);
+assert.strictEqual(aged.months, 10);
+assert.strictEqual(aged.days, 10);
+const leap = C.age("2000-02-29", "2024-02-29");
+assert.strictEqual(leap.years, 24);
+assert.strictEqual(leap.months, 0);
+assert.strictEqual(leap.days, 0);
+const beforeAnn = C.age("2000-02-29", "2025-02-28");
+assert.strictEqual(beforeAnn.years, 24);
+const onMarch = C.age("2000-02-29", "2025-03-01");
+assert.strictEqual(onMarch.years, 25);
+assert.strictEqual(onMarch.months, 0);
+assert.strictEqual(onMarch.days, 0);
+assert.strictEqual(onMarch.next, "2025-03-01");
+assert.strictEqual(onMarch.daysUntil, 0);
+const span = C.dateSpan("2026-01-01", "2026-01-31");
+assert.strictEqual(span.days, 30);
+assert.strictEqual(span.inclusive, 31);
+assert.strictEqual(C.shiftDate("2026-01-31", 0, 1, 0), "2026-02-28");
+assert.strictEqual(C.shiftDate("2024-01-31", 0, 1, 0), "2024-02-29");
+assert.strictEqual(C.shiftDate("2026-03-01", 0, 0, -1), "2026-02-28");
+
+// Time.
+const added = C.addTime({ hours: 1, minutes: 30, seconds: 0 }, { hours: 2, minutes: 45, seconds: 30 }, "add");
+assert.strictEqual(added.hours, 4);
+assert.strictEqual(added.minutes, 15);
+assert.strictEqual(added.seconds, 30);
+const sub = C.addTime({ hours: 1, minutes: 0, seconds: 0 }, { hours: 2, minutes: 30, seconds: 0 }, "sub");
+assert.strictEqual(sub.sign, -1);
+assert.strictEqual(sub.hours, 1);
+assert.strictEqual(sub.minutes, 30);
+const clock = C.clockBetween(22, 0, 6, 0);
+assert.strictEqual(clock.minutes, 8 * 60);
+assert.strictEqual(clock.nextDay, true);
+assert.strictEqual(C.clockBetween(9, 15, 17, 45).minutes, 8 * 60 + 30);
+
+// GPA and grades.
+const gpa = C.gpa([{ grade: "A", credits: 3 }, { grade: "B", credits: 3 }]);
+close(gpa.gpa, 3.5);
+const gpa2 = C.gpa([{ grade: "A-", credits: 4 }, { grade: "F", credits: 2 }]);
+close(gpa2.gpa, (3.7 * 4) / 6);
+const grade = C.gradeAverage([{ earned: 18, possible: 20, weight: 40 }, { earned: 45, possible: 50, weight: 60 }]);
+close(grade.percent, 90);
+assert.strictEqual(grade.letter, "A");
+assert.strictEqual(C.gradeAverage([{ earned: 42, possible: 50, weight: 1 }]).letter, "B");
+assert.strictEqual(C.gradeAverage([{ earned: 59, possible: 100, weight: "" }]).letter, "F");
+
+// Exact unit factors.
+close(C.convertUnit(1, "in", "cm"), 2.54);
+close(C.convertUnit(1, "mi", "km"), 1.609344);
+close(C.convertUnit(32, "F", "C"), 0);
+close(C.convertUnit(212, "F", "C"), 100);
+close(C.convertUnit(0, "C", "K"), 273.15);
+close(C.convertUnit(1, "lb", "kg"), 0.45359237);
+close(C.convertUnit(1, "gal", "L"), 3.785411784);
+assert.throws(() => C.convertUnit(1, "kg", "m"), (e) => e.code === "unit");
+
 // AES round trip. Fewer iterations in the test.
 (async () => {
   const secret = "local note — локальная заметка";

@@ -1,10 +1,10 @@
 export const pageCopy = {
   home: {
     en: {
-      title: "Free Online Calculators for Money, Privacy and the Web",
-      description: "Thirty-five free calculators for compound interest, crypto fees, passwords, Schengen days, SEO, and page speed. They run in your browser, in English and Russian.",
+      title: "Free Online Calculators for Money, Health, Math and the Web",
+      description: "Free calculators for mortgages, loans, BMI, calories, percentages, age, passwords, Schengen days, and LLM tokens. They run in your browser, in English and Russian.",
       h1: "Free online calculators",
-      lede: "Thirty-five calculators and small utilities for money, privacy, relocation, and the web. Each one runs in your browser. English is the main language, and every page has a Russian version.",
+      lede: "Calculators for a mortgage payment, BMI, a percentage, an age, a password, and a page you are about to publish. Each one runs in your browser. English is the main language, and every page has a Russian version.",
       body: `<p>The point of this site is a fast answer to a specific question: what a balance becomes if you add a fixed sum each month, what a stop-loss implies for position size, whether a bank's rate hid a spread, how many Schengen days are left, what a freelance hour has to earn, what an API call costs at the prices you type in. The tools are grouped so a person comparing exchanges, a person moving country, and a person shipping a page can each start in the right cluster and then follow the related links.</p>
 <p>Nothing you type into a finance form, a password box, or the encryptor is sent to a server of ours. There is no account. The IP test is the exception, and that page says so: it asks public lookup services for the address they see. Photos you strip and images you compress are handled with the browser's own file tools.</p>
 <p>Some pages link to Amazon.de searches. Travel, currency, and trip-cost pages also link to an eSIM, flights, tours, and tickets. Those links are affiliate links. They are marked, and the whole list lives in one file so a partner URL can be replaced without editing the pages. The calculator does not change its arithmetic to favour a partner. Prices and plan rules change, so the articles describe how to compare rather than quoting a tariff that would be stale next month.</p>
@@ -17,10 +17,10 @@ export const pageCopy = {
       ]
     },
     ru: {
-      title: "Бесплатные онлайн-калькуляторы: деньги, приватность и веб",
-      description: "35 бесплатных калькуляторов: сложный процент, комиссии крипто, пароли, шенгенские дни, SEO и скорость страницы. Считают в браузере, на английском и русском.",
+      title: "Бесплатные онлайн-калькуляторы: деньги, здоровье, математика и веб",
+      description: "Бесплатные калькуляторы ипотеки, кредита, ИМТ, калорий, процентов, возраста, паролей, шенгенских дней и токенов. Считают в браузере, на английском и русском.",
       h1: "Бесплатные онлайн-калькуляторы",
-      lede: "Тридцать пять калькуляторов и небольших утилит про деньги, приватность, переезд и веб. Каждый считает в браузере. Основной язык — английский, у каждой страницы есть русская версия.",
+      lede: "Калькуляторы платежа по ипотеке, ИМТ, процента, возраста, пароля и страницы, которую вы собираетесь опубликовать. Каждый считает в браузере. Основной язык — английский, у каждой страницы есть русская версия.",
       body: `<p>Сайт отвечает на конкретный вопрос: во что превратится сумма, если довнесение каждый месяц одно и то же; какой размер позиции следует из стопа; сколько банк спрятал в курсе; сколько шенгенских дней осталось; сколько должен стоить час фрилансера; сколько стоит вызов API по тем ценам, которые вы сами вписали. Инструменты разложены по темам, чтобы человек, который сравнивает биржи, человек, который переезжает, и человек, который выпускает страницу, начинали с нужного раздела и шли по соседним ссылкам.</p>
 <p>То, что вы вводите в финансовую форму, в поле пароля или в шифрование, на наш сервер не уходит. Аккаунта нет. Исключение — проверка IP, и страница об этом говорит прямо: она спрашивает публичные службы, какой адрес они видят. Фото, у которых вы снимаете EXIF, и картинки, которые вы сжимаете, обрабатывает сам браузер.</p>
 <p>На части страниц есть поиск на Amazon.de. Страницы про поездку, валюту и стоимость поездки также ссылаются на eSIM, авиабилеты, экскурсии и билеты. Это партнёрские ссылки. Они помечены, а весь список лежит в одном файле: адрес партнёра можно заменить, не трогая страницы. Калькулятор не подстраивает арифметику под партнёра. Цены и правила тарифов меняются, поэтому статьи объясняют, как сравнивать, а не цитируют прайс, который устареет через месяц.</p>
@@ -39,7 +39,7 @@ export const pageCopy = {
         title: "Free Finance Calculators: Interest, Fees, FIRE, Inflation",
         description: "Compound interest, average price, staking APY, trading fees, FIRE, inflation, position size, and bank spreads. Free, in the browser.",
         h1: "Finance calculators",
-        lede: "Eight calculators for a balance that compounds, a position you size from a stop, and the gap between a bank rate and the interbank rate.",
+        lede: "Calculators for a mortgage or loan payment, simple and compound interest, a position you size from a stop, and the gap between a bank rate and the interbank rate.",
         body: `<p>These pages answer planning questions with the formula written out beside the form. Compound interest takes a nominal annual rate and an optional monthly contribution. The average-price tool turns several buys, including fees, into one break-even. Staking compares effective yearly rates. Trading fees add maker or taker commission and slippage, then solve the sell quote that gets you back to flat. FIRE turns yearly spending and a withdrawal rate into a portfolio number and, if you also type a contribution and a return, a rough time to reach it.</p>
 <p>Inflation is kept separate on purpose. A balance can grow while the currency buys less, and mixing those two rates inside one number hides the assumption. The currency page compares the amount a bank delivers with the amount the interbank rate would have delivered. Position size converts a percent of the account and a stop distance into a quantity. None of this is a forecast. A rate you type is an assumption, and tax sits outside every formula here.</p>
 <p>The guides next to these tools discuss a broker used by people who invest across countries, two large crypto exchanges, and two hardware wallets. They describe what to check. They do not quote a fee schedule that the firm can change next week. Use the calculator with the numbers from the schedule you were actually offered.</p>`,
@@ -53,7 +53,7 @@ export const pageCopy = {
         title: "Финансовые калькуляторы: процент, комиссии, FIRE, инфляция",
         description: "Сложный процент, средняя цена, APY стейкинга, торговые комиссии, FIRE, инфляция, размер позиции и банковский курс. Бесплатно, в браузере.",
         h1: "Финансовые калькуляторы",
-        lede: "Восемь калькуляторов для суммы, которая растёт, для позиции, которую задаёт стоп, и для разницы между курсом банка и межбанком.",
+        lede: "Калькуляторы платежа по ипотеке и кредиту, простого и сложного процента, позиции, которую задаёт стоп, и разницы между курсом банка и межбанком.",
         body: `<p>Страницы отвечают на вопросы планирования, и формула написана рядом с формой. Сложный процент берёт номинальную годовую ставку и необязательное ежемесячное довнесение. Средняя цена собирает несколько покупок, вместе с комиссиями, в одну цену безубытка. Стейкинг сравнивает эффективные годовые ставки. Торговые комиссии добавляют мейкера или тейкера и проскальзывание, затем находят котировку продажи, на которой вы выходите в ноль. FIRE превращает годовые расходы и ставку изъятия в сумму портфеля и, если задать ещё взнос и доходность, в грубый срок.</p>
 <p>Инфляция вынесена отдельно сознательно. Баланс может расти, пока валюта покупает меньше, и если смешать две ставки в одном числе, допущение пропадает. Страница валюты сравнивает сумму, которую выдаёт банк, с суммой по межбанку. Размер позиции переводит процент счёта и расстояние до стопа в количество. Это не прогноз. Ставка, которую вы вводите, — допущение, а налог во всех этих формулах снаружи.</p>
 <p>Статьи рядом обсуждают брокера, которым пользуются те, кто инвестирует из другой страны, две крупные криптобиржи и два аппаратных кошелька. Там сказано, что проверять. Там нет тарифа, который фирма может поменять на следующей неделе. Считайте по цифрам того предложения, которое вам реально дали.</p>`,
@@ -61,6 +61,96 @@ export const pageCopy = {
           { q: "С какого финансового калькулятора начать?", a: "Если вопрос про будущий баланс, начните со сложного процента. Если монету покупали по разным ценам, начните со средней цены. Если вопрос, сколько можно потерять на одной сделке, начните с размера позиции." },
           { q: "Страницы рекомендуют брокера или биржу?", a: "Нет. Статьи описывают, что проверить, и на брокера или биржу не ссылаются. Страница валюты ссылается на помеченных партнёров поездки. Арифметика от ссылки не зависит, а правило резидентства может закрыть продукт, который упомянут в статье." },
           { q: "Ставки по умолчанию — это прогноз?", a: "Нет. Они нужны, чтобы форма не была пустой. Подставьте ставку, которую хотите проверить." }
+        ]
+      }
+    },
+    fitness: {
+      en: {
+        title: "Free Fitness and Health Calculators: BMI, Calories, Pace",
+        description: "BMI with the exact unit conversion, Mifflin–St Jeor calories, the US Navy circumference body-fat equation, and pace from distance and time.",
+        h1: "Fitness and health calculators",
+        lede: "Four adult formulas: body mass index, a calorie estimate, a circumference body-fat estimate, and running pace. None of them is a diagnosis.",
+        body: `<p>BMI is weight divided by height squared. Kilograms and centimetres are converted with the exact factors 0.45359237 kilograms per pound and 0.0254 metres per inch, so the same body in either unit system returns the same index. The categories are the adult World Health Organization cut points: under 18.5, 18.5 to 24.9, 25 to 29.9, and 30 or more. They are not cut points for children, athletes, or pregnancy.</p>
+<p>The calorie page uses the Mifflin–St Jeor equation. The male form adds 5 and the female form subtracts 161, after 10 times weight in kilograms, 6.25 times height in centimetres, and minus 5 times age. An activity factor from 1.2 to 1.9 turns that basal figure into an estimate of daily calories. Five hundred kilocalories below or above that line is the common half-kilogram-a-week sketch. It is not a prescription, and it is not a measurement of your metabolism.</p>
+<p>Body fat uses the US Navy circumference equation in inches, with centimetres converted by 2.54 before the base-10 logarithm. Men use abdomen minus neck. Women use waist plus hip minus neck. Pace divides time by distance and also reports kilometres per hour. A 10 kilometre run in 50 minutes is 5 minutes per kilometre and 12 kilometres per hour. The page does not read a watch or a heart-rate strap.</p>`,
+        faq: [
+          { q: "Is BMI a measure of health?", a: "It is weight divided by height squared, sorted with adult WHO cut points. It does not see muscle, bone, age, or a medical history." },
+          { q: "Where do the calorie numbers come from?", a: "From the Mifflin–St Jeor equation and an activity factor you pick. The page does not measure the calories you burn." },
+          { q: "Which body-fat formula is this?", a: "The US Navy circumference equation. Men use 86.010 log10(abdomen − neck) − 70.041 log10(height) + 36.76. Women use 163.205 log10(waist + hip − neck) − 97.684 log10(height) − 78.387. Height and circumferences are in inches." }
+        ]
+      },
+      ru: {
+        title: "Калькуляторы здоровья: ИМТ, калории, темп",
+        description: "ИМТ с точным переводом единиц, калории по Миффлину — Сан Жеору, окружности по формуле ВМС США и темп по дистанции и времени.",
+        h1: "Калькуляторы здоровья и нагрузки",
+        lede: "Четыре формулы для взрослых: индекс массы тела, оценка калорий, оценка жира по окружностям и темп бега. Ни одна не является диагнозом.",
+        body: `<p>ИМТ — это вес, делённый на квадрат роста. Килограммы и сантиметры переводятся точными коэффициентами 0,45359237 килограмма в фунте и 0,0254 метра в дюйме, поэтому одно и то же тело в двух системах даёт один индекс. Категории — взрослые пороги ВОЗ: ниже 18,5, от 18,5 до 24,9, от 25 до 29,9 и 30 и выше. Это не пороги для детей, спортсменов или беременности.</p>
+<p>Страница калорий использует уравнение Миффлина — Сан Жеора. Мужская форма прибавляет 5, женская вычитает 161 после 10 умножить на вес в килограммах, 6,25 умножить на рост в сантиметрах и минус 5 умножить на возраст. Коэффициент активности от 1,2 до 1,9 превращает эту базовую цифру в оценку калорий за день. Пятьсот килокалорий ниже или выше — привычный набросок половины килограмма в неделю. Это не назначение и не замер вашего обмена.</p>
+<p>Процент жира считается окружностной формулой ВМС США в дюймах. Сантиметры делятся на 2,54 до десятичного логарифма. У мужчин это живот минус шея. У женщин — талия плюс бёдра минус шея. Темп делит время на дистанцию и ещё показывает километры в час. Десять километров за 50 минут — это 5 минут на километр и 12 километров в час. Часы и пульсометр страница не читает.</p>`,
+        faq: [
+          { q: "ИМТ измеряет здоровье?", a: "Это вес, делённый на квадрат роста, разложенный по взрослым порогам ВОЗ. Мышцы, кости, возраст и историю болезни формула не видит." },
+          { q: "Откуда берутся калории?", a: "Из уравнения Миффлина — Сан Жеора и коэффициента активности, который выбираете вы. Страница не измеряет, сколько вы тратите." },
+          { q: "Какая формула жира здесь?", a: "Окружностная формула ВМС США. Мужчины: 86,010·log10(живот − шея) − 70,041·log10(рост) + 36,76. Женщины: 163,205·log10(талия + бёдра − шея) − 97,684·log10(рост) − 78,387. Рост и окружности в дюймах." }
+        ]
+      }
+    },
+    math: {
+      en: {
+        title: "Free Math Calculators: Percent, Fraction, Deviation, Triangle",
+        description: "Percent of a number, percent change, fractions in lowest terms, population and sample standard deviation, and triangle area.",
+        h1: "Math calculators",
+        lede: "Percentages, fractions, a standard deviation you can recompute from the squared deviations, and the area of a triangle.",
+        body: `<p>The percentage page answers three questions. What is A percent of B is A divided by 100, times B. A is what percent of B is A divided by B. Percent change from A to B is B minus A, divided by A. A zero starting value has no percent change, and the page says so instead of printing infinity.</p>
+<p>Fractions stay in integers. One half plus one third is five sixths, because the common denominator is six and the numerators become three and two. The result is reduced by the greatest common divisor and also shown as a mixed number. A zero denominator, or dividing by a zero fraction, is rejected. Inputs have to be integers inside the safe integer range so the cross-multiplication does not silently round.</p>
+<p>Standard deviation uses the set you type. The mean is the sum divided by the count. Population variance divides the sum of squared deviations by the count. Sample variance divides by the count minus one, which needs at least two numbers. The famous set 2, 4, 4, 4, 5, 5, 7, 9 has mean 5, population variance 4, and population standard deviation 2. Triangle area is half the product of the legs for a right triangle, Heron's formula for three sides that satisfy the triangle inequality, or base times height divided by two.</p>`,
+        faq: [
+          { q: "Is percent change the same as a percentage point?", a: "No. Percent change divides the difference by the starting number. A move from 20 percent to 30 percent is a 10 percentage-point change and a 50 percent change. This page does the second one when you type 20 and 30." },
+          { q: "Why are there two standard deviations?", a: "Population variance divides by the count. Sample variance divides by the count minus one. Use the sample line when the numbers are a sample from a larger set. Use the population line when the numbers are the whole set." },
+          { q: "What if three lengths cannot form a triangle?", a: "The page rejects them. Each side has to be shorter than the other two added together. A 1, 2, 3 set is flat, so the area is not reported as zero by accident." }
+        ]
+      },
+      ru: {
+        title: "Математические калькуляторы: процент, дробь, отклонение, треугольник",
+        description: "Процент от числа, изменение в процентах, дроби в несократимом виде, стандартное отклонение совокупности и выборки и площадь треугольника.",
+        h1: "Математические калькуляторы",
+        lede: "Проценты, дроби, стандартное отклонение, которое можно пересчитать по квадратам отклонений, и площадь треугольника.",
+        body: `<p>Страница процентов отвечает на три вопроса. Сколько будет A процентов от B — это A, делённое на 100, умножить на B. A — это сколько процентов от B — это A, делённое на B. Изменение от A к B — это B минус A, делённое на A. У нулевого исходного числа процента изменения нет, и страница так и говорит, а не печатает бесконечность.</p>
+<p>Дроби остаются целыми. Половина плюс треть — это пять шестых, потому что общий знаменатель шесть, а числители становятся три и два. Результат сокращается на наибольший общий делитель и показывается ещё смешанным числом. Нулевой знаменатель и деление на нулевую дробь отвергаются. Ввод должен быть целым в безопасном диапазоне, чтобы перекрёстное умножение молча не округлилось.</p>
+<p>Стандартное отклонение считается по введённому набору. Среднее — сумма, делённая на количество. Дисперсия совокупности делит сумму квадратов отклонений на количество. Дисперсия выборки делит на количество минус один, и для неё нужны хотя бы два числа. Знаменитый набор 2, 4, 4, 4, 5, 5, 7, 9 имеет среднее 5, дисперсию совокупности 4 и стандартное отклонение совокупности 2. Площадь треугольника — половина произведения катетов, формула Герона для трёх сторон, которые проходят неравенство треугольника, или основание умножить на высоту и делить на два.</p>`,
+        faq: [
+          { q: "Изменение в процентах — это процентный пункт?", a: "Нет. Изменение в процентах делит разницу на исходное число. Переход с 20 процентов на 30 — это 10 процентных пунктов и изменение на 50 процентов. Если ввести 20 и 30, страница считает второе." },
+          { q: "Почему стандартных отклонений два?", a: "Дисперсия совокупности делит на количество. Дисперсия выборки делит на количество минус один. Строку выборки берут, когда числа — выборка из большего набора. Строку совокупности — когда числа и есть весь набор." },
+          { q: "Что если из трёх длин не собрать треугольник?", a: "Страница их отвергает. Каждая сторона должна быть короче суммы двух других. Набор 1, 2, 3 плоский, и площадь не показывают нулём по ошибке." }
+        ]
+      }
+    },
+    other: {
+      en: {
+        title: "Free Date, Time, GPA and Unit Calculators",
+        description: "Age on a date, days between dates, add and subtract time, GPA on a 4.0 scale, a letter grade, and unit conversions with exact factors.",
+        h1: "Other calculators",
+        lede: "Calendar age, date arithmetic that clamps the end of the month, durations, a 4.0 GPA, a weighted grade, and unit conversions.",
+        body: `<p>Age is the calendar gap from the date of birth to the date you pick: whole years, then whole months, then the remaining days. The total is also the count of midnights in UTC, so a daylight-saving change does not add or remove a day. A 29 February birthday reaches the next whole year on 1 March in a non-leap year, which is the first date the anniversary exists. Next birthday uses that same rule.</p>
+<p>The date page reports days from the first date to the second, the count that includes both dates, and the same year-month-day gap. Adding a month to 31 January lands on the last day of February, 28 or 29, instead of spilling into March. Years are applied first, then months, then days. The time page adds or subtracts hours, minutes, and seconds, and it can measure from one clock time to another. An earlier end time is counted into the next day, and the result says so.</p>
+<p>GPA uses one common US 4.0 map: A and A+ are 4.0, A− is 3.7, and the steps continue down to F at 0. It is credit-weighted. The grade page weights each score by the weight you type, or by 1 if you leave the weight blank, then maps 90, 80, 70, and 60 to A, B, C, and D. Unit conversion uses exact factors: 2.54 centimetres in an inch, 1.609344 kilometres in a mile, 0.45359237 kilograms in a pound, and 3.785411784 litres in a US gallon. Fahrenheit and Celsius meet at 32 and 212. A length is not converted into a weight.</p>`,
+        faq: [
+          { q: "Does age count the birthday as already reached?", a: "On the anniversary the year count increases and the months and days are zero. For a 29 February birthday in a non-leap year, that anniversary is 1 March." },
+          { q: "Why does 31 January plus one month become the end of February?", a: "February does not have a 31st. The page keeps the day inside the destination month instead of rolling into March." },
+          { q: "Whose GPA scale is this?", a: "A common US 4.0 scale where A+ does not go above 4.0 and A− is 3.7. Schools that use 4.3 for A+, or a different step, will not match. The page states the map it uses." }
+        ]
+      },
+      ru: {
+        title: "Калькуляторы дат, времени, среднего балла и единиц",
+        description: "Возраст на дату, дни между датами, сложение и вычитание времени, средний балл по шкале 4,0, буквенная оценка и перевод единиц по точным коэффициентам.",
+        h1: "Другие калькуляторы",
+        lede: "Календарный возраст, даты с усечением конца месяца, длительности, средний балл 4,0, взвешенная оценка и перевод единиц.",
+        body: `<p>Возраст — это календарный промежуток от даты рождения до выбранной даты: полные годы, затем полные месяцы, затем оставшиеся дни. Общее число дней — это число полуночей в UTC, поэтому перевод часов на летнее время день не добавляет и не убирает. День рождения 29 февраля в невисокосном году добирает следующий полный год 1 марта: это первая дата, в которую годовщина существует. Следующий день рождения считается по тому же правилу.</p>
+<p>Страница дат показывает дни от первой даты до второй, число, которое включает обе даты, и тот же промежуток в годах, месяцах и днях. Месяц, прибавленный к 31 января, попадает на последний день февраля, 28 или 29, а не перетекает в март. Сначала применяются годы, потом месяцы, потом дни. Страница времени складывает или вычитает часы, минуты и секунды и умеет мерить промежуток между двумя моментами суток. Если конец раньше начала, отсчёт идёт через полночь, и результат об этом говорит.</p>
+<p>Средний балл использует одну распространённую американскую шкалу 4,0: A и A+ равны 4,0, A− равен 3,7, дальше шаги до F, который равен нулю. Вес — кредиты. Страница оценки взвешивает каждый результат введённым весом или единицей, если вес пуст, затем ставит буквам пороги 90, 80, 70 и 60 для A, B, C и D. Перевод единиц берёт точные коэффициенты: 2,54 сантиметра в дюйме, 1,609344 километра в миле, 0,45359237 килограмма в фунте и 3,785411784 литра в американском галлоне. Фаренгейт и Цельсий сходятся на 32 и 212. Длину в вес страница не переводит.</p>`,
+        faq: [
+          { q: "Возраст в день рождения уже увеличился?", a: "В годовщину число лет растёт, а месяцы и дни становятся нулём. Для рождения 29 февраля в невисокосном году такая годовщина — 1 марта." },
+          { q: "Почему 31 января плюс месяц — это конец февраля?", a: "В феврале нет 31-го числа. Страница оставляет день внутри целевого месяца и не переносит его на март." },
+          { q: "Чья это шкала среднего балла?", a: "Распространённая шкала 4,0, где A+ не выше 4,0, а A− равен 3,7. Школа с 4,3 за A+ или с другим шагом не совпадёт. На странице написано, какую карту она использует." }
         ]
       }
     },
